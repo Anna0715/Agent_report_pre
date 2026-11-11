@@ -4,9 +4,9 @@
   "report_environment": "pre",
   "report_title": "AI 助手 PRE 全量可执行用例复核报告",
   "review_run_id": "AI助手-2026-11-11-pre-full-executable-pending181-reassessed-v2",
-  "generated_at": "2026-11-11T09:48:27+00:00",
+  "generated_at": "2026-11-11T10:01:56+00:00",
   "pre_case_count": 300,
-  "execution_notice": "本轮共核对 423 条 PRE 用例；实际发问 300 条（聊天 283、自动化 17），未发问 123 条不列入结果明细。181 条原待复核结果按完整认证证据重评；其中 1 条原未发问用例补跑，4 条缺后续问答的用例在新会话补跑或续问。执行与评测并发上限均为 20。 本次对原51条失败及24条待复核补充期望、实际、差异与判定依据；未重新发问，保留本批次云端人工修订。",
+  "execution_notice": "本轮共核对 423 条 PRE 用例；实际发问 300 条（聊天 283、自动化 17），未发问 123 条不列入结果明细。181 条原待复核结果按完整认证证据重评；其中 1 条原未发问用例补跑，4 条缺后续问答的用例在新会话补跑或续问。执行与评测并发上限均为 20。 本次对原51条失败及24条待复核补充期望、实际、差异与判定依据；未重新发问，保留本批次云端人工修订。 本次仅按新增长期截止日期规则复评AA-SMEM-PRE-005，未重新发问；原始回答、来源、历史AI裁判和云端人工复核记录均保留。",
   "rows": [
     {
       "asker": "安柔",
@@ -83532,12 +83532,12 @@
       "scenario": "在项目页问：这个项目风险是什么？ → 它的子任务呢？",
       "gate_class": "quality",
       "priority": "P1",
-      "status": "skip",
-      "kind": "evidence_insufficient",
-      "reason": "待复核，首轮提出的状态不一致和完成早于开始两项风险均有依据，但缺少2038年1月10日是否代表“长期”的业务定义，尚不能核定“没有具体计划完成日期”这一表述是否正确。",
+      "status": "pass",
+      "kind": "business_review",
+      "reason": "通过：2038年的截止时间按长期项目处理，回答“没有具体计划完成日期”正确；两轮项目风险和子任务情况也与记录一致。",
       "review_reuse": null,
       "review_observation": {
-        "basis": "f031e85309afb3602ec1bf58904e9329555e57078e852653b53ce5bc04682b85",
+        "basis": "4cf082426a1e411e25be88b07fe910f67304e467ab58bc88c9ffae2ec8505f89",
         "result": "fb450894adf5fe1dd39c8d7b9ea3bc50e45d2cd8284063979ea7c43dff2f52b3",
         "requests": [
           "bcec25d2-37c5-4ba4-b3cf-e4024ae60b65",
@@ -83545,7 +83545,7 @@
         ]
       },
       "failure_categories": [],
-      "confidence": "medium",
+      "confidence": "high",
       "latency_ms": 39576,
       "model": "openai/gpt-6.1-terra",
       "prompt_version": "assistant_chat_agent@0.23.3",
@@ -83554,7 +83554,7 @@
       "categories": [],
       "title": "这个项目风险是什么？",
       "ability": "会话继承/指代/隔离",
-      "task_completion_rate": null,
+      "task_completion_rate": 100,
       "operational_review": {},
       "planning_review": {},
       "trace_status": "内部工具链已采集；权限/引用仍未观测",
@@ -83566,7 +83566,7 @@
       "answer": "项目中上次查到的任务“PRE执行项目内其他任务”**没有直接子任务**。该任务本身仍为待启动；这也意味着它与项目已完成的状态不一致。`widget:refs:task:task_vx8zsp7muoyn:T1120J0W9|project:pro_3914224247:T1120J0W9`",
       "execution_completed": true,
       "execution_completion_rate": 100,
-      "business_reason": "待复核，首轮提出的状态不一致和完成早于开始两项风险均有依据，但缺少2038年1月10日是否代表“长期”的业务定义，尚不能核定“没有具体计划完成日期”这一表述是否正确。",
+      "business_reason": "通过：2038年的截止时间按长期项目处理，回答“没有具体计划完成日期”正确；两轮项目风险和子任务情况也与记录一致。",
       "tool_chain_summary": "工具链：project_query(completed) → task_ask(completed) → task_query(completed) → task_detail(completed) → task_children(completed)",
       "turns": [
         {
@@ -83771,7 +83771,8 @@
           "优先级使用真实业务枚举：0=中、1=高、2=低；完成以自身status=3为准。",
           "没有检索到不等于不存在；缺ACL、分页全集、索引或必要受控准备时待复测，环境已建立后的漏查/答错正常判失败。",
           "每例会话ID首次为空，由正式执行器prepare并保存；本次只预检，不新建问答会话。",
-          "原始时间以实际服务端created_at/sendTime为准，正文中的历史计划时间不是操作时间。"
+          "原始时间以实际服务端created_at/sendTime为准，正文中的历史计划时间不是操作时间。",
+          "test/pre 的项目和任务：截止时间严格晚于实际追问时刻加10个自然年的，按长期项目/任务处理，视为没有具体计划完成日期，不把该远期值当作确定的完成承诺或近期截止风险。自动化以实际运行时刻为基准；复评以原请求时刻为基准，不用复评当天或固定年份判断。恰好10年仍是具体日期；未设置、0和无效时间分别保留原含义，无效时间须补证。原始截止时间和来源必须保留，解释为长期不等于后台字段为空；该规则不改变开始、实际完成、创建、更新或消息发送时间，也不豁免其他已证实的状态、日期先后、权限或事实错误。"
         ],
         "fixed_fact_truth": "独立预发源数据：[{\"fixture_id\":\"P-PRE-EXECUTED\",\"project_id\":\"pro_3914224247\",\"space_id\":\"556092402\"},{\"fixture_id\":\"T-PRE-EXECUTED-OTHER\",\"project_id\":\"pro_3914224247\",\"task_id\":\"task_vx8zsp7muoyn\",\"space_id\":\"556092402\"}]",
         "gold_entities": [
@@ -83816,7 +83817,21 @@
         ],
         "oracle_source": "outputs/pre_full_preflight_20261102/fixture-receipt.json",
         "snapshot_as_of": "2026-11-02",
-        "refresh_policy": "正式执行前刷新ACL、全量业务源、相对日期Gold及AI索引；原始回读不冒充索引验证。"
+        "refresh_policy": "正式执行前刷新ACL、全量业务源、相对日期Gold及AI索引；原始回读不冒充索引验证。",
+        "completion_date_policy": {
+          "contract": "ai_assistant.planned_completion_date.v1",
+          "applies_to": [
+            "project",
+            "task"
+          ],
+          "reference": "actual_turn_or_runtime_timestamp",
+          "timezone": "Asia/Tokyo",
+          "long_term_threshold_calendar_years": 10,
+          "operator": ">",
+          "long_term_has_concrete_planned_completion": false,
+          "preserve_raw_source_end_time": true,
+          "rule": "test/pre 的项目和任务：截止时间严格晚于实际追问时刻加10个自然年的，按长期项目/任务处理，视为没有具体计划完成日期，不把该远期值当作确定的完成承诺或近期截止风险。自动化以实际运行时刻为基准；复评以原请求时刻为基准，不用复评当天或固定年份判断。恰好10年仍是具体日期；未设置、0和无效时间分别保留原含义，无效时间须补证。原始截止时间和来源必须保留，解释为长期不等于后台字段为空；该规则不改变开始、实际完成、创建、更新或消息发送时间，也不豁免其他已证实的状态、日期先后、权限或事实错误。"
+        }
       },
       "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_executable_20261111/pending-181-trace/evidence-v6.json",
       "original_ai_review": {
@@ -83890,59 +83905,276 @@
         "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
-      "evaluation_detail_reason": "待复核，首轮提出的状态不一致和完成早于开始两项风险均有依据，但缺少2038年1月10日是否代表“长期”的业务定义，尚不能核定“没有具体计划完成日期”这一表述是否正确。",
+      "evaluation_detail_reason": "通过：两轮均围绕已锚定项目，准确指出项目已完成但唯一任务待启动、完成时间早于开始时间的记录风险，并确认该任务没有下级子任务，未串入其他项目。",
       "review_explanation": {
         "contract": "ai_assistant.business_comparison.v1",
-        "origin": "supplemental_automatic_review",
-        "expected": "依据提问当时同一项目的有效记录分析风险，并准确描述相关状态和日期。现有记录支持项目已完成但唯一任务待启动，以及项目完成时间早于开始时间；涉及截止风险时，应正确解释项目结束时间。",
-        "actual": "回答指出项目已完成而唯一任务待启动、完成时间为10月5日却早于10月14日开始时间，并说明任务未设截止时间；另称项目设置为长期、没有具体计划完成日期。",
-        "difference": "两项主要风险、任务数量和状态均与完整结果一致。待核验的是：项目结果明确返回2038年1月10日的结束时间，但没有提供该日期是否属于长期占位值的业务说明；若是具体计划日期，“没有具体计划完成日期”有误，若是长期编码则可成立，因此本轮尚不能确定通过或失败。",
+        "origin": "user_defined_long_term_date_reassessment",
+        "expected": "按原追问时刻判断：截止时间超过10个自然年的项目/任务视为长期、没有具体计划完成日期；继续核验同一项目的风险和子任务。",
+        "actual": "项目截止时间为2038年1月10日，回答按长期项目解释；同时指出项目已完成但唯一任务待启动、完成早于开始的记录问题，续答确认该任务没有直接子任务。",
+        "difference": "没有实质差异。原追问在2026年11月11日，十年阈值为2036年11月11日，2038年1月10日已超过阈值；原来缺少的业务定义现已补齐。",
         "evidence_assessment": {
-          "sufficient": false,
-          "reason": "已恢复两轮原始请求的完整工具结果，能够核实项目已完成、唯一任务待启动、项目完成时间早于开始时间，以及该任务没有直接子任务。项目记录的end_time为2038-01-10T00:00:00+09:00，晚于首轮提问时间，因此不存在当时已到期的问题；但现有证据未说明该值是具体计划结束日期还是产品的长期占位值，无法据此确认或否定回答中的“长期、没有具体计划完成日期”。恢复的是原始请求记录，不是以事后新查询替代当轮事实。"
+          "sufficient": true,
+          "reason": "项目页上下文已验证为pro_3914224247，追问身份及返回对象均属于当前租户T1120J0W9。恢复证据绑定两轮原始request_id，提供了完整的项目详情、评论、项目任务全集、任务详情和直接子任务结果，补足了摘要预览的截断。项目和任务的更新时间、评论创建时间均早于首轮提问；后续恢复的是原请求工具结果，并非用事后业务版本反推。两轮分别按2026-11-11东京时间16:54:45和16:55:15核验，不沿用旧快照数量。"
         },
         "turn_comparisons": [
           {
             "step": 2,
-            "status": "skip",
-            "reason": "主要风险判断可核验，但结束时间字段与“长期、没有具体计划完成日期”的语义关系缺少必要定义，暂不能确定该项表述是否构成事实错误。",
+            "status": "pass",
+            "reason": "项目状态、唯一任务状态及日期异常均有完整来源支持；将2038年的截止值解释为长期、没有具体计划完成日期，符合本轮十年阈值规则。",
             "evidence_refs": [
-              "turns[0].session_verification：项目页上下文确认为pro_3914224247",
-              "turn_time_basis[0]：首轮提问时间为2026-11-11T16:54:45.216208+09:00",
-              "current_source_evidence.evidence_recovery.runs[0].tool_results：project_query，call_3234268ed6da4dbbb0fae3dba9299145",
-              "current_source_evidence.evidence_recovery.runs[0].tool_results：task_ask，call_62efbd4492f841d9a5adbff814ac611c",
-              "current_source_evidence.evidence_recovery.runs[0].tool_results：task_detail，call_99b3b76cd8b4491db762246db69e541f"
+              "turns[0].session_verification：预期及实际项目上下文均为pro_3914224247",
+              "turn_time_basis[0]：本轮提问时间为2026-11-11T16:54:45.216208+09:00",
+              "current_source_evidence.evidence_recovery.runs[0].tool_results[0]：project_query完整结果，项目已完成，完成时间2026-10-05，开始时间2026-10-14，原始截止时间2038-01-10；评论称项目已完成",
+              "current_source_evidence.evidence_recovery.runs[0].tool_results[1]：项目任务统计total=1、pending=1，范围及子任务结果未截断",
+              "current_source_evidence.evidence_recovery.runs[0].tool_results[2]：项目任务全集仅包含task_vx8zsp7muoyn",
+              "current_source_evidence.evidence_recovery.runs[0].tool_results[3]：该任务为pending，执行人为智本测试_安柔，未返回截止时间字段",
+              "completion_date_interpretations[0]：2038-01-10晚于本轮十年阈值2036-11-11，分类为long_term"
             ],
             "comparison": {
-              "expected": "依据提问当时同一项目的有效记录分析风险，并准确描述相关状态和日期。现有记录支持项目已完成但唯一任务待启动，以及项目完成时间早于开始时间；涉及截止风险时，应正确解释项目结束时间。",
-              "actual": "回答指出项目已完成而唯一任务待启动、完成时间为10月5日却早于10月14日开始时间，并说明任务未设截止时间；另称项目设置为长期、没有具体计划完成日期。",
-              "difference": "两项主要风险、任务数量和状态均与完整结果一致。待核验的是：项目结果明确返回2038年1月10日的结束时间，但没有提供该日期是否属于长期占位值的业务说明；若是具体计划日期，“没有具体计划完成日期”有误，若是长期编码则可成立，因此本轮尚不能确定通过或失败。"
+              "expected": "基于当前项目及其可见任务说明有依据的风险，区分记录异常与尚未证实的实际阻塞；对远超十年阈值的项目截止值按长期解释，不当作近期截止风险。",
+              "actual": "指出项目已完成但唯一任务仍待启动的状态矛盾，以及项目完成时间早于开始时间的日期异常；说明任务由当前用户执行、未设置截止时间，且现有记录不足以确认其他阻塞或延期原因，并将项目解释为长期、没有具体计划完成日期。",
+              "difference": "无实质差异。项目自身已完成，不计逾期；任务没有有效截止时间，也不能计为逾期。回答没有将2038年的原始截止值当作近期完成承诺，原始值及来源在完整证据中保留。"
             }
           },
           {
             "step": 3,
             "status": "pass",
-            "reason": "结合首轮已明确的唯一任务，续问仍围绕同一项目说明任务状态及风险，且该任务没有直接子任务的结论与完整查询结果一致。",
+            "reason": "结合首轮已说明的项目唯一任务，本轮补充了任务名称、待启动状态和无下级子任务的结果，仍属于同一项目，未遗漏已证实的项目任务。",
             "evidence_refs": [
-              "turns[1].answer：已说明项目仅有一条待启动任务",
-              "turn_time_basis[1]：续问时间为2026-11-11T16:55:15.374529+09:00",
-              "current_source_evidence.evidence_recovery.runs[0].tool_results：task_query确认task_vx8zsp7muoyn属于pro_3914224247且项目任务总数为1",
-              "current_source_evidence.evidence_recovery.runs[0].tool_results：task_detail确认该任务状态为pending",
-              "current_source_evidence.evidence_recovery.runs[1].tool_results：task_children，call_19f4b507581e4fde93d27047c8b297d6，total=0、returned=0"
+              "turn_time_basis[1]：本轮提问时间为2026-11-11T16:55:15.374529+09:00",
+              "turns[1].answer：此前已说明项目只有一个任务，该任务待启动且未设置截止时间",
+              "current_source_evidence.evidence_recovery.runs[0].tool_results[2]：唯一任务为PRE执行项目内其他任务，project_id=pro_3914224247",
+              "current_source_evidence.evidence_recovery.runs[0].tool_results[3]：该任务状态为pending，所属项目与页面上下文一致",
+              "current_source_evidence.evidence_recovery.runs[1].tool_results[0]：查询task_vx8zsp7muoyn的直接子任务，完整返回total=0、returned=0",
+              "turns[2].answer：明确指向项目内上述任务，并说明其状态与项目已完成状态不一致"
             ],
             "comparison": {
-              "expected": "承接同一项目的上下文，说明其任务情况及相关风险，不混入同空间其他项目；此前已答的唯一任务信息无需全部重复。",
-              "actual": "回答点名项目内的“PRE执行项目内其他任务”，说明其仍待启动、与项目已完成状态不一致，并说明该任务没有直接子任务。",
-              "difference": "结合首轮，项目内唯一任务及其状态已被说明；新增的无下级子任务结论也有完整结果支持。回答没有将该任务的零个下级子任务误说成项目没有任务，也未串入其他项目。"
+              "expected": "承接同一项目，说明其任务或子任务情况，并延续此前风险讨论；可利用首轮已回答的唯一任务及截止时间信息，无需重复全部细节。",
+              "actual": "点名项目中的PRE执行项目内其他任务，说明该任务仍待启动、与项目已完成的状态不一致，并补充该任务没有直接子任务。",
+              "difference": "续答表述侧重唯一任务的下一层子任务，但首轮已交代项目仅有一个任务及其风险，本轮又明确了该任务名称和状态，合并上下文已覆盖实际项目任务。回答没有把“该任务无直接子任务”误说成“项目没有任务”，也未串入其他项目。"
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:48:27+00:00"
+        "supplemented_at": "2026-11-11T10:01:56+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v11-concrete-comparison",
-        "judge_reasoning_effort": "max"
+        "judge_prompt_version": "ai-assistant-business-review-v12-long-term-completion",
+        "judge_reasoning_effort": "max",
+        "stream": true,
+        "max_output_tokens": 32768
+      },
+      "long_term_date_reassessment": {
+        "contract": "ai_assistant.planned_completion_date.v1",
+        "reassessed_at": "2026-11-11T10:01:56+00:00",
+        "policy": {
+          "contract": "ai_assistant.planned_completion_date.v1",
+          "applies_to": [
+            "project",
+            "task"
+          ],
+          "reference": "actual_turn_or_runtime_timestamp",
+          "timezone": "Asia/Tokyo",
+          "long_term_threshold_calendar_years": 10,
+          "operator": ">",
+          "long_term_has_concrete_planned_completion": false,
+          "preserve_raw_source_end_time": true,
+          "rule": "test/pre 的项目和任务：截止时间严格晚于实际追问时刻加10个自然年的，按长期项目/任务处理，视为没有具体计划完成日期，不把该远期值当作确定的完成承诺或近期截止风险。自动化以实际运行时刻为基准；复评以原请求时刻为基准，不用复评当天或固定年份判断。恰好10年仍是具体日期；未设置、0和无效时间分别保留原含义，无效时间须补证。原始截止时间和来源必须保留，解释为长期不等于后台字段为空；该规则不改变开始、实际完成、创建、更新或消息发送时间，也不豁免其他已证实的状态、日期先后、权限或事实错误。"
+        },
+        "business_requests": 0,
+        "original_request_times": [
+          "2026-11-11T07:54:45.216208+00:00",
+          "2026-11-11T07:55:15.374529+00:00"
+        ],
+        "previous_assessment": {
+          "status": "skip",
+          "reason": "待复核，首轮提出的状态不一致和完成早于开始两项风险均有依据，但缺少2038年1月10日是否代表“长期”的业务定义，尚不能核定“没有具体计划完成日期”这一表述是否正确。",
+          "business_reason": "待复核，首轮提出的状态不一致和完成早于开始两项风险均有依据，但缺少2038年1月10日是否代表“长期”的业务定义，尚不能核定“没有具体计划完成日期”这一表述是否正确。",
+          "review_explanation": {
+            "contract": "ai_assistant.business_comparison.v1",
+            "origin": "supplemental_automatic_review",
+            "expected": "依据提问当时同一项目的有效记录分析风险，并准确描述相关状态和日期。现有记录支持项目已完成但唯一任务待启动，以及项目完成时间早于开始时间；涉及截止风险时，应正确解释项目结束时间。",
+            "actual": "回答指出项目已完成而唯一任务待启动、完成时间为10月5日却早于10月14日开始时间，并说明任务未设截止时间；另称项目设置为长期、没有具体计划完成日期。",
+            "difference": "两项主要风险、任务数量和状态均与完整结果一致。待核验的是：项目结果明确返回2038年1月10日的结束时间，但没有提供该日期是否属于长期占位值的业务说明；若是具体计划日期，“没有具体计划完成日期”有误，若是长期编码则可成立，因此本轮尚不能确定通过或失败。",
+            "evidence_assessment": {
+              "sufficient": false,
+              "reason": "已恢复两轮原始请求的完整工具结果，能够核实项目已完成、唯一任务待启动、项目完成时间早于开始时间，以及该任务没有直接子任务。项目记录的end_time为2038-01-10T00:00:00+09:00，晚于首轮提问时间，因此不存在当时已到期的问题；但现有证据未说明该值是具体计划结束日期还是产品的长期占位值，无法据此确认或否定回答中的“长期、没有具体计划完成日期”。恢复的是原始请求记录，不是以事后新查询替代当轮事实。"
+            },
+            "turn_comparisons": [
+              {
+                "step": 2,
+                "status": "skip",
+                "reason": "主要风险判断可核验，但结束时间字段与“长期、没有具体计划完成日期”的语义关系缺少必要定义，暂不能确定该项表述是否构成事实错误。",
+                "evidence_refs": [
+                  "turns[0].session_verification：项目页上下文确认为pro_3914224247",
+                  "turn_time_basis[0]：首轮提问时间为2026-11-11T16:54:45.216208+09:00",
+                  "current_source_evidence.evidence_recovery.runs[0].tool_results：project_query，call_3234268ed6da4dbbb0fae3dba9299145",
+                  "current_source_evidence.evidence_recovery.runs[0].tool_results：task_ask，call_62efbd4492f841d9a5adbff814ac611c",
+                  "current_source_evidence.evidence_recovery.runs[0].tool_results：task_detail，call_99b3b76cd8b4491db762246db69e541f"
+                ],
+                "comparison": {
+                  "expected": "依据提问当时同一项目的有效记录分析风险，并准确描述相关状态和日期。现有记录支持项目已完成但唯一任务待启动，以及项目完成时间早于开始时间；涉及截止风险时，应正确解释项目结束时间。",
+                  "actual": "回答指出项目已完成而唯一任务待启动、完成时间为10月5日却早于10月14日开始时间，并说明任务未设截止时间；另称项目设置为长期、没有具体计划完成日期。",
+                  "difference": "两项主要风险、任务数量和状态均与完整结果一致。待核验的是：项目结果明确返回2038年1月10日的结束时间，但没有提供该日期是否属于长期占位值的业务说明；若是具体计划日期，“没有具体计划完成日期”有误，若是长期编码则可成立，因此本轮尚不能确定通过或失败。"
+                }
+              },
+              {
+                "step": 3,
+                "status": "pass",
+                "reason": "结合首轮已明确的唯一任务，续问仍围绕同一项目说明任务状态及风险，且该任务没有直接子任务的结论与完整查询结果一致。",
+                "evidence_refs": [
+                  "turns[1].answer：已说明项目仅有一条待启动任务",
+                  "turn_time_basis[1]：续问时间为2026-11-11T16:55:15.374529+09:00",
+                  "current_source_evidence.evidence_recovery.runs[0].tool_results：task_query确认task_vx8zsp7muoyn属于pro_3914224247且项目任务总数为1",
+                  "current_source_evidence.evidence_recovery.runs[0].tool_results：task_detail确认该任务状态为pending",
+                  "current_source_evidence.evidence_recovery.runs[1].tool_results：task_children，call_19f4b507581e4fde93d27047c8b297d6，total=0、returned=0"
+                ],
+                "comparison": {
+                  "expected": "承接同一项目的上下文，说明其任务情况及相关风险，不混入同空间其他项目；此前已答的唯一任务信息无需全部重复。",
+                  "actual": "回答点名项目内的“PRE执行项目内其他任务”，说明其仍待启动、与项目已完成状态不一致，并说明该任务没有直接子任务。",
+                  "difference": "结合首轮，项目内唯一任务及其状态已被说明；新增的无下级子任务结论也有完整结果支持。回答没有将该任务的零个下级子任务误说成项目没有任务，也未串入其他项目。"
+                }
+              }
+            ],
+            "supplemented_at": "2026-11-11T09:48:27+00:00"
+          },
+          "judge_configuration": {
+            "judge_model": "gpt-6.1-sol",
+            "judge_prompt_version": "ai-assistant-business-review-v11-concrete-comparison",
+            "judge_reasoning_effort": "max"
+          },
+          "review_observation": {
+            "basis": "f031e85309afb3602ec1bf58904e9329555e57078e852653b53ce5bc04682b85",
+            "result": "fb450894adf5fe1dd39c8d7b9ea3bc50e45d2cd8284063979ea7c43dff2f52b3",
+            "requests": [
+              "bcec25d2-37c5-4ba4-b3cf-e4024ae60b65",
+              "fa0e48b3-706f-4416-9068-540c0adcf183"
+            ]
+          },
+          "gold": {
+            "type": "memory",
+            "gold_refs": [
+              "P-PRE-EXECUTED",
+              "T-PRE-EXECUTED-OTHER"
+            ],
+            "must_include": [],
+            "must_exclude": [],
+            "qualitative_requirements": [
+              "项目页锚定同一项目，第二轮不串入同空间其它项目",
+              "仅按当前账号、真实对象ID和本轮限定范围回读，不把公司不同当作同邮箱无权限。",
+              "逐轮核验事实、筛选集合及来源；不得把计划当完成，不编造缺失的工时或容量。",
+              "优先级使用真实业务枚举：0=中、1=高、2=低；完成以自身status=3为准。",
+              "没有检索到不等于不存在；缺ACL、分页全集、索引或必要受控准备时待复测，环境已建立后的漏查/答错正常判失败。",
+              "每例会话ID首次为空，由正式执行器prepare并保存；本次只预检，不新建问答会话。",
+              "原始时间以实际服务端created_at/sendTime为准，正文中的历史计划时间不是操作时间。"
+            ],
+            "fixed_fact_truth": "独立预发源数据：[{\"fixture_id\":\"P-PRE-EXECUTED\",\"project_id\":\"pro_3914224247\",\"space_id\":\"556092402\"},{\"fixture_id\":\"T-PRE-EXECUTED-OTHER\",\"project_id\":\"pro_3914224247\",\"task_id\":\"task_vx8zsp7muoyn\",\"space_id\":\"556092402\"}]",
+            "gold_entities": [
+              {
+                "fixture_id": "P-PRE-EXECUTED",
+                "project_id": "pro_3914224247",
+                "space_id": "556092402"
+              },
+              {
+                "fixture_id": "T-PRE-EXECUTED-OTHER",
+                "project_id": "pro_3914224247",
+                "task_id": "task_vx8zsp7muoyn",
+                "space_id": "556092402"
+              }
+            ],
+            "required_fields": [
+              "依据",
+              "有效时态"
+            ],
+            "citation_refs": [
+              "pro_3914224247",
+              "pro_3914224247",
+              "task_vx8zsp7muoyn"
+            ],
+            "scope": "pre/actor_visible/current_case_scope",
+            "match_policy": "independent_source_after_precheck",
+            "turn_expectations": [
+              {
+                "step": 2,
+                "message": "这个项目风险是什么？",
+                "qualitative_requirements": [
+                  "继承本例统一Gold与规则，仅核验本轮明确要求、对象范围和当前有效事实。"
+                ]
+              },
+              {
+                "step": 3,
+                "message": "它的子任务呢？",
+                "qualitative_requirements": [
+                  "继承本例统一Gold与规则，仅核验本轮明确要求、对象范围和当前有效事实。"
+                ]
+              }
+            ],
+            "oracle_source": "outputs/pre_full_preflight_20261102/fixture-receipt.json",
+            "snapshot_as_of": "2026-11-02",
+            "refresh_policy": "正式执行前刷新ACL、全量业务源、相对日期Gold及AI索引；原始回读不冒充索引验证。"
+          }
+        },
+        "verdict": {
+          "status": "pass",
+          "kind": "business_review",
+          "confidence": "high",
+          "reason": "通过：两轮均围绕已锚定项目，准确指出项目已完成但唯一任务待启动、完成时间早于开始时间的记录风险，并确认该任务没有下级子任务，未串入其他项目。",
+          "categories": [],
+          "turn_verdicts": [
+            {
+              "step": 2,
+              "status": "pass",
+              "reason": "项目状态、唯一任务状态及日期异常均有完整来源支持；将2038年的截止值解释为长期、没有具体计划完成日期，符合本轮十年阈值规则。",
+              "evidence_refs": [
+                "turns[0].session_verification：预期及实际项目上下文均为pro_3914224247",
+                "turn_time_basis[0]：本轮提问时间为2026-11-11T16:54:45.216208+09:00",
+                "current_source_evidence.evidence_recovery.runs[0].tool_results[0]：project_query完整结果，项目已完成，完成时间2026-10-05，开始时间2026-10-14，原始截止时间2038-01-10；评论称项目已完成",
+                "current_source_evidence.evidence_recovery.runs[0].tool_results[1]：项目任务统计total=1、pending=1，范围及子任务结果未截断",
+                "current_source_evidence.evidence_recovery.runs[0].tool_results[2]：项目任务全集仅包含task_vx8zsp7muoyn",
+                "current_source_evidence.evidence_recovery.runs[0].tool_results[3]：该任务为pending，执行人为智本测试_安柔，未返回截止时间字段",
+                "completion_date_interpretations[0]：2038-01-10晚于本轮十年阈值2036-11-11，分类为long_term"
+              ],
+              "comparison": {
+                "expected": "基于当前项目及其可见任务说明有依据的风险，区分记录异常与尚未证实的实际阻塞；对远超十年阈值的项目截止值按长期解释，不当作近期截止风险。",
+                "actual": "指出项目已完成但唯一任务仍待启动的状态矛盾，以及项目完成时间早于开始时间的日期异常；说明任务由当前用户执行、未设置截止时间，且现有记录不足以确认其他阻塞或延期原因，并将项目解释为长期、没有具体计划完成日期。",
+                "difference": "无实质差异。项目自身已完成，不计逾期；任务没有有效截止时间，也不能计为逾期。回答没有将2038年的原始截止值当作近期完成承诺，原始值及来源在完整证据中保留。"
+              }
+            },
+            {
+              "step": 3,
+              "status": "pass",
+              "reason": "结合首轮已说明的项目唯一任务，本轮补充了任务名称、待启动状态和无下级子任务的结果，仍属于同一项目，未遗漏已证实的项目任务。",
+              "evidence_refs": [
+                "turn_time_basis[1]：本轮提问时间为2026-11-11T16:55:15.374529+09:00",
+                "turns[1].answer：此前已说明项目只有一个任务，该任务待启动且未设置截止时间",
+                "current_source_evidence.evidence_recovery.runs[0].tool_results[2]：唯一任务为PRE执行项目内其他任务，project_id=pro_3914224247",
+                "current_source_evidence.evidence_recovery.runs[0].tool_results[3]：该任务状态为pending，所属项目与页面上下文一致",
+                "current_source_evidence.evidence_recovery.runs[1].tool_results[0]：查询task_vx8zsp7muoyn的直接子任务，完整返回total=0、returned=0",
+                "turns[2].answer：明确指向项目内上述任务，并说明其状态与项目已完成状态不一致"
+              ],
+              "comparison": {
+                "expected": "承接同一项目，说明其任务或子任务情况，并延续此前风险讨论；可利用首轮已回答的唯一任务及截止时间信息，无需重复全部细节。",
+                "actual": "点名项目中的PRE执行项目内其他任务，说明该任务仍待启动、与项目已完成的状态不一致，并补充该任务没有直接子任务。",
+                "difference": "续答表述侧重唯一任务的下一层子任务，但首轮已交代项目仅有一个任务及其风险，本轮又明确了该任务名称和状态，合并上下文已覆盖实际项目任务。回答没有把“该任务无直接子任务”误说成“项目没有任务”，也未串入其他项目。"
+              }
+            }
+          ],
+          "evidence_assessment": {
+            "sufficient": true,
+            "reason": "项目页上下文已验证为pro_3914224247，追问身份及返回对象均属于当前租户T1120J0W9。恢复证据绑定两轮原始request_id，提供了完整的项目详情、评论、项目任务全集、任务详情和直接子任务结果，补足了摘要预览的截断。项目和任务的更新时间、评论创建时间均早于首轮提问；后续恢复的是原请求工具结果，并非用事后业务版本反推。两轮分别按2026-11-11东京时间16:54:45和16:55:15核验，不沿用旧快照数量。"
+          },
+          "judge_attempts": 1,
+          "review_observation": {
+            "basis": "4cf082426a1e411e25be88b07fe910f67304e467ab58bc88c9ffae2ec8505f89",
+            "result": "fb450894adf5fe1dd39c8d7b9ea3bc50e45d2cd8284063979ea7c43dff2f52b3",
+            "requests": [
+              "bcec25d2-37c5-4ba4-b3cf-e4024ae60b65",
+              "fa0e48b3-706f-4416-9068-540c0adcf183"
+            ]
+          }
+        },
+        "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_smem005_longterm_20261111_1847/original-evidence.json",
+        "previous_report_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       }
     },
     {
@@ -106450,11 +106682,11 @@
     "active_total": 300,
     "executed": 300,
     "not_executed": 0,
-    "pending": 28,
+    "pending": 27,
     "business": {
-      "pass": 225,
+      "pass": 226,
       "fail": 47,
-      "skip": 28
+      "skip": 27
     }
   },
   "test_scope": {
@@ -106480,15 +106712,15 @@
         "rate": null
       },
       "pre": {
-        "pass": 225,
-        "attempted": 272,
-        "rate": 0.8272058823529411,
+        "pass": 226,
+        "attempted": 273,
+        "rate": 0.8278388278388278,
         "denominator": "仅明确通过和失败；待复核不计入"
       },
       "combined": {
-        "pass": 225,
-        "attempted": 272,
-        "rate": 0.8272058823529411
+        "pass": 226,
+        "attempted": 273,
+        "rate": 0.8278388278388278
       }
     },
     "tool_accuracy": {
@@ -106824,132 +107056,132 @@
         },
         "pre": {
           "attempted_n": 283,
-          "business_success_n": 220,
+          "business_success_n": 221,
           "definition": "单条成功用例成本=本轮所有已观测资源消耗÷业务成功用例数；包含失败尝试消耗。覆盖不全时为观测下限。",
           "metrics": {
             "e2e_ms": {
               "valid_n": 283,
               "attempted_n": 283,
               "coverage_rate": 1.0,
-              "successful_valid_n": 220,
-              "successful_n": 220,
+              "successful_valid_n": 221,
+              "successful_n": 221,
               "total": 34444516.0,
               "average": 121712.0706713781,
               "p50": 101384.0,
               "p95": 262109.19999999998,
-              "per_business_success": 156565.9818181818,
+              "per_business_success": 155857.53846153847,
               "per_success_is_lower_bound": false
             },
             "steps": {
               "valid_n": 210,
               "attempted_n": 283,
               "coverage_rate": 0.7420494699646644,
-              "successful_valid_n": 152,
-              "successful_n": 220,
+              "successful_valid_n": 153,
+              "successful_n": 221,
               "total": 1489.0,
               "average": 7.09047619047619,
               "p50": 6.5,
               "p95": 14.0,
-              "per_business_success": 6.7681818181818185,
+              "per_business_success": 6.737556561085973,
               "per_success_is_lower_bound": true
             },
             "tool_calls": {
               "valid_n": 283,
               "attempted_n": 283,
               "coverage_rate": 1.0,
-              "successful_valid_n": 220,
-              "successful_n": 220,
+              "successful_valid_n": 221,
+              "successful_n": 221,
               "total": 1496.0,
               "average": 5.286219081272085,
               "p50": 5.0,
               "p95": 14.0,
-              "per_business_success": 6.8,
+              "per_business_success": 6.769230769230769,
               "per_success_is_lower_bound": false
             },
             "tokens": {
               "valid_n": 262,
               "attempted_n": 283,
               "coverage_rate": 0.9257950530035336,
-              "successful_valid_n": 212,
-              "successful_n": 220,
+              "successful_valid_n": 213,
+              "successful_n": 221,
               "total": 59485750.0,
               "average": 227044.84732824427,
               "p50": 175834.5,
               "p95": 614054.9999999995,
-              "per_business_success": 270389.7727272727,
+              "per_business_success": 269166.2895927602,
               "per_success_is_lower_bound": true
             },
             "input_tokens": {
               "valid_n": 262,
               "attempted_n": 283,
               "coverage_rate": 0.9257950530035336,
-              "successful_valid_n": 212,
-              "successful_n": 220,
+              "successful_valid_n": 213,
+              "successful_n": 221,
               "total": 59213629.0,
               "average": 226006.21755725192,
               "p50": 174480.5,
               "p95": 611371.0999999996,
-              "per_business_success": 269152.85909090907,
+              "per_business_success": 267934.9728506787,
               "per_success_is_lower_bound": true
             },
             "output_tokens": {
               "valid_n": 262,
               "attempted_n": 283,
               "coverage_rate": 0.9257950530035336,
-              "successful_valid_n": 212,
-              "successful_n": 220,
+              "successful_valid_n": 213,
+              "successful_n": 221,
               "total": 272121.0,
               "average": 1038.6297709923665,
               "p50": 610.0,
               "p95": 3134.499999999999,
-              "per_business_success": 1236.9136363636364,
+              "per_business_success": 1231.316742081448,
               "per_success_is_lower_bound": true
             },
             "cached_tokens": {
               "valid_n": 262,
               "attempted_n": 283,
               "coverage_rate": 0.9257950530035336,
-              "successful_valid_n": 212,
-              "successful_n": 220,
+              "successful_valid_n": 213,
+              "successful_n": 221,
               "total": 31020160.0,
               "average": 118397.5572519084,
               "p50": 97344.0,
               "p95": 323168.0,
-              "per_business_success": 141000.72727272726,
+              "per_business_success": 140362.7149321267,
               "per_success_is_lower_bound": true
             },
             "cost_usd": {
               "valid_n": 262,
               "attempted_n": 283,
               "coverage_rate": 0.9257950530035336,
-              "successful_valid_n": 212,
-              "successful_n": 220,
+              "successful_valid_n": 213,
+              "successful_n": 221,
               "total": 300.14996,
               "average": 1.1456105343511451,
               "p50": 0.8918025,
               "p95": 3.0971139999999973,
-              "per_business_success": 1.3643180000000001,
+              "per_business_success": 1.3581446153846155,
               "per_success_is_lower_bound": true
             },
             "retries": {
               "valid_n": 283,
               "attempted_n": 283,
               "coverage_rate": 1.0,
-              "successful_valid_n": 220,
-              "successful_n": 220,
+              "successful_valid_n": 221,
+              "successful_n": 221,
               "total": 1.0,
               "average": 0.0035335689045936395,
               "p50": 0.0,
               "p95": 0.0,
-              "per_business_success": 0.004545454545454545,
+              "per_business_success": 0.004524886877828055,
               "per_success_is_lower_bound": false
             },
             "cache_token_ratio": {
               "valid_n": 262,
               "attempted_n": 283,
               "coverage_rate": 0.9257950530035336,
-              "successful_valid_n": 212,
-              "successful_n": 220,
+              "successful_valid_n": 213,
+              "successful_n": 221,
               "ratio": 0.5238685843760733,
               "per_business_success": null,
               "per_success_is_lower_bound": false
@@ -107006,7 +107238,18 @@
           "stream": true,
           "workers": 20,
           "business_requests": 0
-        }
+        },
+        "reassessments": [
+          {
+            "case_id": "AA-SMEM-PRE-005",
+            "model": "gpt-6.1-sol",
+            "prompt_version": "ai-assistant-business-review-v12-long-term-completion",
+            "reasoning_effort": "max",
+            "stream": true,
+            "business_requests": 0,
+            "reassessed_at": "2026-11-11T10:01:56+00:00"
+          }
+        ]
       },
       "operational_judge": {},
       "planning_judge": {}
@@ -107236,7 +107479,9 @@
     "automation_message": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_executable_20261111/automation-message",
     "excluded_audit": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_executable_20261111/excluded-from-report.json",
     "pre_conclusion_supplement": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_conclusion_supplement_20261111_1800/case-supplements",
-    "supplement_review_baseline": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_conclusion_supplement_20261111_1800/review-baseline-current.json"
+    "supplement_review_baseline": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_conclusion_supplement_20261111_1800/review-baseline-current.json",
+    "long_term_date_reassessment": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_smem005_longterm_20261111_1847/business-review.json",
+    "long_term_date_review_baseline": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_smem005_longterm_20261111_1847/review-baseline.json"
   },
   "execution_policy": {
     "initial_case_concurrency": 50,
@@ -107261,7 +107506,7 @@
     "skip": 0,
     "error": 0
   },
-  "review_baseline_path": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_conclusion_supplement_20261111_1800/original-base.json",
+  "review_baseline_path": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_smem005_longterm_20261111_1847/original-base.json",
   "result_sync": {
     "main_url": "https://anna0715.github.io/Agent_report_pre/pre/",
     "review_url": "https://anna0715.github.io/Agent_report_pre/pre/cloud-review/current/",
@@ -107313,5 +107558,17 @@
       }
     ],
     "manual_review_policy": "保留同批次云端已保存状态、备注、分类、作者与审计，不创建人工事件"
-  }
+  },
+  "case_updates": [
+    {
+      "date": "2026-11-11",
+      "case_ids": [
+        "AA-SMEM-PRE-005"
+      ],
+      "changes": [
+        "AA-SMEM-PRE-005：按“截止时间超过实际追问时刻10个自然年，视为长期、没有具体计划完成日期”的新规则复评，待复核改为通过。",
+        "保留两轮原始问答和原请求证据，本次没有重新执行；原报告及人工复核历史保留。"
+      ]
+    }
+  ]
 }
