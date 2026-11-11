@@ -4,7 +4,7 @@
   "report_environment": "pre",
   "report_title": "AI 助手 PRE 全量可执行用例复核报告",
   "review_run_id": "AI助手-2026-11-11-pre-full-executable-pending181-reassessed-v2",
-  "generated_at": "2026-11-11T09:39:15+00:00",
+  "generated_at": "2026-11-11T09:48:27+00:00",
   "pre_case_count": 300,
   "execution_notice": "本轮共核对 423 条 PRE 用例；实际发问 300 条（聊天 283、自动化 17），未发问 123 条不列入结果明细。181 条原待复核结果按完整认证证据重评；其中 1 条原未发问用例补跑，4 条缺后续问答的用例在新会话补跑或续问。执行与评测并发上限均为 20。 本次对原51条失败及24条待复核补充期望、实际、差异与判定依据；未重新发问，保留本批次云端人工修订。",
   "rows": [
@@ -1009,7 +1009,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -3247,7 +3247,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "待复核：完整回答已恢复，但缺少后续扩检的有效窗口和策略消息原文，无法核验最近60天偏好是否生效，以及回答是否遗漏当轮有效的检索、鉴权规则。",
@@ -3285,7 +3285,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -3726,7 +3726,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -4282,7 +4282,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -4638,7 +4638,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -5063,7 +5063,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -5446,7 +5446,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "待复核：缺少本轮检索的实际时间筛选条件和完整@消息结果，无法核实111条的适用范围，以及未展开部分是否漏掉最近60天内应列的消息。",
@@ -5481,7 +5481,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -6226,7 +6226,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "失败，实际问题询问系统撤回事件能否恢复原正文，回答却仅称“暂不能确认”，没有说明现存事件不含原文、无法据此找回或提供。",
@@ -6260,7 +6260,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -6906,7 +6906,7 @@
             ]
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": null,
@@ -7943,7 +7943,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -8672,7 +8672,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -11201,7 +11201,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -11592,7 +11592,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -12009,7 +12009,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "失败，漏掉11月5日已确认的日程范围“先做创建日程，问答/Cron/修改/删除暂不做”，仍把11月4日讨论中的范围对齐列为未确认。",
@@ -12042,7 +12042,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -12674,7 +12674,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "失败，回答未说明iOS首页重要信息流由“昨天晚上”改为“下周一”提测，也未给出高级筛选、高管特殊用户计分规则、历史数据初始化三项延期原因及原消息来源。",
@@ -12710,7 +12710,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -13117,7 +13117,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "失败，三种操作的可见性规则回答正确，但把“不能凭系统撤回事件恢复原正文”答成“目前不能确认”，漏答了用户第二问的关键结论。",
@@ -13150,7 +13150,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -13572,7 +13572,7 @@
           }
         ],
         "saved_manual_review_preserved": true,
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       }
     },
     {
@@ -14409,7 +14409,7 @@
           "review_observation": null
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
@@ -14440,7 +14440,7 @@
             ]
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": null,
@@ -14997,7 +14997,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -16093,7 +16093,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -16815,7 +16815,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -19977,7 +19977,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -22344,7 +22344,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -22837,7 +22837,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -23863,7 +23863,7 @@
           "review_observation": null
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
@@ -23894,7 +23894,7 @@
             ]
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": null,
@@ -24327,7 +24327,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -24807,7 +24807,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -38694,7 +38694,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "review_explanation": {
@@ -38727,7 +38727,7 @@
           }
         ],
         "saved_manual_review_preserved": true,
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       }
     },
     {
@@ -48123,7 +48123,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "失败，回答只总结了11月的随机展示和个性化提议，漏掉已明确的六类入口及具体对象绑定，没有解释用户所问的分入口随机3条推荐逻辑。",
@@ -48158,7 +48158,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -51530,7 +51530,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "review_explanation": {
@@ -51564,7 +51564,7 @@
           }
         ],
         "saved_manual_review_preserved": true,
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       }
     },
     {
@@ -52707,7 +52707,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "review_explanation": {
@@ -52741,7 +52741,7 @@
           }
         ],
         "saved_manual_review_preserved": true,
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       }
     },
     {
@@ -54260,7 +54260,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "失败，未交付按东京日期的任务统计：应为2026-10-20截止13项、2026-10-30截止39项、未设置截止时间12项，实际仅报告读取失败，未返回任何数量。",
@@ -54298,7 +54298,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -54774,7 +54774,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "失败，未给出所问的平均直接子任务数：应为31÷32＝0.96875个，实际仅报告32个主任务和32个各级子任务，并称无法计算。",
@@ -54810,7 +54810,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -57806,7 +57806,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "失败：擅自把“未完成”加入逾期筛选，导致主任务逾期应为26项却答17项、子孙任务应为26项却答18项。",
@@ -57841,7 +57841,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -63319,7 +63319,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "失败，第2轮只说明读取失败，未交付用户要求的本周未完成主任务和子任务清单。第3轮“未查到待启动任务”的结论因完整查询条件和当前任务字段缺失，待复核。",
@@ -63366,7 +63366,7 @@
             ]
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": null,
@@ -68120,7 +68120,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "失败：项目乙的唯一任务“聚合验收任务032”已完成，却被答成待启动并计入未完成，未完成任务应为0项，实答1项。",
@@ -68168,7 +68168,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -71397,7 +71397,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "review_explanation": {
@@ -71431,7 +71431,7 @@
           }
         ],
         "saved_manual_review_preserved": true,
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       }
     },
     {
@@ -72282,7 +72282,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "失败，指定空间内符合条件的项目应为4个，回答仅列出3个，漏掉描述明确涉及embedding召回和评测的“PRE补全·向量索引召回实验”。",
@@ -72316,7 +72316,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -73195,7 +73195,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "失败，本轮检索已返回空间“AI创新探索优化”下进行中的“AI创新探索优化项目”，最终回答却未列出，未答全用户要求的项目集合。",
@@ -73226,7 +73226,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -73879,7 +73879,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "失败，已核实应包含的2个匹配项目仅答出1个，漏掉“PRE补全·向量索引召回实验”，其描述明确涉及知识检索索引、embedding召回和误召回控制。",
@@ -73914,7 +73914,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -75271,7 +75271,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "失败，当前账号可读的“群消息置顶体验优化与可用性收尾”仍处于开发阶段、尚未完成，回答却未识别该任务并要求补充链接，漏答了是否做完这一核心问题。",
@@ -75305,7 +75305,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -77632,7 +77632,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -79425,7 +79425,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "失败，回答只展开30个项目，漏掉本轮已查到的“PRE补全·帮助中心改版”和“PRE项目创建人专项”等可见项目，未完整列出用户参与的项目。",
@@ -79459,7 +79459,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -79849,7 +79849,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -80201,7 +80201,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -80533,7 +80533,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -81351,7 +81351,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -82521,7 +82521,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -83197,7 +83197,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -83937,7 +83937,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -85091,7 +85091,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -87285,7 +87285,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -88210,7 +88210,7 @@
           "review_observation": null
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
@@ -88241,7 +88241,7 @@
             ]
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": null,
@@ -90651,7 +90651,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -92450,7 +92450,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -92846,7 +92846,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "失败：回答额外限定为未完成任务，漏掉了已完成但截止时间为2026年10月30日18:00、在提问时已逾期的“聚合验收任务062”。",
@@ -92879,7 +92879,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -95217,7 +95217,7 @@
           "review_observation": null
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
@@ -95248,7 +95248,7 @@
             ]
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": null,
@@ -95489,7 +95489,7 @@
           "review_observation": null
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
@@ -95520,7 +95520,7 @@
             ]
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": null,
@@ -96653,7 +96653,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "失败，查询过载后仅提示重试，未回答 Review English onboarding copy 所属的 Aurora Release Review 项目及“未開始”状态。",
@@ -96689,7 +96689,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -97444,7 +97444,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "待复核：现有证据明确显示研发群7天和30天、蜂巢群90天的分段读取，但自动关键词检索未给出实际生效窗口，无法核实两群最近60天的已保存偏好是否在新会话中生效。",
@@ -97478,7 +97478,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -97848,7 +97848,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
@@ -97879,7 +97879,7 @@
             ]
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": null,
@@ -98578,7 +98578,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -99767,7 +99767,7 @@
           }
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-business-review-v9-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "evaluation_detail_reason": "失败，当前账号可读取的“PRE仅由目标用户负责”任务被漏掉，回答仅报告父项目检索为空，没有列出这条可见任务。",
@@ -99801,7 +99801,7 @@
             }
           }
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       },
       "judge_configuration": {
         "judge_model": "gpt-6.1-sol",
@@ -100543,7 +100543,7 @@
           "reason": "本次结果正确覆盖两个进行中项目并区分历史评论与当前状态，但逾期汇总只列系统标记的3项，漏掉截止已过的已完成任务，按本轮截止时间应为4项；另有两项任务已有2038年截止时间，却被写成未提供具体日期。"
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-automation-prompt-result-v5-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "review_explanation": {
@@ -100587,7 +100587,7 @@
         "evidence_refs": [
           "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_executable_20261111/automation-space/AA-AUTO-001.json"
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       }
     },
     {
@@ -101525,7 +101525,7 @@
           "reason": "本轮确实覆盖两个进行中项目、区分历史评论与建议且输出结构正确，但缺少创建前后的完整任务列表及实际定时触发、消息送达记录，无法完整确认仅新增目标任务并按周发送。"
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-automation-prompt-result-v5-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "review_explanation": {
@@ -101569,7 +101569,7 @@
         "evidence_refs": [
           "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_executable_20261111/automation-space/AA-AUTO-004.json"
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       }
     },
     {
@@ -102325,8 +102325,8 @@
           "status": "skip",
           "reason": "created automation schedule does not match reviewed assertions"
         },
-        "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_model": "未调用（创建或取证阶段）",
+        "judge_prompt_version": "未调用",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "review_explanation": {
@@ -102350,7 +102350,7 @@
           "缺少完整内部 Trace: runtime_trace_runs",
           "实际执行提示词与本次运行 Trace 关联不完整"
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       }
     },
     {
@@ -102668,8 +102668,8 @@
           "status": "skip",
           "reason": "created automation identity/mode/stable-scope mismatch"
         },
-        "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_model": "未调用（创建或取证阶段）",
+        "judge_prompt_version": "未调用",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "review_explanation": {
@@ -102693,7 +102693,7 @@
           "缺少完整内部 Trace: runtime_trace_runs",
           "实际执行提示词与本次运行 Trace 关联不完整"
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       }
     },
     {
@@ -103017,7 +103017,7 @@
           "reason": "本轮风险事实与当前快照一致，同一任务的稳定标记也与前轮完全相同，但缺少关联本次运行的通知抑制决策和消息记录，尚不能确认没有重复提醒。"
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-automation-prompt-result-v5-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "review_explanation": {
@@ -103034,7 +103034,7 @@
         "evidence_refs": [
           "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_executable_20261111/automation-space/AA-AUTO-009.json"
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       }
     },
     {
@@ -103380,7 +103380,7 @@
           "reason": "本轮进展、卡点和下一步均符合当轮详情与真实评论，输出格式也正确，但缺少东京17:00实际自动触发及向用户送达的证据。"
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-automation-prompt-result-v5-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "review_explanation": {
@@ -103419,7 +103419,7 @@
         "evidence_refs": [
           "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_executable_20261111/automation-space/AA-AUTO-010.json"
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       }
     },
     {
@@ -103639,8 +103639,8 @@
           "status": "skip",
           "reason": "creation Trace has no unique verified automation_create result; not triggering"
         },
-        "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_model": "未调用（创建或取证阶段）",
+        "judge_prompt_version": "未调用",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "review_explanation": {
@@ -103664,7 +103664,7 @@
           "缺少完整内部 Trace: runtime_trace_runs",
           "实际执行提示词与本次运行 Trace 关联不完整"
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       }
     },
     {
@@ -103988,7 +103988,7 @@
           "reason": "本轮完整快照只有基线内的旧评论，精确关联此次触发的结果将目标任务判为未命中，符合基线阶段不把既有阻塞当作新增风险提醒的要求。"
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-automation-prompt-result-v5-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "review_explanation": {
@@ -104005,7 +104005,7 @@
         "evidence_refs": [
           "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_executable_20261111/automation-space/AA-AUTO-012.json"
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       }
     },
     {
@@ -104333,7 +104333,7 @@
           "reason": "裁判返回无效、调用失败或 case_id 不匹配"
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-automation-prompt-result-v5-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "review_explanation": {
@@ -104373,7 +104373,7 @@
         "evidence_refs": [
           "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_executable_20261111/automation-space/AA-AUTO-013.json"
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       }
     },
     {
@@ -104516,8 +104516,8 @@
           "status": "skip",
           "reason": "assistant turn failed or session changed; creation outcome may be unknown"
         },
-        "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_model": "未调用（创建或取证阶段）",
+        "judge_prompt_version": "未调用",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "review_explanation": {
@@ -104542,7 +104542,7 @@
           "缺少完整内部 Trace: runtime_trace_runs",
           "实际执行提示词与本次运行 Trace 关联不完整"
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       }
     },
     {
@@ -105574,8 +105574,8 @@
           "status": "skip",
           "reason": "creation Trace has no unique verified automation_create result; not triggering"
         },
-        "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_model": "未调用（创建或取证阶段）",
+        "judge_prompt_version": "未调用",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "review_explanation": {
@@ -105599,7 +105599,7 @@
           "缺少完整内部 Trace: runtime_trace_runs",
           "实际执行提示词与本次运行 Trace 关联不完整"
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       }
     },
     {
@@ -105943,7 +105943,7 @@
           "reason": "本轮按北京时间正确查询并说明无可总结消息，输出结构符合协议，但仅有一次手动触发，缺少每天20:00准时执行和最终送达的证据。"
         },
         "judge_model": "gpt-6.1-sol",
-        "judge_prompt_version": "ai-assistant-business-review-v10-group-window",
+        "judge_prompt_version": "ai-assistant-automation-prompt-result-v5-clear-conclusion",
         "source_url": "https://anna0715.github.io/Agent_report_pre/pre/previous/"
       },
       "review_explanation": {
@@ -105981,7 +105981,7 @@
         "evidence_refs": [
           "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_executable_20261111/automation-message/AA-AUTO-018.json"
         ],
-        "supplemented_at": "2026-11-11T09:39:15+00:00"
+        "supplemented_at": "2026-11-11T09:48:27+00:00"
       }
     },
     {
@@ -107269,7 +107269,7 @@
   },
   "supplemental_review": {
     "contract": "ai_assistant.report_supplement.v1",
-    "supplemented_at": "2026-11-11T09:39:15+00:00",
+    "supplemented_at": "2026-11-11T09:48:27+00:00",
     "cases": 75,
     "business_requests": 0,
     "preserve_same_execution_identity": true,
