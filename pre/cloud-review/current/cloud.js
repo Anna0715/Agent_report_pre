@@ -156,7 +156,7 @@
     return base.rows.map(original => {
       const remote = byId.get(original.case_id), override = remote?.override;
       const status = override?.business_status || original.status;
-      const row = {...original,original_status:original.status,original_reason:original.reason,status,reason:override?.business_reason || original.reason,failure_categories:override?.failure_categories || original.display_failure_categories || original.failure_categories,task_completion_rate:override?(status==='pass'?100:isFailure(status)?0:null):original.task_completion_rate,version:remote?.version ?? 0,updated_by:remote?.updated_by || null,updated_at:remote?.updated_at || null,override:override || null};
+      const row = {...original,original_status:original.status,original_reason:original.reason,status,reason:override?.business_reason || original.reason,failure_categories:override?.failure_categories || (base.failure_taxonomy?original.failure_categories:original.display_failure_categories || original.failure_categories),task_completion_rate:override?(status==='pass'?100:isFailure(status)?0:null):original.task_completion_rate,version:remote?.version ?? 0,updated_by:remote?.updated_by || null,updated_at:remote?.updated_at || null,override:override || null};
       const prior=inherited.get(original.case_id);
       // A saved current-batch review or reset takes precedence over the prior batch.
       if(prior&&(!remote||remote.version===0)){
@@ -168,7 +168,7 @@
             revision:prior.snapshot.revision,case_version:prior.row.version,actor:prior.row.updated_by,actor_name:prior.name,
             reviewed_at:prior.row.updated_at,source_reset:saved===null,source_deferral_released:released&&!prior.sameRequest,source_workflow_released:released&&prior.sameRequest,source_same_request_workflow:prior.workflowOnly&&queue,inheritance_chain:original.review_reuse||null}});
       }
-      return row;
+      return full?.projectRow?full.projectRow(row,base):row;
     });
   }
   const canWrite = () => connected && !stale && session && state?.current_actor.role === 'reviewer' && document.body.dataset.reviewMode !== 'read';
@@ -385,7 +385,7 @@
     currentEdit = {case_id:id,base_version:row.version,actor_id:session.userId};
     $('edit-title').textContent = id+' · 人工复核'; $('edit-question').textContent = row.title;
     $('edit-status').querySelector('option[value="skip"]').textContent = resultLabel(row,'skip');
-    $('edit-status').value = row.status; $('edit-reason').value = ''; $('edit-categories').value = row.failure_categories.join('，');
+    $('edit-status').value = row.status; $('edit-reason').value = ''; $('edit-categories').value = row.failure_categories.filter(value=>value!=='不稳定').join('，');
     $('edit-feedback').textContent = ''; $('edit-refresh').hidden = true;
     const draft = drafts.get(`${session.userId}:${id}`);
     if (draft) {
@@ -437,6 +437,12 @@
     event.preventDefault(); if (!currentEdit || busy || !canWrite()) return;
     const status = $('edit-status').value, reason = $('edit-reason').value.trim();
     const override = status==='reset'?null:{business_status:status,business_reason:reason,failure_categories:isFailure(status)?[...new Set($('edit-categories').value.split(/[,，、\n]/).map(x=>x.trim()).filter(Boolean))]:[]};
+    if(override&&base.failure_taxonomy&&full?.normalizeCategories){
+      override.failure_categories=full.normalizeCategories(override.failure_categories,base);
+      if(override.failure_categories.includes('未分类')){
+        $('edit-feedback').textContent='失败分类请使用：防御性回答、数据缺失、表达错误、执行失败、事实不符；不稳定由两轮实测自动标记。';return;
+      }
+    }
     if (!validOverride(override)) { $('edit-feedback').textContent = '请填写有效理由（最多 6000 字）；失败分类最多 20 项，每项不超过 100 字。'; return; }
     preserveDraft();
     const edit = {...currentEdit};

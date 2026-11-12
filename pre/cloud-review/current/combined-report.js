@@ -48,8 +48,46 @@
   const selectedCaseIds = new Set();
   let caseIdOptionsKey='';
   const originalEvidence = new Map();
+  function normalizeCategories(values, source) {
+    const taxonomy=source?.failure_taxonomy;
+    if(!taxonomy)return values||[];
+    const result=[];
+    for(const value of values||[]){
+      const key=String(value).replace(/\s+/g,'');
+      if(!key||key==='不稳定')continue;
+      const category=taxonomy.aliases[key]||taxonomy.rules.find(([pattern])=>new RegExp(pattern).test(key))?.[1]||'未分类';
+      if(!result.includes(category))result.push(category);
+    }
+    return result;
+  }
+  function projectRow(row, source) {
+    const taxonomy=source?.failure_taxonomy;
+    if(!taxonomy)return row;
+    const comparison=row.execution_comparison||{},failed=isFailure(row.status);
+    const categories=failed?normalizeCategories(row.failure_categories,source):[];
+    const unstable=failed&&comparison.eligible===true&&comparison.verdict==='regressed'&&comparison.previous_status==='pass'&&comparison.latest_status==='fail';
+    return {...row,source_failure_categories:[...(row.failure_categories||[])],
+      primary_failure_category:failed?(taxonomy.primary_order.find(value=>categories.includes(value))||'未分类'):null,
+      failure_categories:[...categories,...(unstable?['不稳定']:[])],unstable};
+  }
+  function failureSummary(current, source) {
+    const executed=current.filter(row=>online(row)&&row.status!=='deferred'),failed=executed.filter(row=>isFailure(row.status));
+    const reasons={},data_missing={'消息':0,'项目/任务':0,'其他':0};
+    for(const row of failed){
+      const cause=row.primary_failure_category||'未分类';reasons[cause]=(reasons[cause]||0)+1;
+      if(cause==='数据缺失')data_missing[row.failure_data_domain||'其他']++;
+    }
+    return {executed:executed.length,failed:failed.length,reasons,data_missing,unstable:failed.filter(row=>row.unstable).length};
+  }
+  function renderFailureSummary(current, source) {
+    const target=$('failure-summary-content');if(!target||!source.failure_taxonomy)return;
+    const counts=failureSummary(current,source),domains=counts.data_missing;
+    const reasons=source.failure_taxonomy.primary_order.filter(label=>counts.reasons[label]).map(label=>`${esc(label)}-${counts.reasons[label]}条`).join('，')||'无';
+    target.innerHTML=`执行${counts.executed}条，不通过${counts.failed}条。不通过原因：${reasons}<br>其中数据缺失：消息类${domains['消息']}条，项目/任务${domains['项目/任务']}条，其他${domains['其他']}条<br>其中不稳定：${counts.unstable}条（上一轮通过、本轮失败）`;
+  }
   function summary(current, source, snapshot) {
     rows=current; base=source; state=snapshot;
+    renderFailureSummary(current,source);
     const counts = Object.fromEntries(['test','pre'].map(env=>{
       const environmentRows=rows.filter(r=>r.source_environment===env),group=environmentRows.filter(online);
       return [env,{attempted:group.length,pass:group.filter(r=>r.status==='pass').length,fail:group.filter(r=>isFailure(r.status)).length,pending:group.filter(r=>r.status==='skip').length,pendingQa:group.filter(r=>r.status==='pending_qa').length,deferred:environmentRows.filter(r=>r.status==='deferred').length,pendingFix:group.filter(r=>r.status==='pending_fix').length}];
@@ -233,5 +271,6 @@
       let edit=card.querySelector('.case-review-action');if(!edit){edit=document.createElement('div');edit.className='case-review-action';card.querySelector('.failure-head').after(edit);}edit.innerHTML=action(r);
     }
   }
-  window.AICombinedReport={summary,renderCases,anchor,resultStatus,resetPage:()=>{page=1;},resetCaseIds,showTarget};
+  window.AICombinedReport={summary,renderCases,anchor,resultStatus,resetPage:()=>{page=1;},resetCaseIds,showTarget,
+    normalizeCategories,projectRow,failureSummary};
 })();
