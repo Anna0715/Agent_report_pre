@@ -267825,9 +267825,9 @@
     },
     "robustness": {
       "pre_answer_completion": {
-        "pass": 277,
+        "pass": 283,
         "total": 283,
-        "rate": 0.9787985865724381
+        "rate": 1.0
       },
       "pre_error_recovery": {
         "pass": 0,
@@ -280995,5 +280995,50 @@
     ],
     "authenticated_trace_runs": 27,
     "judge_reasoning_effort": "max"
+  },
+  "stability_audit": {
+    "contract": "ai_assistant.pre_stability_audit.v1",
+    "scope": {
+      "cases": 300,
+      "chat_cases": 283,
+      "automation_cases": 17,
+      "rerun_cases": 23
+    },
+    "answer_completion": {
+      "completed": 283,
+      "total": 283
+    },
+    "e2e_p95": {
+      "milliseconds": 259542.59999999995,
+      "covered": 283,
+      "total": 283
+    },
+    "request_failures": {
+      "confirmed": 1,
+      "authenticated_requests": 390,
+      "current_requests": 389,
+      "archived_requests": 1,
+      "recovered_transport": 54,
+      "unattributed": 0
+    },
+    "cross_run": {
+      "eligible": 0,
+      "total_cases": 300,
+      "rerun_cases": 23,
+      "independent_requests": 23,
+      "same_case_basis": 5,
+      "same_report_gold": 5,
+      "previous_pass_cases": 266,
+      "previous_pass_reruns": 0,
+      "transitions": {
+        "fail->fail": 12,
+        "fail->pass": 10,
+        "fail->skip": 1
+      }
+    },
+    "judge_repeat": {
+      "two_valid_same_evidence": 0,
+      "provider_error_then_valid": 1
+    }
   }
 }

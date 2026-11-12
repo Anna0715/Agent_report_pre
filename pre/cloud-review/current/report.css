@@ -29,6 +29,10 @@ body[data-review-scope="pre"] #resource-efficiency :is(th,td):nth-child(4){displ
 #stability-overview .stability-stat span{display:block;color:var(--muted);font-size:12px}
 #stability-overview .stability-stat strong{display:block;font-size:20px}
 #stability-overview .stability-stat small{display:block;color:var(--muted)}
+#stability-overview .stability-methods{margin-top:12px}
+#stability-overview .stability-methods table{width:100%;font-size:13px}
+#stability-overview .stability-methods th:nth-child(1){width:130px}
+#stability-overview .stability-methods th:nth-child(2){width:145px}
 #stability-overview .stability-note{margin:12px 0 0}
 @media(max-width:1000px){#stability-overview .stability-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){#stability-overview .stability-grid{grid-template-columns:1fr}}
