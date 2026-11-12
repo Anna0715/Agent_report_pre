@@ -281008,6 +281008,10 @@
       "completed": 283,
       "total": 283
     },
+    "case_pass_rate": {
+      "passed": 276,
+      "executed": 300
+    },
     "e2e_p95": {
       "milliseconds": 259542.59999999995,
       "covered": 283,
