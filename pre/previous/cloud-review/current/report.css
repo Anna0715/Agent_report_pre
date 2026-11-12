@@ -27,5 +27,7 @@ body[data-review-scope="pre"] #resource-efficiency :is(th,td):nth-child(4){displ
 @media(max-width:1280px){body[data-review-scope="pre"] .filters{grid-template-columns:repeat(2,minmax(0,1fr))}body[data-review-scope="pre"] .filters #search{grid-column:auto}}
 @media(max-width:1000px){body[data-review-scope="pre"] .filters{grid-template-columns:1fr}body[data-review-scope="pre"] .filters #search{grid-column:auto}}
 
+#failure-summary table{min-width:0;width:100%}#failure-summary td{white-space:normal;line-height:1.9}
+
 [hidden]{display:none!important}.env-card{grid-column:1/-1}
 [data-success-env="test"],[data-success-env="combined"]{display:none!important}
