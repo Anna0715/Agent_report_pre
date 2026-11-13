@@ -38,10 +38,6 @@ body[data-review-scope="pre"] #resource-efficiency :is(th,td):nth-child(4){displ
 #stability-overview .stability-help:focus-visible + .stability-tooltip{display:block}
 @media(hover:hover) and (pointer:fine){#stability-overview .stability-help:hover + .stability-tooltip{display:block}}
 @media(hover:none){#stability-overview .stability-help:focus + .stability-tooltip{display:block}}
-#stability-overview .stability-methods{margin-top:12px}
-#stability-overview .stability-methods table{width:100%;font-size:13px}
-#stability-overview .stability-methods th:nth-child(1){width:130px}
-#stability-overview .stability-methods th:nth-child(2){width:145px}
 #stability-overview .stability-note{margin:12px 0 0}
 @media(max-width:1000px){#stability-overview .stability-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){#stability-overview .stability-grid{grid-template-columns:1fr}}
