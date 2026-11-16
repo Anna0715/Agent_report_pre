@@ -2,20 +2,20 @@
   "contract": "ai_assistant.combined_report.v1",
   "report_environment": "pre",
   "report_date": "2026-11-13",
-  "generated_at": "2026-11-16T05:54:51+00:00",
+  "generated_at": "2026-11-16T07:02:57+00:00",
   "review_run_id": "AI助手-2026-11-13-pre-full-noncalendar-20",
-  "report_update_id": "pre-pending-rejudge-20261116",
+  "report_update_id": "pre-pending-repair-20261116",
   "report_title": "PRE AI助手全量用例（不含日程创建）",
   "pre_case_count": 278,
   "pre_scope": {
     "active_total": 278,
     "executed": 278,
     "not_executed": 0,
-    "pending": 59,
+    "pending": 48,
     "business": {
       "fail": 53,
-      "pass": 166,
-      "skip": 59
+      "pass": 177,
+      "skip": 48
     }
   },
   "trace_gate": {
@@ -39,14 +39,14 @@
         "rate": null
       },
       "pre": {
-        "pass": 166,
-        "attempted": 278,
-        "rate": 0.5971223021582733
+        "pass": 177,
+        "attempted": 230,
+        "rate": 0.7695652173913043
       },
       "combined": {
-        "pass": 166,
-        "attempted": 278,
-        "rate": 0.5971223021582733
+        "pass": 177,
+        "attempted": 230,
+        "rate": 0.7695652173913043
       }
     },
     "tool_accuracy": {
@@ -10229,14 +10229,15 @@
         "turn_comparisons": [],
         "evidence_assessment": {}
       },
-      "execution_source": "2026-11-13 PRE 全量（不含日程创建）",
-      "execution_stage": "pre_full_noncalendar_live",
-      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/recovered/cases/AA-PRE-MSG-004.json",
+      "execution_source": "2026-11-16 PRE 补跑",
+      "execution_stage": "pre_missing_result_recovery",
+      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/missing-results-uncertain-readback-2/cases/AA-PRE-MSG-004.json",
       "judge_configuration": {
         "model": "not_called",
         "prompt_version": null,
         "stats": null,
-        "business_requests_retried": null
+        "business_requests_retried": null,
+        "reasoning_effort": "max"
       },
       "judge_attempts": 0,
       "judge_attempt_outcomes": [],
@@ -10245,7 +10246,46 @@
       ],
       "primary_failure_category": "执行失败",
       "unstable": false,
-      "failure_data_domain": "消息"
+      "failure_data_domain": "消息",
+      "rejudge_history": [
+        {
+          "type": "automatic_evidence_repair",
+          "at": "2026-11-16T06:48:48.514637+00:00",
+          "previous": {
+            "status": "fail",
+            "kind": "execution_failure",
+            "reason": "失败，第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
+            "failure_categories": [
+              "执行失败"
+            ],
+            "source_failure_categories": [
+              "执行失败"
+            ],
+            "review_explanation": {
+              "contract": "ai_assistant.business_comparison.v1",
+              "origin": "fresh_pre_execution",
+              "expected": [
+                "三个群分别提供项目里程碑、向量/增量数据链路与最新pre数据范围；回答需按主题聚合并保留各群来源。"
+              ],
+              "actual": [
+                "curl: (28) Operation timed out after 180002 milliseconds with 3225 bytes received"
+              ],
+              "difference": [
+                "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。"
+              ],
+              "why": "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
+              "turn_comparisons": [],
+              "evidence_assessment": {}
+            },
+            "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/recovered/cases/AA-PRE-MSG-004.json",
+            "review_observation": null
+          },
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/repaired-results-judge-1/cases/AA-PRE-MSG-004.json",
+          "business_request_resent": true
+        }
+      ],
+      "evaluation_detail_reason": "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
+      "turn_verdicts": []
     },
     {
       "asker": "安柔",
@@ -10276,26 +10316,28 @@
       "scenario": "pre真实群/合并消息",
       "gate_class": "core",
       "priority": "P0",
-      "status": "fail",
-      "kind": "execution_failure",
-      "reason": "失败，第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
+      "status": "pass",
+      "kind": "business_review",
+      "reason": "通过，回答准确区分了孙文关于Markdown、ProseMirror和结构化流式输出的观点，以及自力的需求追问、拉群建议与外层转发身份，并提供了目标合并消息的可定位引用。",
       "review_reuse": null,
-      "review_observation": null,
-      "failure_categories": [
-        "执行失败"
-      ],
+      "review_observation": {
+        "basis": "a31cec76f10b5357fee432de6096527f7a030541148a70622671067139bfc637",
+        "result": "69d723d2d89f0a6af5256bc9bed9a2667ac5a35f47b421a9fb3f6b9a70083ba5",
+        "requests": [
+          "c158dcab-9fed-4d83-8044-e260a822e1bb"
+        ]
+      },
+      "failure_categories": [],
       "confidence": "high",
       "latency_ms": 607847,
       "model": "openai/gpt-6.1-terra",
       "prompt_version": "assistant_chat_agent@0.24.3",
       "automatic_status": "skip",
       "automatic_reason": "",
-      "categories": [
-        "执行失败"
-      ],
+      "categories": [],
       "title": "8月份AI多轮对话总结开发群里那条关于markdown和prosemirror的合并消息，分别是谁提出了哪些观点？",
       "ability": "保留合并消息内部发言人归因",
-      "task_completion_rate": 0,
+      "task_completion_rate": 100,
       "operational_review": {},
       "planning_review": {},
       "trace_status": "内部工具链已采集；权限/引用仍未观测",
@@ -10304,9 +10346,9 @@
         "8月份AI多轮对话总结开发群里那条关于markdown和prosemirror的合并消息，分别是谁提出了哪些观点？"
       ],
       "answer": "",
-      "execution_completed": false,
+      "execution_completed": true,
       "execution_completion_rate": 0,
-      "business_reason": "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
+      "business_reason": "通过，回答准确区分了孙文关于Markdown、ProseMirror和结构化流式输出的观点，以及自力的需求追问、拉群建议与外层转发身份，并提供了目标合并消息的可定位引用。",
       "tool_chain_summary": "未取得可观测工具链。",
       "turns": [
         {
@@ -10492,40 +10534,121 @@
         ]
       },
       "harness": "assistant-chat-live+trace",
-      "detail_anchor": "failure-pre-AA-PRE-MSG-005",
       "review_explanation": {
         "contract": "ai_assistant.business_comparison.v1",
         "origin": "fresh_pre_execution",
         "expected": [
-          "2026年8月3日，外层合并消息由自力发送。内层孙文提出聊天框应支持结构化内容，可能使用流式ProseMirror（周报内容格式）；他查到聊天流式接口支持结构化流式事件，因此Markdown和ProseMirror都可能支持，具体选型需与公台确认，并要核实模型能否流式输出ProseMirror及聊天框是否需要结构化输出。自力追问为什么要支持周报格式，并提议拉群讨论。"
+          "总结AI多轮对话总结开发群2026年8月3日目标合并消息中的观点归属：孙文提出结构化内容及流式ProseMirror方案，查证接口支持结构化流式事件后认为Markdown和ProseMirror都可能可行，需与公台确认，并核实模型输出能力和聊天框结构化输出的必要性；自力追问为何支持周报格式并提议拉群，且是外层转发者。"
         ],
         "actual": [
-          "原请求已确认服务端生成失败，未完成回答。"
+          "回答分别说明了孙文的初始格式判断、接口查证、两种格式的可行性、与公台确认及两个判断点，还提到产品描述不足；将需求追问、拉群建议和外层转发身份归于自力。两部分均引用widget:msg:sg_753029280:2:T112053RE。"
         ],
         "difference": [
-          "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。"
+          "无实质差异。主要观点、发言人和外层转发身份均与独立回读一致，引用可定位到目标合并消息。"
         ],
-        "why": "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
-        "turn_comparisons": [],
-        "evidence_assessment": {}
+        "why": "通过，回答准确区分了孙文关于Markdown、ProseMirror和结构化流式输出的观点，以及自力的需求追问、拉群建议与外层转发身份，并提供了目标合并消息的可定位引用。",
+        "turn_comparisons": [
+          {
+            "step": 2,
+            "status": "pass",
+            "reason": "已按内层发言人完整归纳目标讨论，没有将孙文的观点误归给外层转发者自力，也没有混入同群其他讨论。",
+            "evidence_refs": [
+              "turns[step=2].answer",
+              "turns[step=2].source_gold.facts.groups.sg_753029280.messages[seq=2]",
+              "current_source_evidence.case_specific_gold（outer_seq=2，outer_sender=自力，inner_messages共7条）",
+              "current_source_evidence.exact_request_receipts[0].group_tools[name=group_message_search].windows",
+              "turn_time_basis[step=2]"
+            ],
+            "comparison": {
+              "expected": "总结AI多轮对话总结开发群2026年8月3日目标合并消息中的观点归属：孙文提出结构化内容及流式ProseMirror方案，查证接口支持结构化流式事件后认为Markdown和ProseMirror都可能可行，需与公台确认，并核实模型输出能力和聊天框结构化输出的必要性；自力追问为何支持周报格式并提议拉群，且是外层转发者。",
+              "actual": "回答分别说明了孙文的初始格式判断、接口查证、两种格式的可行性、与公台确认及两个判断点，还提到产品描述不足；将需求追问、拉群建议和外层转发身份归于自力。两部分均引用widget:msg:sg_753029280:2:T112053RE。",
+              "difference": "无实质差异。主要观点、发言人和外层转发身份均与独立回读一致，引用可定位到目标合并消息。"
+            }
+          }
+        ],
+        "evidence_assessment": {
+          "sufficient": true,
+          "reason": "当前追问人安柔在T112053RE租户下的认证回读确认了目标外层消息，case_specific_gold补充了同一完整来源中的7条内层对话，足以核验观点及发言人。原请求认证回执确认实际检索窗口为2026年8月1日至9月1日，符合用户指定的历史月份；目标消息早于本轮2026年11月16日的提问时点。回答未截断，消息引用与独立来源中的群和序号一致。"
+        }
       },
-      "execution_source": "2026-11-13 PRE 全量（不含日程创建）",
-      "execution_stage": "pre_full_noncalendar_live",
-      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-PRE-MSG-005/live_evidence.json",
+      "execution_source": "2026-11-16 PRE 补跑",
+      "execution_stage": "pre_missing_result_recovery",
+      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/missing-results-run-3/cases/AA-PRE-MSG-005/live_evidence.json",
       "judge_configuration": {
-        "model": "not_called",
-        "prompt_version": null,
+        "model": "gpt-6.1-sol",
+        "prompt_version": "ai-assistant-business-review-v17-question-scoped-group-range",
         "stats": null,
-        "business_requests_retried": null
+        "business_requests_retried": null,
+        "reasoning_effort": "max"
       },
-      "judge_attempts": 0,
-      "judge_attempt_outcomes": [],
-      "source_failure_categories": [
-        "执行失败"
+      "judge_attempts": 1,
+      "judge_attempt_outcomes": [
+        {
+          "attempt": 1,
+          "status": "valid"
+        }
       ],
-      "primary_failure_category": "执行失败",
+      "source_failure_categories": [],
+      "primary_failure_category": null,
       "unstable": false,
-      "failure_data_domain": "消息"
+      "failure_data_domain": "消息",
+      "rejudge_history": [
+        {
+          "type": "automatic_evidence_repair",
+          "at": "2026-11-16T06:56:04.744709+00:00",
+          "previous": {
+            "status": "fail",
+            "kind": "execution_failure",
+            "reason": "失败，第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
+            "failure_categories": [
+              "执行失败"
+            ],
+            "source_failure_categories": [
+              "执行失败"
+            ],
+            "review_explanation": {
+              "contract": "ai_assistant.business_comparison.v1",
+              "origin": "fresh_pre_execution",
+              "expected": [
+                "2026年8月3日，外层合并消息由自力发送。内层孙文提出聊天框应支持结构化内容，可能使用流式ProseMirror（周报内容格式）；他查到聊天流式接口支持结构化流式事件，因此Markdown和ProseMirror都可能支持，具体选型需与公台确认，并要核实模型能否流式输出ProseMirror及聊天框是否需要结构化输出。自力追问为什么要支持周报格式，并提议拉群讨论。"
+              ],
+              "actual": [
+                "原请求已确认服务端生成失败，未完成回答。"
+              ],
+              "difference": [
+                "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。"
+              ],
+              "why": "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
+              "turn_comparisons": [],
+              "evidence_assessment": {}
+            },
+            "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-PRE-MSG-005/live_evidence.json",
+            "review_observation": null
+          },
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/repaired-results-judge-2/cases/AA-PRE-MSG-005.json",
+          "business_request_resent": true
+        }
+      ],
+      "evaluation_detail_reason": "通过，回答准确区分了孙文关于Markdown、ProseMirror和结构化流式输出的观点，以及自力的需求追问、拉群建议与外层转发身份，并提供了目标合并消息的可定位引用。",
+      "turn_verdicts": [
+        {
+          "step": 2,
+          "status": "pass",
+          "reason": "已按内层发言人完整归纳目标讨论，没有将孙文的观点误归给外层转发者自力，也没有混入同群其他讨论。",
+          "evidence_refs": [
+            "turns[step=2].answer",
+            "turns[step=2].source_gold.facts.groups.sg_753029280.messages[seq=2]",
+            "current_source_evidence.case_specific_gold（outer_seq=2，outer_sender=自力，inner_messages共7条）",
+            "current_source_evidence.exact_request_receipts[0].group_tools[name=group_message_search].windows",
+            "turn_time_basis[step=2]"
+          ],
+          "comparison": {
+            "expected": "总结AI多轮对话总结开发群2026年8月3日目标合并消息中的观点归属：孙文提出结构化内容及流式ProseMirror方案，查证接口支持结构化流式事件后认为Markdown和ProseMirror都可能可行，需与公台确认，并核实模型输出能力和聊天框结构化输出的必要性；自力追问为何支持周报格式并提议拉群，且是外层转发者。",
+            "actual": "回答分别说明了孙文的初始格式判断、接口查证、两种格式的可行性、与公台确认及两个判断点，还提到产品描述不足；将需求追问、拉群建议和外层转发身份归于自力。两部分均引用widget:msg:sg_753029280:2:T112053RE。",
+            "difference": "无实质差异。主要观点、发言人和外层转发身份均与独立回读一致，引用可定位到目标合并消息。"
+          }
+        }
+      ]
     },
     {
       "asker": "安柔",
@@ -16532,9 +16655,9 @@
       "scenario": "个人工作安排：跨项目待办与信息缺口",
       "gate_class": "quality",
       "priority": "P0",
-      "status": "skip",
-      "kind": "evidence_insufficient",
-      "reason": "待复核，回答列出的3项任务、项目归属、执行人与未设截止时间均能核对，但证据缺少任务 priority=0 的枚举含义，尚不能确认三项均写为“中优先级”是否正确。",
+      "status": "pass",
+      "kind": "business_review",
+      "reason": "通过，限定三个项目内符合条件的未完成任务去重后确为3项，所列任务、所属项目、执行人、优先级及未设截止时间均准确，并说明了现有信息不足以确定先后顺序的依据。",
       "review_reuse": null,
       "review_observation": {
         "basis": "96d74100eeafdf0294effdb304b92147884a7fc90c6e6e2391fc3ed2ca04a347",
@@ -16553,51 +16676,51 @@
       "categories": [],
       "title": "我今天先跟进什么？只看“PRE项目创建人专项”“PRE项目管理员专项”“PRE项目执行人专项”这三个项目里由我创建或执行的未完成任务，去重后列出任务、所属项目、执行人、优先级、截止时间，说明先做什么的依据。",
       "ability": "业务综合问答",
-      "task_completion_rate": null,
+      "task_completion_rate": 100,
       "operational_review": {},
       "planning_review": {},
       "trace_status": "内部工具链已采集；权限/引用仍未观测",
       "trace_runs": 1,
-      "business_reason": "待复核，回答列出的3项任务、项目归属、执行人与未设截止时间均能核对，但证据缺少任务 priority=0 的枚举含义，尚不能确认三项均写为“中优先级”是否正确。",
+      "business_reason": "通过，限定三个项目内符合条件的未完成任务去重后确为3项，所列任务、所属项目、执行人、优先级及未设截止时间均准确，并说明了现有信息不足以确定先后顺序的依据。",
       "review_explanation": {
         "contract": "ai_assistant.business_comparison.v1",
         "origin": "fresh_pre_execution",
         "expected": [
-          "限定三个指定项目，按当前用户创建或执行的未完成任务取并集并去重，列出PRE创建项目内其他任务、PRE管理项目内其他任务、PRE执行项目内其他任务，共3项，以及各自所属项目、执行人、准确优先级和截止时间。三项执行人均为智本测试_安柔，截止时间均未设置；跟进建议应区分事实与建议，无法确定先后时可如实说明。"
+          "仅统计三个指定项目内由当前用户创建或执行的未完成任务，按任务去重后共3项：PRE创建项目内其他任务、PRE管理项目内其他任务、PRE执行项目内其他任务，分别属于对应的创建人、管理员、执行人专项项目；执行人均为智本测试_安柔，优先级均为中，截止时间均未设置，并据可核验信息说明今天先跟进什么。"
         ],
         "actual": [
-          "回答完整列出上述3项任务及正确项目归属，执行人均写为智本测试_安柔，优先级均写为“中”，截止时间均写为“未设置”，并提供对应任务widget引用；说明三项均待启动、现有优先级与期限不足以确定先后，建议今天任选一项启动。"
+          "完整列出上述3项任务及其对应项目，执行人均填写智本测试_安柔，优先级均填写中，截止时间均填写未设置，并提供对应任务引用；说明三项均待启动、没有明确先后之分，建议任选一项启动，现有优先级和期限信息不足以支持更具体排序。"
         ],
         "difference": [
-          "未发现已证实的漏项、重复计数或项目、执行人、状态、期限错误，也不应仅因没有强行排序而判失败。唯一关键未核实项是priority=0是否对应“中”：现有独立数据缺少该枚举，本轮任务工具完整明细也未展示，因而无法确认优先级字段及其排序依据是否正确，需要补证后再判。"
+          "无实质差异；“待启动”与来源中的“未开始”语义一致，未把项目状态当作任务状态，也未把没有截止时间的任务认定为今天到期或已逾期。"
         ],
-        "why": "待复核，回答列出的3项任务、项目归属、执行人与未设截止时间均能核对，但证据缺少任务 priority=0 的枚举含义，尚不能确认三项均写为“中优先级”是否正确。",
+        "why": "通过，限定三个项目内符合条件的未完成任务去重后确为3项，所列任务、所属项目、执行人、优先级及未设截止时间均准确，并说明了现有信息不足以确定先后顺序的依据。",
         "turn_comparisons": [
           {
             "step": 2,
-            "status": "skip",
-            "reason": "本轮任务集合和已核实字段与独立回读一致，排序依据也未虚构紧急程度；但用户明确询问的优先级缺少枚举核验，暂不能判定整轮通过。",
+            "status": "pass",
+            "reason": "准确返回全部3项去重后的未完成任务及用户要求的字段；以三项同为中优先级、均无截止时间解释无法确定先后，并将任选一项启动表述为建议，未编造紧急程度或到期日期。",
             "evidence_refs": [
-              "turn_time_basis[step=2].asked_at_local",
-              "turns[step=2].actor",
+              "turn_time_basis[step=2]",
+              "turns[step=2].answer",
+              "turns[step=2].source_gold.actor",
               "turns[step=2].source_gold.facts.complete_trees",
               "turns[step=2].source_gold.facts.task_details",
               "turns[step=2].source_gold.facts.task_status_contract",
               "turns[step=2].source_gold.facts.task_member_role_contract",
-              "turns[step=2].source_gold.facts.project_details.pro_3914224247.endTime",
-              "trace.runs[run_id=bar_1bc0e3220123412f826cf9ccc78eac45].tools[seq=64].result_preview",
-              "turns[step=2].answer"
+              "current_source_evidence.case_specific_gold.priority_enum",
+              "trace.runs[turn_step=2].tools[seq=44,49,54,59,64]"
             ],
             "comparison": {
-              "expected": "限定三个指定项目，按当前用户创建或执行的未完成任务取并集并去重，列出PRE创建项目内其他任务、PRE管理项目内其他任务、PRE执行项目内其他任务，共3项，以及各自所属项目、执行人、准确优先级和截止时间。三项执行人均为智本测试_安柔，截止时间均未设置；跟进建议应区分事实与建议，无法确定先后时可如实说明。",
-              "actual": "回答完整列出上述3项任务及正确项目归属，执行人均写为智本测试_安柔，优先级均写为“中”，截止时间均写为“未设置”，并提供对应任务widget引用；说明三项均待启动、现有优先级与期限不足以确定先后，建议今天任选一项启动。",
-              "difference": "未发现已证实的漏项、重复计数或项目、执行人、状态、期限错误，也不应仅因没有强行排序而判失败。唯一关键未核实项是priority=0是否对应“中”：现有独立数据缺少该枚举，本轮任务工具完整明细也未展示，因而无法确认优先级字段及其排序依据是否正确，需要补证后再判。"
+              "expected": "仅统计三个指定项目内由当前用户创建或执行的未完成任务，按任务去重后共3项：PRE创建项目内其他任务、PRE管理项目内其他任务、PRE执行项目内其他任务，分别属于对应的创建人、管理员、执行人专项项目；执行人均为智本测试_安柔，优先级均为中，截止时间均未设置，并据可核验信息说明今天先跟进什么。",
+              "actual": "完整列出上述3项任务及其对应项目，执行人均填写智本测试_安柔，优先级均填写中，截止时间均填写未设置，并提供对应任务引用；说明三项均待启动、没有明确先后之分，建议任选一项启动，现有优先级和期限信息不足以支持更具体排序。",
+              "difference": "无实质差异；“待启动”与来源中的“未开始”语义一致，未把项目状态当作任务状态，也未把没有截止时间的任务认定为今天到期或已逾期。"
             }
           }
         ],
         "evidence_assessment": {
-          "sufficient": false,
-          "reason": "提问时间为2026-11-13 17:52:27（东京），此前同一认证用户的独立回读已完整读取三个指定项目，每项目各1条任务；三条任务的status均为1，对应未开始，创建人与执行人均为当前用户，end_time均为null，因此名单、数量、去重、执行人与任务期限可核实。三条任务的priority原值均为0，但材料只提供了任务状态和成员角色枚举，未提供优先级枚举；本轮task_ask（seq=64）的结果摘要在locators部分截断，也未展示可交叉核验的优先级字段。需补充已验证的任务优先级枚举及相应原始结果，不能据此认定助手答错或未查询。PRE项目执行人专项自身的原始endTime=2146662000000（东京2038-01-10 00:00）属于长期项目日期，不是子任务截止时间；回答未将其套用到任务上。"
+          "sufficient": true,
+          "reason": "本轮提问时间为2026-11-13 17:52:27（东京时间）；此前同一认证账号的独立回读已完整递归读取三个指定项目，每个项目各有1项任务。成员角色枚举证明三项任务均由当前用户创建并执行，status=1表示未开始，end_time均为null；当次优先级契约确认0表示中优先级。任务引用与独立回读逐项一致。Trace中一次参数校验失败后已成功重查，不影响结果。PRE项目执行人专项自身的原始结束时间为2146662000000，即2038-01-10 00:00（东京时间），属于超过本轮提问时刻10年的长期日期，不是这些任务的截止时间，回答未将其混用。"
         }
       },
       "execution_source": "2026-11-13 PRE 全量（不含日程创建）",
@@ -16685,29 +16808,91 @@
             }
           ],
           "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-PRE-REAL-001/live_evidence.json"
+        },
+        {
+          "type": "automatic_evidence_repair",
+          "at": "2026-11-16T06:57:09.551146+00:00",
+          "previous": {
+            "status": "skip",
+            "kind": "evidence_insufficient",
+            "reason": "待复核，回答列出的3项任务、项目归属、执行人与未设截止时间均能核对，但证据缺少任务 priority=0 的枚举含义，尚不能确认三项均写为“中优先级”是否正确。",
+            "failure_categories": [],
+            "source_failure_categories": [],
+            "review_explanation": {
+              "contract": "ai_assistant.business_comparison.v1",
+              "origin": "fresh_pre_execution",
+              "expected": [
+                "限定三个指定项目，按当前用户创建或执行的未完成任务取并集并去重，列出PRE创建项目内其他任务、PRE管理项目内其他任务、PRE执行项目内其他任务，共3项，以及各自所属项目、执行人、准确优先级和截止时间。三项执行人均为智本测试_安柔，截止时间均未设置；跟进建议应区分事实与建议，无法确定先后时可如实说明。"
+              ],
+              "actual": [
+                "回答完整列出上述3项任务及正确项目归属，执行人均写为智本测试_安柔，优先级均写为“中”，截止时间均写为“未设置”，并提供对应任务widget引用；说明三项均待启动、现有优先级与期限不足以确定先后，建议今天任选一项启动。"
+              ],
+              "difference": [
+                "未发现已证实的漏项、重复计数或项目、执行人、状态、期限错误，也不应仅因没有强行排序而判失败。唯一关键未核实项是priority=0是否对应“中”：现有独立数据缺少该枚举，本轮任务工具完整明细也未展示，因而无法确认优先级字段及其排序依据是否正确，需要补证后再判。"
+              ],
+              "why": "待复核，回答列出的3项任务、项目归属、执行人与未设截止时间均能核对，但证据缺少任务 priority=0 的枚举含义，尚不能确认三项均写为“中优先级”是否正确。",
+              "turn_comparisons": [
+                {
+                  "step": 2,
+                  "status": "skip",
+                  "reason": "本轮任务集合和已核实字段与独立回读一致，排序依据也未虚构紧急程度；但用户明确询问的优先级缺少枚举核验，暂不能判定整轮通过。",
+                  "evidence_refs": [
+                    "turn_time_basis[step=2].asked_at_local",
+                    "turns[step=2].actor",
+                    "turns[step=2].source_gold.facts.complete_trees",
+                    "turns[step=2].source_gold.facts.task_details",
+                    "turns[step=2].source_gold.facts.task_status_contract",
+                    "turns[step=2].source_gold.facts.task_member_role_contract",
+                    "turns[step=2].source_gold.facts.project_details.pro_3914224247.endTime",
+                    "trace.runs[run_id=bar_1bc0e3220123412f826cf9ccc78eac45].tools[seq=64].result_preview",
+                    "turns[step=2].answer"
+                  ],
+                  "comparison": {
+                    "expected": "限定三个指定项目，按当前用户创建或执行的未完成任务取并集并去重，列出PRE创建项目内其他任务、PRE管理项目内其他任务、PRE执行项目内其他任务，共3项，以及各自所属项目、执行人、准确优先级和截止时间。三项执行人均为智本测试_安柔，截止时间均未设置；跟进建议应区分事实与建议，无法确定先后时可如实说明。",
+                    "actual": "回答完整列出上述3项任务及正确项目归属，执行人均写为智本测试_安柔，优先级均写为“中”，截止时间均写为“未设置”，并提供对应任务widget引用；说明三项均待启动、现有优先级与期限不足以确定先后，建议今天任选一项启动。",
+                    "difference": "未发现已证实的漏项、重复计数或项目、执行人、状态、期限错误，也不应仅因没有强行排序而判失败。唯一关键未核实项是priority=0是否对应“中”：现有独立数据缺少该枚举，本轮任务工具完整明细也未展示，因而无法确认优先级字段及其排序依据是否正确，需要补证后再判。"
+                  }
+                }
+              ],
+              "evidence_assessment": {
+                "sufficient": false,
+                "reason": "提问时间为2026-11-13 17:52:27（东京），此前同一认证用户的独立回读已完整读取三个指定项目，每项目各1条任务；三条任务的status均为1，对应未开始，创建人与执行人均为当前用户，end_time均为null，因此名单、数量、去重、执行人与任务期限可核实。三条任务的priority原值均为0，但材料只提供了任务状态和成员角色枚举，未提供优先级枚举；本轮task_ask（seq=64）的结果摘要在locators部分截断，也未展示可交叉核验的优先级字段。需补充已验证的任务优先级枚举及相应原始结果，不能据此认定助手答错或未查询。PRE项目执行人专项自身的原始endTime=2146662000000（东京2038-01-10 00:00）属于长期项目日期，不是子任务截止时间；回答未将其套用到任务上。"
+              }
+            },
+            "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-PRE-REAL-001/live_evidence.json",
+            "review_observation": {
+              "basis": "96d74100eeafdf0294effdb304b92147884a7fc90c6e6e2391fc3ed2ca04a347",
+              "result": "ace15f19d0a0ed0a5c10538a11c6ee73123983c40755d73eb6aeb8725e835987",
+              "requests": [
+                "18d3c8fd-1db2-4c49-81e3-ea5a83816ecc"
+              ]
+            }
+          },
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/repaired-results-judge-2/cases/AA-PRE-REAL-001.json",
+          "business_request_resent": false
         }
       ],
-      "evaluation_detail_reason": "待复核，回答列出的3项任务、项目归属、执行人与未设截止时间均能核对，但证据缺少任务 priority=0 的枚举含义，尚不能确认三项均写为“中优先级”是否正确。",
+      "evaluation_detail_reason": "通过，限定三个项目内符合条件的未完成任务去重后确为3项，所列任务、所属项目、执行人、优先级及未设截止时间均准确，并说明了现有信息不足以确定先后顺序的依据。",
       "turn_verdicts": [
         {
           "step": 2,
-          "status": "skip",
-          "reason": "本轮任务集合和已核实字段与独立回读一致，排序依据也未虚构紧急程度；但用户明确询问的优先级缺少枚举核验，暂不能判定整轮通过。",
+          "status": "pass",
+          "reason": "准确返回全部3项去重后的未完成任务及用户要求的字段；以三项同为中优先级、均无截止时间解释无法确定先后，并将任选一项启动表述为建议，未编造紧急程度或到期日期。",
           "evidence_refs": [
-            "turn_time_basis[step=2].asked_at_local",
-            "turns[step=2].actor",
+            "turn_time_basis[step=2]",
+            "turns[step=2].answer",
+            "turns[step=2].source_gold.actor",
             "turns[step=2].source_gold.facts.complete_trees",
             "turns[step=2].source_gold.facts.task_details",
             "turns[step=2].source_gold.facts.task_status_contract",
             "turns[step=2].source_gold.facts.task_member_role_contract",
-            "turns[step=2].source_gold.facts.project_details.pro_3914224247.endTime",
-            "trace.runs[run_id=bar_1bc0e3220123412f826cf9ccc78eac45].tools[seq=64].result_preview",
-            "turns[step=2].answer"
+            "current_source_evidence.case_specific_gold.priority_enum",
+            "trace.runs[turn_step=2].tools[seq=44,49,54,59,64]"
           ],
           "comparison": {
-            "expected": "限定三个指定项目，按当前用户创建或执行的未完成任务取并集并去重，列出PRE创建项目内其他任务、PRE管理项目内其他任务、PRE执行项目内其他任务，共3项，以及各自所属项目、执行人、准确优先级和截止时间。三项执行人均为智本测试_安柔，截止时间均未设置；跟进建议应区分事实与建议，无法确定先后时可如实说明。",
-            "actual": "回答完整列出上述3项任务及正确项目归属，执行人均写为智本测试_安柔，优先级均写为“中”，截止时间均写为“未设置”，并提供对应任务widget引用；说明三项均待启动、现有优先级与期限不足以确定先后，建议今天任选一项启动。",
-            "difference": "未发现已证实的漏项、重复计数或项目、执行人、状态、期限错误，也不应仅因没有强行排序而判失败。唯一关键未核实项是priority=0是否对应“中”：现有独立数据缺少该枚举，本轮任务工具完整明细也未展示，因而无法确认优先级字段及其排序依据是否正确，需要补证后再判。"
+            "expected": "仅统计三个指定项目内由当前用户创建或执行的未完成任务，按任务去重后共3项：PRE创建项目内其他任务、PRE管理项目内其他任务、PRE执行项目内其他任务，分别属于对应的创建人、管理员、执行人专项项目；执行人均为智本测试_安柔，优先级均为中，截止时间均未设置，并据可核验信息说明今天先跟进什么。",
+            "actual": "完整列出上述3项任务及其对应项目，执行人均填写智本测试_安柔，优先级均填写中，截止时间均填写未设置，并提供对应任务引用；说明三项均待启动、没有明确先后之分，建议任选一项启动，现有优先级和期限信息不足以支持更具体排序。",
+            "difference": "无实质差异；“待启动”与来源中的“未开始”语义一致，未把项目状态当作任务状态，也未把没有截止时间的任务认定为今天到期或已逾期。"
           }
         }
       ]
@@ -16938,64 +17123,158 @@
       "scenario": "持续追问：行动清单缩小范围再核对后续进展",
       "gate_class": "quality",
       "priority": "P0",
-      "status": "skip",
-      "kind": "evidence_insufficient",
-      "reason": "待复核，问答轮次不完整或重复，需要补齐每一轮的实际结果。",
+      "status": "fail",
+      "kind": "business_review",
+      "reason": "失败，状态分类轮漏掉了9月11日晨会明确说明的“空间数据仍在开发、预计次日准备好”，反而称没有明确的进行中事项，未覆盖此前已列出的重要空间调试供数计划。",
       "review_reuse": null,
-      "review_observation": null,
-      "failure_categories": [],
-      "confidence": "low",
+      "review_observation": {
+        "basis": "c99e61032d4b46af51b743f24349729eeeda0aea169ff876d4643c76b9c55a1b",
+        "result": "0d3b116b1937c4eb5a9d73d3e94c713add93034348027ff0246e26a78623b063",
+        "requests": [
+          "285fc526-e50c-4f7b-bbfa-c34d3a59eeb3",
+          "4f2ca844-9554-4432-8ba1-d3460e5e0e84",
+          "9ff5ff80-1ed5-4c14-9f3b-0cdf3bc92bbe",
+          "dd66514c-f9de-4212-afbc-a8e49e607a48"
+        ]
+      },
+      "failure_categories": [
+        "数据缺失"
+      ],
+      "confidence": "high",
       "latency_ms": 334728,
       "model": "未观测",
       "prompt_version": "未观测",
       "automatic_status": "skip",
       "automatic_reason": "问答轮次不完整或重复，需要补齐每一轮的实际结果。",
-      "categories": [],
+      "categories": [
+        "数据缺失"
+      ],
       "title": "先根据AI助手研发群2026年9月8日向量数据链路会议，列出数据准备和权限相关的待办及负责人。",
       "ability": "多轮业务连续追问",
-      "task_completion_rate": null,
+      "task_completion_rate": 0,
       "operational_review": {},
       "planning_review": {},
       "trace_status": "部分可观测",
       "trace_runs": 0,
-      "business_reason": "问答轮次不完整或重复，需要补齐每一轮的实际结果。",
+      "business_reason": "失败，状态分类轮漏掉了9月11日晨会明确说明的“空间数据仍在开发、预计次日准备好”，反而称没有明确的进行中事项，未覆盖此前已列出的重要空间调试供数计划。",
       "review_explanation": {
         "contract": "ai_assistant.business_comparison.v1",
         "origin": "fresh_pre_execution",
         "expected": [
-          "第1轮：覆盖孙文、进华、公台各自的数据同步、解密验证和权限待办；以9月8日纪要为历史范围。\n第2轮：继承同一会议，负责人过滤为孙文；区分直接写明15号前的数据写入计划与对接口、扫库、增量同步的待确认计划。不得把进华或公台的任务转给孙文。\n第3轮：虚拟数据联调及群聊增量写入已有完成证据；空间数据仍在开发，预计明天准备好属于计划。历史群聊仅部分指定群聊，不能认定全量历史群聊均已写入。；9月11日纪要未逐一确认接口/扫库风险/二期权限等负责人事项，相关项应保留证据不足，不能把总体进展自动归到每个人。\n第4轮：结论应为证据不足以确认全部完成或按原范围验收；说明已完成的范围和待确认的空间数据、历史范围及个别行动项。；保持截至9月11日所引消息的证据边界，答复是草稿，不声称已发送。无需重抄首轮完整行动列表。"
+          "依据2026年9月8日向量数据链路会议，列出数据准备和权限相关待办及负责人，包括孙文的数据获取、同步、历史写入、二期权限设计和业务接口后验，进华的Binlog订阅及KMS解密验证，以及公台的周报权限流程整合和检索过滤优化。",
+          "继承9月8日会议，筛选孙文负责且与15号预发布有关的事项，区分明确写有15号前要求的历史群聊写入，与接口研究、扫库风险评估、先增量后补历史及调试供数等计划；不能转移进华或公台的责任。",
+          "结合9月11日晨会分类此前相关事项：真实群聊增量写入已完成；空间数据仍在开发，预计9月12日准备好仅是计划；历史群聊预计仅覆盖部分指定群，不能认定全量历史写入完成；接口及扫库安全评估没有逐项完成证据。虚拟数据联调已完成可作为联调层面的证据，但不能直接证明孙文的真实历史供数任务已完成。",
+          "根据已经讨论的9月8日会议和9月11日晨会，给出一段有来源支持的答复，说明不能确认孙文全部完成、不能直接按原全量范围验收，区分已完成事实与尚待确认的交付或行动项，不声称已经发送答复。"
         ],
         "actual": [
-          "根据 9 月 8 日会议纪要，数据准备与权限相关待办如下；这是**会议上的分工和计划**，不代表当前完成状态。\n\n## 数据准备与同步\n\n- **孙文：准备历史数据。**计划在 9 月 15 日预发布部署前，将技术群、产品群等群聊历史数据全量写入向量数据库；会议也提出可先写入一两个群或重要空间的部分数据，供公台调试。`widget:msg:sg_3981594831:50:T112053RE`\n- **孙文：确定全量数据获取方式并完成同步。**研究 IM 服务能否按租户 ID 查询所有会话 ID；确认扫库获取全量数据的可行性并评估安全风险；先完成增量同步，再补历史全量数据。`widget:msg:sg_3981594831:50:T112053RE`\n- **进华：验证数据获取与解密。**确认能否通过 Binlog 订阅获取空间、项目、任务数据，并验证 KMS 加密字段的解密方案；会议指出数据需要解密后才能进行向量化。`widget:msg:sg_3981594831:50:T112053RE`\n\n**时间安排存在张力：**纪要一方面列出 9 月 15 日前写入群聊历史数据，另一方面又提到先用增量数据、历史全量扫描可能要到 10 月底；团队认为 9 月 15 日直接上线可能需要调整预期，先做内部体测。`widget:msg:sg_3981594831:50:T112053RE`\n\n## 权限\n\n- **孙文：设计二期普通用户权限。**细化空间、项目、任务三级权限扩散逻辑，并与相关团队确认权限校验接口如何提供，使 Agent 可通过业务接口复核权限。`widget:msg:sg_3981594831:50:T112053RE`\n- **公台：整合并优化周报权限过滤。**将召回前圈选权限范围的流程融入 Memory Search 工具调用；评估优化现有周报助手，在向量检索时直接注入过滤条件。`widget:msg:sg_3981594831:50:T112053RE`\n\n会议确定**一期只支持高管用户，普通用户权限放在二期**。`widget:msg:sg_3981594831:50:T112053RE`",
-          "按 9 月 8 日会议记录，孙文负责、可能影响 **9 月 15 日预发布**的事项中，只有群聊历史数据写入被列出明确期限，但会议讨论中的数据范围与该期限存在冲突。`widget:msg:sg_3981594831:50:T112053RE`\n\n## 有明确期限\n\n- **群聊历史数据写入向量数据库**：后续步骤写明，孙文要在 **9 月 15 日预发布部署前**，完成技术群、产品群等群聊历史数据的全量写入。\n- **期限与讨论口径有冲突**：会议摘要同时记录，9 月 15 日版本将先使用增量数据，全量数据扫描可能到 10 月底才能完成；预发布日程本身也需要重新评估。仅凭纪要无法确定全量写入是否仍按 9 月 15 日执行。`widget:msg:sg_3981594831:50:T112053RE`\n\n## 只是计划，未列明确期限\n\n- **先完成增量同步，再补历史全量数据**：顺序已列出，但未为增量同步单独设定完成日期。\n- **准备部分调试数据**：孙文提出可先写入一两个群聊或重要空间的数据，供公台调试；未明确写入日期。\n- **确定全量数据获取方式**：研究按租户 ID 查询所有会话 ID 的接口能否满足需求，并确认扫库的可行性、评估安全风险；均未列明确期限。`widget:msg:sg_3981594831:50:T112053RE`\n\n二期普通用户权限设计不在这份清单中：会议确定一期只支持高管用户，普通用户权限放在二期。`widget:msg:sg_3981594831:50:T112053RE`",
-          "截至 **9 月 11 日晨会**，孙文原负责事项中，群聊数据增量写入已完成；历史数据范围有了新计划，但晨会没有说明写入进度。`widget:refs:msg:sg_3981594831:50:T112053RE|msg:sg_2658892958:61:T112053RE`\n\n## 已证实完成\n\n- **群聊数据增量写入**：晨会纪要记录，真实群聊数据的增量写入已完成。纪要没有再次点名执行人；孙文的责任归属来自 9 月 8 日会议。`widget:refs:msg:sg_3981594831:50:T112053RE|msg:sg_2658892958:61:T112053RE`\n\n## 还在进行\n\n- **历史群聊数据准备：仍处于计划阶段。**原计划在 9 月 15 日预发布前全量写入技术群、产品群等群聊历史数据；9 月 11 日晨会预计，内测的历史群聊数据将**只包括部分指定群聊，而非全部历史数据**。晨会没有说明这些历史数据是否已开始或完成写入。`widget:refs:msg:sg_3981594831:50:T112053RE|msg:sg_2658892958:61:T112053RE`\n\n## 没有后续证据\n\n9 月 11 日晨会没有提及以下事项的具体进展：\n\n- **先写入一两个群聊或重要空间的数据供公台调试**：未说明是否已提供调试数据。\n- **研究按租户 ID 获取所有会话 ID**：未说明接口是否可行。\n- **评估扫库获取全量数据的可行性及安全风险**：未给出评估结果。`widget:refs:msg:sg_3981594831:50:T112053RE|msg:sg_2658892958:61:T112053RE`"
+          "按数据准备、权限相关两类列出上述事项，以负责人提及组件和会议消息引用定位；同时提醒9月15日、10月底及体测安排之间存在需要确认的计划口径。",
+          "将历史群聊全量写入列为有明确期限，同时保留同一纪要中先用增量、全量扫描可能到10月底的冲突；其余相关事项列为计划或待研究、未明确完成期限。",
+          "已完成类只列真实群聊增量写入；进行中类称没有明确记录，并转而说明历史群聊预计只覆盖部分指定群；无后续证据类列出历史全量写入、部分数据供调试以及接口和扫库评估。未说明空间数据开发状态，也未呈现虚拟数据联调完成的背景证据。",
+          "明确回答不能作出该承诺，指出真实群聊增量写入已完成，历史全量写入没有完成证据，预计历史范围仅为部分指定群，调试供数和接口、扫库评估结果仍需确认，并引用两条目标纪要。"
         ],
         "difference": [
-          "问答轮次不完整或重复，需要补齐每一轮的实际结果。"
+          "相近待办被合并表达，但没有遗漏关键行动或改变负责人；未把历史计划表述成已经完成，符合本轮要求。",
+          "没有把可能到10月底的估计写成硬性承诺，也没有把进华或公台的待办转给孙文。公台仅作为调试数据接收方出现，不构成负责人错配。",
+          "上一轮已纳入重要空间数据供调试计划，而晨会明确说明空间数据仍在开发、预计次日准备好，回答却没有报告这一相关依赖的进行中状态。不能因晨会没有逐人确认负责人，就省略已明确披露的空间数据进展；应保留项目级状态与个人交付证明之间的区别。这使用户要求的三类状态判断缺少关键内容。",
+          "否定结论已有直接、充分的来源支撑，且明确限定截至9月11日晨会，没有把计划当完成或声称已发送。本轮没有重列空间数据等全部状态，但用户此轮要求的是一段有依据的答复，不因未逐项重述再判失败；第4步的具体漏答仍独立保留。"
         ],
-        "why": "问答轮次不完整或重复，需要补齐每一轮的实际结果。",
-        "turn_comparisons": [],
+        "why": "失败，状态分类轮漏掉了9月11日晨会明确说明的“空间数据仍在开发、预计次日准备好”，反而称没有明确的进行中事项，未覆盖此前已列出的重要空间调试供数计划。",
+        "turn_comparisons": [
+          {
+            "step": 2,
+            "status": "pass",
+            "reason": "覆盖了孙文、进华、公台的数据准备及权限待办，负责人归属正确，并明确这些是9月8日会议安排而非完成结果。",
+            "evidence_refs": [
+              "turns[step=2].answer",
+              "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=50]，消息ID：2137b37e1531ab7c9f863dd55dee5b52",
+              "trace.runs[turn_step=2].tools：material_ask及scratchpad_read返回的消息、负责人定位",
+              "current_source_evidence.exact_request_receipts[turn_step=2]"
+            ],
+            "comparison": {
+              "expected": "依据2026年9月8日向量数据链路会议，列出数据准备和权限相关待办及负责人，包括孙文的数据获取、同步、历史写入、二期权限设计和业务接口后验，进华的Binlog订阅及KMS解密验证，以及公台的周报权限流程整合和检索过滤优化。",
+              "actual": "按数据准备、权限相关两类列出上述事项，以负责人提及组件和会议消息引用定位；同时提醒9月15日、10月底及体测安排之间存在需要确认的计划口径。",
+              "difference": "相近待办被合并表达，但没有遗漏关键行动或改变负责人；未把历史计划表述成已经完成，符合本轮要求。"
+            }
+          },
+          {
+            "step": 3,
+            "status": "pass",
+            "reason": "正确保留孙文相关的数据交付事项，区分了9月15日前历史数据写入这一明确时间要求与未明确期限的同步、调试供数、接口及扫库评估计划。",
+            "evidence_refs": [
+              "turns[step=3].answer",
+              "turns[step=3].source_gold.facts.groups.sg_3981594831.message_delta：与step=2目标内容一致",
+              "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=50]",
+              "trace.runs[turn_step=3].tools：group_message_lookup，call_5f087ab5543a4d289285558921b88ada"
+            ],
+            "comparison": {
+              "expected": "继承9月8日会议，筛选孙文负责且与15号预发布有关的事项，区分明确写有15号前要求的历史群聊写入，与接口研究、扫库风险评估、先增量后补历史及调试供数等计划；不能转移进华或公台的责任。",
+              "actual": "将历史群聊全量写入列为有明确期限，同时保留同一纪要中先用增量、全量扫描可能到10月底的冲突；其余相关事项列为计划或待研究、未明确完成期限。",
+              "difference": "没有把可能到10月底的估计写成硬性承诺，也没有把进华或公台的待办转给孙文。公台仅作为调试数据接收方出现，不构成负责人错配。"
+            }
+          },
+          {
+            "step": 4,
+            "status": "fail",
+            "reason": "遗漏空间数据仍在开发及预计次日准备好的明确进展，导致“还在进行”类别没有覆盖此前列出的重要空间供数事项。",
+            "evidence_refs": [
+              "turns[step=3].answer：“供调试的数据”包含重要空间的部分数据",
+              "turns[step=4].answer：“晨会没有明确记录上述事项中哪一项正在进行”",
+              "turns[step=2].source_gold.facts.groups.sg_2658892958.messages[seq=61]，消息ID：a8da46922cb64d37c3b3debfe361938c",
+              "turns[step=4].source_gold.facts.groups.sg_2658892958.message_delta：目标消息与此前回读一致",
+              "current_source_evidence.exact_request_receipts[turn_step=4]：9月11日指定日期检索命中目标晨会消息"
+            ],
+            "comparison": {
+              "expected": "结合9月11日晨会分类此前相关事项：真实群聊增量写入已完成；空间数据仍在开发，预计9月12日准备好仅是计划；历史群聊预计仅覆盖部分指定群，不能认定全量历史写入完成；接口及扫库安全评估没有逐项完成证据。虚拟数据联调已完成可作为联调层面的证据，但不能直接证明孙文的真实历史供数任务已完成。",
+              "actual": "已完成类只列真实群聊增量写入；进行中类称没有明确记录，并转而说明历史群聊预计只覆盖部分指定群；无后续证据类列出历史全量写入、部分数据供调试以及接口和扫库评估。未说明空间数据开发状态，也未呈现虚拟数据联调完成的背景证据。",
+              "difference": "上一轮已纳入重要空间数据供调试计划，而晨会明确说明空间数据仍在开发、预计次日准备好，回答却没有报告这一相关依赖的进行中状态。不能因晨会没有逐人确认负责人，就省略已明确披露的空间数据进展；应保留项目级状态与个人交付证明之间的区别。这使用户要求的三类状态判断缺少关键内容。"
+            }
+          },
+          {
+            "step": 5,
+            "status": "pass",
+            "reason": "明确否定“全部完成、按原范围验收”，并以增量写入完成、历史全量缺少完成证明及接口和扫库评估未确认作为依据；该轮结论成立，但不能抵销上一轮漏分类的问题。",
+            "evidence_refs": [
+              "turns[step=5].answer",
+              "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=50]",
+              "turns[step=2].source_gold.facts.groups.sg_2658892958.messages[seq=61]",
+              "turns[step=5].source_gold.facts.groups：目标消息内容无变化",
+              "turn_time_basis[step=5]及同一会话此前历史讨论"
+            ],
+            "comparison": {
+              "expected": "根据已经讨论的9月8日会议和9月11日晨会，给出一段有来源支持的答复，说明不能确认孙文全部完成、不能直接按原全量范围验收，区分已完成事实与尚待确认的交付或行动项，不声称已经发送答复。",
+              "actual": "明确回答不能作出该承诺，指出真实群聊增量写入已完成，历史全量写入没有完成证据，预计历史范围仅为部分指定群，调试供数和接口、扫库评估结果仍需确认，并引用两条目标纪要。",
+              "difference": "否定结论已有直接、充分的来源支撑，且明确限定截至9月11日晨会，没有把计划当完成或声称已发送。本轮没有重列空间数据等全部状态，但用户此轮要求的是一段有依据的答复，不因未逐项重述再判失败；第4步的具体漏答仍独立保留。"
+            }
+          }
+        ],
         "evidence_assessment": {
-          "sufficient": false,
-          "reason": "问答轮次不完整或重复，需要补齐每一轮的实际结果。"
+          "sufficient": true,
+          "reason": "安柔当前租户的认证独立回读提供了9月8日会议和9月11日晨会两条目标消息全文，后续各轮message_delta确认目标内容未变化；认证Trace及exact_request_receipts证明检索命中了指定历史日期，四轮回答均完整。虽然研发群其他消息未全部展示，但不影响核验本例明确指定的会议事实。各轮实际提问时间为2026年11月16日，问题继承的是9月8日至9月11日的历史讨论范围，不以11月现状替换历史计划，也不额外要求通用60天窗口。现有证据足以确定分类轮的具体漏答，无须因Trace摘要局部截断改为待复核。"
         }
       },
-      "execution_source": "2026-11-13 PRE 全量（不含日程创建）",
-      "execution_stage": "pre_full_noncalendar_live",
-      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-PRE-REAL-003/live_evidence.json",
+      "execution_source": "2026-11-16 PRE 补跑",
+      "execution_stage": "pre_missing_result_recovery",
+      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/missing-results-run-3/cases/AA-PRE-REAL-003/live_evidence.json",
       "judge_configuration": {
-        "model": "not_called",
-        "prompt_version": null,
+        "model": "gpt-6.1-sol",
+        "prompt_version": "ai-assistant-business-review-v17-question-scoped-group-range",
         "stats": null,
         "business_requests_retried": null,
         "reasoning_effort": "max",
         "attempts": 0
       },
-      "judge_attempts": 0,
-      "judge_attempt_outcomes": [],
+      "judge_attempts": 1,
+      "judge_attempt_outcomes": [
+        {
+          "attempt": 1,
+          "status": "valid"
+        }
+      ],
       "execution_completed": true,
-      "source_failure_categories": [],
-      "primary_failure_category": null,
+      "source_failure_categories": [
+        "数据缺失"
+      ],
+      "primary_failure_category": "数据缺失",
       "unstable": false,
       "failure_data_domain": "消息",
       "rejudge_history": [
@@ -17029,10 +17308,114 @@
           "judge_attempts": 0,
           "judge_attempt_outcomes": [],
           "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-PRE-REAL-003/live_evidence.json"
+        },
+        {
+          "type": "automatic_evidence_repair",
+          "at": "2026-11-16T06:51:29.298386+00:00",
+          "previous": {
+            "status": "skip",
+            "kind": "evidence_insufficient",
+            "reason": "待复核，问答轮次不完整或重复，需要补齐每一轮的实际结果。",
+            "failure_categories": [],
+            "source_failure_categories": [],
+            "review_explanation": {
+              "contract": "ai_assistant.business_comparison.v1",
+              "origin": "fresh_pre_execution",
+              "expected": [
+                "第1轮：覆盖孙文、进华、公台各自的数据同步、解密验证和权限待办；以9月8日纪要为历史范围。\n第2轮：继承同一会议，负责人过滤为孙文；区分直接写明15号前的数据写入计划与对接口、扫库、增量同步的待确认计划。不得把进华或公台的任务转给孙文。\n第3轮：虚拟数据联调及群聊增量写入已有完成证据；空间数据仍在开发，预计明天准备好属于计划。历史群聊仅部分指定群聊，不能认定全量历史群聊均已写入。；9月11日纪要未逐一确认接口/扫库风险/二期权限等负责人事项，相关项应保留证据不足，不能把总体进展自动归到每个人。\n第4轮：结论应为证据不足以确认全部完成或按原范围验收；说明已完成的范围和待确认的空间数据、历史范围及个别行动项。；保持截至9月11日所引消息的证据边界，答复是草稿，不声称已发送。无需重抄首轮完整行动列表。"
+              ],
+              "actual": [
+                "根据 9 月 8 日会议纪要，数据准备与权限相关待办如下；这是**会议上的分工和计划**，不代表当前完成状态。\n\n## 数据准备与同步\n\n- **孙文：准备历史数据。**计划在 9 月 15 日预发布部署前，将技术群、产品群等群聊历史数据全量写入向量数据库；会议也提出可先写入一两个群或重要空间的部分数据，供公台调试。`widget:msg:sg_3981594831:50:T112053RE`\n- **孙文：确定全量数据获取方式并完成同步。**研究 IM 服务能否按租户 ID 查询所有会话 ID；确认扫库获取全量数据的可行性并评估安全风险；先完成增量同步，再补历史全量数据。`widget:msg:sg_3981594831:50:T112053RE`\n- **进华：验证数据获取与解密。**确认能否通过 Binlog 订阅获取空间、项目、任务数据，并验证 KMS 加密字段的解密方案；会议指出数据需要解密后才能进行向量化。`widget:msg:sg_3981594831:50:T112053RE`\n\n**时间安排存在张力：**纪要一方面列出 9 月 15 日前写入群聊历史数据，另一方面又提到先用增量数据、历史全量扫描可能要到 10 月底；团队认为 9 月 15 日直接上线可能需要调整预期，先做内部体测。`widget:msg:sg_3981594831:50:T112053RE`\n\n## 权限\n\n- **孙文：设计二期普通用户权限。**细化空间、项目、任务三级权限扩散逻辑，并与相关团队确认权限校验接口如何提供，使 Agent 可通过业务接口复核权限。`widget:msg:sg_3981594831:50:T112053RE`\n- **公台：整合并优化周报权限过滤。**将召回前圈选权限范围的流程融入 Memory Search 工具调用；评估优化现有周报助手，在向量检索时直接注入过滤条件。`widget:msg:sg_3981594831:50:T112053RE`\n\n会议确定**一期只支持高管用户，普通用户权限放在二期**。`widget:msg:sg_3981594831:50:T112053RE`",
+                "按 9 月 8 日会议记录，孙文负责、可能影响 **9 月 15 日预发布**的事项中，只有群聊历史数据写入被列出明确期限，但会议讨论中的数据范围与该期限存在冲突。`widget:msg:sg_3981594831:50:T112053RE`\n\n## 有明确期限\n\n- **群聊历史数据写入向量数据库**：后续步骤写明，孙文要在 **9 月 15 日预发布部署前**，完成技术群、产品群等群聊历史数据的全量写入。\n- **期限与讨论口径有冲突**：会议摘要同时记录，9 月 15 日版本将先使用增量数据，全量数据扫描可能到 10 月底才能完成；预发布日程本身也需要重新评估。仅凭纪要无法确定全量写入是否仍按 9 月 15 日执行。`widget:msg:sg_3981594831:50:T112053RE`\n\n## 只是计划，未列明确期限\n\n- **先完成增量同步，再补历史全量数据**：顺序已列出，但未为增量同步单独设定完成日期。\n- **准备部分调试数据**：孙文提出可先写入一两个群聊或重要空间的数据，供公台调试；未明确写入日期。\n- **确定全量数据获取方式**：研究按租户 ID 查询所有会话 ID 的接口能否满足需求，并确认扫库的可行性、评估安全风险；均未列明确期限。`widget:msg:sg_3981594831:50:T112053RE`\n\n二期普通用户权限设计不在这份清单中：会议确定一期只支持高管用户，普通用户权限放在二期。`widget:msg:sg_3981594831:50:T112053RE`",
+                "截至 **9 月 11 日晨会**，孙文原负责事项中，群聊数据增量写入已完成；历史数据范围有了新计划，但晨会没有说明写入进度。`widget:refs:msg:sg_3981594831:50:T112053RE|msg:sg_2658892958:61:T112053RE`\n\n## 已证实完成\n\n- **群聊数据增量写入**：晨会纪要记录，真实群聊数据的增量写入已完成。纪要没有再次点名执行人；孙文的责任归属来自 9 月 8 日会议。`widget:refs:msg:sg_3981594831:50:T112053RE|msg:sg_2658892958:61:T112053RE`\n\n## 还在进行\n\n- **历史群聊数据准备：仍处于计划阶段。**原计划在 9 月 15 日预发布前全量写入技术群、产品群等群聊历史数据；9 月 11 日晨会预计，内测的历史群聊数据将**只包括部分指定群聊，而非全部历史数据**。晨会没有说明这些历史数据是否已开始或完成写入。`widget:refs:msg:sg_3981594831:50:T112053RE|msg:sg_2658892958:61:T112053RE`\n\n## 没有后续证据\n\n9 月 11 日晨会没有提及以下事项的具体进展：\n\n- **先写入一两个群聊或重要空间的数据供公台调试**：未说明是否已提供调试数据。\n- **研究按租户 ID 获取所有会话 ID**：未说明接口是否可行。\n- **评估扫库获取全量数据的可行性及安全风险**：未给出评估结果。`widget:refs:msg:sg_3981594831:50:T112053RE|msg:sg_2658892958:61:T112053RE`"
+              ],
+              "difference": [
+                "问答轮次不完整或重复，需要补齐每一轮的实际结果。"
+              ],
+              "why": "问答轮次不完整或重复，需要补齐每一轮的实际结果。",
+              "turn_comparisons": [],
+              "evidence_assessment": {
+                "sufficient": false,
+                "reason": "问答轮次不完整或重复，需要补齐每一轮的实际结果。"
+              }
+            },
+            "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-PRE-REAL-003/live_evidence.json",
+            "review_observation": null
+          },
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/repaired-results-judge-1/cases/AA-PRE-REAL-003.json",
+          "business_request_resent": true
         }
       ],
-      "evaluation_detail_reason": "问答轮次不完整或重复，需要补齐每一轮的实际结果。",
-      "turn_verdicts": []
+      "evaluation_detail_reason": "失败，状态分类轮漏掉了9月11日晨会明确说明的“空间数据仍在开发、预计次日准备好”，反而称没有明确的进行中事项，未覆盖此前已列出的重要空间调试供数计划。",
+      "turn_verdicts": [
+        {
+          "step": 2,
+          "status": "pass",
+          "reason": "覆盖了孙文、进华、公台的数据准备及权限待办，负责人归属正确，并明确这些是9月8日会议安排而非完成结果。",
+          "evidence_refs": [
+            "turns[step=2].answer",
+            "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=50]，消息ID：2137b37e1531ab7c9f863dd55dee5b52",
+            "trace.runs[turn_step=2].tools：material_ask及scratchpad_read返回的消息、负责人定位",
+            "current_source_evidence.exact_request_receipts[turn_step=2]"
+          ],
+          "comparison": {
+            "expected": "依据2026年9月8日向量数据链路会议，列出数据准备和权限相关待办及负责人，包括孙文的数据获取、同步、历史写入、二期权限设计和业务接口后验，进华的Binlog订阅及KMS解密验证，以及公台的周报权限流程整合和检索过滤优化。",
+            "actual": "按数据准备、权限相关两类列出上述事项，以负责人提及组件和会议消息引用定位；同时提醒9月15日、10月底及体测安排之间存在需要确认的计划口径。",
+            "difference": "相近待办被合并表达，但没有遗漏关键行动或改变负责人；未把历史计划表述成已经完成，符合本轮要求。"
+          }
+        },
+        {
+          "step": 3,
+          "status": "pass",
+          "reason": "正确保留孙文相关的数据交付事项，区分了9月15日前历史数据写入这一明确时间要求与未明确期限的同步、调试供数、接口及扫库评估计划。",
+          "evidence_refs": [
+            "turns[step=3].answer",
+            "turns[step=3].source_gold.facts.groups.sg_3981594831.message_delta：与step=2目标内容一致",
+            "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=50]",
+            "trace.runs[turn_step=3].tools：group_message_lookup，call_5f087ab5543a4d289285558921b88ada"
+          ],
+          "comparison": {
+            "expected": "继承9月8日会议，筛选孙文负责且与15号预发布有关的事项，区分明确写有15号前要求的历史群聊写入，与接口研究、扫库风险评估、先增量后补历史及调试供数等计划；不能转移进华或公台的责任。",
+            "actual": "将历史群聊全量写入列为有明确期限，同时保留同一纪要中先用增量、全量扫描可能到10月底的冲突；其余相关事项列为计划或待研究、未明确完成期限。",
+            "difference": "没有把可能到10月底的估计写成硬性承诺，也没有把进华或公台的待办转给孙文。公台仅作为调试数据接收方出现，不构成负责人错配。"
+          }
+        },
+        {
+          "step": 4,
+          "status": "fail",
+          "reason": "遗漏空间数据仍在开发及预计次日准备好的明确进展，导致“还在进行”类别没有覆盖此前列出的重要空间供数事项。",
+          "evidence_refs": [
+            "turns[step=3].answer：“供调试的数据”包含重要空间的部分数据",
+            "turns[step=4].answer：“晨会没有明确记录上述事项中哪一项正在进行”",
+            "turns[step=2].source_gold.facts.groups.sg_2658892958.messages[seq=61]，消息ID：a8da46922cb64d37c3b3debfe361938c",
+            "turns[step=4].source_gold.facts.groups.sg_2658892958.message_delta：目标消息与此前回读一致",
+            "current_source_evidence.exact_request_receipts[turn_step=4]：9月11日指定日期检索命中目标晨会消息"
+          ],
+          "comparison": {
+            "expected": "结合9月11日晨会分类此前相关事项：真实群聊增量写入已完成；空间数据仍在开发，预计9月12日准备好仅是计划；历史群聊预计仅覆盖部分指定群，不能认定全量历史写入完成；接口及扫库安全评估没有逐项完成证据。虚拟数据联调已完成可作为联调层面的证据，但不能直接证明孙文的真实历史供数任务已完成。",
+            "actual": "已完成类只列真实群聊增量写入；进行中类称没有明确记录，并转而说明历史群聊预计只覆盖部分指定群；无后续证据类列出历史全量写入、部分数据供调试以及接口和扫库评估。未说明空间数据开发状态，也未呈现虚拟数据联调完成的背景证据。",
+            "difference": "上一轮已纳入重要空间数据供调试计划，而晨会明确说明空间数据仍在开发、预计次日准备好，回答却没有报告这一相关依赖的进行中状态。不能因晨会没有逐人确认负责人，就省略已明确披露的空间数据进展；应保留项目级状态与个人交付证明之间的区别。这使用户要求的三类状态判断缺少关键内容。"
+          }
+        },
+        {
+          "step": 5,
+          "status": "pass",
+          "reason": "明确否定“全部完成、按原范围验收”，并以增量写入完成、历史全量缺少完成证明及接口和扫库评估未确认作为依据；该轮结论成立，但不能抵销上一轮漏分类的问题。",
+          "evidence_refs": [
+            "turns[step=5].answer",
+            "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=50]",
+            "turns[step=2].source_gold.facts.groups.sg_2658892958.messages[seq=61]",
+            "turns[step=5].source_gold.facts.groups：目标消息内容无变化",
+            "turn_time_basis[step=5]及同一会话此前历史讨论"
+          ],
+          "comparison": {
+            "expected": "根据已经讨论的9月8日会议和9月11日晨会，给出一段有来源支持的答复，说明不能确认孙文全部完成、不能直接按原全量范围验收，区分已完成事实与尚待确认的交付或行动项，不声称已经发送答复。",
+            "actual": "明确回答不能作出该承诺，指出真实群聊增量写入已完成，历史全量写入没有完成证据，预计历史范围仅为部分指定群，调试供数和接口、扫库评估结果仍需确认，并引用两条目标纪要。",
+            "difference": "否定结论已有直接、充分的来源支撑，且明确限定截至9月11日晨会，没有把计划当完成或声称已发送。本轮没有重列空间数据等全部状态，但用户此轮要求的是一段有依据的答复，不因未逐项重述再判失败；第4步的具体漏答仍独立保留。"
+          }
+        }
+      ],
+      "detail_anchor": "failure-pre-AA-PRE-REAL-003"
     },
     {
       "asker": "安柔",
@@ -17514,64 +17897,158 @@
       "scenario": "持续追问：纠正项目对象后回到原话题",
       "gate_class": "quality",
       "priority": "P0",
-      "status": "skip",
-      "kind": "evidence_insufficient",
-      "reason": "待复核，问答轮次不完整或重复，需要补齐每一轮的实际结果。",
+      "status": "fail",
+      "kind": "business_review",
+      "reason": "失败，iOS延期提测一轮漏答了高级筛选、高管特殊用户计分规则、历史数据初始化这三项明确卡点，只说尚未查明并询问是否扩大检索。",
       "review_reuse": null,
-      "review_observation": null,
-      "failure_categories": [],
-      "confidence": "low",
+      "review_observation": {
+        "basis": "a0f0fddc35a6078680e74d6c9aaff191b5c51112fd76eea160a55eec909d92a9",
+        "result": "bff680058dfe502cab58e037539ae4b24d07fbbd4be3363c07763a3984d9b30d",
+        "requests": [
+          "042b15fd-a4cb-4458-bdbb-0a00f4ff3d63",
+          "1069c27b-fb47-4939-b9f5-5a9b0e8c3356",
+          "4d18816a-9190-4a0c-9819-2e19b2a76995",
+          "4ee5528c-b8ee-42e5-baed-fa999adeb3d0"
+        ]
+      },
+      "failure_categories": [
+        "数据缺失"
+      ],
+      "confidence": "high",
       "latency_ms": 317730,
       "model": "未观测",
       "prompt_version": "未观测",
       "automatic_status": "skip",
       "automatic_reason": "问答轮次不完整或重复，需要补齐每一轮的实际结果。",
-      "categories": [],
+      "categories": [
+        "数据缺失"
+      ],
       "title": "按蜂巢AI助手群2026年9月11日纪要，AI助手当时还有什么没准备好？",
       "ability": "多轮业务连续追问",
-      "task_completion_rate": null,
+      "task_completion_rate": 0,
       "operational_review": {},
       "planning_review": {},
       "trace_status": "部分可观测",
       "trace_runs": 0,
-      "business_reason": "问答轮次不完整或重复，需要补齐每一轮的实际结果。",
+      "business_reason": "失败，iOS延期提测一轮漏答了高级筛选、高管特殊用户计分规则、历史数据初始化这三项明确卡点，只说尚未查明并询问是否扩大检索。",
       "review_explanation": {
         "contract": "ai_assistant.business_comparison.v1",
         "origin": "fresh_pre_execution",
         "expected": [
-          "第1轮：指出空间数据、部分多模态和定时任务联动/查询仍在完善，群聊历史数据范围有限。\n第2轮：切换到“iOS 的首页改版”群：高级筛选、高管特殊用户计分规则、历史数据初始化三项未完成，原计划昨晚提测改下周一。；本地导出缺发送时间，未回源核实前只能保持相对时间，不能用joinTime推算绝对日期；不得混入AI助手的空间数据卡点。\n第3轮：排序上预发仅涉及任务排序部分，可用iOS预发包验收，不能推出整个需求上线/完成或三项阻塞均解除。\n第4轮：正确恢复蜂巢AI助手9月11日范围：虚拟联调和群聊增量写入完成，空间数据/范围等仍需确认；不带入iOS排序和高级筛选。"
+          "依据指定历史纪要，说明空间数据尚在开发、多模态尚未跑通、定时任务创建编辑联动及查询仍需完善，历史群聊仅覆盖部分指定群，并提供可追溯依据。",
+          "定位“iOS 的首页改版”群中的延期说明，回答高级筛选、高管特殊用户新增计分规则、历史重要信息流数据初始化尚未完成；原消息将提测安排从昨晚改为下周一。",
+          "说明排序上预发只是排序相关子功能的进度，不能据此认定整个首页需求开发完成、测试通过，或所有延期阻塞均已解除。",
+          "按原纪要归纳已完成的虚拟数据联调、群聊增量写入，以及仍待完善或确认的空间数据、数据覆盖范围、多模态、定时任务联动与查询、内测范围等；不带入iOS排序和高级筛选。"
         ],
         "actual": [
-          "按 2026 年 9 月 11 日晨会纪要，AI 助手当时还有这些工作没准备好：\n\n- **真实数据**：空间数据仍在开发，预计 9 月 12 日完成数据准备。历史群聊数据预计只覆盖部分指定群，而非全部历史数据。`widget:msg:sg_2658892958:61:T112053RE`\n- **多模态能力**：仍在开发，计划 9 月 15 日前优先跑通周报汇总和 chat 会话中的图片识别，之后再推进任务空间图片识别。`widget:msg:sg_2658892958:61:T112053RE`\n- **定时任务**：基本流程已完成，但创建、编辑时的联动功能和数据查询能力仍需完善。`widget:msg:sg_2658892958:61:T112053RE`\n- **助手效果**：工具选择、路由和多场景适配仍需调优。`widget:msg:sg_2658892958:61:T112053RE`\n- **测试与内测范围**：测试团队当时还没开始投入 AI 助手，主要精力在任务空间 SP15 新需求。预计 9 月 15 日发布 pre 包供内测，具体可体验功能和数据范围待下周一早会更新。`widget:msg:sg_2658892958:61:T112053RE`",
-          "目前查到的群消息**没有说明 iOS 首页重要信息流延期提测的直接原因**。与该功能明确相关的待处理事项有两项：\n\n- **多语言接入**：10 月 10 日，陈明辉提出重要信息流的列表和批量获取事件两个接口需要研究如何接入多语言。`widget:msg:sg_1044041032:1306:T112053RE`\n- **未读数量查询优化及服务发布**：10 月 14 日，刘健提出优化获取未读数量时对 task 的内部调用，并申请发布 group 服务。`widget:msg:sg_2570913225:2784:T112053RE`\n\n这两条消息都没有将事项与延期提测直接关联。已查最近 60 天的相关群消息，9 月 14 日之前还有相关讨论。\n\n要不要往前查到 120 天，看看是否有延期原因的原话？",
-          "**不能据此认为整个 iOS 首页需求都做完了。**即使“排序已上预发”指的是首页信息流排序，它也只说明排序相关改动已部署到预发环境，不能代表首页其他功能都已完成、测试通过或正式上线。\n\n之前查到的 10 月 10 日讨论还提到，重要信息流的列表和批量获取事件接口需要研究多语言接入；这是当时的一项待处理工作，**不能据此判断它现在仍未完成，也不能认定它就是延期提测的原因**。`widget:msg:sg_1044041032:1306:T112053RE`\n\n我在最近 60 天的相关群消息中没有定位到你说的“排序已上预发”原话，因此还不能核对它具体指哪个排序改动、何时发布。"
+          "覆盖了上述事项，另补充工具选择与路由仍在调优、测试尚未投入及内测功能和数据范围待更新；引用对应纪要。",
+          "说尚未找到明确卡点，列举多语言接入和未读数量内部调用优化，同时承认这些线索不能与延期关联，最后询问是否往前查到120天。",
+          "直接回答不能推断整体做完，解释排序进入预发只代表局部进度，其他功能和整体验收仍需另行核实；未声称三项延期原因已解决。",
+          "按两类列出虚拟数据联调、群聊增量写入和基本完成的定时任务主流程，并列出空间数据、历史覆盖、多模态、定时任务剩余能力、效果调优及测试内测待确认事项，明确仅代表当时状态和计划。"
         ],
         "difference": [
-          "问答轮次不完整或重复，需要补齐每一轮的实际结果。"
+          "无影响问题完成的差异；回答将发布和数据准备时间表述为当时预计计划，没有将其当作已完成事实或11月的当前状态。",
+          "认证回读可定位的延期原文已明确给出三项原因，实际回答一项也未答出，未完成用户要求的具体原因说明。本例没有授权逐步扩大历史检索的中间轮约定，询问扩大范围不能替代本轮答案；失败依据是明确漏答，不是检索窗口未达到某个固定天数。",
+          "核心判断与排序原文一致。回答未进一步核实具体排序逻辑，并请用户提供消息，但已完成本轮所问的推论判断；不将预发包验收方法等补充信息增加为必答项。上一轮漏答仍单独保留为失败。",
+          "无实质差异。定时任务主流程保留了“基本完成”的限定，未声称全部完成；9月12日数据准备及9月15日内测节点均标为预计，且没有混入iOS内容。"
         ],
-        "why": "问答轮次不完整或重复，需要补齐每一轮的实际结果。",
-        "turn_comparisons": [],
+        "why": "失败，iOS延期提测一轮漏答了高级筛选、高管特殊用户计分规则、历史数据初始化这三项明确卡点，只说尚未查明并询问是否扩大检索。",
+        "turn_comparisons": [
+          {
+            "step": 2,
+            "status": "pass",
+            "reason": "通过，准确概括9月11日纪要中的空间数据、多模态、定时任务联动与查询等未就绪事项，并说明历史群聊覆盖有限。",
+            "evidence_refs": [
+              "turn_time_basis[step=2]：追问时间2026-11-16T06:39:55.780442Z，问题明确指定2026年9月11日纪要",
+              "turns[step=2].source_gold.facts.groups.sg_2658892958.messages[seq=61]：a8da46922cb64d37c3b3debfe361938c，SuChen，send_time_ms=1789097871983",
+              "current_source_evidence.exact_request_receipts[turn_step=2]：call_a8f63a08857b48b1b674812afb9cd021",
+              "turns[step=2].answer：引用widget:msg:sg_2658892958:61:T112053RE"
+            ],
+            "comparison": {
+              "expected": "依据指定历史纪要，说明空间数据尚在开发、多模态尚未跑通、定时任务创建编辑联动及查询仍需完善，历史群聊仅覆盖部分指定群，并提供可追溯依据。",
+              "actual": "覆盖了上述事项，另补充工具选择与路由仍在调优、测试尚未投入及内测功能和数据范围待更新；引用对应纪要。",
+              "difference": "无影响问题完成的差异；回答将发布和数据准备时间表述为当时预计计划，没有将其当作已完成事实或11月的当前状态。"
+            }
+          },
+          {
+            "step": 3,
+            "status": "fail",
+            "reason": "失败，未回答延期原消息明确列出的高级筛选、高管特殊用户新增计分规则、历史重要信息流数据初始化三项未完成内容。",
+            "evidence_refs": [
+              "turn_time_basis[step=3]：追问时间2026-11-16T06:40:14.641851Z，本轮切换到iOS首页重要信息流延期原因",
+              "turns[step=2].source_gold.facts.groups.sg_1577269387.messages[seq=72]：6ca5795c4c21df1b0f791b5b21d5a7e4，刘健，send_time_ms=1779954334841，明确列出三项未完成内容及昨晚改下周一提测",
+              "turns[step=3].source_gold：checked_at=2026-11-16T06:40:14.364134Z；iOS群message_delta相对step=2无删除、无变更",
+              "current_source_evidence.exact_request_receipts[turn_step=3]：认证检索包含原AI助手群查询及全群查询，自动扩展窗口最早至2026-09-17，另有9月11日至18日显式查询",
+              "turns[step=3].answer；followup_plan未配置ai_assistant.history_expansion.v1"
+            ],
+            "comparison": {
+              "expected": "定位“iOS 的首页改版”群中的延期说明，回答高级筛选、高管特殊用户新增计分规则、历史重要信息流数据初始化尚未完成；原消息将提测安排从昨晚改为下周一。",
+              "actual": "说尚未找到明确卡点，列举多语言接入和未读数量内部调用优化，同时承认这些线索不能与延期关联，最后询问是否往前查到120天。",
+              "difference": "认证回读可定位的延期原文已明确给出三项原因，实际回答一项也未答出，未完成用户要求的具体原因说明。本例没有授权逐步扩大历史检索的中间轮约定，询问扩大范围不能替代本轮答案；失败依据是明确漏答，不是检索窗口未达到某个固定天数。"
+            }
+          },
+          {
+            "step": 4,
+            "status": "pass",
+            "reason": "通过，明确否定“排序上预发就代表整个首页做完”的推论，正确区分了局部预发进度与整体开发、测试和验收完成。",
+            "evidence_refs": [
+              "turn_time_basis[step=4]：追问时间2026-11-16T06:41:48.321503Z，本轮询问排序预发能否推出整体完成",
+              "turns[step=2].source_gold.facts.groups.sg_1577269387.messages[seq=431]：ccefd6766c52c463cfbeaa04548f177a，安柔，原文说明项目群聊下任务排序上预发，可用iOS预发包验收，没问题再跟首页一起上",
+              "turns[step=4].source_gold：iOS群message_delta相对step=3无删除、无变更",
+              "turns[step=4].answer"
+            ],
+            "comparison": {
+              "expected": "说明排序上预发只是排序相关子功能的进度，不能据此认定整个首页需求开发完成、测试通过，或所有延期阻塞均已解除。",
+              "actual": "直接回答不能推断整体做完，解释排序进入预发只代表局部进度，其他功能和整体验收仍需另行核实；未声称三项延期原因已解决。",
+              "difference": "核心判断与排序原文一致。回答未进一步核实具体排序逻辑，并请用户提供消息，但已完成本轮所问的推论判断；不将预发包验收方法等补充信息增加为必答项。上一轮漏答仍单独保留为失败。"
+            }
+          },
+          {
+            "step": 5,
+            "status": "pass",
+            "reason": "通过，恢复了最初AI助手9月11日纪要的范围，按已完成和仍需确认两类归纳，未混入iOS事项，也未将历史计划当作当前进展。",
+            "evidence_refs": [
+              "turn_time_basis[step=5]：追问时间2026-11-16T06:42:16.804954Z，结合此前上下文恢复9月11日纪要范围",
+              "turns[step=2].source_gold.facts.groups.sg_2658892958.messages[seq=61]：a8da46922cb64d37c3b3debfe361938c",
+              "turns[step=5].source_gold：AI助手群message_delta相对step=4无删除、无变更",
+              "trace.runs[turn_step=5].tools：group_message_lookup，call_d6ac6645cfdd4de3a3b6127755377e64，返回sg_2658892958:61",
+              "turns[step=5].answer：引用widget:msg:sg_2658892958:61:T112053RE"
+            ],
+            "comparison": {
+              "expected": "按原纪要归纳已完成的虚拟数据联调、群聊增量写入，以及仍待完善或确认的空间数据、数据覆盖范围、多模态、定时任务联动与查询、内测范围等；不带入iOS排序和高级筛选。",
+              "actual": "按两类列出虚拟数据联调、群聊增量写入和基本完成的定时任务主流程，并列出空间数据、历史覆盖、多模态、定时任务剩余能力、效果调优及测试内测待确认事项，明确仅代表当时状态和计划。",
+              "difference": "无实质差异。定时任务主流程保留了“基本完成”的限定，未声称全部完成；9月12日数据准备及9月15日内测节点均标为预计，且没有混入iOS内容。"
+            }
+          }
+        ],
         "evidence_assessment": {
-          "sufficient": false,
-          "reason": "问答轮次不完整或重复，需要补齐每一轮的实际结果。"
+          "sufficient": true,
+          "reason": "四轮回答均未截断，身份及会话一致；原追问人认证回读提供了9月11日纪要、iOS延期说明和排序上预发消息，后轮source_gold增量记录确认这些原文未变化。上述消息在各轮追问前已存在，足以核验历史事实及已证实的漏答。实际检索窗口依据同请求exact_request_receipts核对，不因窗口是否达到60天判失败，也不因工具预览截断推断未调用工具。"
         }
       },
-      "execution_source": "2026-11-13 PRE 全量（不含日程创建）",
-      "execution_stage": "pre_full_noncalendar_live",
-      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-PRE-REAL-006/live_evidence.json",
+      "execution_source": "2026-11-16 PRE 补跑",
+      "execution_stage": "pre_missing_result_recovery",
+      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/missing-results-run-3/cases/AA-PRE-REAL-006/live_evidence.json",
       "judge_configuration": {
-        "model": "not_called",
-        "prompt_version": null,
+        "model": "gpt-6.1-sol",
+        "prompt_version": "ai-assistant-business-review-v17-question-scoped-group-range",
         "stats": null,
         "business_requests_retried": null,
         "reasoning_effort": "max",
         "attempts": 0
       },
-      "judge_attempts": 0,
-      "judge_attempt_outcomes": [],
+      "judge_attempts": 1,
+      "judge_attempt_outcomes": [
+        {
+          "attempt": 1,
+          "status": "valid"
+        }
+      ],
       "execution_completed": true,
-      "source_failure_categories": [],
-      "primary_failure_category": null,
+      "source_failure_categories": [
+        "数据缺失"
+      ],
+      "primary_failure_category": "数据缺失",
       "unstable": false,
       "failure_data_domain": "消息",
       "rejudge_history": [
@@ -17605,10 +18082,114 @@
           "judge_attempts": 0,
           "judge_attempt_outcomes": [],
           "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-PRE-REAL-006/live_evidence.json"
+        },
+        {
+          "type": "automatic_evidence_repair",
+          "at": "2026-11-16T06:51:34.843734+00:00",
+          "previous": {
+            "status": "skip",
+            "kind": "evidence_insufficient",
+            "reason": "待复核，问答轮次不完整或重复，需要补齐每一轮的实际结果。",
+            "failure_categories": [],
+            "source_failure_categories": [],
+            "review_explanation": {
+              "contract": "ai_assistant.business_comparison.v1",
+              "origin": "fresh_pre_execution",
+              "expected": [
+                "第1轮：指出空间数据、部分多模态和定时任务联动/查询仍在完善，群聊历史数据范围有限。\n第2轮：切换到“iOS 的首页改版”群：高级筛选、高管特殊用户计分规则、历史数据初始化三项未完成，原计划昨晚提测改下周一。；本地导出缺发送时间，未回源核实前只能保持相对时间，不能用joinTime推算绝对日期；不得混入AI助手的空间数据卡点。\n第3轮：排序上预发仅涉及任务排序部分，可用iOS预发包验收，不能推出整个需求上线/完成或三项阻塞均解除。\n第4轮：正确恢复蜂巢AI助手9月11日范围：虚拟联调和群聊增量写入完成，空间数据/范围等仍需确认；不带入iOS排序和高级筛选。"
+              ],
+              "actual": [
+                "按 2026 年 9 月 11 日晨会纪要，AI 助手当时还有这些工作没准备好：\n\n- **真实数据**：空间数据仍在开发，预计 9 月 12 日完成数据准备。历史群聊数据预计只覆盖部分指定群，而非全部历史数据。`widget:msg:sg_2658892958:61:T112053RE`\n- **多模态能力**：仍在开发，计划 9 月 15 日前优先跑通周报汇总和 chat 会话中的图片识别，之后再推进任务空间图片识别。`widget:msg:sg_2658892958:61:T112053RE`\n- **定时任务**：基本流程已完成，但创建、编辑时的联动功能和数据查询能力仍需完善。`widget:msg:sg_2658892958:61:T112053RE`\n- **助手效果**：工具选择、路由和多场景适配仍需调优。`widget:msg:sg_2658892958:61:T112053RE`\n- **测试与内测范围**：测试团队当时还没开始投入 AI 助手，主要精力在任务空间 SP15 新需求。预计 9 月 15 日发布 pre 包供内测，具体可体验功能和数据范围待下周一早会更新。`widget:msg:sg_2658892958:61:T112053RE`",
+                "目前查到的群消息**没有说明 iOS 首页重要信息流延期提测的直接原因**。与该功能明确相关的待处理事项有两项：\n\n- **多语言接入**：10 月 10 日，陈明辉提出重要信息流的列表和批量获取事件两个接口需要研究如何接入多语言。`widget:msg:sg_1044041032:1306:T112053RE`\n- **未读数量查询优化及服务发布**：10 月 14 日，刘健提出优化获取未读数量时对 task 的内部调用，并申请发布 group 服务。`widget:msg:sg_2570913225:2784:T112053RE`\n\n这两条消息都没有将事项与延期提测直接关联。已查最近 60 天的相关群消息，9 月 14 日之前还有相关讨论。\n\n要不要往前查到 120 天，看看是否有延期原因的原话？",
+                "**不能据此认为整个 iOS 首页需求都做完了。**即使“排序已上预发”指的是首页信息流排序，它也只说明排序相关改动已部署到预发环境，不能代表首页其他功能都已完成、测试通过或正式上线。\n\n之前查到的 10 月 10 日讨论还提到，重要信息流的列表和批量获取事件接口需要研究多语言接入；这是当时的一项待处理工作，**不能据此判断它现在仍未完成，也不能认定它就是延期提测的原因**。`widget:msg:sg_1044041032:1306:T112053RE`\n\n我在最近 60 天的相关群消息中没有定位到你说的“排序已上预发”原话，因此还不能核对它具体指哪个排序改动、何时发布。"
+              ],
+              "difference": [
+                "问答轮次不完整或重复，需要补齐每一轮的实际结果。"
+              ],
+              "why": "问答轮次不完整或重复，需要补齐每一轮的实际结果。",
+              "turn_comparisons": [],
+              "evidence_assessment": {
+                "sufficient": false,
+                "reason": "问答轮次不完整或重复，需要补齐每一轮的实际结果。"
+              }
+            },
+            "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-PRE-REAL-006/live_evidence.json",
+            "review_observation": null
+          },
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/repaired-results-judge-1/cases/AA-PRE-REAL-006.json",
+          "business_request_resent": true
         }
       ],
-      "evaluation_detail_reason": "问答轮次不完整或重复，需要补齐每一轮的实际结果。",
-      "turn_verdicts": []
+      "evaluation_detail_reason": "失败，iOS延期提测一轮漏答了高级筛选、高管特殊用户计分规则、历史数据初始化这三项明确卡点，只说尚未查明并询问是否扩大检索。",
+      "turn_verdicts": [
+        {
+          "step": 2,
+          "status": "pass",
+          "reason": "通过，准确概括9月11日纪要中的空间数据、多模态、定时任务联动与查询等未就绪事项，并说明历史群聊覆盖有限。",
+          "evidence_refs": [
+            "turn_time_basis[step=2]：追问时间2026-11-16T06:39:55.780442Z，问题明确指定2026年9月11日纪要",
+            "turns[step=2].source_gold.facts.groups.sg_2658892958.messages[seq=61]：a8da46922cb64d37c3b3debfe361938c，SuChen，send_time_ms=1789097871983",
+            "current_source_evidence.exact_request_receipts[turn_step=2]：call_a8f63a08857b48b1b674812afb9cd021",
+            "turns[step=2].answer：引用widget:msg:sg_2658892958:61:T112053RE"
+          ],
+          "comparison": {
+            "expected": "依据指定历史纪要，说明空间数据尚在开发、多模态尚未跑通、定时任务创建编辑联动及查询仍需完善，历史群聊仅覆盖部分指定群，并提供可追溯依据。",
+            "actual": "覆盖了上述事项，另补充工具选择与路由仍在调优、测试尚未投入及内测功能和数据范围待更新；引用对应纪要。",
+            "difference": "无影响问题完成的差异；回答将发布和数据准备时间表述为当时预计计划，没有将其当作已完成事实或11月的当前状态。"
+          }
+        },
+        {
+          "step": 3,
+          "status": "fail",
+          "reason": "失败，未回答延期原消息明确列出的高级筛选、高管特殊用户新增计分规则、历史重要信息流数据初始化三项未完成内容。",
+          "evidence_refs": [
+            "turn_time_basis[step=3]：追问时间2026-11-16T06:40:14.641851Z，本轮切换到iOS首页重要信息流延期原因",
+            "turns[step=2].source_gold.facts.groups.sg_1577269387.messages[seq=72]：6ca5795c4c21df1b0f791b5b21d5a7e4，刘健，send_time_ms=1779954334841，明确列出三项未完成内容及昨晚改下周一提测",
+            "turns[step=3].source_gold：checked_at=2026-11-16T06:40:14.364134Z；iOS群message_delta相对step=2无删除、无变更",
+            "current_source_evidence.exact_request_receipts[turn_step=3]：认证检索包含原AI助手群查询及全群查询，自动扩展窗口最早至2026-09-17，另有9月11日至18日显式查询",
+            "turns[step=3].answer；followup_plan未配置ai_assistant.history_expansion.v1"
+          ],
+          "comparison": {
+            "expected": "定位“iOS 的首页改版”群中的延期说明，回答高级筛选、高管特殊用户新增计分规则、历史重要信息流数据初始化尚未完成；原消息将提测安排从昨晚改为下周一。",
+            "actual": "说尚未找到明确卡点，列举多语言接入和未读数量内部调用优化，同时承认这些线索不能与延期关联，最后询问是否往前查到120天。",
+            "difference": "认证回读可定位的延期原文已明确给出三项原因，实际回答一项也未答出，未完成用户要求的具体原因说明。本例没有授权逐步扩大历史检索的中间轮约定，询问扩大范围不能替代本轮答案；失败依据是明确漏答，不是检索窗口未达到某个固定天数。"
+          }
+        },
+        {
+          "step": 4,
+          "status": "pass",
+          "reason": "通过，明确否定“排序上预发就代表整个首页做完”的推论，正确区分了局部预发进度与整体开发、测试和验收完成。",
+          "evidence_refs": [
+            "turn_time_basis[step=4]：追问时间2026-11-16T06:41:48.321503Z，本轮询问排序预发能否推出整体完成",
+            "turns[step=2].source_gold.facts.groups.sg_1577269387.messages[seq=431]：ccefd6766c52c463cfbeaa04548f177a，安柔，原文说明项目群聊下任务排序上预发，可用iOS预发包验收，没问题再跟首页一起上",
+            "turns[step=4].source_gold：iOS群message_delta相对step=3无删除、无变更",
+            "turns[step=4].answer"
+          ],
+          "comparison": {
+            "expected": "说明排序上预发只是排序相关子功能的进度，不能据此认定整个首页需求开发完成、测试通过，或所有延期阻塞均已解除。",
+            "actual": "直接回答不能推断整体做完，解释排序进入预发只代表局部进度，其他功能和整体验收仍需另行核实；未声称三项延期原因已解决。",
+            "difference": "核心判断与排序原文一致。回答未进一步核实具体排序逻辑，并请用户提供消息，但已完成本轮所问的推论判断；不将预发包验收方法等补充信息增加为必答项。上一轮漏答仍单独保留为失败。"
+          }
+        },
+        {
+          "step": 5,
+          "status": "pass",
+          "reason": "通过，恢复了最初AI助手9月11日纪要的范围，按已完成和仍需确认两类归纳，未混入iOS事项，也未将历史计划当作当前进展。",
+          "evidence_refs": [
+            "turn_time_basis[step=5]：追问时间2026-11-16T06:42:16.804954Z，结合此前上下文恢复9月11日纪要范围",
+            "turns[step=2].source_gold.facts.groups.sg_2658892958.messages[seq=61]：a8da46922cb64d37c3b3debfe361938c",
+            "turns[step=5].source_gold：AI助手群message_delta相对step=4无删除、无变更",
+            "trace.runs[turn_step=5].tools：group_message_lookup，call_d6ac6645cfdd4de3a3b6127755377e64，返回sg_2658892958:61",
+            "turns[step=5].answer：引用widget:msg:sg_2658892958:61:T112053RE"
+          ],
+          "comparison": {
+            "expected": "按原纪要归纳已完成的虚拟数据联调、群聊增量写入，以及仍待完善或确认的空间数据、数据覆盖范围、多模态、定时任务联动与查询、内测范围等；不带入iOS排序和高级筛选。",
+            "actual": "按两类列出虚拟数据联调、群聊增量写入和基本完成的定时任务主流程，并列出空间数据、历史覆盖、多模态、定时任务剩余能力、效果调优及测试内测待确认事项，明确仅代表当时状态和计划。",
+            "difference": "无实质差异。定时任务主流程保留了“基本完成”的限定，未声称全部完成；9月12日数据准备及9月15日内测节点均标为预计，且没有混入iOS内容。"
+          }
+        }
+      ],
+      "detail_anchor": "failure-pre-AA-PRE-REAL-006"
     },
     {
       "asker": "智本测试_安柔",
@@ -30340,26 +30921,28 @@
       "scenario": "合并转发截图区分外层转发者和原发言人",
       "gate_class": "quality",
       "priority": "P1",
-      "status": "fail",
-      "kind": "execution_failure",
-      "reason": "失败，第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
+      "status": "pass",
+      "kind": "business_review",
+      "reason": "通过，回答准确区分了最早发言人陈默与合并消息转发者林岚，所述时间也与附件标注一致。",
       "review_reuse": null,
-      "review_observation": null,
-      "failure_categories": [
-        "执行失败"
-      ],
+      "review_observation": {
+        "basis": "636ea61de5126572376e8f0b58f66761248c97fb4cb43038b732e708ae4ac4dc",
+        "result": "d2c1ee716f5a1e97ac2d28e2c5fd93b948d70b19eb9f4b982e136284048e0c7f",
+        "requests": [
+          "dd85d149-a18f-4785-bd8c-b2b773fa5769"
+        ]
+      },
+      "failure_categories": [],
       "confidence": "high",
       "latency_ms": 188077,
       "model": "openai/gpt-6.1-terra",
       "prompt_version": "assistant_chat_agent@0.24.3",
       "automatic_status": "skip",
       "automatic_reason": "",
-      "categories": [
-        "执行失败"
-      ],
+      "categories": [],
       "title": "仅根据本次上传的模拟项目材料回答，不查询线上同名项目；按附件标注日期而非今天判断。是谁最早说白名单没开？这张合并消息是谁转发的？",
       "ability": "多栏拼接、小字漏读、优先关系错误",
-      "task_completion_rate": 0,
+      "task_completion_rate": 100,
       "operational_review": {},
       "planning_review": {},
       "trace_status": "内部工具链已采集；权限/引用仍未观测",
@@ -30368,9 +30951,9 @@
         "仅根据本次上传的模拟项目材料回答，不查询线上同名项目；按附件标注日期而非今天判断。是谁最早说白名单没开？这张合并消息是谁转发的？"
       ],
       "answer": "",
-      "execution_completed": false,
+      "execution_completed": true,
       "execution_completion_rate": 0,
-      "business_reason": "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
+      "business_reason": "通过，回答准确区分了最早发言人陈默与合并消息转发者林岚，所述时间也与附件标注一致。",
       "tool_chain_summary": "未取得可观测工具链。",
       "turns": [
         {
@@ -30541,40 +31124,121 @@
         ]
       },
       "harness": "assistant-chat-live+trace",
-      "detail_anchor": "failure-pre-AA-ATT-IMG-007",
       "review_explanation": {
         "contract": "ai_assistant.business_comparison.v1",
         "origin": "fresh_pre_execution",
         "expected": [
-          "原发言陈默；模拟外层转发者林岚；不得将转发者当原发言人。"
+          "仅依据本次上传的forwarded_chat.png，按附件日期识别最早说白名单未开放的人为陈默，合并消息外层转发者为林岚，不查询线上同名项目。"
         ],
         "actual": [
-          "原请求已确认服务端生成失败，未完成回答。"
+          "回答陈默于内层原消息11:25表示T002回调域名白名单仍未开放，林岚于2026年10月6日11:28转发该合并消息。"
         ],
         "difference": [
-          "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。"
+          "人物、身份及时间均与独立附件证据一致，两项问题均已回答，无已证实的遗漏或差异。"
         ],
-        "why": "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
-        "turn_comparisons": [],
-        "evidence_assessment": {}
+        "why": "通过，回答准确区分了最早发言人陈默与合并消息转发者林岚，所述时间也与附件标注一致。",
+        "turn_comparisons": [
+          {
+            "step": 2,
+            "status": "pass",
+            "reason": "正确回答了原发言人与外层转发者，未混淆两种身份，并使用附件标注时间而非提问当天判断。",
+            "evidence_refs": [
+              "turns[1].answer",
+              "current_source_evidence.attachment_source_excerpt",
+              "current_source_evidence.execution_preflight.facts.bindings[0]",
+              "current_source_evidence.exact_request_receipts[0].attachment_model_input",
+              "trace.runs[0]"
+            ],
+            "comparison": {
+              "expected": "仅依据本次上传的forwarded_chat.png，按附件日期识别最早说白名单未开放的人为陈默，合并消息外层转发者为林岚，不查询线上同名项目。",
+              "actual": "回答陈默于内层原消息11:25表示T002回调域名白名单仍未开放，林岚于2026年10月6日11:28转发该合并消息。",
+              "difference": "人物、身份及时间均与独立附件证据一致，两项问题均已回答，无已证实的遗漏或差异。"
+            }
+          }
+        ],
+        "evidence_assessment": {
+          "sufficient": true,
+          "reason": "独立本地原图转录确认：陈默于11:25说白名单仍未开放，林岚于2026年10月6日11:28转发。上传绑定与本地文件摘要一致，本轮认证回执确认该图片内容已进入对应账号、会话和请求的模型输入，content_modality_verified及all_content_modalities_verified均为true；本轮Trace未记录线上项目查询。"
+        }
       },
-      "execution_source": "2026-11-13 PRE 全量（不含日程创建）",
-      "execution_stage": "pre_full_noncalendar_live",
-      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-ATT-IMG-007/live_evidence.json",
+      "execution_source": "2026-11-16 PRE 补跑",
+      "execution_stage": "pre_missing_result_recovery",
+      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/missing-results-run-1/cases/AA-ATT-IMG-007/live_evidence.json",
       "judge_configuration": {
-        "model": "not_called",
-        "prompt_version": null,
+        "model": "gpt-6.1-sol",
+        "prompt_version": "ai-assistant-business-review-v17-question-scoped-group-range",
         "stats": null,
-        "business_requests_retried": null
+        "business_requests_retried": null,
+        "reasoning_effort": "max"
       },
-      "judge_attempts": 0,
-      "judge_attempt_outcomes": [],
-      "source_failure_categories": [
-        "执行失败"
+      "judge_attempts": 1,
+      "judge_attempt_outcomes": [
+        {
+          "attempt": 1,
+          "status": "valid"
+        }
       ],
-      "primary_failure_category": "执行失败",
+      "source_failure_categories": [],
+      "primary_failure_category": null,
       "unstable": false,
-      "failure_data_domain": "其他"
+      "failure_data_domain": "其他",
+      "rejudge_history": [
+        {
+          "type": "automatic_evidence_repair",
+          "at": "2026-11-16T06:48:48.420074+00:00",
+          "previous": {
+            "status": "fail",
+            "kind": "execution_failure",
+            "reason": "失败，第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
+            "failure_categories": [
+              "执行失败"
+            ],
+            "source_failure_categories": [
+              "执行失败"
+            ],
+            "review_explanation": {
+              "contract": "ai_assistant.business_comparison.v1",
+              "origin": "fresh_pre_execution",
+              "expected": [
+                "原发言陈默；模拟外层转发者林岚；不得将转发者当原发言人。"
+              ],
+              "actual": [
+                "原请求已确认服务端生成失败，未完成回答。"
+              ],
+              "difference": [
+                "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。"
+              ],
+              "why": "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
+              "turn_comparisons": [],
+              "evidence_assessment": {}
+            },
+            "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-ATT-IMG-007/live_evidence.json",
+            "review_observation": null
+          },
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/repaired-results-judge-1/cases/AA-ATT-IMG-007.json",
+          "business_request_resent": true
+        }
+      ],
+      "evaluation_detail_reason": "通过，回答准确区分了最早发言人陈默与合并消息转发者林岚，所述时间也与附件标注一致。",
+      "turn_verdicts": [
+        {
+          "step": 2,
+          "status": "pass",
+          "reason": "正确回答了原发言人与外层转发者，未混淆两种身份，并使用附件标注时间而非提问当天判断。",
+          "evidence_refs": [
+            "turns[1].answer",
+            "current_source_evidence.attachment_source_excerpt",
+            "current_source_evidence.execution_preflight.facts.bindings[0]",
+            "current_source_evidence.exact_request_receipts[0].attachment_model_input",
+            "trace.runs[0]"
+          ],
+          "comparison": {
+            "expected": "仅依据本次上传的forwarded_chat.png，按附件日期识别最早说白名单未开放的人为陈默，合并消息外层转发者为林岚，不查询线上同名项目。",
+            "actual": "回答陈默于内层原消息11:25表示T002回调域名白名单仍未开放，林岚于2026年10月6日11:28转发该合并消息。",
+            "difference": "人物、身份及时间均与独立附件证据一致，两项问题均已回答，无已证实的遗漏或差异。"
+          }
+        }
+      ]
     },
     {
       "asker": "安柔",
@@ -31403,9 +32067,9 @@
       "scenario": "扫描周报与文本周报答案一致",
       "gate_class": "quality",
       "priority": "P0",
-      "status": "skip",
-      "kind": "evidence_insufficient",
-      "reason": "待复核，18/24、75%与参考事实一致且附件已确认进入本轮模型输入，但缺少扫描件风险原文和标注日期，无法核实回答中的两项风险及2026年10月3日这一历史时点。",
+      "status": "pass",
+      "kind": "business_review",
+      "reason": "通过，回答按附件2026年10月3日快照正确给出18/24项通过（75%），并准确列出回调白名单未开放、扫描PDF表格错列两项未解决风险。",
       "review_reuse": null,
       "review_observation": {
         "basis": "961dd1aa49b048518198469d85642483160368fa176b00fd82b952e877824902",
@@ -31424,47 +32088,47 @@
       "categories": [],
       "title": "仅根据本次上传的模拟项目材料回答，不查询线上同名项目；按附件标注日期而非今天判断。按扫描件内容，图片测试通过多少，哪些风险未解决？",
       "ability": "把扫描文件误判空文件、OCR未触发",
-      "task_completion_rate": null,
+      "task_completion_rate": 100,
       "operational_review": {},
       "planning_review": {},
       "trace_status": "内部工具链已采集；权限/引用仍未观测",
       "trace_runs": 1,
-      "business_reason": "待复核，18/24、75%与参考事实一致且附件已确认进入本轮模型输入，但缺少扫描件风险原文和标注日期，无法核实回答中的两项风险及2026年10月3日这一历史时点。",
+      "business_reason": "通过，回答按附件2026年10月3日快照正确给出18/24项通过（75%），并准确列出回调白名单未开放、扫描PDF表格错列两项未解决风险。",
       "review_explanation": {
         "contract": "ai_assistant.business_comparison.v1",
         "origin": "fresh_pre_execution",
         "expected": [
-          "仅依据本轮上传的扫描PDF，按附件标注日期说明图片测试通过情况，并列出尚未解决的具体风险；已提供的参考数值为18/24、75%，另有6项待修和两项风险，不应查询线上同名项目。"
+          "仅依据上传的扫描PDF，以附件标注的2026年10月3日为准，说明图片核心测试24项中18项通过、通过率75%，以及回调白名单尚未开放、扫描PDF表格错列仍待修复两项风险；不查询线上同名项目。"
         ],
         "actual": [
-          "回答按2026年10月3日快照统计：24项中18项通过，通过率75%，TC19至TC24共6项待修；列出回调域名白名单未开放、扫描PDF表格错列待修两项风险，并引用附件第1—3页。"
+          "回答明确采用2026年10月3日历史快照，给出18/24项通过、75%、TC19至TC24共6项待修，完整列出两项风险，并引用附件第1—3页，说明不代表快照之后的状态。"
         ],
         "difference": [
-          "计数与现有Gold一致，附件内容进入本轮输入也已核实；但所给证据没有扫描页、独立转录或明确记载两项风险名称及标注日期的业务核验材料，无法确认风险内容和历史时点是否准确。这是测试来源证据缺口，不能据此认定回答错误，也不能确认已完整答对。"
+          "无实质差异；数量、日期和风险均与独立扫描页核对结果一致，单附件的页码引用可定位，内容输入绑定及请求Trace也支持其遵守附件分析范围。"
         ],
-        "why": "待复核，18/24、75%与参考事实一致且附件已确认进入本轮模型输入，但缺少扫描件风险原文和标注日期，无法核实回答中的两项风险及2026年10月3日这一历史时点。",
+        "why": "通过，回答按附件2026年10月3日快照正确给出18/24项通过（75%），并准确列出回调白名单未开放、扫描PDF表格错列两项未解决风险。",
         "turn_comparisons": [
           {
             "step": 2,
-            "status": "skip",
-            "reason": "图片测试计数与参考事实相符，但用户所问的具体未解决风险及附件历史日期缺少独立原文核验依据。",
+            "status": "pass",
+            "reason": "正确依据扫描件的历史快照回答测试通过情况和未解决风险，并提供可定位的附件页码。",
             "evidence_refs": [
-              "turns[1].message、answer、attachment_files；request_id=4e3bc75b-1cf5-47e1-ab9a-a3f0dc3bf98e",
-              "current_source_evidence.exact_request_receipts[0].attachment_model_input；file_id=fl09TqR8RUxIe3JV0VaqEv92pjhwp",
-              "followup_plan.steps[1].attachments.files[0]；04_weekly_report_scanned.pdf；SHA256=2a314e285ddc46d9056c396effe919063a4e7147aa2c00bdf0420f1a0e2ca619",
-              "gold.fixed_fact_truth、gold.gold_status、gold.gold_verification_scope",
-              "turn_time_basis[0]；实际提问时间为2026-11-13T08:53:33.872164+00:00，问题明确要求按附件标注日期判断"
+              "turns[1].answer",
+              "current_source_evidence.execution_preflight",
+              "current_source_evidence.attachment_source_excerpt.visual_page_transcriptions",
+              "current_source_evidence.exact_request_receipts[0].attachment_model_input",
+              "trace.runs[0]"
             ],
             "comparison": {
-              "expected": "仅依据本轮上传的扫描PDF，按附件标注日期说明图片测试通过情况，并列出尚未解决的具体风险；已提供的参考数值为18/24、75%，另有6项待修和两项风险，不应查询线上同名项目。",
-              "actual": "回答按2026年10月3日快照统计：24项中18项通过，通过率75%，TC19至TC24共6项待修；列出回调域名白名单未开放、扫描PDF表格错列待修两项风险，并引用附件第1—3页。",
-              "difference": "计数与现有Gold一致，附件内容进入本轮输入也已核实；但所给证据没有扫描页、独立转录或明确记载两项风险名称及标注日期的业务核验材料，无法确认风险内容和历史时点是否准确。这是测试来源证据缺口，不能据此认定回答错误，也不能确认已完整答对。"
+              "expected": "仅依据上传的扫描PDF，以附件标注的2026年10月3日为准，说明图片核心测试24项中18项通过、通过率75%，以及回调白名单尚未开放、扫描PDF表格错列仍待修复两项风险；不查询线上同名项目。",
+              "actual": "回答明确采用2026年10月3日历史快照，给出18/24项通过、75%、TC19至TC24共6项待修，完整列出两项风险，并引用附件第1—3页，说明不代表快照之后的状态。",
+              "difference": "无实质差异；数量、日期和风险均与独立扫描页核对结果一致，单附件的页码引用可定位，内容输入绑定及请求Trace也支持其遵守附件分析范围。"
             }
           }
         ],
         "evidence_assessment": {
-          "sufficient": false,
-          "reason": "认证回执确认上传文件的SHA256、fileId及本轮请求绑定一致，content_modality_verified和all_content_modalities_verified均为true，附件内容输入证据充分。独立Gold提供了18/24、75%、6项待修及两项风险的概括，但未提供风险名称、附件标注日期或对应扫描页内容；文件绑定本身不能证明这些解析事实准确，因此尚不足以判断整题通过或失败。"
+          "sufficient": true,
+          "reason": "本轮上传文件的SHA256、fileId、账号租户及请求会话绑定一致，认证回执确认文件内容模态已进入本轮模型输入；独立本地PDF逐页渲染核对了快照日期、测试数量及两项风险，实际回答与之相符。对应请求Trace未见线上项目查询或外部写入。"
         }
       },
       "execution_source": "2026-11-13 PRE 全量（不含日程创建）",
@@ -31547,25 +32211,83 @@
             }
           ],
           "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-ATT-PDF-002/live_evidence.json"
+        },
+        {
+          "type": "automatic_evidence_repair",
+          "at": "2026-11-16T06:21:14.482774+00:00",
+          "previous": {
+            "status": "skip",
+            "kind": "evidence_insufficient",
+            "reason": "待复核，18/24、75%与参考事实一致且附件已确认进入本轮模型输入，但缺少扫描件风险原文和标注日期，无法核实回答中的两项风险及2026年10月3日这一历史时点。",
+            "failure_categories": [],
+            "source_failure_categories": [],
+            "review_explanation": {
+              "contract": "ai_assistant.business_comparison.v1",
+              "origin": "fresh_pre_execution",
+              "expected": [
+                "仅依据本轮上传的扫描PDF，按附件标注日期说明图片测试通过情况，并列出尚未解决的具体风险；已提供的参考数值为18/24、75%，另有6项待修和两项风险，不应查询线上同名项目。"
+              ],
+              "actual": [
+                "回答按2026年10月3日快照统计：24项中18项通过，通过率75%，TC19至TC24共6项待修；列出回调域名白名单未开放、扫描PDF表格错列待修两项风险，并引用附件第1—3页。"
+              ],
+              "difference": [
+                "计数与现有Gold一致，附件内容进入本轮输入也已核实；但所给证据没有扫描页、独立转录或明确记载两项风险名称及标注日期的业务核验材料，无法确认风险内容和历史时点是否准确。这是测试来源证据缺口，不能据此认定回答错误，也不能确认已完整答对。"
+              ],
+              "why": "待复核，18/24、75%与参考事实一致且附件已确认进入本轮模型输入，但缺少扫描件风险原文和标注日期，无法核实回答中的两项风险及2026年10月3日这一历史时点。",
+              "turn_comparisons": [
+                {
+                  "step": 2,
+                  "status": "skip",
+                  "reason": "图片测试计数与参考事实相符，但用户所问的具体未解决风险及附件历史日期缺少独立原文核验依据。",
+                  "evidence_refs": [
+                    "turns[1].message、answer、attachment_files；request_id=4e3bc75b-1cf5-47e1-ab9a-a3f0dc3bf98e",
+                    "current_source_evidence.exact_request_receipts[0].attachment_model_input；file_id=fl09TqR8RUxIe3JV0VaqEv92pjhwp",
+                    "followup_plan.steps[1].attachments.files[0]；04_weekly_report_scanned.pdf；SHA256=2a314e285ddc46d9056c396effe919063a4e7147aa2c00bdf0420f1a0e2ca619",
+                    "gold.fixed_fact_truth、gold.gold_status、gold.gold_verification_scope",
+                    "turn_time_basis[0]；实际提问时间为2026-11-13T08:53:33.872164+00:00，问题明确要求按附件标注日期判断"
+                  ],
+                  "comparison": {
+                    "expected": "仅依据本轮上传的扫描PDF，按附件标注日期说明图片测试通过情况，并列出尚未解决的具体风险；已提供的参考数值为18/24、75%，另有6项待修和两项风险，不应查询线上同名项目。",
+                    "actual": "回答按2026年10月3日快照统计：24项中18项通过，通过率75%，TC19至TC24共6项待修；列出回调域名白名单未开放、扫描PDF表格错列待修两项风险，并引用附件第1—3页。",
+                    "difference": "计数与现有Gold一致，附件内容进入本轮输入也已核实；但所给证据没有扫描页、独立转录或明确记载两项风险名称及标注日期的业务核验材料，无法确认风险内容和历史时点是否准确。这是测试来源证据缺口，不能据此认定回答错误，也不能确认已完整答对。"
+                  }
+                }
+              ],
+              "evidence_assessment": {
+                "sufficient": false,
+                "reason": "认证回执确认上传文件的SHA256、fileId及本轮请求绑定一致，content_modality_verified和all_content_modalities_verified均为true，附件内容输入证据充分。独立Gold提供了18/24、75%、6项待修及两项风险的概括，但未提供风险名称、附件标注日期或对应扫描页内容；文件绑定本身不能证明这些解析事实准确，因此尚不足以判断整题通过或失败。"
+              }
+            },
+            "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/trace-readback-20261116-v2/cases/AA-ATT-PDF-002.json",
+            "review_observation": {
+              "basis": "961dd1aa49b048518198469d85642483160368fa176b00fd82b952e877824902",
+              "result": "f43eef20954ec72cb7372d867df5b1de78f99021771bdab9714645c707db9baa",
+              "requests": [
+                "4e3bc75b-1cf5-47e1-ab9a-a3f0dc3bf98e"
+              ]
+            }
+          },
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/attachments-judge-1/cases/AA-ATT-PDF-002.json",
+          "business_request_resent": false
         }
       ],
-      "evaluation_detail_reason": "待复核，18/24、75%与参考事实一致且附件已确认进入本轮模型输入，但缺少扫描件风险原文和标注日期，无法核实回答中的两项风险及2026年10月3日这一历史时点。",
+      "evaluation_detail_reason": "通过，回答按附件2026年10月3日快照正确给出18/24项通过（75%），并准确列出回调白名单未开放、扫描PDF表格错列两项未解决风险。",
       "turn_verdicts": [
         {
           "step": 2,
-          "status": "skip",
-          "reason": "图片测试计数与参考事实相符，但用户所问的具体未解决风险及附件历史日期缺少独立原文核验依据。",
+          "status": "pass",
+          "reason": "正确依据扫描件的历史快照回答测试通过情况和未解决风险，并提供可定位的附件页码。",
           "evidence_refs": [
-            "turns[1].message、answer、attachment_files；request_id=4e3bc75b-1cf5-47e1-ab9a-a3f0dc3bf98e",
-            "current_source_evidence.exact_request_receipts[0].attachment_model_input；file_id=fl09TqR8RUxIe3JV0VaqEv92pjhwp",
-            "followup_plan.steps[1].attachments.files[0]；04_weekly_report_scanned.pdf；SHA256=2a314e285ddc46d9056c396effe919063a4e7147aa2c00bdf0420f1a0e2ca619",
-            "gold.fixed_fact_truth、gold.gold_status、gold.gold_verification_scope",
-            "turn_time_basis[0]；实际提问时间为2026-11-13T08:53:33.872164+00:00，问题明确要求按附件标注日期判断"
+            "turns[1].answer",
+            "current_source_evidence.execution_preflight",
+            "current_source_evidence.attachment_source_excerpt.visual_page_transcriptions",
+            "current_source_evidence.exact_request_receipts[0].attachment_model_input",
+            "trace.runs[0]"
           ],
           "comparison": {
-            "expected": "仅依据本轮上传的扫描PDF，按附件标注日期说明图片测试通过情况，并列出尚未解决的具体风险；已提供的参考数值为18/24、75%，另有6项待修和两项风险，不应查询线上同名项目。",
-            "actual": "回答按2026年10月3日快照统计：24项中18项通过，通过率75%，TC19至TC24共6项待修；列出回调域名白名单未开放、扫描PDF表格错列待修两项风险，并引用附件第1—3页。",
-            "difference": "计数与现有Gold一致，附件内容进入本轮输入也已核实；但所给证据没有扫描页、独立转录或明确记载两项风险名称及标注日期的业务核验材料，无法确认风险内容和历史时点是否准确。这是测试来源证据缺口，不能据此认定回答错误，也不能确认已完整答对。"
+            "expected": "仅依据上传的扫描PDF，以附件标注的2026年10月3日为准，说明图片核心测试24项中18项通过、通过率75%，以及回调白名单尚未开放、扫描PDF表格错列仍待修复两项风险；不查询线上同名项目。",
+            "actual": "回答明确采用2026年10月3日历史快照，给出18/24项通过、75%、TC19至TC24共6项待修，完整列出两项风险，并引用附件第1—3页，说明不代表快照之后的状态。",
+            "difference": "无实质差异；数量、日期和风险均与独立扫描页核对结果一致，单附件的页码引用可定位，内容输入绑定及请求Trace也支持其遵守附件分析范围。"
           }
         }
       ]
@@ -31995,9 +32717,9 @@
       "scenario": "周报双栏与脚注条件保持对应",
       "gate_class": "quality",
       "priority": "P1",
-      "status": "skip",
-      "kind": "evidence_insufficient",
-      "reason": "待复核，已确认本轮PDF内容进入模型，但缺少可独立核对的附件正文、图片和脚注或完整逐项事实底稿，无法验证回答中的24/18/6项测试、白名单及10月8日迁移等具体结论。",
+      "status": "pass",
+      "kind": "business_review",
+      "reason": "通过，回答按附件标注的2026年10月3日区分了群聊同步已完成、测试及修复仍未完成和正式上线尚需批准，未把测试部分通过或10月8日迁移计划当成产品验收、上线或迁移已完成。",
       "review_reuse": null,
       "review_observation": {
         "basis": "09c8e1292cd3e49f8e08c3f8775bf0748e0600ff735c3af03003cfc745366e11",
@@ -32016,48 +32738,47 @@
       "categories": [],
       "title": "仅根据本次上传的模拟项目材料回答，不查询线上同名项目；按附件标注日期而非今天判断。哪些已完成，哪些仍是上线前置条件？",
       "ability": "双栏顺序错乱、脚注丢失",
-      "task_completion_rate": null,
+      "task_completion_rate": 100,
       "operational_review": {},
       "planning_review": {},
       "trace_status": "内部工具链已采集；权限/引用仍未观测",
       "trace_runs": 1,
-      "business_reason": "待复核，已确认本轮PDF内容进入模型，但缺少可独立核对的附件正文、图片和脚注或完整逐项事实底稿，无法验证回答中的24/18/6项测试、白名单及10月8日迁移等具体结论。",
+      "business_reason": "通过，回答按附件标注的2026年10月3日区分了群聊同步已完成、测试及修复仍未完成和正式上线尚需批准，未把测试部分通过或10月8日迁移计划当成产品验收、上线或迁移已完成。",
       "review_explanation": {
         "contract": "ai_assistant.business_comparison.v1",
         "origin": "fresh_pre_execution",
         "expected": [
-          "仅依据本轮附件、按附件标注日期区分已完成事项与仍需满足的上线条件；应正确体现群聊同步完成、图片中的测试通过不能等同产品验收、正式上线仍需负责人批准，并避免双栏和脚注串项。"
+          "仅依据附件2026年10月3日快照：群聊增量同步已完成；图片核心测试24项中18项通过、6项待修，不能据此认定产品验收完成；扫描PDF表格错列仍待修复，回调域名白名单未开放且需安全团队协助；正式上线需项目负责人批准，周报未记录该批准；10月8日历史迁移应作为计划而非已完成事项。"
         ],
         "actual": [
-          "回答以2026年10月3日为判断日期，列出群聊增量同步完成、核心测试24项中18项通过；将其余6项待修、扫描PDF表格错列、回调域名白名单及负责人批准列为上线前待处理事项，另称历史迁移计划于10月8日进行且未明确属于上线前置条件。"
+          "回答按10月3日判断，列出群聊同步完成、24项测试中18项通过和6项待修，并列出PDF错列、白名单及正式上线批准等待处理事项；将10月8日历史迁移单列为计划，说明材料未确认其完成或将其列为上线前置条件。"
         ],
         "difference": [
-          "现有独立摘要可支持群聊同步及负责人批准两项，但没有提供可核对页面或逐项事实记录来确认24/18/6、表格错列、白名单、迁移日期及其前置条件归类，也无法确定“核心测试18项通过”是否完整对应图片中的测试结果。需要补充该PDF对应正文、图片和脚注或覆盖上述结论的独立业务底稿后，才能判定回答是否完整准确；当前不据此认定事实错误或编造。"
+          "无实质遗漏或事实矛盾。回答将“图片核心测试”简称为“核心测试”，对象表述可更精确，但同时明确仍有6项待修，未宣称整体测试或产品验收已完成，不构成已证实的对象串联错误。"
         ],
-        "why": "待复核，已确认本轮PDF内容进入模型，但缺少可独立核对的附件正文、图片和脚注或完整逐项事实底稿，无法验证回答中的24/18/6项测试、白名单及10月8日迁移等具体结论。",
+        "why": "通过，回答按附件标注的2026年10月3日区分了群聊同步已完成、测试及修复仍未完成和正式上线尚需批准，未把测试部分通过或10月8日迁移计划当成产品验收、上线或迁移已完成。",
         "turn_comparisons": [
           {
             "step": 2,
-            "status": "skip",
-            "reason": "群聊同步完成和上线仍需负责人批准与参考事实一致；其余具体事项及图片测试与核心测试的对应关系缺少独立材料核对，尚不能确认完整正确或存在漏答、串栏。",
+            "status": "pass",
+            "reason": "回答依据附件日期判断，主要状态、数量和批准条件均与原文一致，也正确保留了历史迁移仅为后续计划的性质。",
             "evidence_refs": [
-              "gold.fixed_fact_truth",
-              "gold.gold_status、gold.gold_verified及gold.gold_verification_scope",
-              "followup_plan.steps[1].attachments.files[0]：two_columns.pdf及SHA-256",
-              "current_source_evidence.exact_request_receipts[0].attachment_model_input",
-              "turns[1].answer：step=2，request_id=b8d7311c-a58a-4b1e-b5c4-90ec352fbe3c",
-              "trace.runs[0]：本轮tools为空"
+              "current_source_evidence.attachment_source_excerpt：two_columns.pdf，第1页，2026-10-03项目周报及脚注1",
+              "current_source_evidence.execution_preflight.facts.bindings[0]：V-P02，fileId=fl09TqR8RUxIe3JV0VaqFV06ixnio，SHA-256=3b7b5e8cd4ef3b0645197a542cd0e1198ffcd3f15b07ba22d0085fda6b2084d5",
+              "current_source_evidence.exact_request_receipts[0].attachment_model_input：上传绑定与文件内容模态均已核验",
+              "turns[1].answer：本轮完整实际回答",
+              "trace.runs[0]、trace.scope：request_id=b8d7311c-a58a-4b1e-b5c4-90ec352fbe3c，tools为空且请求匹配"
             ],
             "comparison": {
-              "expected": "仅依据本轮附件、按附件标注日期区分已完成事项与仍需满足的上线条件；应正确体现群聊同步完成、图片中的测试通过不能等同产品验收、正式上线仍需负责人批准，并避免双栏和脚注串项。",
-              "actual": "回答以2026年10月3日为判断日期，列出群聊增量同步完成、核心测试24项中18项通过；将其余6项待修、扫描PDF表格错列、回调域名白名单及负责人批准列为上线前待处理事项，另称历史迁移计划于10月8日进行且未明确属于上线前置条件。",
-              "difference": "现有独立摘要可支持群聊同步及负责人批准两项，但没有提供可核对页面或逐项事实记录来确认24/18/6、表格错列、白名单、迁移日期及其前置条件归类，也无法确定“核心测试18项通过”是否完整对应图片中的测试结果。需要补充该PDF对应正文、图片和脚注或覆盖上述结论的独立业务底稿后，才能判定回答是否完整准确；当前不据此认定事实错误或编造。"
+              "expected": "仅依据附件2026年10月3日快照：群聊增量同步已完成；图片核心测试24项中18项通过、6项待修，不能据此认定产品验收完成；扫描PDF表格错列仍待修复，回调域名白名单未开放且需安全团队协助；正式上线需项目负责人批准，周报未记录该批准；10月8日历史迁移应作为计划而非已完成事项。",
+              "actual": "回答按10月3日判断，列出群聊同步完成、24项测试中18项通过和6项待修，并列出PDF错列、白名单及正式上线批准等待处理事项；将10月8日历史迁移单列为计划，说明材料未确认其完成或将其列为上线前置条件。",
+              "difference": "无实质遗漏或事实矛盾。回答将“图片核心测试”简称为“核心测试”，对象表述可更精确，但同时明确仍有6项待修，未宣称整体测试或产品验收已完成，不构成已证实的对象串联错误。"
             }
           }
         ],
         "evidence_assessment": {
-          "sufficient": false,
-          "reason": "认证回执已将two_columns.pdf的上传摘要、fileId fl09TqR8RUxIe3JV0VaqFV06ixnio与本轮请求b8d7311c-a58a-4b1e-b5c4-90ec352fbe3c、会话cs_ab52e8b7-3f77-4fa9-9ba5-a06e7af766ee绑定，且content_modality_verified、all_content_modalities_verified及上传绑定均为true，因此附件输入链路不是缺证项。已核验的本地Gold摘要支持群聊同步完成、测试通过不等于产品验收、正式上线仍需负责人批准，但未展开回答中的测试数量、修复事项、白名单状态、迁移日期及其版面归属；仅有输入绑定不能证明这些解析结论正确，亦不能据证据未展示就认定其为编造。"
+          "sufficient": true,
+          "reason": "本地附件原文与上传绑定的文件名、SHA-256及fileId一致；本轮认证回执确认该PDF内容已进入同一账号、会话和请求的模型输入，content_modality_verified及all_content_modalities_verified均为true。附件第1页可独立核对日期、测试数量、同步状态、待修事项和上线批准脚注；完整回答未截断，匹配本请求的Trace未记录线上项目查询或外部写入。"
         }
       },
       "execution_source": "2026-11-13 PRE 全量（不含日程创建）",
@@ -32125,26 +32846,84 @@
             }
           ],
           "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-ATT-PDF-005/live_evidence.json"
+        },
+        {
+          "type": "automatic_evidence_repair",
+          "at": "2026-11-16T06:21:48.757656+00:00",
+          "previous": {
+            "status": "skip",
+            "kind": "evidence_insufficient",
+            "reason": "待复核，已确认本轮PDF内容进入模型，但缺少可独立核对的附件正文、图片和脚注或完整逐项事实底稿，无法验证回答中的24/18/6项测试、白名单及10月8日迁移等具体结论。",
+            "failure_categories": [],
+            "source_failure_categories": [],
+            "review_explanation": {
+              "contract": "ai_assistant.business_comparison.v1",
+              "origin": "fresh_pre_execution",
+              "expected": [
+                "仅依据本轮附件、按附件标注日期区分已完成事项与仍需满足的上线条件；应正确体现群聊同步完成、图片中的测试通过不能等同产品验收、正式上线仍需负责人批准，并避免双栏和脚注串项。"
+              ],
+              "actual": [
+                "回答以2026年10月3日为判断日期，列出群聊增量同步完成、核心测试24项中18项通过；将其余6项待修、扫描PDF表格错列、回调域名白名单及负责人批准列为上线前待处理事项，另称历史迁移计划于10月8日进行且未明确属于上线前置条件。"
+              ],
+              "difference": [
+                "现有独立摘要可支持群聊同步及负责人批准两项，但没有提供可核对页面或逐项事实记录来确认24/18/6、表格错列、白名单、迁移日期及其前置条件归类，也无法确定“核心测试18项通过”是否完整对应图片中的测试结果。需要补充该PDF对应正文、图片和脚注或覆盖上述结论的独立业务底稿后，才能判定回答是否完整准确；当前不据此认定事实错误或编造。"
+              ],
+              "why": "待复核，已确认本轮PDF内容进入模型，但缺少可独立核对的附件正文、图片和脚注或完整逐项事实底稿，无法验证回答中的24/18/6项测试、白名单及10月8日迁移等具体结论。",
+              "turn_comparisons": [
+                {
+                  "step": 2,
+                  "status": "skip",
+                  "reason": "群聊同步完成和上线仍需负责人批准与参考事实一致；其余具体事项及图片测试与核心测试的对应关系缺少独立材料核对，尚不能确认完整正确或存在漏答、串栏。",
+                  "evidence_refs": [
+                    "gold.fixed_fact_truth",
+                    "gold.gold_status、gold.gold_verified及gold.gold_verification_scope",
+                    "followup_plan.steps[1].attachments.files[0]：two_columns.pdf及SHA-256",
+                    "current_source_evidence.exact_request_receipts[0].attachment_model_input",
+                    "turns[1].answer：step=2，request_id=b8d7311c-a58a-4b1e-b5c4-90ec352fbe3c",
+                    "trace.runs[0]：本轮tools为空"
+                  ],
+                  "comparison": {
+                    "expected": "仅依据本轮附件、按附件标注日期区分已完成事项与仍需满足的上线条件；应正确体现群聊同步完成、图片中的测试通过不能等同产品验收、正式上线仍需负责人批准，并避免双栏和脚注串项。",
+                    "actual": "回答以2026年10月3日为判断日期，列出群聊增量同步完成、核心测试24项中18项通过；将其余6项待修、扫描PDF表格错列、回调域名白名单及负责人批准列为上线前待处理事项，另称历史迁移计划于10月8日进行且未明确属于上线前置条件。",
+                    "difference": "现有独立摘要可支持群聊同步及负责人批准两项，但没有提供可核对页面或逐项事实记录来确认24/18/6、表格错列、白名单、迁移日期及其前置条件归类，也无法确定“核心测试18项通过”是否完整对应图片中的测试结果。需要补充该PDF对应正文、图片和脚注或覆盖上述结论的独立业务底稿后，才能判定回答是否完整准确；当前不据此认定事实错误或编造。"
+                  }
+                }
+              ],
+              "evidence_assessment": {
+                "sufficient": false,
+                "reason": "认证回执已将two_columns.pdf的上传摘要、fileId fl09TqR8RUxIe3JV0VaqFV06ixnio与本轮请求b8d7311c-a58a-4b1e-b5c4-90ec352fbe3c、会话cs_ab52e8b7-3f77-4fa9-9ba5-a06e7af766ee绑定，且content_modality_verified、all_content_modalities_verified及上传绑定均为true，因此附件输入链路不是缺证项。已核验的本地Gold摘要支持群聊同步完成、测试通过不等于产品验收、正式上线仍需负责人批准，但未展开回答中的测试数量、修复事项、白名单状态、迁移日期及其版面归属；仅有输入绑定不能证明这些解析结论正确，亦不能据证据未展示就认定其为编造。"
+              }
+            },
+            "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/trace-readback-20261116-v2/cases/AA-ATT-PDF-005.json",
+            "review_observation": {
+              "basis": "09c8e1292cd3e49f8e08c3f8775bf0748e0600ff735c3af03003cfc745366e11",
+              "result": "408d75cf062ec5e26d7b7bf91dd4718a67a818ffb8c3cf6a037d14719fbffae0",
+              "requests": [
+                "b8d7311c-a58a-4b1e-b5c4-90ec352fbe3c"
+              ]
+            }
+          },
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/attachments-judge-1/cases/AA-ATT-PDF-005.json",
+          "business_request_resent": false
         }
       ],
-      "evaluation_detail_reason": "待复核，已确认本轮PDF内容进入模型，但缺少可独立核对的附件正文、图片和脚注或完整逐项事实底稿，无法验证回答中的24/18/6项测试、白名单及10月8日迁移等具体结论。",
+      "evaluation_detail_reason": "通过，回答按附件标注的2026年10月3日区分了群聊同步已完成、测试及修复仍未完成和正式上线尚需批准，未把测试部分通过或10月8日迁移计划当成产品验收、上线或迁移已完成。",
       "turn_verdicts": [
         {
           "step": 2,
-          "status": "skip",
-          "reason": "群聊同步完成和上线仍需负责人批准与参考事实一致；其余具体事项及图片测试与核心测试的对应关系缺少独立材料核对，尚不能确认完整正确或存在漏答、串栏。",
+          "status": "pass",
+          "reason": "回答依据附件日期判断，主要状态、数量和批准条件均与原文一致，也正确保留了历史迁移仅为后续计划的性质。",
           "evidence_refs": [
-            "gold.fixed_fact_truth",
-            "gold.gold_status、gold.gold_verified及gold.gold_verification_scope",
-            "followup_plan.steps[1].attachments.files[0]：two_columns.pdf及SHA-256",
-            "current_source_evidence.exact_request_receipts[0].attachment_model_input",
-            "turns[1].answer：step=2，request_id=b8d7311c-a58a-4b1e-b5c4-90ec352fbe3c",
-            "trace.runs[0]：本轮tools为空"
+            "current_source_evidence.attachment_source_excerpt：two_columns.pdf，第1页，2026-10-03项目周报及脚注1",
+            "current_source_evidence.execution_preflight.facts.bindings[0]：V-P02，fileId=fl09TqR8RUxIe3JV0VaqFV06ixnio，SHA-256=3b7b5e8cd4ef3b0645197a542cd0e1198ffcd3f15b07ba22d0085fda6b2084d5",
+            "current_source_evidence.exact_request_receipts[0].attachment_model_input：上传绑定与文件内容模态均已核验",
+            "turns[1].answer：本轮完整实际回答",
+            "trace.runs[0]、trace.scope：request_id=b8d7311c-a58a-4b1e-b5c4-90ec352fbe3c，tools为空且请求匹配"
           ],
           "comparison": {
-            "expected": "仅依据本轮附件、按附件标注日期区分已完成事项与仍需满足的上线条件；应正确体现群聊同步完成、图片中的测试通过不能等同产品验收、正式上线仍需负责人批准，并避免双栏和脚注串项。",
-            "actual": "回答以2026年10月3日为判断日期，列出群聊增量同步完成、核心测试24项中18项通过；将其余6项待修、扫描PDF表格错列、回调域名白名单及负责人批准列为上线前待处理事项，另称历史迁移计划于10月8日进行且未明确属于上线前置条件。",
-            "difference": "现有独立摘要可支持群聊同步及负责人批准两项，但没有提供可核对页面或逐项事实记录来确认24/18/6、表格错列、白名单、迁移日期及其前置条件归类，也无法确定“核心测试18项通过”是否完整对应图片中的测试结果。需要补充该PDF对应正文、图片和脚注或覆盖上述结论的独立业务底稿后，才能判定回答是否完整准确；当前不据此认定事实错误或编造。"
+            "expected": "仅依据附件2026年10月3日快照：群聊增量同步已完成；图片核心测试24项中18项通过、6项待修，不能据此认定产品验收完成；扫描PDF表格错列仍待修复，回调域名白名单未开放且需安全团队协助；正式上线需项目负责人批准，周报未记录该批准；10月8日历史迁移应作为计划而非已完成事项。",
+            "actual": "回答按10月3日判断，列出群聊同步完成、24项测试中18项通过和6项待修，并列出PDF错列、白名单及正式上线批准等待处理事项；将10月8日历史迁移单列为计划，说明材料未确认其完成或将其列为上线前置条件。",
+            "difference": "无实质遗漏或事实矛盾。回答将“图片核心测试”简称为“核心测试”，对象表述可更精确，但同时明确仍有6项待修，未宣称整体测试或产品验收已完成，不构成已证实的对象串联错误。"
           }
         }
       ]
@@ -32558,9 +33337,9 @@
       "scenario": "周报某页失败时保留可用事实",
       "gate_class": "quality",
       "priority": "P0",
-      "status": "skip",
-      "kind": "evidence_insufficient",
-      "reason": "待复核，附件已确认进入本轮模型输入，但缺少可读页的独立内容或具体业务真值，无法核实“18项通过、6项待修”等周报结论。",
+      "status": "pass",
+      "kind": "business_review",
+      "reason": "通过，周报关键事实与附件一致，明确说明第2页不可读、TC09–TC18无法逐项核验，并按附件10月3日快照而非提问当天判断迁移计划。",
       "review_reuse": null,
       "review_observation": {
         "basis": "5561ca820b7ed0d85145793bf40218d0d23b031f9ebe4d744b4e27337c1a0c9b",
@@ -32579,46 +33358,48 @@
       "categories": [],
       "title": "仅根据本次上传的模拟项目材料回答，不查询线上同名项目；按附件标注日期而非今天判断。总结周报并告诉我有哪些内容没能读到。",
       "ability": "局部丢页被隐藏、遗漏关键例外",
-      "task_completion_rate": null,
+      "task_completion_rate": 100,
       "operational_review": {},
       "planning_review": {},
       "trace_status": "内部工具链已采集；权限/引用仍未观测",
       "trace_runs": 1,
-      "business_reason": "待复核，附件已确认进入本轮模型输入，但缺少可读页的独立内容或具体业务真值，无法核实“18项通过、6项待修”等周报结论。",
+      "business_reason": "通过，周报关键事实与附件一致，明确说明第2页不可读、TC09–TC18无法逐项核验，并按附件10月3日快照而非提问当天判断迁移计划。",
       "review_explanation": {
         "contract": "ai_assistant.business_comparison.v1",
         "origin": "fresh_pre_execution",
         "expected": [
-          "仅依据本次上传的PDF，按附件标注日期准确总结周报，指出未能读取的部分，并区分可读汇总与无法核验的明细，不查询线上同名项目。"
+          "仅依据本次PDF，以附件2026-10-03历史快照总结周报，并说明哪些内容无法读取；可以引用可读页面的汇总，但不能声称已核验不可读页的逐项测试结果。"
         ],
         "actual": [
-          "回答按2026年10月3日快照总结了24项测试中18项通过、6项待修、通过率75%，以及负责人、同步进展、迁移计划和风险；同时称第2页不可读，TC09–TC18无法逐项核对，未声称全部24项均已核验。"
+          "回答给出9月28日至10月3日的周报周期、24项测试中18项通过和6项待修、75%通过率、群聊增量同步完成、10月8日迁移计划及白名单和PDF表格风险；明确第2页不可读，TC09–TC18无法直接逐项核对，并说明材料未提供正式上线批准或客户签约收入。"
         ],
         "difference": [
-          "附件内容输入绑定已证实，但当前证据未提供PDF可读页的独立文本、图像或对应具体业务真值，无法核实18/6的数量、周报日期、负责人、迁移日期及风险描述，也无法独立确认不可读页的准确位置与覆盖范围；不能仅凭模型输入绑定和回答自述判定这些事实正确或错误。"
+          "无实质差异。数量及75%计算与可读汇总一致，TC01–TC08通过、TC19–TC24待修与可读明细一致；10月8日仅被描述为相对于10月3日快照尚未到期的计划，没有推断实际迁移完成，也没有把不可读页描述成已逐项核验。"
         ],
-        "why": "待复核，附件已确认进入本轮模型输入，但缺少可读页的独立内容或具体业务真值，无法核实“18项通过、6项待修”等周报结论。",
+        "why": "通过，周报关键事实与附件一致，明确说明第2页不可读、TC09–TC18无法逐项核验，并按附件10月3日快照而非提问当天判断迁移计划。",
         "turn_comparisons": [
           {
             "step": 2,
-            "status": "skip",
-            "reason": "回答说明了不可读范围且未声称已逐条核对全部24项，但具体周报事实缺少独立来源供核对。",
+            "status": "pass",
+            "reason": "本轮依据附件完成周报总结，正确区分可读汇总、可读测试明细和不可读内容，没有声称已逐条核对全部24项。",
             "evidence_refs": [
-              "current_source_evidence.exact_request_receipts[0].attachment_model_input：request_id=53da0c8a-1519-490d-ac96-7a928fafffbb，file_id=fl09TqR8RUxIe3JV0VaqFc8Z8vs4q，all_content_modalities_verified=true，all_upload_bindings_verified=true",
-              "gold.fixed_fact_truth及gold.gold_verification_scope：仅提供不可读明细及24项核对边界，未展开可读页具体事实",
-              "turns[1].answer：周报摘要及“第2页不可读、TC09–TC18无法直接核对”的说明",
-              "turn_time_basis[0]：本轮提问时间为2026-11-13T08:56:18.664096+00:00；用户明确要求按附件标注日期判断"
+              "turns[1]：step=2，request_id=53da0c8a-1519-490d-ac96-7a928fafffbb，完整问题与回答",
+              "current_source_evidence.execution_preflight：V-P05文件哈希、fileId及当前账号租户绑定",
+              "current_source_evidence.attachment_source_excerpt.visual_page_transcriptions：第1—3页独立视觉转写",
+              "current_source_evidence.exact_request_receipts[0].attachment_model_input：文件内容输入及上传绑定均已验证",
+              "trace.runs[0]：同请求Trace，tools=[]",
+              "turn_time_basis[0]：实际追问时间为2026-11-13，用户明确要求按附件日期判断"
             ],
             "comparison": {
-              "expected": "仅依据本次上传的PDF，按附件标注日期准确总结周报，指出未能读取的部分，并区分可读汇总与无法核验的明细，不查询线上同名项目。",
-              "actual": "回答按2026年10月3日快照总结了24项测试中18项通过、6项待修、通过率75%，以及负责人、同步进展、迁移计划和风险；同时称第2页不可读，TC09–TC18无法逐项核对，未声称全部24项均已核验。",
-              "difference": "附件内容输入绑定已证实，但当前证据未提供PDF可读页的独立文本、图像或对应具体业务真值，无法核实18/6的数量、周报日期、负责人、迁移日期及风险描述，也无法独立确认不可读页的准确位置与覆盖范围；不能仅凭模型输入绑定和回答自述判定这些事实正确或错误。"
+              "expected": "仅依据本次PDF，以附件2026-10-03历史快照总结周报，并说明哪些内容无法读取；可以引用可读页面的汇总，但不能声称已核验不可读页的逐项测试结果。",
+              "actual": "回答给出9月28日至10月3日的周报周期、24项测试中18项通过和6项待修、75%通过率、群聊增量同步完成、10月8日迁移计划及白名单和PDF表格风险；明确第2页不可读，TC09–TC18无法直接逐项核对，并说明材料未提供正式上线批准或客户签约收入。",
+              "difference": "无实质差异。数量及75%计算与可读汇总一致，TC01–TC08通过、TC19–TC24待修与可读明细一致；10月8日仅被描述为相对于10月3日快照尚未到期的计划，没有推断实际迁移完成，也没有把不可读页描述成已逐项核验。"
             }
           }
         ],
         "evidence_assessment": {
-          "sufficient": false,
-          "reason": "本轮认证回执已将上传文件的摘要、fileId与模型内容输入绑定，所有内容模态及上传绑定核验均通过。Gold仅提供坏明细页存在、不能声称逐条核对24项的核验边界，未提供可读页文本、图像或具体事实对照；因此能确认附件输入成功，但不足以独立验证摘要中的数量、日期、负责人及风险。"
+          "sufficient": true,
+          "reason": "独立本地PDF逐页视觉转写支持日期、测试数量、进展、风险及不可读页的核验；原文件SHA256、上传fileId、当前账号租户及本轮session_id/request_id已关联。同请求模型输入回执中，文件的content_modality_verified及all_content_modalities_verified均为true，证明附件内容已进入本轮分析，而非仅上传成功。回答完整，Trace工具列表为空，未见线上项目查询或外部操作。"
         }
       },
       "execution_source": "2026-11-13 PRE 全量（不含日程创建）",
@@ -32702,24 +33483,83 @@
             }
           ],
           "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-ATT-PDF-009/live_evidence.json"
+        },
+        {
+          "type": "automatic_evidence_repair",
+          "at": "2026-11-16T06:25:34.580861+00:00",
+          "previous": {
+            "status": "skip",
+            "kind": "evidence_insufficient",
+            "reason": "待复核，附件已确认进入本轮模型输入，但缺少可读页的独立内容或具体业务真值，无法核实“18项通过、6项待修”等周报结论。",
+            "failure_categories": [],
+            "source_failure_categories": [],
+            "review_explanation": {
+              "contract": "ai_assistant.business_comparison.v1",
+              "origin": "fresh_pre_execution",
+              "expected": [
+                "仅依据本次上传的PDF，按附件标注日期准确总结周报，指出未能读取的部分，并区分可读汇总与无法核验的明细，不查询线上同名项目。"
+              ],
+              "actual": [
+                "回答按2026年10月3日快照总结了24项测试中18项通过、6项待修、通过率75%，以及负责人、同步进展、迁移计划和风险；同时称第2页不可读，TC09–TC18无法逐项核对，未声称全部24项均已核验。"
+              ],
+              "difference": [
+                "附件内容输入绑定已证实，但当前证据未提供PDF可读页的独立文本、图像或对应具体业务真值，无法核实18/6的数量、周报日期、负责人、迁移日期及风险描述，也无法独立确认不可读页的准确位置与覆盖范围；不能仅凭模型输入绑定和回答自述判定这些事实正确或错误。"
+              ],
+              "why": "待复核，附件已确认进入本轮模型输入，但缺少可读页的独立内容或具体业务真值，无法核实“18项通过、6项待修”等周报结论。",
+              "turn_comparisons": [
+                {
+                  "step": 2,
+                  "status": "skip",
+                  "reason": "回答说明了不可读范围且未声称已逐条核对全部24项，但具体周报事实缺少独立来源供核对。",
+                  "evidence_refs": [
+                    "current_source_evidence.exact_request_receipts[0].attachment_model_input：request_id=53da0c8a-1519-490d-ac96-7a928fafffbb，file_id=fl09TqR8RUxIe3JV0VaqFc8Z8vs4q，all_content_modalities_verified=true，all_upload_bindings_verified=true",
+                    "gold.fixed_fact_truth及gold.gold_verification_scope：仅提供不可读明细及24项核对边界，未展开可读页具体事实",
+                    "turns[1].answer：周报摘要及“第2页不可读、TC09–TC18无法直接核对”的说明",
+                    "turn_time_basis[0]：本轮提问时间为2026-11-13T08:56:18.664096+00:00；用户明确要求按附件标注日期判断"
+                  ],
+                  "comparison": {
+                    "expected": "仅依据本次上传的PDF，按附件标注日期准确总结周报，指出未能读取的部分，并区分可读汇总与无法核验的明细，不查询线上同名项目。",
+                    "actual": "回答按2026年10月3日快照总结了24项测试中18项通过、6项待修、通过率75%，以及负责人、同步进展、迁移计划和风险；同时称第2页不可读，TC09–TC18无法逐项核对，未声称全部24项均已核验。",
+                    "difference": "附件内容输入绑定已证实，但当前证据未提供PDF可读页的独立文本、图像或对应具体业务真值，无法核实18/6的数量、周报日期、负责人、迁移日期及风险描述，也无法独立确认不可读页的准确位置与覆盖范围；不能仅凭模型输入绑定和回答自述判定这些事实正确或错误。"
+                  }
+                }
+              ],
+              "evidence_assessment": {
+                "sufficient": false,
+                "reason": "本轮认证回执已将上传文件的摘要、fileId与模型内容输入绑定，所有内容模态及上传绑定核验均通过。Gold仅提供坏明细页存在、不能声称逐条核对24项的核验边界，未提供可读页文本、图像或具体事实对照；因此能确认附件输入成功，但不足以独立验证摘要中的数量、日期、负责人及风险。"
+              }
+            },
+            "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/trace-readback-20261116-v2/cases/AA-ATT-PDF-009.json",
+            "review_observation": {
+              "basis": "5561ca820b7ed0d85145793bf40218d0d23b031f9ebe4d744b4e27337c1a0c9b",
+              "result": "d977b45d2d03307e08459e3506376d86d9d428e8cb4a41e238f988112bf3d225",
+              "requests": [
+                "53da0c8a-1519-490d-ac96-7a928fafffbb"
+              ]
+            }
+          },
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/attachment-009-judge-2/cases/AA-ATT-PDF-009.json",
+          "business_request_resent": false
         }
       ],
-      "evaluation_detail_reason": "待复核，附件已确认进入本轮模型输入，但缺少可读页的独立内容或具体业务真值，无法核实“18项通过、6项待修”等周报结论。",
+      "evaluation_detail_reason": "通过，周报关键事实与附件一致，明确说明第2页不可读、TC09–TC18无法逐项核验，并按附件10月3日快照而非提问当天判断迁移计划。",
       "turn_verdicts": [
         {
           "step": 2,
-          "status": "skip",
-          "reason": "回答说明了不可读范围且未声称已逐条核对全部24项，但具体周报事实缺少独立来源供核对。",
+          "status": "pass",
+          "reason": "本轮依据附件完成周报总结，正确区分可读汇总、可读测试明细和不可读内容，没有声称已逐条核对全部24项。",
           "evidence_refs": [
-            "current_source_evidence.exact_request_receipts[0].attachment_model_input：request_id=53da0c8a-1519-490d-ac96-7a928fafffbb，file_id=fl09TqR8RUxIe3JV0VaqFc8Z8vs4q，all_content_modalities_verified=true，all_upload_bindings_verified=true",
-            "gold.fixed_fact_truth及gold.gold_verification_scope：仅提供不可读明细及24项核对边界，未展开可读页具体事实",
-            "turns[1].answer：周报摘要及“第2页不可读、TC09–TC18无法直接核对”的说明",
-            "turn_time_basis[0]：本轮提问时间为2026-11-13T08:56:18.664096+00:00；用户明确要求按附件标注日期判断"
+            "turns[1]：step=2，request_id=53da0c8a-1519-490d-ac96-7a928fafffbb，完整问题与回答",
+            "current_source_evidence.execution_preflight：V-P05文件哈希、fileId及当前账号租户绑定",
+            "current_source_evidence.attachment_source_excerpt.visual_page_transcriptions：第1—3页独立视觉转写",
+            "current_source_evidence.exact_request_receipts[0].attachment_model_input：文件内容输入及上传绑定均已验证",
+            "trace.runs[0]：同请求Trace，tools=[]",
+            "turn_time_basis[0]：实际追问时间为2026-11-13，用户明确要求按附件日期判断"
           ],
           "comparison": {
-            "expected": "仅依据本次上传的PDF，按附件标注日期准确总结周报，指出未能读取的部分，并区分可读汇总与无法核验的明细，不查询线上同名项目。",
-            "actual": "回答按2026年10月3日快照总结了24项测试中18项通过、6项待修、通过率75%，以及负责人、同步进展、迁移计划和风险；同时称第2页不可读，TC09–TC18无法逐项核对，未声称全部24项均已核验。",
-            "difference": "附件内容输入绑定已证实，但当前证据未提供PDF可读页的独立文本、图像或对应具体业务真值，无法核实18/6的数量、周报日期、负责人、迁移日期及风险描述，也无法独立确认不可读页的准确位置与覆盖范围；不能仅凭模型输入绑定和回答自述判定这些事实正确或错误。"
+            "expected": "仅依据本次PDF，以附件2026-10-03历史快照总结周报，并说明哪些内容无法读取；可以引用可读页面的汇总，但不能声称已核验不可读页的逐项测试结果。",
+            "actual": "回答给出9月28日至10月3日的周报周期、24项测试中18项通过和6项待修、75%通过率、群聊增量同步完成、10月8日迁移计划及白名单和PDF表格风险；明确第2页不可读，TC09–TC18无法直接逐项核对，并说明材料未提供正式上线批准或客户签约收入。",
+            "difference": "无实质差异。数量及75%计算与可读汇总一致，TC01–TC08通过、TC19–TC24待修与可读明细一致；10月8日仅被描述为相对于10月3日快照尚未到期的计划，没有推断实际迁移完成，也没有把不可读页描述成已逐项核验。"
           }
         }
       ]
@@ -35097,9 +35937,9 @@
       "scenario": "导出台账去重保持同名不同任务",
       "gate_class": "quality",
       "priority": "P1",
-      "status": "skip",
-      "kind": "evidence_insufficient",
-      "reason": "待复核，目标项目7项、计划64小时和已记42小时与已核验基准一致，附件输入绑定也已确认，但缺少工作表独立内容，无法核对快照日期及“已完成2项、逾期1项”的依据。",
+      "status": "pass",
+      "kind": "business_review",
+      "reason": "通过：按附件快照正确汇总试点7项任务、计划64小时及已记42小时，正确去重T002、按项目范围排除T007，并保留T008备注为空。",
       "review_reuse": null,
       "review_observation": {
         "basis": "3437c793201123f44feb6e756056942090eed15005acc0b351c91b4fb72d4568",
@@ -35118,49 +35958,51 @@
       "categories": [],
       "title": "仅根据本次上传的模拟项目材料回答，不查询线上同名项目；按附件标注日期而非今天判断。按任务ID去重保留首条，去掉首尾空格，不补缺失备注；再汇总AI助手一期试点。",
       "ability": "重复计数、错误合并同名用户、缺失值伪造。",
-      "task_completion_rate": null,
+      "task_completion_rate": 100,
       "operational_review": {},
       "planning_review": {},
       "trace_status": "内部工具链已采集；权限/引用仍未观测",
       "trace_runs": 1,
-      "business_reason": "待复核，目标项目7项、计划64小时和已记42小时与已核验基准一致，附件输入绑定也已确认，但缺少工作表独立内容，无法核对快照日期及“已完成2项、逾期1项”的依据。",
+      "business_reason": "通过：按附件快照正确汇总试点7项任务、计划64小时及已记42小时，正确去重T002、按项目范围排除T007，并保留T008备注为空。",
       "review_explanation": {
         "contract": "ai_assistant.business_comparison.v1",
         "origin": "fresh_pre_execution",
         "expected": [
-          "仅使用上传附件，按任务ID去重保留首条并去除首尾空格，不补缺失备注，再依据附件标注日期汇总AI助手一期试点。已知基准为全表8个唯一任务，目标项目7项、计划64小时、已记42小时；T002与T007不能因同名而合并，T008备注应保持为空。"
+          "仅根据上传附件，以2026-10-06 12:00日本时间为统计时点；去除首尾空格、按任务ID保留首条，使全表9行成为8个唯一任务，不因T002与T007同名而合并。再汇总P-AI-001的7项任务：已完成2项、完成率28.57%、未完成5项、仅T005逾期，计划64小时、已记42小时；T008缺失备注保持为空。"
         ],
         "actual": [
-          "回答给出目标项目7项、计划64小时、已记42小时，说明重复T002保留首条，并将其他项目的T007排除在目标项目统计之外，T008备注以“—”表示原表为空；另以2026年10月6日12:00为快照，给出已完成2项、完成率28.57%、逾期1项及逐任务状态、截止时间和变更。"
+          "回答采用附件快照日期，给出7项任务、完成2项、完成率28.57%、未完成5项、逾期1项，以及64小时计划工时和42小时已记录工时；说明T002重复记录不再计入，T007因属于Mac项目排除。任务名称及成员姓名已去除首尾空格，T008备注显示为“—”并明确表示原表为空；相关变更和风险也与附件一致。"
         ],
         "difference": [
-          "已知核心数量、工时和空备注处理与基准一致；T007仅被排除在目标项目汇总之外，不能据此认定其被错误去重，未单列全表8项也不单独构成漏答。尚缺工作表原文或完整独立事实表，无法核验2026年10月6日12:00是否为附件标注时点，以及首条记录的状态、截止时间能否支持已完成2项和逾期1项等结论，因此待复核，而非认定产品已答错。"
+          "无影响所问汇总的实质差异。回答未单列全表去重后8项这一中间统计，但去重说明及目标项目统计正确；T007的排除属于项目范围筛选，而非按同名误合并。"
         ],
-        "why": "待复核，目标项目7项、计划64小时和已记42小时与已核验基准一致，附件输入绑定也已确认，但缺少工作表独立内容，无法核对快照日期及“已完成2项、逾期1项”的依据。",
+        "why": "通过：按附件快照正确汇总试点7项任务、计划64小时及已记42小时，正确去重T002、按项目范围排除T007，并保留T008备注为空。",
         "turn_comparisons": [
           {
             "step": 2,
-            "status": "skip",
-            "reason": "核心项目数量和工时符合已知基准，T008备注也未补写；但附件日期及完成、逾期等总结缺少独立逐项核验材料，尚不能确定整轮回答正确。",
+            "status": "pass",
+            "reason": "按任务ID去重及项目筛选后的统计正确，快照时点仅T005逾期，T008空备注未被补写。",
             "evidence_refs": [
-              "gold.fixed_fact_truth",
-              "gold.gold_verification_scope",
-              "gold.qualitative_requirements",
-              "current_source_evidence.exact_request_receipts[0].attachment_model_input",
-              "turns[1].answer",
-              "trace.scope",
-              "trace.runs[0]"
+              "turns[step=2].message",
+              "turns[step=2].answer",
+              "current_source_evidence.execution_preflight.facts.bindings",
+              "current_source_evidence.attachment_source_excerpt.sheets.任务台账",
+              "current_source_evidence.attachment_source_excerpt.sheets.计算汇总",
+              "current_source_evidence.attachment_source_excerpt.sheets.成员",
+              "current_source_evidence.attachment_source_excerpt.sheets.变更记录",
+              "current_source_evidence.exact_request_receipts[request_id=327d2eb5-30fb-4316-a023-781b3cead4d1].attachment_model_input",
+              "trace.runs[run_id=bar_8c30bb83da744bdc83377c52c1064297]"
             ],
             "comparison": {
-              "expected": "仅使用上传附件，按任务ID去重保留首条并去除首尾空格，不补缺失备注，再依据附件标注日期汇总AI助手一期试点。已知基准为全表8个唯一任务，目标项目7项、计划64小时、已记42小时；T002与T007不能因同名而合并，T008备注应保持为空。",
-              "actual": "回答给出目标项目7项、计划64小时、已记42小时，说明重复T002保留首条，并将其他项目的T007排除在目标项目统计之外，T008备注以“—”表示原表为空；另以2026年10月6日12:00为快照，给出已完成2项、完成率28.57%、逾期1项及逐任务状态、截止时间和变更。",
-              "difference": "已知核心数量、工时和空备注处理与基准一致；T007仅被排除在目标项目汇总之外，不能据此认定其被错误去重，未单列全表8项也不单独构成漏答。尚缺工作表原文或完整独立事实表，无法核验2026年10月6日12:00是否为附件标注时点，以及首条记录的状态、截止时间能否支持已完成2项和逾期1项等结论，因此待复核，而非认定产品已答错。"
+              "expected": "仅根据上传附件，以2026-10-06 12:00日本时间为统计时点；去除首尾空格、按任务ID保留首条，使全表9行成为8个唯一任务，不因T002与T007同名而合并。再汇总P-AI-001的7项任务：已完成2项、完成率28.57%、未完成5项、仅T005逾期，计划64小时、已记42小时；T008缺失备注保持为空。",
+              "actual": "回答采用附件快照日期，给出7项任务、完成2项、完成率28.57%、未完成5项、逾期1项，以及64小时计划工时和42小时已记录工时；说明T002重复记录不再计入，T007因属于Mac项目排除。任务名称及成员姓名已去除首尾空格，T008备注显示为“—”并明确表示原表为空；相关变更和风险也与附件一致。",
+              "difference": "无影响所问汇总的实质差异。回答未单列全表去重后8项这一中间统计，但去重说明及目标项目统计正确；T007的排除属于项目范围筛选，而非按同名误合并。"
             }
           }
         ],
         "evidence_assessment": {
-          "sufficient": false,
-          "reason": "本轮认证回执确认duplicate_whitespace.xlsx的上传摘要、文件ID和模型输入相匹配，逐文件content_modality_verified及all_content_modalities_verified均为true，不能将本例视为附件未输入。已核验Gold可支持全表去重后8项、目标项目7项、计划64小时、已记42小时及T008备注为空，但未提供工作表原文或完整逐任务事实表，无法独立核验附件标注时点、首条记录的具体字段、任务状态和截止时间；输入绑定本身不能补足这些事实证据。"
+          "sufficient": true,
+          "reason": "上传绑定的文件名、SHA256及文件ID与独立本地附件一致，同一请求的attachment_model_input确认文件内容已进入模型输入，content_modality_verified及all_content_modalities_verified均为true。独立附件的任务台账、计算汇总、成员和变更记录足以核验回答中的统计、状态、负责人、截止时间及风险；本轮Trace未见线上项目查询或外部写入。用户明确要求采用附件日期，因此以2026-10-06 12:00日本时间判断，而非本轮提问日期。"
         }
       },
       "execution_source": "2026-11-13 PRE 全量（不含日程创建）",
@@ -35243,27 +36085,89 @@
             }
           ],
           "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-ATT-XLS-010/live_evidence.json"
+        },
+        {
+          "type": "automatic_evidence_repair",
+          "at": "2026-11-16T06:21:47.234952+00:00",
+          "previous": {
+            "status": "skip",
+            "kind": "evidence_insufficient",
+            "reason": "待复核，目标项目7项、计划64小时和已记42小时与已核验基准一致，附件输入绑定也已确认，但缺少工作表独立内容，无法核对快照日期及“已完成2项、逾期1项”的依据。",
+            "failure_categories": [],
+            "source_failure_categories": [],
+            "review_explanation": {
+              "contract": "ai_assistant.business_comparison.v1",
+              "origin": "fresh_pre_execution",
+              "expected": [
+                "仅使用上传附件，按任务ID去重保留首条并去除首尾空格，不补缺失备注，再依据附件标注日期汇总AI助手一期试点。已知基准为全表8个唯一任务，目标项目7项、计划64小时、已记42小时；T002与T007不能因同名而合并，T008备注应保持为空。"
+              ],
+              "actual": [
+                "回答给出目标项目7项、计划64小时、已记42小时，说明重复T002保留首条，并将其他项目的T007排除在目标项目统计之外，T008备注以“—”表示原表为空；另以2026年10月6日12:00为快照，给出已完成2项、完成率28.57%、逾期1项及逐任务状态、截止时间和变更。"
+              ],
+              "difference": [
+                "已知核心数量、工时和空备注处理与基准一致；T007仅被排除在目标项目汇总之外，不能据此认定其被错误去重，未单列全表8项也不单独构成漏答。尚缺工作表原文或完整独立事实表，无法核验2026年10月6日12:00是否为附件标注时点，以及首条记录的状态、截止时间能否支持已完成2项和逾期1项等结论，因此待复核，而非认定产品已答错。"
+              ],
+              "why": "待复核，目标项目7项、计划64小时和已记42小时与已核验基准一致，附件输入绑定也已确认，但缺少工作表独立内容，无法核对快照日期及“已完成2项、逾期1项”的依据。",
+              "turn_comparisons": [
+                {
+                  "step": 2,
+                  "status": "skip",
+                  "reason": "核心项目数量和工时符合已知基准，T008备注也未补写；但附件日期及完成、逾期等总结缺少独立逐项核验材料，尚不能确定整轮回答正确。",
+                  "evidence_refs": [
+                    "gold.fixed_fact_truth",
+                    "gold.gold_verification_scope",
+                    "gold.qualitative_requirements",
+                    "current_source_evidence.exact_request_receipts[0].attachment_model_input",
+                    "turns[1].answer",
+                    "trace.scope",
+                    "trace.runs[0]"
+                  ],
+                  "comparison": {
+                    "expected": "仅使用上传附件，按任务ID去重保留首条并去除首尾空格，不补缺失备注，再依据附件标注日期汇总AI助手一期试点。已知基准为全表8个唯一任务，目标项目7项、计划64小时、已记42小时；T002与T007不能因同名而合并，T008备注应保持为空。",
+                    "actual": "回答给出目标项目7项、计划64小时、已记42小时，说明重复T002保留首条，并将其他项目的T007排除在目标项目统计之外，T008备注以“—”表示原表为空；另以2026年10月6日12:00为快照，给出已完成2项、完成率28.57%、逾期1项及逐任务状态、截止时间和变更。",
+                    "difference": "已知核心数量、工时和空备注处理与基准一致；T007仅被排除在目标项目汇总之外，不能据此认定其被错误去重，未单列全表8项也不单独构成漏答。尚缺工作表原文或完整独立事实表，无法核验2026年10月6日12:00是否为附件标注时点，以及首条记录的状态、截止时间能否支持已完成2项和逾期1项等结论，因此待复核，而非认定产品已答错。"
+                  }
+                }
+              ],
+              "evidence_assessment": {
+                "sufficient": false,
+                "reason": "本轮认证回执确认duplicate_whitespace.xlsx的上传摘要、文件ID和模型输入相匹配，逐文件content_modality_verified及all_content_modalities_verified均为true，不能将本例视为附件未输入。已核验Gold可支持全表去重后8项、目标项目7项、计划64小时、已记42小时及T008备注为空，但未提供工作表原文或完整逐任务事实表，无法独立核验附件标注时点、首条记录的具体字段、任务状态和截止时间；输入绑定本身不能补足这些事实证据。"
+              }
+            },
+            "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/trace-readback-20261116-v2/cases/AA-ATT-XLS-010.json",
+            "review_observation": {
+              "basis": "3437c793201123f44feb6e756056942090eed15005acc0b351c91b4fb72d4568",
+              "result": "ec70988a92af1cf97598b09e96a83460689d3abf52b3ebedae922dccb78d1a68",
+              "requests": [
+                "327d2eb5-30fb-4316-a023-781b3cead4d1"
+              ]
+            }
+          },
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/attachments-judge-1/cases/AA-ATT-XLS-010.json",
+          "business_request_resent": false
         }
       ],
-      "evaluation_detail_reason": "待复核，目标项目7项、计划64小时和已记42小时与已核验基准一致，附件输入绑定也已确认，但缺少工作表独立内容，无法核对快照日期及“已完成2项、逾期1项”的依据。",
+      "evaluation_detail_reason": "通过：按附件快照正确汇总试点7项任务、计划64小时及已记42小时，正确去重T002、按项目范围排除T007，并保留T008备注为空。",
       "turn_verdicts": [
         {
           "step": 2,
-          "status": "skip",
-          "reason": "核心项目数量和工时符合已知基准，T008备注也未补写；但附件日期及完成、逾期等总结缺少独立逐项核验材料，尚不能确定整轮回答正确。",
+          "status": "pass",
+          "reason": "按任务ID去重及项目筛选后的统计正确，快照时点仅T005逾期，T008空备注未被补写。",
           "evidence_refs": [
-            "gold.fixed_fact_truth",
-            "gold.gold_verification_scope",
-            "gold.qualitative_requirements",
-            "current_source_evidence.exact_request_receipts[0].attachment_model_input",
-            "turns[1].answer",
-            "trace.scope",
-            "trace.runs[0]"
+            "turns[step=2].message",
+            "turns[step=2].answer",
+            "current_source_evidence.execution_preflight.facts.bindings",
+            "current_source_evidence.attachment_source_excerpt.sheets.任务台账",
+            "current_source_evidence.attachment_source_excerpt.sheets.计算汇总",
+            "current_source_evidence.attachment_source_excerpt.sheets.成员",
+            "current_source_evidence.attachment_source_excerpt.sheets.变更记录",
+            "current_source_evidence.exact_request_receipts[request_id=327d2eb5-30fb-4316-a023-781b3cead4d1].attachment_model_input",
+            "trace.runs[run_id=bar_8c30bb83da744bdc83377c52c1064297]"
           ],
           "comparison": {
-            "expected": "仅使用上传附件，按任务ID去重保留首条并去除首尾空格，不补缺失备注，再依据附件标注日期汇总AI助手一期试点。已知基准为全表8个唯一任务，目标项目7项、计划64小时、已记42小时；T002与T007不能因同名而合并，T008备注应保持为空。",
-            "actual": "回答给出目标项目7项、计划64小时、已记42小时，说明重复T002保留首条，并将其他项目的T007排除在目标项目统计之外，T008备注以“—”表示原表为空；另以2026年10月6日12:00为快照，给出已完成2项、完成率28.57%、逾期1项及逐任务状态、截止时间和变更。",
-            "difference": "已知核心数量、工时和空备注处理与基准一致；T007仅被排除在目标项目汇总之外，不能据此认定其被错误去重，未单列全表8项也不单独构成漏答。尚缺工作表原文或完整独立事实表，无法核验2026年10月6日12:00是否为附件标注时点，以及首条记录的状态、截止时间能否支持已完成2项和逾期1项等结论，因此待复核，而非认定产品已答错。"
+            "expected": "仅根据上传附件，以2026-10-06 12:00日本时间为统计时点；去除首尾空格、按任务ID保留首条，使全表9行成为8个唯一任务，不因T002与T007同名而合并。再汇总P-AI-001的7项任务：已完成2项、完成率28.57%、未完成5项、仅T005逾期，计划64小时、已记42小时；T008缺失备注保持为空。",
+            "actual": "回答采用附件快照日期，给出7项任务、完成2项、完成率28.57%、未完成5项、逾期1项，以及64小时计划工时和42小时已记录工时；说明T002重复记录不再计入，T007因属于Mac项目排除。任务名称及成员姓名已去除首尾空格，T008备注显示为“—”并明确表示原表为空；相关变更和风险也与附件一致。",
+            "difference": "无影响所问汇总的实质差异。回答未单列全表去重后8项这一中间统计，但去重说明及目标项目统计正确；T007的排除属于项目范围筛选，而非按同名误合并。"
           }
         }
       ]
@@ -35500,9 +36404,9 @@
       "scenario": "成员重复键和缺失映射先澄清",
       "gate_class": "quality",
       "priority": "P1",
-      "status": "skip",
-      "kind": "evidence_insufficient",
-      "reason": "待复核，附件进入本轮模型已核验，回答也保留了7项任务并指出U03冲突、U01缺映射，但缺少成员Sheet及任务负责人列的独立明细，无法核实“陈默”等具体姓名及逐任务关联。",
+      "status": "pass",
+      "kind": "business_review",
+      "reason": "通过，已先指出U03姓名冲突和U01映射缺失，完整保留本项目7项任务并正确关联可确定的负责人，没有自行选人。",
       "review_reuse": null,
       "review_observation": {
         "basis": "25974784b1e306715543e1453016688e55b50056671d6813618b6274db003822",
@@ -35512,7 +36416,7 @@
         ]
       },
       "failure_categories": [],
-      "confidence": "medium",
+      "confidence": "high",
       "latency_ms": 46591,
       "model": "openai/gpt-6.1-terra",
       "prompt_version": "assistant_chat_agent@0.24.3",
@@ -35521,49 +36425,50 @@
       "categories": [],
       "title": "仅根据本次上传的模拟项目材料回答，不查询线上同名项目；按附件标注日期而非今天判断。只按成员Sheet把项目任务关联到负责人姓名；映射不唯一或缺失时先指出，不自行选人。",
       "ability": "重复成员键放大任务数和工时，缺失映射导致任务被静默丢弃。",
-      "task_completion_rate": null,
+      "task_completion_rate": 100,
       "operational_review": {},
       "planning_review": {},
       "trace_status": "内部工具链已采集；权限/引用仍未观测",
       "trace_runs": 1,
-      "business_reason": "待复核，附件进入本轮模型已核验，回答也保留了7项任务并指出U03冲突、U01缺映射，但缺少成员Sheet及任务负责人列的独立明细，无法核实“陈默”等具体姓名及逐任务关联。",
+      "business_reason": "通过，已先指出U03姓名冲突和U01映射缺失，完整保留本项目7项任务并正确关联可确定的负责人，没有自行选人。",
       "review_explanation": {
         "contract": "ai_assistant.business_comparison.v1",
         "origin": "fresh_pre_execution",
         "expected": [
-          "仅依据附件成员Sheet关联项目任务与负责人姓名，先指出U03映射不唯一及U01缺映射，不自行选人；保留包含T008的7项项目任务，不查询线上同名项目，并按附件标注日期判断。"
+          "仅依据mapping_conflict.xlsx，以附件标注的2026-10-06 12:00日本时间为判断时点，按任务台账负责人ID关联成员Sheet：T001、T002、T004对应陈默；T003、T005、T006的U03存在两个姓名标注，应先指出且不得自行选择；T008的U01缺少映射，应保留任务并说明。不得因重复映射扩增任务或误纳其他项目任务。"
         ],
         "actual": [
-          "先指出U03对应“周宁”和“周宁（历史标注）”且不自行选择，说明U01缺映射；列出7项任务并保留T008，将T001、T002、T004关联为陈默（U02），将T003、T005、T006标记为U03映射不唯一，并采用2026-10-06 12:00日本时间作为附件快照。"
+          "开头明确列出U03对应“周宁”和“周宁（历史标注）”的冲突，以及U01缺失；随后完整列出本项目7项任务，将T001、T002、T004关联陈默，对其余任务保留相应冲突或缺失标记，并排除Mac项目T007。采用的判断时点与附件一致。"
         ],
         "difference": [
-          "冲突、缺失及7项任务基数与已提供的本地Gold一致，未发现可据现有证据确定的业务错误。但Gold摘要未给出U02的姓名、U03两条姓名记录、任务负责人列逐行内容或附件快照日期，无法独立核实回答中的具体姓名、关联集合及快照时点；模型输入绑定不能代替这些事实核对，因此本轮待复核。"
+          "无实质差异，未扩增任务、遗漏T008或擅用备注及变更记录选定姓名。用户未要求汇总工时，未展示42小时不构成漏答。"
         ],
-        "why": "待复核，附件进入本轮模型已核验，回答也保留了7项任务并指出U03冲突、U01缺映射，但缺少成员Sheet及任务负责人列的独立明细，无法核实“陈默”等具体姓名及逐任务关联。",
+        "why": "通过，已先指出U03姓名冲突和U01映射缺失，完整保留本项目7项任务并正确关联可确定的负责人，没有自行选人。",
         "turn_comparisons": [
           {
             "step": 2,
-            "status": "skip",
-            "reason": "已确认回答正确处理了Gold明确记载的冲突、缺失和任务基数，但唯一映射的具体姓名及逐任务对应关系仍缺少独立来源核验。",
+            "status": "pass",
+            "reason": "已按成员Sheet完成负责人关联，先说明冲突和缺失，再列出全部7项任务；附带的状态及逾期判断也符合附件快照。",
             "evidence_refs": [
-              "gold.fixed_fact_truth",
-              "gold.gold_status",
-              "gold.gold_verification_scope",
-              "followup_plan.steps[1].attachments.files[0]",
-              "current_source_evidence.exact_request_receipts[0].attachment_model_input",
+              "turns[1].message",
               "turns[1].answer",
-              "turn_time_basis[0]"
+              "current_source_evidence.execution_preflight",
+              "current_source_evidence.exact_request_receipts[0].attachment_model_input",
+              "current_source_evidence.attachment_source_excerpt.sheets.成员",
+              "current_source_evidence.attachment_source_excerpt.sheets.任务台账",
+              "current_source_evidence.attachment_source_excerpt.sheets.计算汇总",
+              "trace.runs[0]"
             ],
             "comparison": {
-              "expected": "仅依据附件成员Sheet关联项目任务与负责人姓名，先指出U03映射不唯一及U01缺映射，不自行选人；保留包含T008的7项项目任务，不查询线上同名项目，并按附件标注日期判断。",
-              "actual": "先指出U03对应“周宁”和“周宁（历史标注）”且不自行选择，说明U01缺映射；列出7项任务并保留T008，将T001、T002、T004关联为陈默（U02），将T003、T005、T006标记为U03映射不唯一，并采用2026-10-06 12:00日本时间作为附件快照。",
-              "difference": "冲突、缺失及7项任务基数与已提供的本地Gold一致，未发现可据现有证据确定的业务错误。但Gold摘要未给出U02的姓名、U03两条姓名记录、任务负责人列逐行内容或附件快照日期，无法独立核实回答中的具体姓名、关联集合及快照时点；模型输入绑定不能代替这些事实核对，因此本轮待复核。"
+              "expected": "仅依据mapping_conflict.xlsx，以附件标注的2026-10-06 12:00日本时间为判断时点，按任务台账负责人ID关联成员Sheet：T001、T002、T004对应陈默；T003、T005、T006的U03存在两个姓名标注，应先指出且不得自行选择；T008的U01缺少映射，应保留任务并说明。不得因重复映射扩增任务或误纳其他项目任务。",
+              "actual": "开头明确列出U03对应“周宁”和“周宁（历史标注）”的冲突，以及U01缺失；随后完整列出本项目7项任务，将T001、T002、T004关联陈默，对其余任务保留相应冲突或缺失标记，并排除Mac项目T007。采用的判断时点与附件一致。",
+              "difference": "无实质差异，未扩增任务、遗漏T008或擅用备注及变更记录选定姓名。用户未要求汇总工时，未展示42小时不构成漏答。"
             }
           }
         ],
         "evidence_assessment": {
-          "sufficient": false,
-          "reason": "认证回执中，mapping_conflict.xlsx的文件ID、上传SHA256与本轮请求绑定一致，content_modality_verified及all_content_modalities_verified均为true，足以证明附件内容进入了本轮模型输入。本地已核验Gold可确认U03有两个冲突名称、U01缺映射，以及原项目应保留7项且不能丢失T008；回答符合这些事实。但现有材料未展示成员Sheet的具体姓名记录、任务负责人列逐行值及附件快照日期，无法独立完成全部映射事实核对。用户未询问工时，不因回答未展示42小时判为漏答。"
+          "sufficient": true,
+          "reason": "上传文件摘要与独立本地工作簿一致，同一请求的附件输入回执确认content_modality_verified及all_content_modalities_verified均为true。成员Sheet、任务台账和计算汇总可逐项核验姓名映射、任务范围及快照时间；回答未截断，匹配本轮请求的Trace未记录线上项目查询或外部写入。"
         }
       },
       "execution_source": "2026-11-13 PRE 全量（不含日程创建）",
@@ -35646,27 +36551,88 @@
             }
           ],
           "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-ATT-XLS-012/live_evidence.json"
+        },
+        {
+          "type": "automatic_evidence_repair",
+          "at": "2026-11-16T06:21:37.182753+00:00",
+          "previous": {
+            "status": "skip",
+            "kind": "evidence_insufficient",
+            "reason": "待复核，附件进入本轮模型已核验，回答也保留了7项任务并指出U03冲突、U01缺映射，但缺少成员Sheet及任务负责人列的独立明细，无法核实“陈默”等具体姓名及逐任务关联。",
+            "failure_categories": [],
+            "source_failure_categories": [],
+            "review_explanation": {
+              "contract": "ai_assistant.business_comparison.v1",
+              "origin": "fresh_pre_execution",
+              "expected": [
+                "仅依据附件成员Sheet关联项目任务与负责人姓名，先指出U03映射不唯一及U01缺映射，不自行选人；保留包含T008的7项项目任务，不查询线上同名项目，并按附件标注日期判断。"
+              ],
+              "actual": [
+                "先指出U03对应“周宁”和“周宁（历史标注）”且不自行选择，说明U01缺映射；列出7项任务并保留T008，将T001、T002、T004关联为陈默（U02），将T003、T005、T006标记为U03映射不唯一，并采用2026-10-06 12:00日本时间作为附件快照。"
+              ],
+              "difference": [
+                "冲突、缺失及7项任务基数与已提供的本地Gold一致，未发现可据现有证据确定的业务错误。但Gold摘要未给出U02的姓名、U03两条姓名记录、任务负责人列逐行内容或附件快照日期，无法独立核实回答中的具体姓名、关联集合及快照时点；模型输入绑定不能代替这些事实核对，因此本轮待复核。"
+              ],
+              "why": "待复核，附件进入本轮模型已核验，回答也保留了7项任务并指出U03冲突、U01缺映射，但缺少成员Sheet及任务负责人列的独立明细，无法核实“陈默”等具体姓名及逐任务关联。",
+              "turn_comparisons": [
+                {
+                  "step": 2,
+                  "status": "skip",
+                  "reason": "已确认回答正确处理了Gold明确记载的冲突、缺失和任务基数，但唯一映射的具体姓名及逐任务对应关系仍缺少独立来源核验。",
+                  "evidence_refs": [
+                    "gold.fixed_fact_truth",
+                    "gold.gold_status",
+                    "gold.gold_verification_scope",
+                    "followup_plan.steps[1].attachments.files[0]",
+                    "current_source_evidence.exact_request_receipts[0].attachment_model_input",
+                    "turns[1].answer",
+                    "turn_time_basis[0]"
+                  ],
+                  "comparison": {
+                    "expected": "仅依据附件成员Sheet关联项目任务与负责人姓名，先指出U03映射不唯一及U01缺映射，不自行选人；保留包含T008的7项项目任务，不查询线上同名项目，并按附件标注日期判断。",
+                    "actual": "先指出U03对应“周宁”和“周宁（历史标注）”且不自行选择，说明U01缺映射；列出7项任务并保留T008，将T001、T002、T004关联为陈默（U02），将T003、T005、T006标记为U03映射不唯一，并采用2026-10-06 12:00日本时间作为附件快照。",
+                    "difference": "冲突、缺失及7项任务基数与已提供的本地Gold一致，未发现可据现有证据确定的业务错误。但Gold摘要未给出U02的姓名、U03两条姓名记录、任务负责人列逐行内容或附件快照日期，无法独立核实回答中的具体姓名、关联集合及快照时点；模型输入绑定不能代替这些事实核对，因此本轮待复核。"
+                  }
+                }
+              ],
+              "evidence_assessment": {
+                "sufficient": false,
+                "reason": "认证回执中，mapping_conflict.xlsx的文件ID、上传SHA256与本轮请求绑定一致，content_modality_verified及all_content_modalities_verified均为true，足以证明附件内容进入了本轮模型输入。本地已核验Gold可确认U03有两个冲突名称、U01缺映射，以及原项目应保留7项且不能丢失T008；回答符合这些事实。但现有材料未展示成员Sheet的具体姓名记录、任务负责人列逐行值及附件快照日期，无法独立完成全部映射事实核对。用户未询问工时，不因回答未展示42小时判为漏答。"
+              }
+            },
+            "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/trace-readback-20261116-v2/cases/AA-ATT-XLS-012.json",
+            "review_observation": {
+              "basis": "25974784b1e306715543e1453016688e55b50056671d6813618b6274db003822",
+              "result": "dd658f26f16cf0103afb50b89a96cbd01403f663bc2318fcf03dfc541ea0cb90",
+              "requests": [
+                "643d042a-7369-4cb5-96c6-cf8fcf382dd4"
+              ]
+            }
+          },
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/attachments-judge-1/cases/AA-ATT-XLS-012.json",
+          "business_request_resent": false
         }
       ],
-      "evaluation_detail_reason": "待复核，附件进入本轮模型已核验，回答也保留了7项任务并指出U03冲突、U01缺映射，但缺少成员Sheet及任务负责人列的独立明细，无法核实“陈默”等具体姓名及逐任务关联。",
+      "evaluation_detail_reason": "通过，已先指出U03姓名冲突和U01映射缺失，完整保留本项目7项任务并正确关联可确定的负责人，没有自行选人。",
       "turn_verdicts": [
         {
           "step": 2,
-          "status": "skip",
-          "reason": "已确认回答正确处理了Gold明确记载的冲突、缺失和任务基数，但唯一映射的具体姓名及逐任务对应关系仍缺少独立来源核验。",
+          "status": "pass",
+          "reason": "已按成员Sheet完成负责人关联，先说明冲突和缺失，再列出全部7项任务；附带的状态及逾期判断也符合附件快照。",
           "evidence_refs": [
-            "gold.fixed_fact_truth",
-            "gold.gold_status",
-            "gold.gold_verification_scope",
-            "followup_plan.steps[1].attachments.files[0]",
-            "current_source_evidence.exact_request_receipts[0].attachment_model_input",
+            "turns[1].message",
             "turns[1].answer",
-            "turn_time_basis[0]"
+            "current_source_evidence.execution_preflight",
+            "current_source_evidence.exact_request_receipts[0].attachment_model_input",
+            "current_source_evidence.attachment_source_excerpt.sheets.成员",
+            "current_source_evidence.attachment_source_excerpt.sheets.任务台账",
+            "current_source_evidence.attachment_source_excerpt.sheets.计算汇总",
+            "trace.runs[0]"
           ],
           "comparison": {
-            "expected": "仅依据附件成员Sheet关联项目任务与负责人姓名，先指出U03映射不唯一及U01缺映射，不自行选人；保留包含T008的7项项目任务，不查询线上同名项目，并按附件标注日期判断。",
-            "actual": "先指出U03对应“周宁”和“周宁（历史标注）”且不自行选择，说明U01缺映射；列出7项任务并保留T008，将T001、T002、T004关联为陈默（U02），将T003、T005、T006标记为U03映射不唯一，并采用2026-10-06 12:00日本时间作为附件快照。",
-            "difference": "冲突、缺失及7项任务基数与已提供的本地Gold一致，未发现可据现有证据确定的业务错误。但Gold摘要未给出U02的姓名、U03两条姓名记录、任务负责人列逐行内容或附件快照日期，无法独立核实回答中的具体姓名、关联集合及快照时点；模型输入绑定不能代替这些事实核对，因此本轮待复核。"
+            "expected": "仅依据mapping_conflict.xlsx，以附件标注的2026-10-06 12:00日本时间为判断时点，按任务台账负责人ID关联成员Sheet：T001、T002、T004对应陈默；T003、T005、T006的U03存在两个姓名标注，应先指出且不得自行选择；T008的U01缺少映射，应保留任务并说明。不得因重复映射扩增任务或误纳其他项目任务。",
+            "actual": "开头明确列出U03对应“周宁”和“周宁（历史标注）”的冲突，以及U01缺失；随后完整列出本项目7项任务，将T001、T002、T004关联陈默，对其余任务保留相应冲突或缺失标记，并排除Mac项目T007。采用的判断时点与附件一致。",
+            "difference": "无实质差异，未扩增任务、遗漏T008或擅用备注及变更记录选定姓名。用户未要求汇总工时，未展示42小时不构成漏答。"
           }
         }
       ]
@@ -36454,9 +37420,9 @@
       "scenario": "Word投入表：明细与独立项目范围",
       "gate_class": "quality",
       "priority": "P0",
-      "status": "skip",
-      "kind": "evidence_insufficient",
-      "reason": "待复核，3项任务及计划24小时、已记20小时与参考一致，但参考仅确认高优缺陷共2项，缺少附件原文来核验其关闭状态，无法判断回答称“未关闭数量无法确定”是否正确。",
+      "status": "pass",
+      "kind": "business_review",
+      "reason": "通过，准确列出3项任务及计划24小时、已记20小时、表列高优缺陷2项，未混入Mac项目，并如实说明附件未标注缺陷关闭状态，不能直接认定这2项均未关闭。",
       "review_reuse": null,
       "review_observation": {
         "basis": "abd6244ef1d4b32d4106da42ac9ae8ea1c163734a4436b947390aef136d88f5a",
@@ -36475,47 +37441,48 @@
       "categories": [],
       "title": "仅根据本次上传的模拟项目材料回答，不查询线上同名项目；按附件标注日期而非今天判断。只统计验收投入明细表，列出任务及计划、已记工时和未关闭高优缺陷，不包括Mac项目表。",
       "ability": "Word表格串列、多表串数据、重复统计合计。",
-      "task_completion_rate": null,
+      "task_completion_rate": 100,
       "operational_review": {},
       "planning_review": {},
       "trace_status": "内部工具链已采集；权限/引用仍未观测",
       "trace_runs": 1,
-      "business_reason": "待复核，3项任务及计划24小时、已记20小时与参考一致，但参考仅确认高优缺陷共2项，缺少附件原文来核验其关闭状态，无法判断回答称“未关闭数量无法确定”是否正确。",
+      "business_reason": "通过，准确列出3项任务及计划24小时、已记20小时、表列高优缺陷2项，未混入Mac项目，并如实说明附件未标注缺陷关闭状态，不能直接认定这2项均未关闭。",
       "review_explanation": {
         "contract": "ai_assistant.business_comparison.v1",
         "origin": "fresh_pre_execution",
         "expected": [
-          "仅依据本次附件的验收投入明细表，按附件标注日期列出T001、T006、T005的计划及已记工时，分别为8/8、6/6、10/6小时，合计24/20小时；根据附件提供的状态信息统计未关闭高优缺陷，不混入Mac项目或重复计算合计行。"
+          "仅依据本轮附件及其标注日期，列出验收投入明细中的T001、T006、T005：计划工时分别为8、6、10小时，已记工时分别为8、6、6小时，高优缺陷分别为0、0、2项；不重复计算合计行，不纳入Mac项目T007。用户所问的未关闭数量应依据附件状态信息判断，不能把高优缺陷总数直接视为未关闭数。"
         ],
         "actual": [
-          "按所称2026-10-06 11:40评审版本列出3项任务，计划及已记工时合计24/20小时，高优缺陷合计2项；另称表中未注明缺陷是否关闭，因此无法确定未关闭高优缺陷数，并明确排除Mac项目T007。"
+          "列出了全部3项任务及对应的8/8/0、6/6/0、10/6/2，合计24小时、20小时、2项；采用附件评审版本日期，明确排除Mac项目T007，并说明附件未注明缺陷是否关闭，无法确定未关闭数量。"
         ],
         "difference": [
-          "任务集合、逐项工时和高优缺陷总数与参考一致。关键未决点是2项高优缺陷是否均未关闭：现有参考未给出关闭状态，回执也只证明附件内容进入模型输入，未展示可独立核验的原表及状态说明。因此尚不能认定回答漏报了2项未关闭缺陷，也不能确认其“无法确定”的解释正确；需补充附件原文或等价的独立解析证据。"
+          "无已证实的遗漏或错值。附件只列高优缺陷数量，没有提供关闭状态，因此对未关闭数量保留判断符合“仅根据附件回答”的限制，不构成漏答。"
         ],
-        "why": "待复核，3项任务及计划24小时、已记20小时与参考一致，但参考仅确认高优缺陷共2项，缺少附件原文来核验其关闭状态，无法判断回答称“未关闭数量无法确定”是否正确。",
+        "why": "通过，准确列出3项任务及计划24小时、已记20小时、表列高优缺陷2项，未混入Mac项目，并如实说明附件未标注缺陷关闭状态，不能直接认定这2项均未关闭。",
         "turn_comparisons": [
           {
             "step": 2,
-            "status": "skip",
-            "reason": "任务及工时统计与参考吻合，也明确排除了Mac项目；未关闭高优缺陷是否可由附件确定，尚缺独立正文证据。",
+            "status": "pass",
+            "reason": "回答按附件2026-10-06 11:40版本逐项统计，任务、工时和高优缺陷数量均正确；对附件未提供的关闭状态作出合理限定。",
             "evidence_refs": [
-              "gold.fixed_fact_truth：T001/T006/T005共3项，计划8/6/10小时、已记8/6/6小时，合计24/20小时，高优缺陷2",
-              "gold.gold_verification_scope：local_fixture_bytes_and_business_oracle_only",
-              "turns[1].answer：列出任务和工时，说明高优缺陷共2项但无法确定是否未关闭，并排除Mac项目T007",
-              "followup_plan.steps[1].attachments.files[0]：acceptance_table.docx，sha256=26a48afef9a9b299670e92f44f097e2a5766aed4184495d2bbe599730b1437e5",
-              "current_source_evidence.exact_request_receipts[0].attachment_model_input：请求501d65ea-dd04-4867-891a-22e503f87535，文件fl09TqR8RUxIe3JV0VaqFqPcwesgw，上传绑定及内容模态均已验证"
+              "turns[step=2].message",
+              "turns[step=2].answer",
+              "current_source_evidence.attachment_source_excerpt：版本日期、“验收投入明细”表、“三 验收条件”及独立Mac项目说明",
+              "current_source_evidence.execution_preflight.facts.bindings[step=2]：acceptance_table.docx，SHA-256=26a48afef9a9b299670e92f44f097e2a5766aed4184495d2bbe599730b1437e5",
+              "current_source_evidence.exact_request_receipts[request_id=501d65ea-dd04-4867-891a-22e503f87535].attachment_model_input",
+              "turn_time_basis[step=2]"
             ],
             "comparison": {
-              "expected": "仅依据本次附件的验收投入明细表，按附件标注日期列出T001、T006、T005的计划及已记工时，分别为8/8、6/6、10/6小时，合计24/20小时；根据附件提供的状态信息统计未关闭高优缺陷，不混入Mac项目或重复计算合计行。",
-              "actual": "按所称2026-10-06 11:40评审版本列出3项任务，计划及已记工时合计24/20小时，高优缺陷合计2项；另称表中未注明缺陷是否关闭，因此无法确定未关闭高优缺陷数，并明确排除Mac项目T007。",
-              "difference": "任务集合、逐项工时和高优缺陷总数与参考一致。关键未决点是2项高优缺陷是否均未关闭：现有参考未给出关闭状态，回执也只证明附件内容进入模型输入，未展示可独立核验的原表及状态说明。因此尚不能认定回答漏报了2项未关闭缺陷，也不能确认其“无法确定”的解释正确；需补充附件原文或等价的独立解析证据。"
+              "expected": "仅依据本轮附件及其标注日期，列出验收投入明细中的T001、T006、T005：计划工时分别为8、6、10小时，已记工时分别为8、6、6小时，高优缺陷分别为0、0、2项；不重复计算合计行，不纳入Mac项目T007。用户所问的未关闭数量应依据附件状态信息判断，不能把高优缺陷总数直接视为未关闭数。",
+              "actual": "列出了全部3项任务及对应的8/8/0、6/6/0、10/6/2，合计24小时、20小时、2项；采用附件评审版本日期，明确排除Mac项目T007，并说明附件未注明缺陷是否关闭，无法确定未关闭数量。",
+              "difference": "无已证实的遗漏或错值。附件只列高优缺陷数量，没有提供关闭状态，因此对未关闭数量保留判断符合“仅根据附件回答”的限制，不构成漏答。"
             }
           }
         ],
         "evidence_assessment": {
-          "sufficient": false,
-          "reason": "认证回执已将本次上传的acceptance_table.docx、文件摘要及文件ID绑定到同一请求的模型输入，且content_modality_verified、all_content_modalities_verified均为true，附件内容输入证据充分。本地已核验参考可支持任务集合、逐项工时和高优缺陷合计，但未提供附件原表或缺陷状态说明，不能把“高优缺陷2”直接认定为“未关闭高优缺陷2”，也不能仅凭回答自身证明附件没有关闭状态。该证据缺口影响用户所问的未关闭缺陷统计结论。"
+          "sufficient": true,
+          "reason": "独立附件原文提供了验收投入明细的全部3条任务、合计行及Mac项目排除说明；上传预检和本轮认证模型输入回执将同一文件的SHA-256、fileId、账号、租户与请求绑定，content_modality_verified及all_content_modalities_verified均为true。原表列名仅为“高优缺陷”，验收条件中的“无未关闭高优缺陷”属于通过条件，并不能证明表中2项缺陷的关闭状态。"
         }
       },
       "execution_source": "2026-11-13 PRE 全量（不含日程创建）",
@@ -36602,25 +37569,84 @@
             }
           ],
           "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-ATT-DOC-002/live_evidence.json"
+        },
+        {
+          "type": "automatic_evidence_repair",
+          "at": "2026-11-16T06:21:58.898724+00:00",
+          "previous": {
+            "status": "skip",
+            "kind": "evidence_insufficient",
+            "reason": "待复核，3项任务及计划24小时、已记20小时与参考一致，但参考仅确认高优缺陷共2项，缺少附件原文来核验其关闭状态，无法判断回答称“未关闭数量无法确定”是否正确。",
+            "failure_categories": [],
+            "source_failure_categories": [],
+            "review_explanation": {
+              "contract": "ai_assistant.business_comparison.v1",
+              "origin": "fresh_pre_execution",
+              "expected": [
+                "仅依据本次附件的验收投入明细表，按附件标注日期列出T001、T006、T005的计划及已记工时，分别为8/8、6/6、10/6小时，合计24/20小时；根据附件提供的状态信息统计未关闭高优缺陷，不混入Mac项目或重复计算合计行。"
+              ],
+              "actual": [
+                "按所称2026-10-06 11:40评审版本列出3项任务，计划及已记工时合计24/20小时，高优缺陷合计2项；另称表中未注明缺陷是否关闭，因此无法确定未关闭高优缺陷数，并明确排除Mac项目T007。"
+              ],
+              "difference": [
+                "任务集合、逐项工时和高优缺陷总数与参考一致。关键未决点是2项高优缺陷是否均未关闭：现有参考未给出关闭状态，回执也只证明附件内容进入模型输入，未展示可独立核验的原表及状态说明。因此尚不能认定回答漏报了2项未关闭缺陷，也不能确认其“无法确定”的解释正确；需补充附件原文或等价的独立解析证据。"
+              ],
+              "why": "待复核，3项任务及计划24小时、已记20小时与参考一致，但参考仅确认高优缺陷共2项，缺少附件原文来核验其关闭状态，无法判断回答称“未关闭数量无法确定”是否正确。",
+              "turn_comparisons": [
+                {
+                  "step": 2,
+                  "status": "skip",
+                  "reason": "任务及工时统计与参考吻合，也明确排除了Mac项目；未关闭高优缺陷是否可由附件确定，尚缺独立正文证据。",
+                  "evidence_refs": [
+                    "gold.fixed_fact_truth：T001/T006/T005共3项，计划8/6/10小时、已记8/6/6小时，合计24/20小时，高优缺陷2",
+                    "gold.gold_verification_scope：local_fixture_bytes_and_business_oracle_only",
+                    "turns[1].answer：列出任务和工时，说明高优缺陷共2项但无法确定是否未关闭，并排除Mac项目T007",
+                    "followup_plan.steps[1].attachments.files[0]：acceptance_table.docx，sha256=26a48afef9a9b299670e92f44f097e2a5766aed4184495d2bbe599730b1437e5",
+                    "current_source_evidence.exact_request_receipts[0].attachment_model_input：请求501d65ea-dd04-4867-891a-22e503f87535，文件fl09TqR8RUxIe3JV0VaqFqPcwesgw，上传绑定及内容模态均已验证"
+                  ],
+                  "comparison": {
+                    "expected": "仅依据本次附件的验收投入明细表，按附件标注日期列出T001、T006、T005的计划及已记工时，分别为8/8、6/6、10/6小时，合计24/20小时；根据附件提供的状态信息统计未关闭高优缺陷，不混入Mac项目或重复计算合计行。",
+                    "actual": "按所称2026-10-06 11:40评审版本列出3项任务，计划及已记工时合计24/20小时，高优缺陷合计2项；另称表中未注明缺陷是否关闭，因此无法确定未关闭高优缺陷数，并明确排除Mac项目T007。",
+                    "difference": "任务集合、逐项工时和高优缺陷总数与参考一致。关键未决点是2项高优缺陷是否均未关闭：现有参考未给出关闭状态，回执也只证明附件内容进入模型输入，未展示可独立核验的原表及状态说明。因此尚不能认定回答漏报了2项未关闭缺陷，也不能确认其“无法确定”的解释正确；需补充附件原文或等价的独立解析证据。"
+                  }
+                }
+              ],
+              "evidence_assessment": {
+                "sufficient": false,
+                "reason": "认证回执已将本次上传的acceptance_table.docx、文件摘要及文件ID绑定到同一请求的模型输入，且content_modality_verified、all_content_modalities_verified均为true，附件内容输入证据充分。本地已核验参考可支持任务集合、逐项工时和高优缺陷合计，但未提供附件原表或缺陷状态说明，不能把“高优缺陷2”直接认定为“未关闭高优缺陷2”，也不能仅凭回答自身证明附件没有关闭状态。该证据缺口影响用户所问的未关闭缺陷统计结论。"
+              }
+            },
+            "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/trace-readback-20261116-v2/cases/AA-ATT-DOC-002.json",
+            "review_observation": {
+              "basis": "abd6244ef1d4b32d4106da42ac9ae8ea1c163734a4436b947390aef136d88f5a",
+              "result": "9b12f792a9ed8dd2c8a88496527a95d665e005a8211054312bcde7d2e785dd26",
+              "requests": [
+                "501d65ea-dd04-4867-891a-22e503f87535"
+              ]
+            }
+          },
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/attachments-judge-1/cases/AA-ATT-DOC-002.json",
+          "business_request_resent": false
         }
       ],
-      "evaluation_detail_reason": "待复核，3项任务及计划24小时、已记20小时与参考一致，但参考仅确认高优缺陷共2项，缺少附件原文来核验其关闭状态，无法判断回答称“未关闭数量无法确定”是否正确。",
+      "evaluation_detail_reason": "通过，准确列出3项任务及计划24小时、已记20小时、表列高优缺陷2项，未混入Mac项目，并如实说明附件未标注缺陷关闭状态，不能直接认定这2项均未关闭。",
       "turn_verdicts": [
         {
           "step": 2,
-          "status": "skip",
-          "reason": "任务及工时统计与参考吻合，也明确排除了Mac项目；未关闭高优缺陷是否可由附件确定，尚缺独立正文证据。",
+          "status": "pass",
+          "reason": "回答按附件2026-10-06 11:40版本逐项统计，任务、工时和高优缺陷数量均正确；对附件未提供的关闭状态作出合理限定。",
           "evidence_refs": [
-            "gold.fixed_fact_truth：T001/T006/T005共3项，计划8/6/10小时、已记8/6/6小时，合计24/20小时，高优缺陷2",
-            "gold.gold_verification_scope：local_fixture_bytes_and_business_oracle_only",
-            "turns[1].answer：列出任务和工时，说明高优缺陷共2项但无法确定是否未关闭，并排除Mac项目T007",
-            "followup_plan.steps[1].attachments.files[0]：acceptance_table.docx，sha256=26a48afef9a9b299670e92f44f097e2a5766aed4184495d2bbe599730b1437e5",
-            "current_source_evidence.exact_request_receipts[0].attachment_model_input：请求501d65ea-dd04-4867-891a-22e503f87535，文件fl09TqR8RUxIe3JV0VaqFqPcwesgw，上传绑定及内容模态均已验证"
+            "turns[step=2].message",
+            "turns[step=2].answer",
+            "current_source_evidence.attachment_source_excerpt：版本日期、“验收投入明细”表、“三 验收条件”及独立Mac项目说明",
+            "current_source_evidence.execution_preflight.facts.bindings[step=2]：acceptance_table.docx，SHA-256=26a48afef9a9b299670e92f44f097e2a5766aed4184495d2bbe599730b1437e5",
+            "current_source_evidence.exact_request_receipts[request_id=501d65ea-dd04-4867-891a-22e503f87535].attachment_model_input",
+            "turn_time_basis[step=2]"
           ],
           "comparison": {
-            "expected": "仅依据本次附件的验收投入明细表，按附件标注日期列出T001、T006、T005的计划及已记工时，分别为8/8、6/6、10/6小时，合计24/20小时；根据附件提供的状态信息统计未关闭高优缺陷，不混入Mac项目或重复计算合计行。",
-            "actual": "按所称2026-10-06 11:40评审版本列出3项任务，计划及已记工时合计24/20小时，高优缺陷合计2项；另称表中未注明缺陷是否关闭，因此无法确定未关闭高优缺陷数，并明确排除Mac项目T007。",
-            "difference": "任务集合、逐项工时和高优缺陷总数与参考一致。关键未决点是2项高优缺陷是否均未关闭：现有参考未给出关闭状态，回执也只证明附件内容进入模型输入，未展示可独立核验的原表及状态说明。因此尚不能认定回答漏报了2项未关闭缺陷，也不能确认其“无法确定”的解释正确；需补充附件原文或等价的独立解析证据。"
+            "expected": "仅依据本轮附件及其标注日期，列出验收投入明细中的T001、T006、T005：计划工时分别为8、6、10小时，已记工时分别为8、6、6小时，高优缺陷分别为0、0、2项；不重复计算合计行，不纳入Mac项目T007。用户所问的未关闭数量应依据附件状态信息判断，不能把高优缺陷总数直接视为未关闭数。",
+            "actual": "列出了全部3项任务及对应的8/8/0、6/6/0、10/6/2，合计24小时、20小时、2项；采用附件评审版本日期，明确排除Mac项目T007，并说明附件未注明缺陷是否关闭，无法确定未关闭数量。",
+            "difference": "无已证实的遗漏或错值。附件只列高优缺陷数量，没有提供关闭状态，因此对未关闭数量保留判断符合“仅根据附件回答”的限制，不构成漏答。"
           }
         }
       ]
@@ -37867,9 +38893,9 @@
       "scenario": "验收结论可追溯且不虚构Word页码",
       "gate_class": "quality",
       "priority": "P0",
-      "status": "skip",
-      "kind": "evidence_insufficient",
-      "reason": "待复核，三项验收条件和版本时间与本地参考事实一致，附件内容输入绑定也已核验，但缺少当前评审版正文或逐句核验结果，无法确认用户要求的原句引用。",
+      "status": "pass",
+      "kind": "business_review",
+      "reason": "通过，准确给出24项测试全部通过、无未关闭高优缺陷及产品和QA双确认三项验收条件，引用了v2（2026-10-06 11:40）的原句，且未编造页码。",
       "review_reuse": null,
       "review_observation": {
         "basis": "9eb7b4fc415f00da9bb83e7ad95d299ccdbe0a7ba1ce006c4703748e0a5e88f2",
@@ -37888,49 +38914,47 @@
       "categories": [],
       "title": "仅根据本次上传的模拟项目材料回答，不查询线上同名项目；按附件标注日期而非今天判断。验收通过需要哪些条件？给出当前版本标识和支持结论的原句；有可靠排版页码时再给页码。",
       "ability": "正确答案配错误引用、可重排Word虚构固定页码。",
-      "task_completion_rate": null,
+      "task_completion_rate": 100,
       "operational_review": {},
       "planning_review": {},
       "trace_status": "内部工具链已采集；权限/引用仍未观测",
       "trace_runs": 1,
-      "business_reason": "待复核，三项验收条件和版本时间与本地参考事实一致，附件内容输入绑定也已核验，但缺少当前评审版正文或逐句核验结果，无法确认用户要求的原句引用。",
+      "business_reason": "通过，准确给出24项测试全部通过、无未关闭高优缺陷及产品和QA双确认三项验收条件，引用了v2（2026-10-06 11:40）的原句，且未编造页码。",
       "review_explanation": {
         "contract": "ai_assistant.business_comparison.v1",
         "origin": "fresh_pre_execution",
         "expected": [
-          "仅依据本次附件，按附件标注版本说明验收通过所需的24项测试全部通过、无未关闭高优缺陷及产品和QA双确认，给出当前版本标识和支持结论的附件原句；仅在存在可靠排版依据时提供页码，不查询线上同名项目。"
+          "仅依据本轮上传材料，按附件标注版本回答：24项图片核心测试全部通过、无未关闭高优缺陷，并取得产品和QA双确认；给出当前版本v2及2026-10-06 11:40标识和支持结论的原句，仅在有可靠排版依据时提供页码。"
         ],
         "actual": [
-          "回答列出三项验收条件，标明v2及2026-10-06 11:40，提供验收条件和上线放行的引文，并说明因缺乏可靠排版页码而不标页码。"
+          "完整列出三项验收条件并引用对应原句，给出v2（当前评审版本，2026-10-06 11:40）；另外准确说明正式上线还需项目负责人放行，并因没有可靠排版页码而不标页码。"
         ],
         "difference": [
-          "验收规则和版本时间与本地参考事实一致，未发现已证实的业务错误；但缺少附件当前评审版的独立正文或引文逐句校验，无法确认所引验收语句确为原文，因此尚不能完整判定用户要求的原句引用是否正确。"
+          "无实质差异；补充的上线放行及版本状态均有附件原文支持，未混同验收条件，也未把计划或未确认状态说成已完成。"
         ],
-        "why": "待复核，三项验收条件和版本时间与本地参考事实一致，附件内容输入绑定也已核验，但缺少当前评审版正文或逐句核验结果，无法确认用户要求的原句引用。",
+        "why": "通过，准确给出24项测试全部通过、无未关闭高优缺陷及产品和QA双确认三项验收条件，引用了v2（2026-10-06 11:40）的原句，且未编造页码。",
         "turn_comparisons": [
           {
             "step": 2,
-            "status": "skip",
-            "reason": "验收条件和版本时间可核对一致，也未编造页码；用户明确要求引用原句，而当前证据不足以核验引文是否出自该版本附件。",
+            "status": "pass",
+            "reason": "回答依据附件标注版本说明验收条件，版本标识及支持原句准确；正式上线放行被明确区分为另一环节，无可靠排版依据时不提供页码符合要求。",
             "evidence_refs": [
-              "turns[1].answer",
-              "gold.fixed_fact_truth",
-              "gold.qualitative_requirements[1]",
-              "gold.gold_verification_scope",
-              "followup_plan.steps[1].attachments.files[0]",
-              "current_source_evidence.exact_request_receipts[0].attachment_model_input",
-              "turn_time_basis[0]"
+              "turns[1].message及turns[1].answer",
+              "current_source_evidence.attachment_source_excerpt：05_acceptance_spec.docx的版本行、“三 验收条件”及“五 版本说明”",
+              "current_source_evidence.execution_preflight：认证身份及step=2上传绑定，file_id=fl09TqR8RUxIe3JV0VaqFvzZaykcg",
+              "current_source_evidence.exact_request_receipts[0].attachment_model_input：request_id=35c9f96e-3b15-4c29-b8cf-9a94ac311668，逐文件及整体内容输入核验均通过",
+              "trace.scope及trace.runs[0]：严格匹配本轮请求，tools为空"
             ],
             "comparison": {
-              "expected": "仅依据本次附件，按附件标注版本说明验收通过所需的24项测试全部通过、无未关闭高优缺陷及产品和QA双确认，给出当前版本标识和支持结论的附件原句；仅在存在可靠排版依据时提供页码，不查询线上同名项目。",
-              "actual": "回答列出三项验收条件，标明v2及2026-10-06 11:40，提供验收条件和上线放行的引文，并说明因缺乏可靠排版页码而不标页码。",
-              "difference": "验收规则和版本时间与本地参考事实一致，未发现已证实的业务错误；但缺少附件当前评审版的独立正文或引文逐句校验，无法确认所引验收语句确为原文，因此尚不能完整判定用户要求的原句引用是否正确。"
+              "expected": "仅依据本轮上传材料，按附件标注版本回答：24项图片核心测试全部通过、无未关闭高优缺陷，并取得产品和QA双确认；给出当前版本v2及2026-10-06 11:40标识和支持结论的原句，仅在有可靠排版依据时提供页码。",
+              "actual": "完整列出三项验收条件并引用对应原句，给出v2（当前评审版本，2026-10-06 11:40）；另外准确说明正式上线还需项目负责人放行，并因没有可靠排版页码而不标页码。",
+              "difference": "无实质差异；补充的上线放行及版本状态均有附件原文支持，未混同验收条件，也未把计划或未确认状态说成已完成。"
             }
           }
         ],
         "evidence_assessment": {
-          "sufficient": false,
-          "reason": "本轮认证回执中的文件SHA256与B06上传配置一致，upload_binding_verified、content_modality_verified及all_content_modalities_verified均为true，足以证明该附件内容进入了本轮模型输入。本地Gold支持24项全过、无高优缺陷、产品与QA双确认，以及2026-10-06 11:40版本时间；但所给证据未展示附件对应原文，亦未提供独立的引文核验结果。输入绑定及语义层面的参考事实不能单独证明回答中的引号内容确为附件原句。"
+          "sufficient": true,
+          "reason": "独立本地附件原文可核验版本、验收条件及上线放行的区别；认证上传回执中的文件摘要与本地材料一致，且本轮模型输入绑定的content_modality_verified和all_content_modalities_verified均为true，证明附件内容已进入对应请求。回答引文与原文一致，本轮匹配Trace未记录线上项目查询或外部写入。"
         }
       },
       "execution_source": "2026-11-13 PRE 全量（不含日程创建）",
@@ -38013,27 +39037,85 @@
             }
           ],
           "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-ATT-DOC-008/live_evidence.json"
+        },
+        {
+          "type": "automatic_evidence_repair",
+          "at": "2026-11-16T06:21:32.829149+00:00",
+          "previous": {
+            "status": "skip",
+            "kind": "evidence_insufficient",
+            "reason": "待复核，三项验收条件和版本时间与本地参考事实一致，附件内容输入绑定也已核验，但缺少当前评审版正文或逐句核验结果，无法确认用户要求的原句引用。",
+            "failure_categories": [],
+            "source_failure_categories": [],
+            "review_explanation": {
+              "contract": "ai_assistant.business_comparison.v1",
+              "origin": "fresh_pre_execution",
+              "expected": [
+                "仅依据本次附件，按附件标注版本说明验收通过所需的24项测试全部通过、无未关闭高优缺陷及产品和QA双确认，给出当前版本标识和支持结论的附件原句；仅在存在可靠排版依据时提供页码，不查询线上同名项目。"
+              ],
+              "actual": [
+                "回答列出三项验收条件，标明v2及2026-10-06 11:40，提供验收条件和上线放行的引文，并说明因缺乏可靠排版页码而不标页码。"
+              ],
+              "difference": [
+                "验收规则和版本时间与本地参考事实一致，未发现已证实的业务错误；但缺少附件当前评审版的独立正文或引文逐句校验，无法确认所引验收语句确为原文，因此尚不能完整判定用户要求的原句引用是否正确。"
+              ],
+              "why": "待复核，三项验收条件和版本时间与本地参考事实一致，附件内容输入绑定也已核验，但缺少当前评审版正文或逐句核验结果，无法确认用户要求的原句引用。",
+              "turn_comparisons": [
+                {
+                  "step": 2,
+                  "status": "skip",
+                  "reason": "验收条件和版本时间可核对一致，也未编造页码；用户明确要求引用原句，而当前证据不足以核验引文是否出自该版本附件。",
+                  "evidence_refs": [
+                    "turns[1].answer",
+                    "gold.fixed_fact_truth",
+                    "gold.qualitative_requirements[1]",
+                    "gold.gold_verification_scope",
+                    "followup_plan.steps[1].attachments.files[0]",
+                    "current_source_evidence.exact_request_receipts[0].attachment_model_input",
+                    "turn_time_basis[0]"
+                  ],
+                  "comparison": {
+                    "expected": "仅依据本次附件，按附件标注版本说明验收通过所需的24项测试全部通过、无未关闭高优缺陷及产品和QA双确认，给出当前版本标识和支持结论的附件原句；仅在存在可靠排版依据时提供页码，不查询线上同名项目。",
+                    "actual": "回答列出三项验收条件，标明v2及2026-10-06 11:40，提供验收条件和上线放行的引文，并说明因缺乏可靠排版页码而不标页码。",
+                    "difference": "验收规则和版本时间与本地参考事实一致，未发现已证实的业务错误；但缺少附件当前评审版的独立正文或引文逐句校验，无法确认所引验收语句确为原文，因此尚不能完整判定用户要求的原句引用是否正确。"
+                  }
+                }
+              ],
+              "evidence_assessment": {
+                "sufficient": false,
+                "reason": "本轮认证回执中的文件SHA256与B06上传配置一致，upload_binding_verified、content_modality_verified及all_content_modalities_verified均为true，足以证明该附件内容进入了本轮模型输入。本地Gold支持24项全过、无高优缺陷、产品与QA双确认，以及2026-10-06 11:40版本时间；但所给证据未展示附件对应原文，亦未提供独立的引文核验结果。输入绑定及语义层面的参考事实不能单独证明回答中的引号内容确为附件原句。"
+              }
+            },
+            "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/trace-readback-20261116-v2/cases/AA-ATT-DOC-008.json",
+            "review_observation": {
+              "basis": "9eb7b4fc415f00da9bb83e7ad95d299ccdbe0a7ba1ce006c4703748e0a5e88f2",
+              "result": "548257399d7742b7c9c337d04ed7e7b33418c947ae88318cf083c9293e8a7d2e",
+              "requests": [
+                "35c9f96e-3b15-4c29-b8cf-9a94ac311668"
+              ]
+            }
+          },
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/attachments-judge-1/cases/AA-ATT-DOC-008.json",
+          "business_request_resent": false
         }
       ],
-      "evaluation_detail_reason": "待复核，三项验收条件和版本时间与本地参考事实一致，附件内容输入绑定也已核验，但缺少当前评审版正文或逐句核验结果，无法确认用户要求的原句引用。",
+      "evaluation_detail_reason": "通过，准确给出24项测试全部通过、无未关闭高优缺陷及产品和QA双确认三项验收条件，引用了v2（2026-10-06 11:40）的原句，且未编造页码。",
       "turn_verdicts": [
         {
           "step": 2,
-          "status": "skip",
-          "reason": "验收条件和版本时间可核对一致，也未编造页码；用户明确要求引用原句，而当前证据不足以核验引文是否出自该版本附件。",
+          "status": "pass",
+          "reason": "回答依据附件标注版本说明验收条件，版本标识及支持原句准确；正式上线放行被明确区分为另一环节，无可靠排版依据时不提供页码符合要求。",
           "evidence_refs": [
-            "turns[1].answer",
-            "gold.fixed_fact_truth",
-            "gold.qualitative_requirements[1]",
-            "gold.gold_verification_scope",
-            "followup_plan.steps[1].attachments.files[0]",
-            "current_source_evidence.exact_request_receipts[0].attachment_model_input",
-            "turn_time_basis[0]"
+            "turns[1].message及turns[1].answer",
+            "current_source_evidence.attachment_source_excerpt：05_acceptance_spec.docx的版本行、“三 验收条件”及“五 版本说明”",
+            "current_source_evidence.execution_preflight：认证身份及step=2上传绑定，file_id=fl09TqR8RUxIe3JV0VaqFvzZaykcg",
+            "current_source_evidence.exact_request_receipts[0].attachment_model_input：request_id=35c9f96e-3b15-4c29-b8cf-9a94ac311668，逐文件及整体内容输入核验均通过",
+            "trace.scope及trace.runs[0]：严格匹配本轮请求，tools为空"
           ],
           "comparison": {
-            "expected": "仅依据本次附件，按附件标注版本说明验收通过所需的24项测试全部通过、无未关闭高优缺陷及产品和QA双确认，给出当前版本标识和支持结论的附件原句；仅在存在可靠排版依据时提供页码，不查询线上同名项目。",
-            "actual": "回答列出三项验收条件，标明v2及2026-10-06 11:40，提供验收条件和上线放行的引文，并说明因缺乏可靠排版页码而不标页码。",
-            "difference": "验收规则和版本时间与本地参考事实一致，未发现已证实的业务错误；但缺少附件当前评审版的独立正文或引文逐句校验，无法确认所引验收语句确为原文，因此尚不能完整判定用户要求的原句引用是否正确。"
+            "expected": "仅依据本轮上传材料，按附件标注版本回答：24项图片核心测试全部通过、无未关闭高优缺陷，并取得产品和QA双确认；给出当前版本v2及2026-10-06 11:40标识和支持结论的原句，仅在有可靠排版依据时提供页码。",
+            "actual": "完整列出三项验收条件并引用对应原句，给出v2（当前评审版本，2026-10-06 11:40）；另外准确说明正式上线还需项目负责人放行，并因没有可靠排版页码而不标页码。",
+            "difference": "无实质差异；补充的上线放行及版本状态均有附件原文支持，未混同验收条件，也未把计划或未确认状态说成已完成。"
           }
         }
       ]
@@ -41297,9 +42379,9 @@
       "scenario": "结论引用能定位到历史周报原文",
       "gate_class": "quality",
       "priority": "P1",
-      "status": "skip",
-      "kind": "evidence_insufficient",
-      "reason": "待复核：回答的10月3日快照数字正确，附件内容也已确认进入本轮模型，但缺少周报逐页原文或独立核验的页码映射，无法确认第1、2页引文及测试明细位置是否真实。",
+      "status": "pass",
+      "kind": "business_review",
+      "reason": "通过，正确按10月3日历史快照回答18/24项通过、通过率75%、6项待修，引用的周报页码、段落和测试明细均与附件一致。",
       "review_reuse": null,
       "review_observation": {
         "basis": "4834ff4eff5536fba76c20fabf3a296b51e0cd9750125ac30f8a9f54f90faa15",
@@ -41318,48 +42400,49 @@
       "categories": [],
       "title": "仅根据本次上传的模拟项目材料回答，不查询线上同名项目；按附件标注日期而非今天判断。截至10月3日，图片核心测试通过多少？请给出周报里的依据和位置。",
       "ability": "引用装饰正确但证据不支持结论。",
-      "task_completion_rate": null,
+      "task_completion_rate": 100,
       "operational_review": {},
       "planning_review": {},
       "trace_status": "内部工具链已采集；权限/引用仍未观测",
       "trace_runs": 1,
-      "business_reason": "待复核：回答的10月3日快照数字正确，附件内容也已确认进入本轮模型，但缺少周报逐页原文或独立核验的页码映射，无法确认第1、2页引文及测试明细位置是否真实。",
+      "business_reason": "通过，正确按10月3日历史快照回答18/24项通过、通过率75%、6项待修，引用的周报页码、段落和测试明细均与附件一致。",
       "review_explanation": {
         "contract": "ai_assistant.business_comparison.v1",
         "origin": "fresh_pre_execution",
         "expected": [
-          "仅依据本次上传的模拟周报，按10月3日历史快照回答图片核心测试18/24项通过，并提供真实支持该数字的周报依据及可定位位置，不查询线上同名项目。"
+          "仅依据本次上传的模拟周报，说明截至10月3日图片核心测试24项中18项通过，并给出支持该数字的真实周报依据和位置，不查询线上同名项目。"
         ],
         "actual": [
-          "回答截至2026年10月3日共24项、18项通过、6项待修，通过率75%；引用第1页“项目概况”下方和第2页“本期图片测试进度”的两段文字，并列出TC01–TC24在第1至第3页的分布。"
+          "回答截至2026年10月3日18/24项通过、通过率75%、6项待修；引用第1页「项目概况」下方的汇总及第2页「本期图片测试进度」，并列出第1至3页对应的测试编号范围。"
         ],
         "difference": [
-          "数字和历史日期与已核验事实一致，附件内容进入模型的证据也齐全；缺少的是可独立核对的PDF逐页原文或页码映射，无法验证所引标题、摘录及测试明细分布。该缺口涉及用户明确要求的依据与位置，不能仅凭数字正确或模型已接收文件判定整轮通过，也不能据此认定引用是编造。"
+          "无实质差异。附件第1页明确记载18项通过、6项待修，第2页确认TC01至TC18通过，三页明细分布也与回答一致；未将其他日期的状态作为历史答案。"
         ],
-        "why": "待复核：回答的10月3日快照数字正确，附件内容也已确认进入本轮模型，但缺少周报逐页原文或独立核验的页码映射，无法确认第1、2页引文及测试明细位置是否真实。",
+        "why": "通过，正确按10月3日历史快照回答18/24项通过、通过率75%、6项待修，引用的周报页码、段落和测试明细均与附件一致。",
         "turn_comparisons": [
           {
             "step": 2,
-            "status": "skip",
-            "reason": "数字、历史日期及附件输入绑定均有支持，但回答引用的页面、标题和原文位置缺少独立来源核验，暂不能判定引用正确或错误。",
+            "status": "pass",
+            "reason": "按附件标注的2026年10月3日作答，测试通过数量与计算正确，第1页概况、第2页进度段落及三页明细位置均可核验。",
             "evidence_refs": [
-              "cases[0].turns[1].message",
-              "cases[0].turns[1].answer",
-              "cases[0].gold.fixed_fact_truth",
-              "cases[0].gold.qualitative_requirements[1]",
-              "cases[0].followup_plan.steps[1].attachments.files[0]",
-              "cases[0].current_source_evidence.exact_request_receipts[0].attachment_model_input"
+              "turns[1].answer",
+              "current_source_evidence.attachment_source_excerpt.pages[0]",
+              "current_source_evidence.attachment_source_excerpt.pages[1]",
+              "current_source_evidence.attachment_source_excerpt.pages[2]",
+              "current_source_evidence.execution_preflight",
+              "current_source_evidence.exact_request_receipts[0].attachment_model_input",
+              "trace.runs[0]"
             ],
             "comparison": {
-              "expected": "仅依据本次上传的模拟周报，按10月3日历史快照回答图片核心测试18/24项通过，并提供真实支持该数字的周报依据及可定位位置，不查询线上同名项目。",
-              "actual": "回答截至2026年10月3日共24项、18项通过、6项待修，通过率75%；引用第1页“项目概况”下方和第2页“本期图片测试进度”的两段文字，并列出TC01–TC24在第1至第3页的分布。",
-              "difference": "数字和历史日期与已核验事实一致，附件内容进入模型的证据也齐全；缺少的是可独立核对的PDF逐页原文或页码映射，无法验证所引标题、摘录及测试明细分布。该缺口涉及用户明确要求的依据与位置，不能仅凭数字正确或模型已接收文件判定整轮通过，也不能据此认定引用是编造。"
+              "expected": "仅依据本次上传的模拟周报，说明截至10月3日图片核心测试24项中18项通过，并给出支持该数字的真实周报依据和位置，不查询线上同名项目。",
+              "actual": "回答截至2026年10月3日18/24项通过、通过率75%、6项待修；引用第1页「项目概况」下方的汇总及第2页「本期图片测试进度」，并列出第1至3页对应的测试编号范围。",
+              "difference": "无实质差异。附件第1页明确记载18项通过、6项待修，第2页确认TC01至TC18通过，三页明细分布也与回答一致；未将其他日期的状态作为历史答案。"
             }
           }
         ],
         "evidence_assessment": {
-          "sufficient": false,
-          "reason": "本轮认证回执将03_weekly_report.pdf的文件ID、上传SHA256与同一请求的模型输入绑定，content_modality_verified、all_content_modalities_verified及上传绑定校验均为true。独立本地Gold确认10月3日为18/24通过、6项待修、通过率75%，与回答一致；但未提供该PDF逐页内容或经独立核验的位置资料，Gold也明确要求按实际生成PDF核对页码，因此尚不能验证用户要求的周报依据与位置。"
+          "sufficient": true,
+          "reason": "独立附件原文提供了三页完整内容，可核实数量、日期及引用位置；上传回执的文件ID、SHA-256与本轮认证模型输入绑定一致，content_modality_verified及all_content_modalities_verified均为true，账号、租户和请求匹配。本轮Trace未见线上检索或外部操作记录。"
         }
       },
       "execution_source": "2026-11-13 PRE 全量（不含日程创建）",
@@ -41448,26 +42531,86 @@
             }
           ],
           "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/cases/AA-ATT-QAL-003/live_evidence.json"
+        },
+        {
+          "type": "automatic_evidence_repair",
+          "at": "2026-11-16T06:21:26.805287+00:00",
+          "previous": {
+            "status": "skip",
+            "kind": "evidence_insufficient",
+            "reason": "待复核：回答的10月3日快照数字正确，附件内容也已确认进入本轮模型，但缺少周报逐页原文或独立核验的页码映射，无法确认第1、2页引文及测试明细位置是否真实。",
+            "failure_categories": [],
+            "source_failure_categories": [],
+            "review_explanation": {
+              "contract": "ai_assistant.business_comparison.v1",
+              "origin": "fresh_pre_execution",
+              "expected": [
+                "仅依据本次上传的模拟周报，按10月3日历史快照回答图片核心测试18/24项通过，并提供真实支持该数字的周报依据及可定位位置，不查询线上同名项目。"
+              ],
+              "actual": [
+                "回答截至2026年10月3日共24项、18项通过、6项待修，通过率75%；引用第1页“项目概况”下方和第2页“本期图片测试进度”的两段文字，并列出TC01–TC24在第1至第3页的分布。"
+              ],
+              "difference": [
+                "数字和历史日期与已核验事实一致，附件内容进入模型的证据也齐全；缺少的是可独立核对的PDF逐页原文或页码映射，无法验证所引标题、摘录及测试明细分布。该缺口涉及用户明确要求的依据与位置，不能仅凭数字正确或模型已接收文件判定整轮通过，也不能据此认定引用是编造。"
+              ],
+              "why": "待复核：回答的10月3日快照数字正确，附件内容也已确认进入本轮模型，但缺少周报逐页原文或独立核验的页码映射，无法确认第1、2页引文及测试明细位置是否真实。",
+              "turn_comparisons": [
+                {
+                  "step": 2,
+                  "status": "skip",
+                  "reason": "数字、历史日期及附件输入绑定均有支持，但回答引用的页面、标题和原文位置缺少独立来源核验，暂不能判定引用正确或错误。",
+                  "evidence_refs": [
+                    "cases[0].turns[1].message",
+                    "cases[0].turns[1].answer",
+                    "cases[0].gold.fixed_fact_truth",
+                    "cases[0].gold.qualitative_requirements[1]",
+                    "cases[0].followup_plan.steps[1].attachments.files[0]",
+                    "cases[0].current_source_evidence.exact_request_receipts[0].attachment_model_input"
+                  ],
+                  "comparison": {
+                    "expected": "仅依据本次上传的模拟周报，按10月3日历史快照回答图片核心测试18/24项通过，并提供真实支持该数字的周报依据及可定位位置，不查询线上同名项目。",
+                    "actual": "回答截至2026年10月3日共24项、18项通过、6项待修，通过率75%；引用第1页“项目概况”下方和第2页“本期图片测试进度”的两段文字，并列出TC01–TC24在第1至第3页的分布。",
+                    "difference": "数字和历史日期与已核验事实一致，附件内容进入模型的证据也齐全；缺少的是可独立核对的PDF逐页原文或页码映射，无法验证所引标题、摘录及测试明细分布。该缺口涉及用户明确要求的依据与位置，不能仅凭数字正确或模型已接收文件判定整轮通过，也不能据此认定引用是编造。"
+                  }
+                }
+              ],
+              "evidence_assessment": {
+                "sufficient": false,
+                "reason": "本轮认证回执将03_weekly_report.pdf的文件ID、上传SHA256与同一请求的模型输入绑定，content_modality_verified、all_content_modalities_verified及上传绑定校验均为true。独立本地Gold确认10月3日为18/24通过、6项待修、通过率75%，与回答一致；但未提供该PDF逐页内容或经独立核验的位置资料，Gold也明确要求按实际生成PDF核对页码，因此尚不能验证用户要求的周报依据与位置。"
+              }
+            },
+            "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/trace-readback-20261116-v2/cases/AA-ATT-QAL-003.json",
+            "review_observation": {
+              "basis": "4834ff4eff5536fba76c20fabf3a296b51e0cd9750125ac30f8a9f54f90faa15",
+              "result": "9540161e5b2b95ac041a6bc932ffea0eabc7bff3ca1d876f1dda596c43a6b5f5",
+              "requests": [
+                "6f60f6da-29dc-46d6-9dd0-f9c74f446105"
+              ]
+            }
+          },
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/attachments-judge-1/cases/AA-ATT-QAL-003.json",
+          "business_request_resent": false
         }
       ],
-      "evaluation_detail_reason": "待复核：回答的10月3日快照数字正确，附件内容也已确认进入本轮模型，但缺少周报逐页原文或独立核验的页码映射，无法确认第1、2页引文及测试明细位置是否真实。",
+      "evaluation_detail_reason": "通过，正确按10月3日历史快照回答18/24项通过、通过率75%、6项待修，引用的周报页码、段落和测试明细均与附件一致。",
       "turn_verdicts": [
         {
           "step": 2,
-          "status": "skip",
-          "reason": "数字、历史日期及附件输入绑定均有支持，但回答引用的页面、标题和原文位置缺少独立来源核验，暂不能判定引用正确或错误。",
+          "status": "pass",
+          "reason": "按附件标注的2026年10月3日作答，测试通过数量与计算正确，第1页概况、第2页进度段落及三页明细位置均可核验。",
           "evidence_refs": [
-            "cases[0].turns[1].message",
-            "cases[0].turns[1].answer",
-            "cases[0].gold.fixed_fact_truth",
-            "cases[0].gold.qualitative_requirements[1]",
-            "cases[0].followup_plan.steps[1].attachments.files[0]",
-            "cases[0].current_source_evidence.exact_request_receipts[0].attachment_model_input"
+            "turns[1].answer",
+            "current_source_evidence.attachment_source_excerpt.pages[0]",
+            "current_source_evidence.attachment_source_excerpt.pages[1]",
+            "current_source_evidence.attachment_source_excerpt.pages[2]",
+            "current_source_evidence.execution_preflight",
+            "current_source_evidence.exact_request_receipts[0].attachment_model_input",
+            "trace.runs[0]"
           ],
           "comparison": {
-            "expected": "仅依据本次上传的模拟周报，按10月3日历史快照回答图片核心测试18/24项通过，并提供真实支持该数字的周报依据及可定位位置，不查询线上同名项目。",
-            "actual": "回答截至2026年10月3日共24项、18项通过、6项待修，通过率75%；引用第1页“项目概况”下方和第2页“本期图片测试进度”的两段文字，并列出TC01–TC24在第1至第3页的分布。",
-            "difference": "数字和历史日期与已核验事实一致，附件内容进入模型的证据也齐全；缺少的是可独立核对的PDF逐页原文或页码映射，无法验证所引标题、摘录及测试明细分布。该缺口涉及用户明确要求的依据与位置，不能仅凭数字正确或模型已接收文件判定整轮通过，也不能据此认定引用是编造。"
+            "expected": "仅依据本次上传的模拟周报，说明截至10月3日图片核心测试24项中18项通过，并给出支持该数字的真实周报依据和位置，不查询线上同名项目。",
+            "actual": "回答截至2026年10月3日18/24项通过、通过率75%、6项待修；引用第1页「项目概况」下方的汇总及第2页「本期图片测试进度」，并列出第1至3页对应的测试编号范围。",
+            "difference": "无实质差异。附件第1页明确记载18项通过、6项待修，第2页确认TC01至TC18通过，三页明细分布也与回答一致；未将其他日期的状态作为历史答案。"
           }
         }
       ]
@@ -62142,12 +63285,18 @@
       "gate_class": "quality",
       "priority": "P1",
       "status": "fail",
-      "kind": "execution_failure",
-      "reason": "失败，第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
+      "kind": "business_review",
+      "reason": "失败，漏掉11月11日唐炜约次日11点澄清三项需求并催发PRD的讨论，其中“汇报AI打通AI助手”的PRD在回答中完全未提及。",
       "review_reuse": null,
-      "review_observation": null,
+      "review_observation": {
+        "basis": "b05bbdf6df4b9b080fcb55ec18778015b91cf59b5b185df186bcfbdcae1079a3",
+        "result": "435071511d43d70993199098d69f444bc3a6dfc19a1a8d8804ec909347f61c65",
+        "requests": [
+          "5cadf456-3dcf-43b1-94b5-ffb166b57abe"
+        ]
+      },
       "failure_categories": [
-        "执行失败"
+        "数据缺失"
       ],
       "confidence": "high",
       "latency_ms": 326249,
@@ -62156,7 +63305,7 @@
       "automatic_status": "fail",
       "automatic_reason": "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
       "categories": [
-        "执行失败"
+        "数据缺失"
       ],
       "title": "这次只查「AI助手·一期 研发群」过去80天的PRD待评审讨论，不用记住这个时间范围。",
       "ability": "群别时间范围与跨会话偏好",
@@ -62165,43 +63314,68 @@
       "planning_review": {},
       "trace_status": "内部工具链已采集；权限/引用仍未观测",
       "trace_runs": 1,
-      "business_reason": "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
+      "business_reason": "失败，漏掉11月11日唐炜约次日11点澄清三项需求并催发PRD的讨论，其中“汇报AI打通AI助手”的PRD在回答中完全未提及。",
       "review_explanation": {
         "contract": "ai_assistant.business_comparison.v1",
         "origin": "fresh_pre_execution",
         "expected": [
-          [
-            "用户本轮明确指定研发群过去80天，应覆盖80天且不改写已保存的全群60天偏好。"
-          ]
+          "仅检索“AI助手·一期 研发群”截至本轮提问时的过去80天PRD待评审讨论，不保存本次时间范围；相关讨论应包括11月11日唐炜约次日11点澄清三项需求并催发PRD的消息，其中其本人提供的PRD可独立定位为“汇报AI打通AI助手”。"
         ],
         "actual": [
-          "curl: (28) Operation timed out after 300011 milliseconds with 1846 bytes received"
+          "回答列出了给用户限额、9月9日未命名PRD，以及推荐问题、日程、项目／任务字段修改、自定义字段等讨论，并声明本次不保存80天范围；没有汇总唐炜的PRD澄清邀请及汇报AI整合这一讨论主题。"
         ],
         "difference": [
-          "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。"
+          "消息2450发生在明确的80天窗口内，正文直接涉及PRD及待进行的需求澄清，并非测试设计示例或无关背景；其PRD主题又可通过消息2498的相同链接确认。回答漏掉了一个可核验的相关讨论主题，检索窗口正确不能弥补该结果遗漏。"
         ],
-        "why": "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
-        "turn_comparisons": [],
-        "evidence_assessment": {}
+        "why": "失败，漏掉11月11日唐炜约次日11点澄清三项需求并催发PRD的讨论，其中“汇报AI打通AI助手”的PRD在回答中完全未提及。",
+        "turn_comparisons": [
+          {
+            "step": 2,
+            "status": "fail",
+            "reason": "单群80天检索及不保存范围的要求有Trace支持，但汇总漏掉了窗口内唐炜发起的PRD澄清讨论及对应的汇报AI整合需求。",
+            "evidence_refs": [
+              "turn_time_basis[step=2]：提问时间为2026-11-16T06:39:57.980718Z，东京时间15:39:57.980718。",
+              "current_source_evidence.exact_request_receipts[request_id=5cadf456-3dcf-43b1-94b5-ffb166b57abe].group_tools：group_scope与material_ask的lookback_days均为80。",
+              "trace.runs[run_id=bar_3412d6f3bf75485d99fdaf6c1434ce91].tools[seq=135,140,145]：研发群检索分段覆盖2026-08-28至2026-11-16。",
+              "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=2450]：唐炜邀请次日上午11点澄清三项需求，提供本人PRD并询问Lexia、SuChen的PRD是否已发。",
+              "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=2498]：相同文档链接LV90dyMVeoE0PnxNf8lc2PNen6e对应“汇报AI打通AI助手”。",
+              "turns[step=2].answer：未提及唐炜的PRD澄清邀请或“汇报AI打通AI助手”。"
+            ],
+            "comparison": {
+              "expected": "仅检索“AI助手·一期 研发群”截至本轮提问时的过去80天PRD待评审讨论，不保存本次时间范围；相关讨论应包括11月11日唐炜约次日11点澄清三项需求并催发PRD的消息，其中其本人提供的PRD可独立定位为“汇报AI打通AI助手”。",
+              "actual": "回答列出了给用户限额、9月9日未命名PRD，以及推荐问题、日程、项目／任务字段修改、自定义字段等讨论，并声明本次不保存80天范围；没有汇总唐炜的PRD澄清邀请及汇报AI整合这一讨论主题。",
+              "difference": "消息2450发生在明确的80天窗口内，正文直接涉及PRD及待进行的需求澄清，并非测试设计示例或无关背景；其PRD主题又可通过消息2498的相同链接确认。回答漏掉了一个可核验的相关讨论主题，检索窗口正确不能弥补该结果遗漏。"
+            }
+          }
+        ],
+        "evidence_assessment": {
+          "sufficient": true,
+          "reason": "本轮认证Trace中的group_scope和material_ask均记录lookback_days=80，三段scratchpad范围连续覆盖2026年8月28日至11月16日，目标均为研发群；可见工具调用未提交查询天数设置，remember_offer不等于持久化。提问前的认证独立回读明确提供消息2450的PRD澄清邀请，其文档链接与消息2498中“汇报AI打通AI助手”的PRD一致，足以确认该相关讨论被遗漏。虽然来源仅展示部分消息、部分回答引用无法逐条核实，但不影响这一已证实漏项的判定，也不据此推断其他错误或完整结果数量。"
+        }
       },
-      "execution_source": "2026-11-13 PRE 全量（不含日程创建）",
-      "execution_stage": "pre_full_noncalendar_live",
-      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/pending-original-readback-20261116-v2/cases/AA-LMEM-031.json",
+      "execution_source": "2026-11-16 PRE 补跑",
+      "execution_stage": "pre_missing_result_recovery",
+      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/missing-results-run-3/cases/AA-LMEM-031/live_evidence.json",
       "judge_configuration": {
-        "model": "not_called",
-        "prompt_version": null,
+        "model": "gpt-6.1-sol",
+        "prompt_version": "ai-assistant-business-review-v17-question-scoped-group-range",
         "stats": null,
         "business_requests_retried": null,
         "reasoning_effort": "max",
         "attempts": 0
       },
-      "judge_attempts": 0,
-      "judge_attempt_outcomes": [],
-      "execution_completed": false,
-      "source_failure_categories": [
-        "执行失败"
+      "judge_attempts": 1,
+      "judge_attempt_outcomes": [
+        {
+          "attempt": 1,
+          "status": "valid"
+        }
       ],
-      "primary_failure_category": "执行失败",
+      "execution_completed": true,
+      "source_failure_categories": [
+        "数据缺失"
+      ],
+      "primary_failure_category": "数据缺失",
       "unstable": false,
       "failure_data_domain": "消息",
       "rejudge_history": [
@@ -62236,10 +63410,66 @@
           "judge_attempts": 0,
           "judge_attempt_outcomes": [],
           "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/recovered/cases/AA-LMEM-031.json"
+        },
+        {
+          "type": "automatic_evidence_repair",
+          "at": "2026-11-16T06:51:07.937069+00:00",
+          "previous": {
+            "status": "fail",
+            "kind": "execution_failure",
+            "reason": "失败，第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
+            "failure_categories": [
+              "执行失败"
+            ],
+            "source_failure_categories": [
+              "执行失败"
+            ],
+            "review_explanation": {
+              "contract": "ai_assistant.business_comparison.v1",
+              "origin": "fresh_pre_execution",
+              "expected": [
+                [
+                  "用户本轮明确指定研发群过去80天，应覆盖80天且不改写已保存的全群60天偏好。"
+                ]
+              ],
+              "actual": [
+                "curl: (28) Operation timed out after 300011 milliseconds with 1846 bytes received"
+              ],
+              "difference": [
+                "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。"
+              ],
+              "why": "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
+              "turn_comparisons": [],
+              "evidence_assessment": {}
+            },
+            "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/pending-original-readback-20261116-v2/cases/AA-LMEM-031.json",
+            "review_observation": null
+          },
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/repaired-results-judge-1/cases/AA-LMEM-031.json",
+          "business_request_resent": true
         }
       ],
-      "evaluation_detail_reason": "第 2 步已发送问题，服务端明确返回生成失败，本次未能完成回答。",
-      "turn_verdicts": [],
+      "evaluation_detail_reason": "失败，漏掉11月11日唐炜约次日11点澄清三项需求并催发PRD的讨论，其中“汇报AI打通AI助手”的PRD在回答中完全未提及。",
+      "turn_verdicts": [
+        {
+          "step": 2,
+          "status": "fail",
+          "reason": "单群80天检索及不保存范围的要求有Trace支持，但汇总漏掉了窗口内唐炜发起的PRD澄清讨论及对应的汇报AI整合需求。",
+          "evidence_refs": [
+            "turn_time_basis[step=2]：提问时间为2026-11-16T06:39:57.980718Z，东京时间15:39:57.980718。",
+            "current_source_evidence.exact_request_receipts[request_id=5cadf456-3dcf-43b1-94b5-ffb166b57abe].group_tools：group_scope与material_ask的lookback_days均为80。",
+            "trace.runs[run_id=bar_3412d6f3bf75485d99fdaf6c1434ce91].tools[seq=135,140,145]：研发群检索分段覆盖2026-08-28至2026-11-16。",
+            "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=2450]：唐炜邀请次日上午11点澄清三项需求，提供本人PRD并询问Lexia、SuChen的PRD是否已发。",
+            "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=2498]：相同文档链接LV90dyMVeoE0PnxNf8lc2PNen6e对应“汇报AI打通AI助手”。",
+            "turns[step=2].answer：未提及唐炜的PRD澄清邀请或“汇报AI打通AI助手”。"
+          ],
+          "comparison": {
+            "expected": "仅检索“AI助手·一期 研发群”截至本轮提问时的过去80天PRD待评审讨论，不保存本次时间范围；相关讨论应包括11月11日唐炜约次日11点澄清三项需求并催发PRD的消息，其中其本人提供的PRD可独立定位为“汇报AI打通AI助手”。",
+            "actual": "回答列出了给用户限额、9月9日未命名PRD，以及推荐问题、日程、项目／任务字段修改、自定义字段等讨论，并声明本次不保存80天范围；没有汇总唐炜的PRD澄清邀请及汇报AI整合这一讨论主题。",
+            "difference": "消息2450发生在明确的80天窗口内，正文直接涉及PRD及待进行的需求澄清，并非测试设计示例或无关背景；其PRD主题又可通过消息2498的相同链接确认。回答漏掉了一个可核验的相关讨论主题，检索窗口正确不能弥补该结果遗漏。"
+          }
+        }
+      ],
       "detail_anchor": "failure-pre-AA-LMEM-031"
     },
     {
@@ -63399,18 +64629,18 @@
     }
   ],
   "review_sources": [],
-  "execution_notice": "本轮仅重评原报告的176条待复核，未重发业务问题或触发自动化；当前通过166条、失败53条、待复核59条。其余用例沿用原报告的执行和复核结果。",
+  "execution_notice": "当前展示 278 条 PRE 已发问用例：通过 177 条、失败 53 条、待复核 48 条。11月16日补齐 15 条证据或复跑结果；其余沿用原报告。",
   "result_summary": {
     "executed": 278,
     "failed": 53,
     "reasons": {
       "事实不符": 10,
-      "执行失败": 9,
-      "数据缺失": 33,
+      "执行失败": 6,
+      "数据缺失": 36,
       "表达错误": 1
     },
     "data_missing": {
-      "消息": 26,
+      "消息": 29,
       "项目/任务": 6,
       "其他": 1
     },
@@ -63427,7 +64657,25 @@
     "automation_space": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/automation-space",
     "automation_message": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/automation-message",
     "pending_chat_rejudge": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_rejudge_20261116/chat-attempt-3",
-    "pending_automation_rejudge": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_rejudge_20261116/automation-runtime-result"
+    "pending_automation_rejudge": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_rejudge_20261116/automation-runtime-result",
+    "pending_repair_judgments": [
+      "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/attachments-judge-1/cases/AA-ATT-PDF-002.json",
+      "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/attachments-judge-1/cases/AA-ATT-PDF-005.json",
+      "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/attachments-judge-1/cases/AA-ATT-XLS-010.json",
+      "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/attachments-judge-1/cases/AA-ATT-XLS-012.json",
+      "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/attachments-judge-1/cases/AA-ATT-DOC-002.json",
+      "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/attachments-judge-1/cases/AA-ATT-DOC-008.json",
+      "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/attachments-judge-1/cases/AA-ATT-QAL-003.json",
+      "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/attachment-009-judge-2/cases/AA-ATT-PDF-009.json",
+      "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/repaired-results-judge-1/cases/AA-ATT-IMG-007.json",
+      "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/repaired-results-judge-1/cases/AA-PRE-MSG-004.json",
+      "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/repaired-results-judge-1/cases/AA-LMEM-031.json",
+      "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/repaired-results-judge-1/cases/AA-PRE-REAL-003.json",
+      "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/repaired-results-judge-1/cases/AA-PRE-REAL-006.json",
+      "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/repaired-results-judge-2/cases/AA-PRE-MSG-005.json",
+      "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/repaired-results-judge-2/cases/AA-PRE-REAL-001.json"
+    ],
+    "pending_repair_baseline": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/review-baseline-publication-v3.json"
   },
-  "review_baseline_path": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_rejudge_20261116/report-merged-v2/review-baseline.json"
+  "review_baseline_path": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_repair_20261116/review-baseline-publication-v3.json"
 }
