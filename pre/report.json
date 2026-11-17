@@ -2,20 +2,20 @@
   "contract": "ai_assistant.combined_report.v1",
   "report_environment": "pre",
   "report_date": "2026-11-17",
-  "generated_at": "2026-11-17T05:50:35+00:00",
-  "review_run_id": "AI助手-2026-11-17-pre-history-followup-v2",
-  "report_update_id": "pre-history-followup-20261117-v2",
+  "generated_at": "2026-11-17T06:51:05+00:00",
+  "review_run_id": "AI助手-2026-11-17-pre-timeout-recovery",
+  "report_update_id": "pre-timeout-recovery-20261117",
   "report_title": "PRE AI助手用例评测报告",
   "pre_case_count": 278,
   "pre_scope": {
     "active_total": 278,
     "executed": 278,
     "not_executed": 0,
-    "pending": 19,
+    "pending": 18,
     "business": {
       "pass": 235,
-      "fail": 24,
-      "skip": 19
+      "fail": 25,
+      "skip": 18
     }
   },
   "trace_gate": {
@@ -40,13 +40,13 @@
       },
       "pre": {
         "pass": 235,
-        "attempted": 259,
-        "rate": 0.9073359073359073
+        "attempted": 260,
+        "rate": 0.9038461538461539
       },
       "combined": {
         "pass": 235,
-        "attempted": 259,
-        "rate": 0.9073359073359073
+        "attempted": 260,
+        "rate": 0.9038461538461539
       }
     },
     "tool_accuracy": {
@@ -4284,49 +4284,53 @@
       "scenario": "pre真实消息/范围确认",
       "gate_class": "quality",
       "priority": "P1",
-      "status": "skip",
-      "kind": "evidence_insufficient",
-      "reason": "待复核，第 2 步已进入执行，但没有完整回答或明确终态；先回查原请求，避免重复发送。",
+      "status": "fail",
+      "kind": "generation_failure",
+      "reason": "失败，重新执行后服务端仍在生成阶段报错，助手没有返回完整回答。",
       "review_reuse": null,
       "review_observation": null,
-      "failure_categories": [],
-      "confidence": "low",
-      "latency_ms": 364194,
+      "failure_categories": [
+        "执行失败"
+      ],
+      "confidence": "high",
+      "latency_ms": 58526,
       "model": "openai/gpt-6.1-terra",
       "prompt_version": "assistant_chat_agent@0.24.3",
       "automatic_status": "skip",
       "automatic_reason": "第 2 步已进入执行，但没有完整回答或明确终态；先回查原请求，避免重复发送。",
-      "categories": [],
+      "categories": [
+        "执行失败"
+      ],
       "title": "跨“AI助手·一期 研发群”和“蜂巢AI助手”两个群，AI助手的PRD和复杂问答范围有哪些仍待评审/确认，分别由谁跟进？",
       "ability": "识别PRD与问答范围待确认事项",
-      "task_completion_rate": null,
+      "task_completion_rate": 0,
       "operational_review": {},
       "planning_review": {},
       "trace_status": "内部工具链已采集；权限/引用仍未观测",
       "trace_runs": 1,
-      "business_reason": "第 2 步已进入执行，但没有完整回答或明确终态；先回查原请求，避免重复发送。",
+      "business_reason": "失败，重新执行后服务端仍在生成阶段报错，助手没有返回完整回答。",
       "review_explanation": {
         "contract": "ai_assistant.business_comparison.v1",
-        "origin": "fresh_pre_execution",
+        "origin": "authenticated_execution_terminal",
         "expected": [
           "孙文让李振民关注AI助手PRD并确认处理同事；8月31日纪要说明部分复杂问答一期效果不保证，产品需与Bud、士衡圈定一期必须达到最优效果的范围，其余复杂场景不作为一期上线门槛。"
         ],
         "actual": [
-          "curl: (28) Operation timed out after 180005 milliseconds with 2210 bytes received"
+          "新会话已发送原问题；服务端返回生成失败，助手正文为空。"
         ],
         "difference": [
-          "第 2 步已进入执行，但没有完整回答或明确终态；先回查原请求，避免重复发送。"
+          "没有生成可供核对的回答。"
         ],
-        "why": "第 2 步已进入执行，但没有完整回答或明确终态；先回查原请求，避免重复发送。",
+        "why": "原账号会话回读确认助手消息为失败终态，不能算作已回答。",
         "turn_comparisons": [],
         "evidence_assessment": {
-          "sufficient": false,
-          "reason": "第 2 步已进入执行，但没有完整回答或明确终态；先回查原请求，避免重复发送。"
+          "sufficient": true,
+          "reason": "原会话、精确请求 Trace 和失败消息终态已核验。"
         }
       },
-      "execution_source": "2026-11-13 PRE 全量（不含日程创建）",
-      "execution_stage": "pre_full_noncalendar_live",
-      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/pending-original-readback-20261116-v2/cases/AA-QAP-019.json",
+      "execution_source": "2026-11-17 PRE 超时无输出补跑",
+      "execution_stage": "confirmed_generation_failure",
+      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_recovery_20261117/execution/cases/AA-QAP-019/live_evidence.json",
       "judge_configuration": {
         "model": "not_called",
         "prompt_version": null,
@@ -4338,8 +4342,10 @@
       "judge_attempts": 0,
       "judge_attempt_outcomes": [],
       "execution_completed": false,
-      "source_failure_categories": [],
-      "primary_failure_category": null,
+      "source_failure_categories": [
+        "执行失败"
+      ],
+      "primary_failure_category": "执行失败",
       "unstable": false,
       "failure_data_domain": "消息",
       "rejudge_history": [
@@ -4371,10 +4377,55 @@
           "judge_attempts": 0,
           "judge_attempt_outcomes": [],
           "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/recovered/cases/AA-QAP-019.json"
+        },
+        {
+          "type": "timeout_no_output_fresh_rerun",
+          "at": "2026-11-17T06:51:05.457524+00:00",
+          "previous": {
+            "status": "skip",
+            "kind": "evidence_insufficient",
+            "reason": "待复核，第 2 步已进入执行，但没有完整回答或明确终态；先回查原请求，避免重复发送。",
+            "business_reason": "第 2 步已进入执行，但没有完整回答或明确终态；先回查原请求，避免重复发送。",
+            "failure_categories": [],
+            "review_explanation": {
+              "contract": "ai_assistant.business_comparison.v1",
+              "origin": "fresh_pre_execution",
+              "expected": [
+                "孙文让李振民关注AI助手PRD并确认处理同事；8月31日纪要说明部分复杂问答一期效果不保证，产品需与Bud、士衡圈定一期必须达到最优效果的范围，其余复杂场景不作为一期上线门槛。"
+              ],
+              "actual": [
+                "curl: (28) Operation timed out after 180005 milliseconds with 2210 bytes received"
+              ],
+              "difference": [
+                "第 2 步已进入执行，但没有完整回答或明确终态；先回查原请求，避免重复发送。"
+              ],
+              "why": "第 2 步已进入执行，但没有完整回答或明确终态；先回查原请求，避免重复发送。",
+              "turn_comparisons": [],
+              "evidence_assessment": {
+                "sufficient": false,
+                "reason": "第 2 步已进入执行，但没有完整回答或明确终态；先回查原请求，避免重复发送。"
+              }
+            },
+            "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/pending-original-readback-20261116-v2/cases/AA-QAP-019.json",
+            "execution_source": "2026-11-13 PRE 全量（不含日程创建）",
+            "execution_stage": "pre_full_noncalendar_live"
+          },
+          "source_report_id": "review-876d8a98b1afe767e042951b",
+          "business_request_resent": true,
+          "authenticated_readback": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_recovery_20261117/latest-request-readback.json"
         }
       ],
-      "evaluation_detail_reason": "第 2 步已进入执行，但没有完整回答或明确终态；先回查原请求，避免重复发送。",
-      "turn_verdicts": []
+      "evaluation_detail_reason": "失败，重新执行后服务端仍在生成阶段报错，助手没有返回完整回答。",
+      "turn_verdicts": [],
+      "result_status": "fail",
+      "answer": "",
+      "detail_anchor": "failure-pre-AA-QAP-019",
+      "timeout_recovery": {
+        "original_request": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_recovery_20261117/original-request-readback-v2.json",
+        "new_request": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_recovery_20261117/latest-request-readback.json",
+        "new_business_requests_sent": 1,
+        "latest_message_terminal": "failed"
+      }
     },
     {
       "asker": "安柔",
@@ -74787,13 +74838,13 @@
     }
   ],
   "review_sources": [],
-  "execution_notice": "本轮核对33条失败用例：14条按历史扩查流程重跑，9条通过、5条仍失败；其他19条不属于历史扩查问题。全表通过235条、失败24条、待复核19条。",
+  "execution_notice": "本轮核对超时和空回答：AA-QAP-019 在新会话重跑后仍发生服务端生成失败，没有完整回答。全表通过235条、失败25条、待复核18条。",
   "result_summary": {
     "executed": 278,
-    "failed": 24,
+    "failed": 25,
     "reasons": {
       "事实不符": 9,
-      "执行失败": 4,
+      "执行失败": 5,
       "数据缺失": 10,
       "表达错误": 1
     },
@@ -74808,7 +74859,7 @@
     "pre_run": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/report-final-v3/pre/run.json",
     "pre_evidence": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/report-final-v3/pre/live_evidence.json",
     "pre_review": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_rejudge_20261116/report-merged-v2/pre-business-review.json",
-    "review_baseline": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_history_followup_20261117/review-baseline.json",
+    "review_baseline": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_recovery_20261117/review-baseline.json",
     "session_policy": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/session-policy.json",
     "write_session_policy": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/write-execution/session-policy.json",
     "permission_session_policy": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/permission-recovery/session-policy.json",
@@ -74866,7 +74917,10 @@
       "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_history_followup_20261117/judged-supplement",
       "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_history_followup_20261117/judged-recovered",
       "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_history_followup_20261117/judged-initial"
-    ]
+    ],
+    "timeout_original_readback": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_recovery_20261117/original-request-readback-v2.json",
+    "timeout_rerun": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_recovery_20261117/execution",
+    "timeout_new_readback": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_recovery_20261117/latest-request-readback.json"
   },
   "case_updates": [
     {
@@ -74890,6 +74944,15 @@
       "changes": [
         "历史检索用例按是、120天、半年流程在新会话中复跑；已保存的60天偏好仅作只读验证；两条2月消息在半年无结果后进一步扩查全部可见历史。",
         "其他失败项不属于历史扩查缺口，维持原执行结论。"
+      ]
+    },
+    {
+      "date": "2026-11-17",
+      "case_ids": [
+        "AA-QAP-019"
+      ],
+      "changes": [
+        "核对180秒超时后的原请求，新建空会话补跑一次；新请求服务端也明确生成失败。"
       ]
     }
   ]
