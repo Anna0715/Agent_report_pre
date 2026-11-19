@@ -213,7 +213,7 @@
   function filtered(){
     const env=$('filter-environment').value,s=$('filter-status').value,m=$('filter-module').value,p=$('filter-priority').value,c=$('category').value;
     const terms=$('search').value.toLowerCase().split(/[;；]/).map(term=>term.trim()).filter(Boolean);
-    return rows.filter(r=>(!selectedCaseIds.size||selectedCaseIds.has(r.case_id))&&(!env||r.source_environment===env)&&(!s||resultStatus(r)===s)&&(!m||(r.module||'未标注')===m)&&(!p||r.priority===p)&&(!c||r.failure_categories.includes(c))&&(!terms.length||terms.some(term=>[r.case_id,...(r.merged_case_ids||[]),r.asker,r.title,r.module,r.scenario,r.reason,...r.failure_categories].join(' ').toLowerCase().includes(term))));
+    return rows.filter(r=>(!selectedCaseIds.size||selectedCaseIds.has(r.case_id))&&(!env||r.source_environment===env)&&(!s||resultStatus(r)===s)&&(!m||(r.module||'未标注')===m)&&(!p||r.priority===p)&&(!c||r.failure_categories.includes(c))&&(!terms.length||terms.some(term=>[r.case_id,...(r.merged_case_ids||[]),r.asker,r.title,r.module,r.scenario,r.reason,...r.failure_categories,r.session_id,...(r.session_ids||[]),...(r.turns||[]).map(turn=>turn.session_id)].join(' ').toLowerCase().includes(term))));
   }
   function renderCases(current,source,snapshot,canWrite){
     rows=current;base=source;state=snapshot;writable=canWrite;
