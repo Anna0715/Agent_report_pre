@@ -26,8 +26,8 @@
   const pct = (n,d) => d ? `${(100*n/d).toFixed(1)}%` : '—';
   const duration = n => Number.isFinite(n)?`${(n/1000).toFixed(1)}s`:'未采集';
   const anchor = r => `failure-${r.source_environment}-${r.case_id}`;
-  const resultStatus = r => r.status==='skip'&&['not_executed','local_fixture_pass'].includes(r.kind)?r.kind:r.status;
-  const status = r => ({not_executed:'未执行',local_fixture_pass:'本地回放通过'})[resultStatus(r)]||label[r.status];
+  const resultStatus = r => r.status==='skip'&&['not_executed','local_fixture_pass','timeout'].includes(r.kind)?r.kind:r.status;
+  const status = r => ({not_executed:'未执行',local_fixture_pass:'本地回放通过',timeout:'超时'})[resultStatus(r)]||label[r.status];
   const taskRate = r => r.task_completion_rate==null?'—':`${r.kind==='local_fixture_pass'&&r.task_completion_rate===1?100:r.task_completion_rate}%`;
   // This is an immutable comparison of two source executions, not a comparison
   // of the mutable cloud-review status with the prior report's displayed row.
@@ -265,7 +265,7 @@
         card.querySelector('.failure-head > .status').replaceWith(select);
       }
       select.className=`status case-status-select ${r.status}`;
-      const skipOption=select.querySelector('option[value="skip"]'),skipText=r.kind==='not_executed'?'未执行':r.kind==='local_fixture_pass'?'本地回放通过':label.skip;
+      const skipOption=select.querySelector('option[value="skip"]'),skipText=r.kind==='not_executed'?'未执行':r.kind==='local_fixture_pass'?'本地回放通过':r.kind==='timeout'?'超时':label.skip;
       if(skipOption.textContent!==skipText)skipOption.textContent=skipText;
       if(document.activeElement!==select&&select.value!==r.status)select.value=r.status;
       if(select.disabled!==!writable)select.disabled=!writable;

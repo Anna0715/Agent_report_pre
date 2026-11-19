@@ -1,10 +1,10 @@
 {
   "contract": "ai_assistant.combined_report.v1",
   "report_environment": "pre",
-  "report_date": "2026-11-17",
-  "generated_at": "2026-11-17T09:37:11+00:00",
-  "review_run_id": "AI助手-2026-11-17-pre-pending-18-review",
-  "report_update_id": "pre-pending-18-review-20261117",
+  "report_date": "2026-11-18",
+  "generated_at": "2026-11-18T05:10:09+00:00",
+  "review_run_id": "AI助手-2026-11-18-pre-timeout-serial-rerun",
+  "report_update_id": "pre-timeout-serial-rerun-20261118",
   "report_title": "PRE AI助手用例评测报告",
   "pre_case_count": 278,
   "pre_scope": {
@@ -5799,6 +5799,20 @@
           "company": "Zelto",
           "actor_ref": "安柔",
           "source": "execution_turn"
+        },
+        {
+          "step": 3,
+          "name": "安柔",
+          "company": "Zelto",
+          "actor_ref": "安柔",
+          "source": "execution_turn"
+        },
+        {
+          "step": 4,
+          "name": "安柔",
+          "company": "Zelto",
+          "actor_ref": "安柔",
+          "source": "execution_turn"
         }
       ],
       "environment": "pre",
@@ -5810,30 +5824,28 @@
       "priority": "P1",
       "status": "fail",
       "kind": "business_review",
-      "reason": "失败，首轮把仅涉及安装版本和约时间对齐的10月1日消息，错引为“随月中版本上线并先向Zelto开放”的提议。",
+      "reason": "失败：三轮都把公台10月6日发布PRE、邀请试用的消息，引用成SuChen已确认能检索任务空间的反馈，混淆了发布待验与验证成功。",
       "review_reuse": null,
       "review_observation": {
         "basis": "1f76bef304abda8447683597fe94e208bf38b634a11da2a2253eddc7ee54f751",
-        "result": "0f293e1f55b306cd4fe8cb51e738e56cb98998ecbc084773b2a6c13ab3c165c6",
+        "result": "a841321929abd81282df688d2a3093e6eac6ade4434763da406cd87c483ce966",
         "requests": [
-          "8c99c843-a066-43f7-bd41-d4d8cb7efe62",
-          "d689e994-a993-4d5e-8acd-a9678b387893",
-          "e2abe482-a432-4197-a5b8-4ec360e55cb4"
+          "5872736c-5e7c-421a-ac00-f54cb234659d",
+          "7145bf1a-3bd1-429a-8500-d57d23b4306b",
+          "b7906fd5-1d66-4f2e-b861-4b24e9fd3845"
         ]
       },
       "failure_categories": [
-        "事实不符",
-        "数据缺失"
+        "事实不符"
       ],
       "confidence": "high",
-      "latency_ms": 278933,
+      "latency_ms": 1568136,
       "model": "openai/gpt-6.1-terra",
-      "prompt_version": "assistant_chat_agent@0.24.3",
+      "prompt_version": "assistant_chat_agent@0.24.7",
       "automatic_status": "fail",
       "automatic_reason": "missing required tools: ['hive.im.search']",
       "categories": [
-        "事实不符",
-        "数据缺失"
+        "事实不符"
       ],
       "title": "按群总结 Agent小分队、AI助手·一期研发群、蜂巢AI助手里关于AI助手项目的里程碑、数据链路和最新pre数据范围，并附原消息来源。",
       "ability": "跨群检索、去重与引用",
@@ -5843,26 +5855,60 @@
       "trace_status": "内部工具链已采集；权限/引用仍未观测",
       "trace_runs": 3,
       "questions": [
-        "按群总结 Agent小分队、AI助手·一期研发群、蜂巢AI助手里关于AI助手项目的里程碑、数据链路和最新pre数据范围，并附原消息来源。"
+        "按群总结 Agent小分队、AI助手·一期研发群、蜂巢AI助手里关于AI助手项目的里程碑、数据链路和最新pre数据范围，并附原消息来源。",
+        "扩查最近120天",
+        "扩查最近半年"
       ],
-      "answer": "扩查近半年后，主要新增的是 **Agent 小分队在 6—7 月的项目起步记录**：先讨论会议 Agent、周报总结等场景，7 月形成统一 Agent 和 AI 助手的产品方向。较新的 PRE 数据口径仍是 11 月 2 日的 Jira-iHive 同步测试项目。`widget:refs:msg:sg_2122635335:9:T112053RE|msg:sg_2122635335:16:T112053RE|msg:sg_2122635335:76:T112053RE|msg:sg_2122635335:78:T112053RE|msg:sg_3981594831:2193:T112053RE|msg:sg_3981594831:2195:T112053RE`\n\n以下按群整理近 **180 天**、截至 2026 年 11 月 17 日 13:26 的消息。\n\n## Agent 小分队\n\n### 里程碑\n\n- **6 月 26 日**，`widget:mention:ouvkmtuntg5xpk:T112053RE`提出会议 Agent 方案；`widget:mention:ouv4qlvxoaugyp:T112053RE`称已搭建周报总结和敏感信息探测的调试页面，批量评测仍在计划中。`widget:refs:msg:sg_2122635335:9:T112053RE|msg:sg_2122635335:16:T112053RE|msg:sg_2122635335:17:T112053RE`\n- **7 月 10—13 日**，`widget:mention:ouv4mwtykysmzj:T112053RE`称统一 Agent 的产品由 `widget:mention:ouvkmtuntg5xpk:T112053RE`负责；`widget:mention:ouv4mpnbncczdy:T112053RE`提出 AI 秘书或助手及侧边对话框构想，`widget:mention:ouvkmtuntg5xpk:T112053RE`计划先找 1—2 个落地场景。7 月 13 日，`widget:mention:ouv4mwtykysmzj:T112053RE`要求尽快准备产品文档并推进内测。`widget:refs:msg:sg_2122635335:76:T112053RE|msg:sg_2122635335:78:T112053RE|msg:sg_2122635335:79:T112053RE|msg:sg_2122635335:80:T112053RE|msg:sg_2122635335:88:T112053RE`\n- **8 月 28 日—9 月 16 日**，`widget:mention:ouvkmtuntg5xpk:T112053RE`记录 Agent 自动化主体框架基本完成；9 月 15 日反馈 PRE 真实数据测试尚未跑通，次日称前一晚已可以测试。`widget:refs:msg:sg_2122635335:322:T112053RE|msg:sg_2122635335:452:T112053RE|msg:sg_2122635335:453:T112053RE|msg:sg_2122635335:454:T112053RE`\n- **10 月 27 日—11 月 4 日**，`widget:mention:ouv4qltobpg3qq:T112053RE`称写操作已提测，`widget:mention:ouv4qlvxa3mbkp:T112053RE`称 test 冒烟通过、可发 PRE 体验。11 月 4 日的回归总结记录：11 月 3 日执行 **382 项、通过 268 项，通过率 70%**。`widget:refs:msg:sg_2122635335:1363:T112053RE|msg:sg_2122635335:1369:T112053RE|msg:sg_2122635335:1634:T112053RE`\n\n### 数据链路与 PRE 口径\n\n- `widget:mention:ouv4qlvxoaugyp:T112053RE`说明，助手拆解指令关键词，结合向量与消息搜索定位周报、任务和可见群聊，再把相关结果整合进 Agent 上下文；群聊是说明过的默认检索范围，私聊需明确指定。`widget:refs:msg:sg_2122635335:956:T112053RE|msg:sg_2122635335:959:T112053RE|msg:sg_2122635335:963:T112053RE|msg:sg_2122635335:1262:T112053RE|msg:sg_2122635335:1263:T112053RE`\n- **权限边界的早期讨论**：6 月 28 日，`widget:mention:ouv4mpnbncczdy:T112053RE`主张分析本人参与的单聊或共同所在群聊，不应向其他人开放员工与他人的私聊内容；`widget:mention:ouv4mwtykysmzj:T112053RE`提出过滤审核工作相关内容。这些是当时的设计讨论。`widget:refs:msg:sg_2122635335:25:T112053RE|msg:sg_2122635335:26:T112053RE|msg:sg_2122635335:27:T112053RE|msg:sg_2122635335:28:T112053RE|msg:sg_2122635335:29:T112053RE`\n- **10 月 5 日 PRE 口径**：`widget:mention:ouv4qlvxoaugyp:T112053RE`称 PRE 与线上数据一致，部分 Agent 优化当时只在 PRE；消息没有列出数据记录的起止日期。`widget:refs:msg:sg_2122635335:606:T112053RE|msg:sg_2122635335:607:T112053RE|msg:sg_2122635335:608:T112053RE`\n\n## AI助手·一期研发群\n\n### 里程碑与数据链路\n\n- **10 月 6 日**，`widget:mention:ouv4qlvxoaugyp:T112053RE`称任务空间查询改为通过业务接口工具完成，PRE 已发布；群内随后反馈可检索到任务空间内容。`widget:refs:msg:sg_3981594831:1124:T112053RE|msg:sg_3981594831:1159:T112053RE|msg:sg_3981594831:1166:T112053RE|msg:sg_3981594831:1167:T112053RE`\n- **10 月 30 日—11 月 2 日**，蜂巢预发版 1.0.474 发布，包含自定义字段；11 月 2 日，`widget:mention:ouv4qltobpg3qq:T112053RE`称该版本包含 AI 助手的“大部分”功能。`widget:refs:msg:sg_3981594831:2181:T112053RE|msg:sg_3981594831:2182:T112053RE`\n- **后续计划**：`widget:mention:ouv4qlvxoaugyp:T112053RE`称计划 11 月 19 日发版；`widget:mention:ouvjhgphs7fnzd:T112053RE`的需求计划将部分能力列在 11 月 19 日，汇报打通、项目任务字段修改、日程及自定义字段读写等列在 12 月 3 日。`widget:refs:msg:sg_3981594831:2437:T112053RE|msg:sg_3981594831:2498:T112053RE`\n- **11 月 17 日**，`widget:mention:ouvgomnvjyywac:T112053RE`称历史图片解析已推至测试环境，用于复现问答。`widget:msg:sg_3981594831:2631:T112053RE`\n\n### 最新 PRE 数据范围\n\n- **11 月 2 日的测试项目口径**：`widget:mention:ouvjhgphs7fnzd:T112053RE`称 PRE 有 Jira 与 iHive 数据同步的测试项目，应用了自定义字段，双方每天同步两次；消息未给出数据记录的起止日期。`widget:refs:msg:sg_3981594831:2193:T112053RE|msg:sg_3981594831:2195:T112053RE`\n- **消息展示差异**：10 月 10 日，`widget:mention:ouv4qluqoynfcv:T112053RE`说明 PRE 不会收到其他人在 PROD 发消息的实时推送，客户端看到的数据可能较少；工具直接查询服务端，退出应用重进可重新拉取消息。`widget:refs:msg:sg_3981594831:1583:T112053RE|msg:sg_3981594831:1586:T112053RE|msg:sg_3981594831:1587:T112053RE|msg:sg_3981594831:1588:T112053RE`\n\n## 蜂巢AI助手\n\n- **8 月 28 日**，`widget:mention:ouvjhgphs7fnzd:T112053RE`称 Jira 数据基本同步完，计划再同步时间和描述字段。`widget:msg:sg_2658892958:18:T112053RE`\n- **8 月 31 日排期**：`widget:mention:ouvkmtuntg5xpk:T112053RE`的晨会纪要计划 9 月 16 日启动客户端和简单问答测试，9 月 24 日启动 Work、复杂问答及首轮 bug 测试，10 月 6 日启动 Zelto 内测。`widget:msg:sg_2658892958:53:T112053RE`\n- **9 月 11 日数据准备**：`widget:mention:ouvkmtuntg5xpk:T112053RE`记录虚拟数据联调和群聊增量写入已完成，空间数据仍在开发；当时预计历史群聊只包括部分指定群，任务空间包括全量历史数据。纪要未列指定群名单及聊天记录起止日期。`widget:msg:sg_2658892958:61:T112053RE`\n\n以后查群聊时，要默认往前查 180 天吗？",
+      "answer": "扩查最近半年后，新增了 AI 助手形成前的讨论：6 月已有周报总结、敏感信息探测的调试页面；7 月团队开始讨论统一的 AI 助手，并计划先选 1—2 个场景做 MVP。此后，数据接入从历史数据导入方案推进到业务接口查询和 PRE 测试。\n\n以下按群整理截至 **2026 年 11 月 18 日最近 180 天**的消息，并附原消息。\n\n## Agent 小分队\n\n- **6 月：早期 Agent 探索。** 6 月 26 日，`widget:mention:ouvkmtuntg5xpk:T112053RE`计划提出会议 Agent 和群聊总结 Agent 方案；`widget:mention:ouv4qlvxoaugyp:T112053RE`称已搭建周报总结、敏感信息探测的调试页面，批量评测仍在计划中。`widget:refs:msg:sg_2122635335:9:T112053RE|msg:sg_2122635335:10:T112053RE|msg:sg_2122635335:16:T112053RE|msg:sg_2122635335:17:T112053RE`\n- **7 月：转向统一 AI 助手。** 7 月 10 日，`widget:mention:ouv4mwtykysmzj:T112053RE`称统一 Agent 由 `widget:mention:ouvkmtuntg5xpk:T112053RE`负责产品；`widget:mention:ouv4mpnbncczdy:T112053RE`提出 AI 秘书或 AI 助手，并建议先做 1—2 个简单通用功能。7 月 17 日，`widget:mention:ouvkmtuntg5xpk:T112053RE`提出约时间对齐 MVP 功能。`widget:refs:msg:sg_2122635335:76:T112053RE|msg:sg_2122635335:78:T112053RE|msg:sg_2122635335:80:T112053RE|msg:sg_2122635335:82:T112053RE|msg:sg_2122635335:83:T112053RE|msg:sg_2122635335:90:T112053RE`\n- **10—11 月：写操作与回归。** 10 月 27 日，`widget:mention:ouv4qlvxa3mbkp:T112053RE`称写操作已通过测试环境冒烟，可发 PRE 体验；`widget:mention:ouv4mpnbncczdy:T112053RE`指出 OpenRouter 接口存在安全问题，整改后才能对客。11 月 4 日，`widget:mention:ouvwzhogat6shz:T112053RE`汇总自动化回归执行 **382 项、通过 268 项，通过率 70%**。`widget:refs:msg:sg_2122635335:1369:T112053RE|msg:sg_2122635335:1383:T112053RE|msg:sg_2122635335:1385:T112053RE|msg:sg_2122635335:1634:T112053RE|msg:sg_2122635335:1636:T112053RE`\n- **查询链路实例。** `widget:mention:ouv4qlvxoaugyp:T112053RE`说明，周报查询先检索人员，再根据人员属性生成接口参数；模型曾漏传 `tenant_id`，修复已发 PRE。任务变更记录按用户指令查询。`widget:refs:msg:sg_2122635335:1513:T112053RE|msg:sg_2122635335:1516:T112053RE|msg:sg_2122635335:1518:T112053RE|msg:sg_2122635335:1262:T112053RE|msg:sg_2122635335:1263:T112053RE`\n\n## AI助手·一期研发群\n\n- **排期与 PRE 验证。** 8 月 19 日，`widget:mention:ouvkmtuntg5xpk:T112053RE`提出当时目标为 9 月中旬对内、10 月初对客，效果不佳再考虑延至 10 月中旬。9 月 15 日，`widget:mention:ouvjhgphs7fnzd:T112053RE`称后台 PRE 仍在发布流程；同日 `widget:mention:ouvkmtuntg5xpk:T112053RE`连接公司 VPN 后确认会话出现。`widget:refs:msg:sg_3981594831:5:T112053RE|msg:sg_3981594831:6:T112053RE|msg:sg_3981594831:7:T112053RE|msg:sg_3981594831:294:T112053RE|msg:sg_3981594831:302:T112053RE|msg:sg_3981594831:306:T112053RE`\n- **历史数据接入方案。** 9 月，`widget:mention:ouvgomnvjyywac:T112053RE`转述计划在预发布前写入部分群聊历史数据供调试；随后讨论通过业务列表接口导入历史群聊和空间数据，可定时、人工或冷启动触发，不扫描数据库表或监听 binlog。空间数据拉取受用户可见范围和接口鉴权限制。`widget:refs:msg:sg_3981594831:50:T112053RE|msg:sg_3981594831:58:T112053RE|msg:sg_3981594831:96:T112053RE|msg:sg_3981594831:115:T112053RE`\n- **检索与发布。** `widget:mention:ouvkmtuntg5xpk:T112053RE`描述的拟议方案结合结构化条件、关键词和语义向量检索，再由大模型综合回答。10 月 6 日，`widget:mention:ouv4qlvxoaugyp:T112053RE`将任务空间查询改为基于业务接口的一系列工具并发布 PRE；随后 `widget:mention:ouvkmtuntg5xpk:T112053RE`反馈已能检索到任务空间内容。10 月 9 日，群聊检索优化的一版发布 PRE 供测试。`widget:refs:msg:sg_3981594831:274:T112053RE|msg:sg_3981594831:275:T112053RE|msg:sg_3981594831:1124:T112053RE|msg:sg_3981594831:1159:T112053RE|msg:sg_3981594831:1162:T112053RE|msg:sg_3981594831:1409:T112053RE`\n- **PRE 数据范围口径。** 10 月 1 日，`widget:mention:ouv4qlvxa3mbkp:T112053RE`称 PRE 和 PRD 数据一样；10 月 10 日，`widget:mention:ouv4qluqoynfcv:T112053RE`说明 PRE 端不会收到线上推送，因此端上数据较少，而工具直接查询服务端数据。11 月 2 日，`widget:mention:ouvjhgphs7fnzd:T112053RE`称 PRE 有一个使用自定义字段的 JIRA 与 iHive 数据同步测试项目，并表示每天双向同步两次。**完整 PRE 数据清单和数据截止日期尚未明确。** `widget:refs:msg:sg_3981594831:820:T112053RE|msg:sg_3981594831:1583:T112053RE|msg:sg_3981594831:1586:T112053RE|msg:sg_3981594831:1590:T112053RE|msg:sg_3981594831:2193:T112053RE|msg:sg_3981594831:2195:T112053RE`\n\n## 蜂巢AI助手\n\n- **分轮测试计划。** 8 月 31 日，`widget:mention:ouvkmtuntg5xpk:T112053RE`转述晨会纪要：计划 9 月 16 日启动第一轮，覆盖客户端和简单问答；9 月 24 日启动第二轮，覆盖 Work、复杂问答及第一轮问题；10 月 6 日启动 Zelto 内测，预计 20 天。`widget:msg:sg_2658892958:53:T112053RE`\n- **数据准备进度。** 9 月 11 日，`widget:mention:ouvkmtuntg5xpk:T112053RE`转述纪要：虚拟数据联调和真实群聊数据增量写入已完成，空间数据仍在开发；历史群聊拟纳入部分指定群，任务空间计划包含全量历史数据。`widget:msg:sg_2658892958:61:T112053RE`\n- **敏感数据讨论。** 9 月 14 日，`widget:mention:ouv4mpnbncczdy:T112053RE`提出邮箱、银行卡号、证件号等敏感字段不应发送给 GPT，并建议考虑过滤公司、部门名称；`widget:mention:ouv4qlvxoaugyp:T112053RE`提出调研前置脱敏。`widget:refs:msg:sg_2658892958:63:T112053RE|msg:sg_2658892958:66:T112053RE|msg:sg_2658892958:68:T112053RE|msg:sg_2658892958:69:T112053RE`\n\n以后查询这三个群时，默认往前查 180 天吗？也可以设置为查询所有群时默认 180 天。",
       "execution_completed": true,
-      "execution_completion_rate": 0,
-      "business_reason": "失败，首轮把仅涉及安装版本和约时间对齐的10月1日消息，错引为“随月中版本上线并先向Zelto开放”的提议。扩查120天及半年后，仍漏掉研发群9月8日关于binlog增量、解密入向量库及历史全量补录的数据链路。",
-      "tool_chain_summary": "Skill：group_summary、output_presentation；工具链：activate_skills(completed) → group_search(completed) → group_search(completed) → group_search(completed) → group_scope(completed) → group_scope(completed) → group_scope(completed) → material_ask(missing_result)；自动断言：missing required tools: ['hive.im.search']",
+      "execution_completion_rate": 100,
+      "business_reason": "失败：三轮都把公台10月6日发布PRE、邀请试用的消息，引用成SuChen已确认能检索任务空间的反馈，混淆了发布待验与验证成功。",
+      "tool_chain_summary": "Skill：group_summary、output_presentation、structured_query；工具链：activate_skills(completed) → entity_resolve(completed) → entity_resolve(completed) → group_message_search(completed) → group_scope(completed) → material_ask(completed) → scratchpad_read(completed) → scratchpad_read(completed) → scratchpad_read(completed) → scratchpad_read(completed) → group_message_lookup(completed) → memory_settle(completed) → activate_skills(completed) → material_ask(completed) → scratchpad_read(completed) → scratchpad_read(completed) → scratchpad_read(completed) → group_message_lookup(completed) → activate_skills(completed) → material_ask(completed) → material_ask(completed) → scratchpad_read(completed) → group_message_lookup(completed)",
       "turns": [
         {
           "step": 2,
           "op": "ask",
-          "status": "error",
+          "status": "completed",
           "actor_ref": "安柔",
           "question": "按群总结 Agent小分队、AI助手·一期研发群、蜂巢AI助手里关于AI助手项目的里程碑、数据链路和最新pre数据范围，并附原消息来源。",
-          "answer": "",
-          "session_id": "cs_2d31f1b1-8de6-49c0-a925-fc40da3793e3",
-          "request_id": "6a0c2422-83ed-42d3-890c-c6d1f6520ed2",
-          "message_id": "cm_3aa8a063-8d40-40e6-98a1-17ce0d446121",
+          "answer": "三个群的讨论侧重点不同：**Agent 小分队**主要讨论检索链路、模型及数据安全；**AI助手·一期研发群**记录了 PRE 发布、测试和数据范围；**蜂巢AI助手**中有一段项目检索反馈。以下按群整理，消息时间截至 2026 年 11 月 18 日，引用可点开原消息。\n\n## Agent 小分队\n\n- **里程碑与测试**：10 月 27 日，`widget:mention:ouv4qlvxa3mbkp:T112053RE`称写操作已通过测试环境冒烟，可发 PRE 体验；`widget:mention:ouv4mpnbncczdy:T112053RE`同时指出，经 OpenRouter 的接口存在安全问题，整改后才能对客。`widget:refs:msg:sg_2122635335:1364:T112053RE|msg:sg_2122635335:1369:T112053RE|msg:sg_2122635335:1370:T112053RE|msg:sg_2122635335:1383:T112053RE|msg:sg_2122635335:1385:T112053RE`\n- **回归结果**：11 月 4 日，`widget:mention:ouvkmtuntg5xpk:T112053RE`确认前一天已跑完全量自动化回归；`widget:mention:ouvwzhogat6shz:T112053RE`汇总执行 **382 项、通过 268 项，通过率 70%**。`widget:refs:msg:sg_2122635335:1634:T112053RE|msg:sg_2122635335:1636:T112053RE`\n- **数据链路**：`widget:mention:ouv4qlvxoaugyp:T112053RE`说明，周报查询先检索人员，再根据人员属性生成接口参数；一次失败是模型漏传 `tenant_id`，其修复已发 PRE。任务变更记录则按用户指令查询，不会自动推送或保证随任务读取自动注入。`widget:refs:msg:sg_2122635335:1513:T112053RE|msg:sg_2122635335:1516:T112053RE|msg:sg_2122635335:1518:T112053RE|msg:sg_2122635335:1262:T112053RE|msg:sg_2122635335:1263:T112053RE|msg:sg_2122635335:1269:T112053RE`\n- **文件与权限方案**：11 月 17 日，`widget:mention:ouv4mpnbncczdy:T112053RE`提出，客户直接发给助手的文件可解析；分析群聊时默认不打开群文件，如需解析，应先找出文件并让客户确认授权、指定分析内容。这是群内提出的方案。`widget:refs:msg:sg_2122635335:1884:T112053RE|msg:sg_2122635335:1892:T112053RE`\n\n## AI助手·一期研发群\n\n### 里程碑\n\n- **9 月 25 日**：`widget:mention:ouvjhgphs7fnzd:T112053RE`的备忘记录，基础设施和服务端已部署 PRD；自动化当时只部署 DEV，待前端联调成功后再部署其他环境。10 月正式内测是当时的计划。`widget:msg:sg_3981594831:532:T112053RE`\n- **10 月 6 日—10 月 9 日**：`widget:mention:ouv4qlvxoaugyp:T112053RE`将任务空间查询改为基于业务接口的一系列工具并发布 PRE；随后 `widget:mention:ouvkmtuntg5xpk:T112053RE`反馈已能检索到任务空间内容。10 月 9 日，群聊检索优化也有一版发布 PRE，供挑选案例测试。`widget:refs:msg:sg_3981594831:1124:T112053RE|msg:sg_3981594831:1159:T112053RE|msg:sg_3981594831:1162:T112053RE|msg:sg_3981594831:1409:T112053RE`\n- **10 月下旬**：`widget:mention:ouvppako1eetr0:T112053RE`于 10 月 22 日通知输入框预测已发布 PRE；`widget:mention:ouv4qluqoynfcv:T112053RE`于 10 月 26 日通知自动化已发 PRE，`widget:mention:ouvkmtuntg5xpk:T112053RE`表示将验收。`widget:refs:msg:sg_3981594831:1965:T112053RE|msg:sg_3981594831:2042:T112053RE|msg:sg_3981594831:2043:T112053RE|msg:sg_3981594831:2044:T112053RE`\n- **11 月 17 日**：`widget:mention:ouvkmtuntg5xpk:T112053RE`要求将创建日程、替换后的推荐问题 prompt 和个性化推荐问题发 PRE；`widget:mention:ouvppako1eetr0:T112053RE`回复其负责的部分已发，正在验证。`widget:refs:msg:sg_3981594831:2645:T112053RE|msg:sg_3981594831:2646:T112053RE`\n\n### 数据链路和 PRE 数据范围\n\n- **租户边界**：10 月底讨论区分了读取和写入：查询可涉及跨租户数据，新增写操作限制当前租户。11 月 2 日，`widget:mention:ouvgomnvjyywac:T112053RE`通知“禁止跨租户”已部署到**测试环境**；这条消息没有确认它已部署 PRE。`widget:refs:msg:sg_3981594831:1990:T112053RE|msg:sg_3981594831:1997:T112053RE|msg:sg_3981594831:2000:T112053RE|msg:sg_3981594831:2003:T112053RE|msg:sg_3981594831:2005:T112053RE|msg:sg_3981594831:2174:T112053RE`\n- **PRE 与线上数据**：10 月 1 日，`widget:mention:ouv4qlvxa3mbkp:T112053RE`称 PRE 和 PRD 的数据一样。10 月 10 日，`widget:mention:ouv4qluqoynfcv:T112053RE`进一步说明，PRE 端不会收到线上环境的推送，端上数据会少一些；工具直接查询服务端数据。`widget:mention:ouv4qlvxoaugyp:T112053RE`也称 PRE 的聊天数据更少。两组说法分别涉及环境数据和端上实时推送，应结合时间与读取位置理解。`widget:refs:msg:sg_3981594831:820:T112053RE|msg:sg_3981594831:1583:T112053RE|msg:sg_3981594831:1586:T112053RE|msg:sg_3981594831:1590:T112053RE`\n- **具体数据实例**：11 月 2 日，`widget:mention:ouvjhgphs7fnzd:T112053RE`称 PRE 有一个 **JIRA 与 iHive 数据同步测试项目**，使用了自定义字段，并表示会每天双向同步两次。这是具体测试项目及同步安排。`widget:refs:msg:sg_3981594831:2193:T112053RE|msg:sg_3981594831:2195:T112053RE`\n- **最新范围口径**：截至 11 月 18 日，群消息给出了上述 PRE 数据关系和测试项目，但没有给出当时完整的数据集、租户清单或数据截止日期；11 月 17 日发布并验证的日程和推荐内容属于**功能范围**，不能直接当作数据覆盖范围。`widget:refs:msg:sg_3981594831:2193:T112053RE|msg:sg_3981594831:2645:T112053RE|msg:sg_3981594831:2646:T112053RE`\n\n## 蜂巢AI助手\n\n10 月 13 日，`widget:mention:ouv4qovzlarm8d:T112053RE`询问项目检索结果，随后表示可能是输入错误；`widget:mention:ouvkmtuntg5xpk:T112053RE`据此回应“那就不是 bug”。这段对话没有明确将问题关联到上述项目的里程碑或 PRE 数据范围。`widget:refs:msg:sg_2658892958:80:T112053RE|msg:sg_2658892958:83:T112053RE|msg:sg_2658892958:85:T112053RE|msg:sg_2658892958:86:T112053RE|msg:sg_2658892958:88:T112053RE`\n\n要不要我帮你长期关注“Agent 小分队”？",
+          "session_id": "cs_c1cfe16f-6790-49e7-babf-b07a624e0235",
+          "request_id": "7145bf1a-3bd1-429a-8500-d57d23b4306b",
+          "message_id": "cm_446810f7-f702-4c60-92c1-949420c2c6ce",
           "http_status": 200,
-          "error": "curl: (28) Operation timed out after 180002 milliseconds with 2702 bytes received",
+          "error": "",
+          "asker": "安柔",
+          "asker_company": "Zelto",
+          "asker_source": "execution_turn"
+        },
+        {
+          "step": 3,
+          "op": "continue",
+          "status": "completed",
+          "actor_ref": "安柔",
+          "question": "扩查最近120天",
+          "answer": "扩查后，补上了 **7—9 月的早期排期和数据接入方案**：项目最初按分轮测试推进；历史群聊和空间数据曾计划通过业务接口导入，而 9 月的 PRE 数据范围仍是分批准备。最新口径仍需区分 **PRE 端上数据**与**工具直接查询的服务端数据**。\n\n以下按三个群整理，范围为截至 2026 年 11 月 18 日的最近 120 天；每项附原消息。\n\n## Agent 小分队\n\n- **早期建设与一期范围**：7 月 29 日，`widget:mention:ouv4qlvxoaugyp:T112053RE`预计当周完成记忆基础设施、下周对接业务。8 月 7 日，`widget:mention:ouvkmtuntg5xpk:T112053RE`提到此前一期结论是只做问答，并询问是否将定时任务提前纳入；`widget:mention:ouv4mpnbncczdy:T112053RE`说明这是当天新提出的需求。`widget:refs:msg:sg_2122635335:141:T112053RE|msg:sg_2122635335:159:T112053RE|msg:sg_2122635335:166:T112053RE`\n- **PRE 与回归**：10 月 27 日，`widget:mention:ouv4qlvxa3mbkp:T112053RE`称写操作已通过测试环境冒烟，可发 PRE 体验；`widget:mention:ouv4mpnbncczdy:T112053RE`提出 OpenRouter 接口存在安全问题，整改后才能对客。11 月 4 日，`widget:mention:ouvwzhogat6shz:T112053RE`汇总全量自动化回归执行 **382 项、通过 268 项，通过率 70%**。`widget:refs:msg:sg_2122635335:1369:T112053RE|msg:sg_2122635335:1383:T112053RE|msg:sg_2122635335:1385:T112053RE|msg:sg_2122635335:1634:T112053RE|msg:sg_2122635335:1636:T112053RE`\n- **查询链路**：`widget:mention:ouv4qlvxoaugyp:T112053RE`说明，周报查询先检索人员，再根据人员属性生成接口参数；曾因模型漏传 `tenant_id` 导致失败，修复已发 PRE。任务变更记录则按用户指令查询。`widget:refs:msg:sg_2122635335:1513:T112053RE|msg:sg_2122635335:1516:T112053RE|msg:sg_2122635335:1518:T112053RE|msg:sg_2122635335:1262:T112053RE|msg:sg_2122635335:1263:T112053RE`\n\n## AI助手·一期研发群\n\n- **早期里程碑**：8 月 19 日，`widget:mention:ouvkmtuntg5xpk:T112053RE`提出按 9 月中旬对内、10 月初对客推进，效果不佳再考虑延至 10 月中旬，属于当时的目标。9 月 15 日，`widget:mention:ouvjhgphs7fnzd:T112053RE`称后台 PRE 仍在发布流程；同日 `widget:mention:ouvkmtuntg5xpk:T112053RE`连接公司 VPN 后确认会话出现。`widget:refs:msg:sg_3981594831:5:T112053RE|msg:sg_3981594831:6:T112053RE|msg:sg_3981594831:7:T112053RE|msg:sg_3981594831:294:T112053RE|msg:sg_3981594831:302:T112053RE|msg:sg_3981594831:306:T112053RE`\n- **历史数据接入方案**：9 月 8 日，`widget:mention:ouvgomnvjyywac:T112053RE`转述会议计划：预发布前写入部分群聊历史数据供调试；9 月 9 日的方案改为通过业务列表接口导入历史群聊和空间数据，可定时、人工或冷启动触发，不扫描数据库表、不监听 binlog。空间数据拉取还受用户可见范围和接口鉴权限制。这里是当时的方案与限制。`widget:refs:msg:sg_3981594831:50:T112053RE|msg:sg_3981594831:58:T112053RE|msg:sg_3981594831:96:T112053RE|msg:sg_3981594831:115:T112053RE`\n- **检索到回答的设计**：`widget:mention:ouvkmtuntg5xpk:T112053RE`描述的拟议链路是结合结构化字段、关键词和语义向量检索，再由大模型综合回答；其中发送人、时间和任务状态等走结构化条件，消息及任务文本走关键词和语义检索。`widget:refs:msg:sg_3981594831:272:T112053RE|msg:sg_3981594831:274:T112053RE|msg:sg_3981594831:275:T112053RE`\n- **后续发布**：10 月 6 日，`widget:mention:ouv4qlvxoaugyp:T112053RE`将任务空间查询改为基于业务接口的一系列工具并发布 PRE；随后 `widget:mention:ouvkmtuntg5xpk:T112053RE`反馈已能检索任务空间内容。10 月 9 日，群聊检索优化的一版也发布 PRE 供测试。`widget:refs:msg:sg_3981594831:1124:T112053RE|msg:sg_3981594831:1159:T112053RE|msg:sg_3981594831:1162:T112053RE|msg:sg_3981594831:1409:T112053RE`\n- **最新 PRE 数据口径**：10 月 1 日，`widget:mention:ouv4qlvxa3mbkp:T112053RE`称 PRE 和 PRD 数据一样；10 月 10 日，`widget:mention:ouv4qluqoynfcv:T112053RE`说明 PRE 端不会收到线上推送，因此端上数据较少，而工具直接查询服务端数据。11 月 2 日，`widget:mention:ouvjhgphs7fnzd:T112053RE`称 PRE 有一个使用自定义字段的 JIRA 与 iHive 数据同步测试项目，并表示每天双向同步两次。**群内没有给出截至 11 月 18 日的完整 PRE 数据清单或数据截止日期。** `widget:refs:msg:sg_3981594831:820:T112053RE|msg:sg_3981594831:1583:T112053RE|msg:sg_3981594831:1586:T112053RE|msg:sg_3981594831:1590:T112053RE|msg:sg_3981594831:2193:T112053RE|msg:sg_3981594831:2195:T112053RE`\n\n## 蜂巢AI助手\n\n- **分轮测试计划**：8 月 31 日，`widget:mention:ouvkmtuntg5xpk:T112053RE`转述晨会纪要：计划 9 月 16 日启动第一轮测试，覆盖客户端和简单问答；9 月 24 日启动第二轮，覆盖 Work、复杂问答及第一轮问题；10 月 6 日启动 Zelto 内测，预计 20 天。这些是当时的排期。`widget:msg:sg_2658892958:53:T112053RE`\n- **9 月的数据准备进度**：9 月 11 日，`widget:mention:ouvkmtuntg5xpk:T112053RE`转述纪要：虚拟数据联调和真实群聊数据增量写入已完成，空间数据仍在开发。历史群聊拟纳入部分指定群，任务空间因数据量较小，计划包含全量历史数据；PRE 内测的具体体验功能和数据范围拟在后续早会更新。`widget:msg:sg_2658892958:61:T112053RE`\n- **敏感数据处理讨论**：9 月 14 日，`widget:mention:ouv4mpnbncczdy:T112053RE`提出邮箱、银行卡号、证件号等敏感字段不应发送给 GPT，并建议考虑过滤公司、部门名称；`widget:mention:ouv4qlvxoaugyp:T112053RE`提出调研前置脱敏。`widget:refs:msg:sg_2658892958:63:T112053RE|msg:sg_2658892958:66:T112053RE|msg:sg_2658892958:68:T112053RE|msg:sg_2658892958:69:T112053RE`\n\n以后查询这三个群时，默认往前查 120 天吗？也可以设置为查询所有群时默认 120 天。",
+          "session_id": "cs_c1cfe16f-6790-49e7-babf-b07a624e0235",
+          "request_id": "b7906fd5-1d66-4f2e-b861-4b24e9fd3845",
+          "message_id": "cm_363ff3a5-f08f-4a64-bb34-321bf171ba6f",
+          "http_status": 200,
+          "error": "",
+          "asker": "安柔",
+          "asker_company": "Zelto",
+          "asker_source": "execution_turn"
+        },
+        {
+          "step": 4,
+          "op": "continue",
+          "status": "completed",
+          "actor_ref": "安柔",
+          "question": "扩查最近半年",
+          "answer": "扩查最近半年后，新增了 AI 助手形成前的讨论：6 月已有周报总结、敏感信息探测的调试页面；7 月团队开始讨论统一的 AI 助手，并计划先选 1—2 个场景做 MVP。此后，数据接入从历史数据导入方案推进到业务接口查询和 PRE 测试。\n\n以下按群整理截至 **2026 年 11 月 18 日最近 180 天**的消息，并附原消息。\n\n## Agent 小分队\n\n- **6 月：早期 Agent 探索。** 6 月 26 日，`widget:mention:ouvkmtuntg5xpk:T112053RE`计划提出会议 Agent 和群聊总结 Agent 方案；`widget:mention:ouv4qlvxoaugyp:T112053RE`称已搭建周报总结、敏感信息探测的调试页面，批量评测仍在计划中。`widget:refs:msg:sg_2122635335:9:T112053RE|msg:sg_2122635335:10:T112053RE|msg:sg_2122635335:16:T112053RE|msg:sg_2122635335:17:T112053RE`\n- **7 月：转向统一 AI 助手。** 7 月 10 日，`widget:mention:ouv4mwtykysmzj:T112053RE`称统一 Agent 由 `widget:mention:ouvkmtuntg5xpk:T112053RE`负责产品；`widget:mention:ouv4mpnbncczdy:T112053RE`提出 AI 秘书或 AI 助手，并建议先做 1—2 个简单通用功能。7 月 17 日，`widget:mention:ouvkmtuntg5xpk:T112053RE`提出约时间对齐 MVP 功能。`widget:refs:msg:sg_2122635335:76:T112053RE|msg:sg_2122635335:78:T112053RE|msg:sg_2122635335:80:T112053RE|msg:sg_2122635335:82:T112053RE|msg:sg_2122635335:83:T112053RE|msg:sg_2122635335:90:T112053RE`\n- **10—11 月：写操作与回归。** 10 月 27 日，`widget:mention:ouv4qlvxa3mbkp:T112053RE`称写操作已通过测试环境冒烟，可发 PRE 体验；`widget:mention:ouv4mpnbncczdy:T112053RE`指出 OpenRouter 接口存在安全问题，整改后才能对客。11 月 4 日，`widget:mention:ouvwzhogat6shz:T112053RE`汇总自动化回归执行 **382 项、通过 268 项，通过率 70%**。`widget:refs:msg:sg_2122635335:1369:T112053RE|msg:sg_2122635335:1383:T112053RE|msg:sg_2122635335:1385:T112053RE|msg:sg_2122635335:1634:T112053RE|msg:sg_2122635335:1636:T112053RE`\n- **查询链路实例。** `widget:mention:ouv4qlvxoaugyp:T112053RE`说明，周报查询先检索人员，再根据人员属性生成接口参数；模型曾漏传 `tenant_id`，修复已发 PRE。任务变更记录按用户指令查询。`widget:refs:msg:sg_2122635335:1513:T112053RE|msg:sg_2122635335:1516:T112053RE|msg:sg_2122635335:1518:T112053RE|msg:sg_2122635335:1262:T112053RE|msg:sg_2122635335:1263:T112053RE`\n\n## AI助手·一期研发群\n\n- **排期与 PRE 验证。** 8 月 19 日，`widget:mention:ouvkmtuntg5xpk:T112053RE`提出当时目标为 9 月中旬对内、10 月初对客，效果不佳再考虑延至 10 月中旬。9 月 15 日，`widget:mention:ouvjhgphs7fnzd:T112053RE`称后台 PRE 仍在发布流程；同日 `widget:mention:ouvkmtuntg5xpk:T112053RE`连接公司 VPN 后确认会话出现。`widget:refs:msg:sg_3981594831:5:T112053RE|msg:sg_3981594831:6:T112053RE|msg:sg_3981594831:7:T112053RE|msg:sg_3981594831:294:T112053RE|msg:sg_3981594831:302:T112053RE|msg:sg_3981594831:306:T112053RE`\n- **历史数据接入方案。** 9 月，`widget:mention:ouvgomnvjyywac:T112053RE`转述计划在预发布前写入部分群聊历史数据供调试；随后讨论通过业务列表接口导入历史群聊和空间数据，可定时、人工或冷启动触发，不扫描数据库表或监听 binlog。空间数据拉取受用户可见范围和接口鉴权限制。`widget:refs:msg:sg_3981594831:50:T112053RE|msg:sg_3981594831:58:T112053RE|msg:sg_3981594831:96:T112053RE|msg:sg_3981594831:115:T112053RE`\n- **检索与发布。** `widget:mention:ouvkmtuntg5xpk:T112053RE`描述的拟议方案结合结构化条件、关键词和语义向量检索，再由大模型综合回答。10 月 6 日，`widget:mention:ouv4qlvxoaugyp:T112053RE`将任务空间查询改为基于业务接口的一系列工具并发布 PRE；随后 `widget:mention:ouvkmtuntg5xpk:T112053RE`反馈已能检索到任务空间内容。10 月 9 日，群聊检索优化的一版发布 PRE 供测试。`widget:refs:msg:sg_3981594831:274:T112053RE|msg:sg_3981594831:275:T112053RE|msg:sg_3981594831:1124:T112053RE|msg:sg_3981594831:1159:T112053RE|msg:sg_3981594831:1162:T112053RE|msg:sg_3981594831:1409:T112053RE`\n- **PRE 数据范围口径。** 10 月 1 日，`widget:mention:ouv4qlvxa3mbkp:T112053RE`称 PRE 和 PRD 数据一样；10 月 10 日，`widget:mention:ouv4qluqoynfcv:T112053RE`说明 PRE 端不会收到线上推送，因此端上数据较少，而工具直接查询服务端数据。11 月 2 日，`widget:mention:ouvjhgphs7fnzd:T112053RE`称 PRE 有一个使用自定义字段的 JIRA 与 iHive 数据同步测试项目，并表示每天双向同步两次。**完整 PRE 数据清单和数据截止日期尚未明确。** `widget:refs:msg:sg_3981594831:820:T112053RE|msg:sg_3981594831:1583:T112053RE|msg:sg_3981594831:1586:T112053RE|msg:sg_3981594831:1590:T112053RE|msg:sg_3981594831:2193:T112053RE|msg:sg_3981594831:2195:T112053RE`\n\n## 蜂巢AI助手\n\n- **分轮测试计划。** 8 月 31 日，`widget:mention:ouvkmtuntg5xpk:T112053RE`转述晨会纪要：计划 9 月 16 日启动第一轮，覆盖客户端和简单问答；9 月 24 日启动第二轮，覆盖 Work、复杂问答及第一轮问题；10 月 6 日启动 Zelto 内测，预计 20 天。`widget:msg:sg_2658892958:53:T112053RE`\n- **数据准备进度。** 9 月 11 日，`widget:mention:ouvkmtuntg5xpk:T112053RE`转述纪要：虚拟数据联调和真实群聊数据增量写入已完成，空间数据仍在开发；历史群聊拟纳入部分指定群，任务空间计划包含全量历史数据。`widget:msg:sg_2658892958:61:T112053RE`\n- **敏感数据讨论。** 9 月 14 日，`widget:mention:ouv4mpnbncczdy:T112053RE`提出邮箱、银行卡号、证件号等敏感字段不应发送给 GPT，并建议考虑过滤公司、部门名称；`widget:mention:ouv4qlvxoaugyp:T112053RE`提出调研前置脱敏。`widget:refs:msg:sg_2658892958:63:T112053RE|msg:sg_2658892958:66:T112053RE|msg:sg_2658892958:68:T112053RE|msg:sg_2658892958:69:T112053RE`\n\n以后查询这三个群时，默认往前查 180 天吗？也可以设置为查询所有群时默认 180 天。",
+          "session_id": "cs_c1cfe16f-6790-49e7-babf-b07a624e0235",
+          "request_id": "5872736c-5e7c-421a-ac00-f54cb234659d",
+          "message_id": "cm_ec509f3e-6674-4cfb-be4d-ba1b550cf970",
+          "http_status": 200,
+          "error": "",
           "asker": "安柔",
           "asker_company": "Zelto",
           "asker_source": "execution_turn"
@@ -5870,43 +5916,43 @@
       ],
       "trace_tools": [
         {
-          "run_id": "bar_872a201ea8e24146b8dac7968fa05a72",
+          "run_id": "bar_d1a55c6045d9418cba369687dc08f33b",
           "step": 2,
-          "seq": 21,
+          "seq": 19,
           "name": "activate_skills",
-          "arguments_summary": "skills=group_summary",
+          "arguments_summary": "skills=group_summary,structured_query",
           "status": "completed",
           "attempts": 1
         },
         {
-          "run_id": "bar_872a201ea8e24146b8dac7968fa05a72",
+          "run_id": "bar_d1a55c6045d9418cba369687dc08f33b",
           "step": 2,
           "seq": 29,
-          "name": "group_search",
-          "arguments_summary": "unknown tool",
+          "name": "entity_resolve",
+          "arguments_summary": "requests=3",
           "status": "completed",
           "attempts": 1
         },
         {
-          "run_id": "bar_872a201ea8e24146b8dac7968fa05a72",
+          "run_id": "bar_d1a55c6045d9418cba369687dc08f33b",
           "step": 2,
           "seq": 34,
-          "name": "group_search",
-          "arguments_summary": "unknown tool",
+          "name": "entity_resolve",
+          "arguments_summary": "requests=3",
           "status": "completed",
           "attempts": 1
         },
         {
-          "run_id": "bar_872a201ea8e24146b8dac7968fa05a72",
+          "run_id": "bar_d1a55c6045d9418cba369687dc08f33b",
           "step": 2,
           "seq": 39,
-          "name": "group_search",
-          "arguments_summary": "unknown tool",
+          "name": "group_message_search",
+          "arguments_summary": "keywords=4 group_ids=3 conversation_ids=0 sender_ids=0 from_time=false to_time=false limit=20 time_mode=automatic continuation=false",
           "status": "completed",
           "attempts": 1
         },
         {
-          "run_id": "bar_872a201ea8e24146b8dac7968fa05a72",
+          "run_id": "bar_d1a55c6045d9418cba369687dc08f33b",
           "step": 2,
           "seq": 44,
           "name": "group_scope",
@@ -5915,58 +5961,229 @@
           "attempts": 1
         },
         {
-          "run_id": "bar_872a201ea8e24146b8dac7968fa05a72",
+          "run_id": "bar_d1a55c6045d9418cba369687dc08f33b",
           "step": 2,
           "seq": 49,
-          "name": "group_scope",
-          "arguments_summary": "unknown tool",
-          "status": "completed",
-          "attempts": 1
-        },
-        {
-          "run_id": "bar_872a201ea8e24146b8dac7968fa05a72",
-          "step": 2,
-          "seq": 54,
-          "name": "group_scope",
-          "arguments_summary": "unknown tool",
-          "status": "completed",
-          "attempts": 1
-        },
-        {
-          "run_id": "bar_872a201ea8e24146b8dac7968fa05a72",
-          "step": 2,
-          "seq": 59,
           "name": "material_ask",
-          "arguments_summary": "ranges=3 message=3 report=0 format=text instruction_runes=78",
-          "status": "missing_result",
-          "attempts": null
+          "arguments_summary": "ranges=3 message=3 report=0 format=text instruction_runes=66",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_d1a55c6045d9418cba369687dc08f33b",
+          "step": 2,
+          "seq": 183,
+          "name": "scratchpad_read",
+          "arguments_summary": "path=answers/sg_3981594831_20260919T041244Z-20261018T041244Z-97958e77 offset=0",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_d1a55c6045d9418cba369687dc08f33b",
+          "step": 2,
+          "seq": 188,
+          "name": "scratchpad_read",
+          "arguments_summary": "path=answers/sg_3981594831_20261018T041244Z-20261118T041244Z-33eb040d offset=0",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_d1a55c6045d9418cba369687dc08f33b",
+          "step": 2,
+          "seq": 193,
+          "name": "scratchpad_read",
+          "arguments_summary": "path=answers/sg_2122635335_20261018T041244Z-20261118T041244Z-8fa01a65 offset=0",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_d1a55c6045d9418cba369687dc08f33b",
+          "step": 2,
+          "seq": 198,
+          "name": "scratchpad_read",
+          "arguments_summary": "path=answers/sg_2658892958_20260919T041244Z-20261018T041244Z-d9179dc7 offset=0",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_d1a55c6045d9418cba369687dc08f33b",
+          "step": 2,
+          "seq": 203,
+          "name": "group_message_lookup",
+          "arguments_summary": "conversations=1 messages=16 include_content=true include_sticker_images=false",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_d1a55c6045d9418cba369687dc08f33b",
+          "step": 2,
+          "seq": 208,
+          "name": "memory_settle",
+          "arguments_summary": "hint_present=false",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_d5f57da75b5f4b9ca651a27899d9fb75",
+          "step": 3,
+          "seq": 18,
+          "name": "activate_skills",
+          "arguments_summary": "skills=group_summary",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_d5f57da75b5f4b9ca651a27899d9fb75",
+          "step": 3,
+          "seq": 24,
+          "name": "material_ask",
+          "arguments_summary": "ranges=3 message=3 report=0 format=text instruction_runes=56",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_d5f57da75b5f4b9ca651a27899d9fb75",
+          "step": 3,
+          "seq": 196,
+          "name": "scratchpad_read",
+          "arguments_summary": "path=answers/sg_2658892958_20260817T042038Z-20260917T042038Z-83f7ce85 offset=0",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_d5f57da75b5f4b9ca651a27899d9fb75",
+          "step": 3,
+          "seq": 201,
+          "name": "scratchpad_read",
+          "arguments_summary": "path=answers/sg_3981594831_20260817T042038Z-20260917T042038Z-2291ddca offset=0",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_d5f57da75b5f4b9ca651a27899d9fb75",
+          "step": 3,
+          "seq": 206,
+          "name": "scratchpad_read",
+          "arguments_summary": "path=answers/sg_2122635335_20260721T042038Z-20260817T042038Z-609e6f33 offset=0",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_d5f57da75b5f4b9ca651a27899d9fb75",
+          "step": 3,
+          "seq": 211,
+          "name": "group_message_lookup",
+          "arguments_summary": "conversations=3 messages=12 include_content=true include_sticker_images=false",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_acabcd5b8c014e1b90143125f3fab251",
+          "step": 4,
+          "seq": 18,
+          "name": "activate_skills",
+          "arguments_summary": "skills=group_summary",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_acabcd5b8c014e1b90143125f3fab251",
+          "step": 4,
+          "seq": 24,
+          "name": "material_ask",
+          "arguments_summary": "ranges=3 message=3 report=0 format=text instruction_runes=77",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_acabcd5b8c014e1b90143125f3fab251",
+          "step": 4,
+          "seq": 104,
+          "name": "material_ask",
+          "arguments_summary": "ranges=1 message=1 report=0 format=text instruction_runes=47",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_acabcd5b8c014e1b90143125f3fab251",
+          "step": 4,
+          "seq": 208,
+          "name": "scratchpad_read",
+          "arguments_summary": "path=answers/sg_2122635335_20260616T042939Z-20260717T042939Z-7f9fe662 offset=0",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_acabcd5b8c014e1b90143125f3fab251",
+          "step": 4,
+          "seq": 213,
+          "name": "group_message_lookup",
+          "arguments_summary": "conversations=1 messages=13 include_content=true include_sticker_images=false",
+          "status": "completed",
+          "attempts": 1
         }
       ],
       "trace_run_summaries": [
         {
-          "run_id": "bar_872a201ea8e24146b8dac7968fa05a72",
+          "run_id": "bar_d1a55c6045d9418cba369687dc08f33b",
           "step": 2,
           "workflow": "weekly_report.recipient_summary",
           "scenario": "assistant_chat",
-          "status": "running",
-          "skills": "group_summary、output_presentation",
+          "status": "succeeded",
+          "skills": "group_summary、structured_query、output_presentation",
           "model": "openai/gpt-6.1-terra",
-          "prompt": "assistant_chat_agent@0.24.3",
-          "event_count": 145,
-          "tool_count": 8,
-          "tokens": null
+          "prompt": "assistant_chat_agent@0.24.7",
+          "event_count": 221,
+          "tool_count": 12,
+          "tokens": 1689923
+        },
+        {
+          "run_id": "bar_d5f57da75b5f4b9ca651a27899d9fb75",
+          "step": 3,
+          "workflow": "weekly_report.recipient_summary",
+          "scenario": "assistant_chat",
+          "status": "succeeded",
+          "skills": "group_summary",
+          "model": "openai/gpt-6.1-terra",
+          "prompt": "assistant_chat_agent@0.24.7",
+          "event_count": 224,
+          "tool_count": 6,
+          "tokens": 1637643
+        },
+        {
+          "run_id": "bar_acabcd5b8c014e1b90143125f3fab251",
+          "step": 4,
+          "workflow": "weekly_report.recipient_summary",
+          "scenario": "assistant_chat",
+          "status": "succeeded",
+          "skills": "group_summary",
+          "model": "openai/gpt-6.1-terra",
+          "prompt": "assistant_chat_agent@0.24.7",
+          "event_count": 226,
+          "tool_count": 5,
+          "tokens": 1620604
         }
       ],
       "failed_checks": [
         {
-          "dimension": "output.non_empty",
+          "dimension": "answer.must_include",
           "status": "skip",
-          "reason": "Assistant request did not complete; no final answer to grade"
+          "reason": "literal Gold mismatch requires semantic review: ['AI助手·一期 研发群']"
         },
         {
-          "dimension": "answer.available",
+          "dimension": "answer.must_exclude",
           "status": "skip",
-          "reason": "Assistant request did not complete; Gold answer cannot be graded"
+          "reason": "must_exclude has no literal oracle; semantic review required"
+        },
+        {
+          "dimension": "answer.turn.2.must_include",
+          "status": "skip",
+          "reason": "turn 2 literal Gold mismatch requires semantic review: ['AI助手·一期 研发群']"
+        },
+        {
+          "dimension": "answer.semantic_structure",
+          "status": "skip",
+          "reason": "structured Gold facts require a recorded semantic or entity verdict"
         },
         {
           "dimension": "version.provenance",
@@ -5976,27 +6193,17 @@
         {
           "dimension": "resource.capture",
           "status": "skip",
-          "reason": "resource fields are not fully observable in Assistant live evidence: ['ttft_ms', 'input_tokens', 'output_tokens', 'cached_tokens', 'cost_usd', 'tool_latency_ms', 'queue_ms', 'network_bytes_in', 'network_bytes_out']"
+          "reason": "resource fields are not fully observable in Assistant live evidence: ['ttft_ms', 'tool_latency_ms', 'queue_ms', 'network_bytes_in', 'network_bytes_out']"
         },
         {
           "dimension": "trace.completeness",
           "status": "skip",
-          "reason": "Assistant SSE does not expose full internal Trace; missing=['policy.check', 'output.completed']"
-        },
-        {
-          "dimension": "tool.required",
-          "status": "fail",
-          "reason": "missing required tools: ['hive.im.search']"
-        },
-        {
-          "dimension": "tool.result_integrity",
-          "status": "skip",
-          "reason": "non-required/recovered tool anomalies do not fail the task: ['material_ask']"
+          "reason": "Assistant SSE does not expose full internal Trace; missing=['policy.check']"
         },
         {
           "dimension": "tool.duplicate",
           "status": "skip",
-          "reason": "same-run duplicate calls are an efficiency diagnostic: ['group_search(unknown tool)×3', 'group_scope(unknown tool)×3']"
+          "reason": "same-run duplicate calls are an efficiency diagnostic: ['entity_resolve(requests=3)×2']"
         },
         {
           "dimension": "policy.checked",
@@ -6035,8 +6242,7 @@
         "performed_retries": 0,
         "selected_attempt": 1,
         "eligible": false,
-        "status": "not_retried",
-        "reason": "原请求未确认生成失败；先补证，不重复发送。",
+        "status": "not_needed",
         "attempts": []
       },
       "harness": "assistant-chat-live+trace",
@@ -6045,88 +6251,85 @@
         "contract": "ai_assistant.business_comparison.v1",
         "origin": "fresh_pre_execution",
         "expected": [
-          "按三个群归类总结项目里程碑、数据链路及PRE数据范围，并为具体结论提供匹配的原消息来源。依本用例的逐步扩查安排，本轮可以如实报告近60天的检索进度，不因9月8日、9月11日等目标落在窗口外直接判漏答。",
-          "承接原问题扩查最近120天，按群补充此前未覆盖的相关里程碑和数据链路，并附来源。窗口内研发群9月8日讨论的数据链路应作为当时方案概括，包括binlog监控增量、加密内容解密后向量化入库，以及先完成增量再补历史全量的安排。",
-          "结合此前已答内容，完成近半年的三群总结及原消息来源，不要求重复前轮已正确回答的内容，但最终应补足原问题尚未回答的数据链路，并将历史方案与当前实际状态区分。"
+          "以本轮提问时间为上界，按三个指定群总结AI助手项目的里程碑、数据链路和最新PRE数据范围，并附支持相应结论的原消息；在配置的逐步扩查场景中，首轮可以先呈现实际窗口内的检索结果，但不能把发布或邀测写成已验证成功。",
+          "在同一会话中将三个群的检索范围扩大到本轮提问前最近120天，补充原问题所需的里程碑、数据链路和PRE范围信息，并保持事实归属、计划与实际进展及引用对应关系准确。",
+          "按本用例半年即180天的范围继续扩查，并结合此前已答内容完成三个群的项目总结；新增历史讨论无需覆盖或改写此前事实，但最终回答中的里程碑及原消息来源必须准确。"
         ],
         "actual": [
-          "回答按三个群组织内容，说明检索近60天，并称蜂巢AI助手在此窗口没有找到相关进展；但在Agent小分队里称hearts2hearts于10月1日提出随月中版本上线、先向Zelto开放，引用484、511、512号消息。",
-          "回答补充了8月至9月的里程碑，以及蜂巢群9月11日“群聊增量写入完成、历史群聊限部分指定群、任务空间预计含全量历史”的口径；研发群的数据链路仍主要介绍10月6日改用业务接口工具查询任务空间。",
-          "回答新增了6月至7月的产品起步、权限边界讨论，保留了后续里程碑、11月2日Jira-iHive同步测试项目和蜂巢群9月11日的历史数据范围；研发群仍只介绍业务接口查询，没有补充9月8日的同步入库方案。"
+          "回答按三群整理了近期进展，并称公台将任务空间查询改为业务接口工具后，“随后SuChen反馈已能检索到任务空间内容”，引用1124、1159、1162、1409。",
+          "回答补充了7—9月建设、历史数据接口导入方案和蜂巢AI助手9月11日的数据准备范围，但在“后续发布”中继续称SuChen反馈已能检索任务空间，仍引用1124、1159、1162、1409。",
+          "回答新增了6月Agent探索和7月统一AI助手、MVP讨论，保留三群分类及PRE数据口径，同时再次称SuChen反馈已能检索任务空间，引用1124、1159、1162、1409。"
         ],
         "difference": [
-          "484号消息只支持已有线上包可安装；511、512号消息分别是让Will安装使用和次日对齐情况，均不支持所述月中上线及先向Zelto开放的提议。这是用户所问里程碑的具体引用错配，而非历史窗口外的漏答。",
-          "业务接口按需查询描述的是检索使用环节，蜂巢群的数据准备状态也不能替代研发群的数据同步实现方案。回答没有交代binlog增量来源、解密向量化入库和历史全量补录这些关键环节，因而未补足用户所问的数据链路；9月8日已在本轮120天范围内，不能以目标在窗口外解释。",
-          "截至最终轮，整个会话仍缺少研发群从业务数据库经binlog获取增量、解密后向量化入库、随后补齐历史全量的数据流说明及对应来源。新增更早的产品构想不能补上这一链路缺口，因此最终仍未完成原问题。"
+          "这些引用的发送者均为公台；1124说明改造工具后发布PRE供验证，1159通知已发布，1162仅说“也修复了一些，可以试试”，1409则是群聊检索优化通知。引用没有支持SuChen确认检索成功的反馈，导致用户得到的里程碑状态和原消息依据不一致。本轮不因60天窗口外的历史节点尚未返回而判漏答。",
+          "扩查行为有认证查询证据，但重复引用的原文仍全部来自公台，只能证明工具改造、发布及邀请试用，不能证明SuChen完成成功验证。扩大窗口和新增历史信息没有消除本轮再次出现的引用错配与功能阶段误述。",
+          "最终轮仍将公台的发布和邀测消息当作SuChen的成功验证反馈，原消息既不匹配所述发言人，也不支持已验证成功的结论。新增半年历史材料不能抵消这一具体事实与引用错误。"
         ],
-        "why": "失败，首轮把仅涉及安装版本和约时间对齐的10月1日消息，错引为“随月中版本上线并先向Zelto开放”的提议。扩查120天及半年后，仍漏掉研发群9月8日关于binlog增量、解密入向量库及历史全量补录的数据链路。",
+        "why": "失败：三轮都把公台10月6日发布PRE、邀请试用的消息，引用成SuChen已确认能检索任务空间的反馈，混淆了发布待验与验证成功。",
         "turn_comparisons": [
           {
             "step": 2,
             "status": "fail",
-            "reason": "10月1日里程碑中，“随月中版本上线并先向Zelto开放”的提议与所附原消息不匹配。",
+            "reason": "三群均有分类总结和原消息引用，但任务空间检索里程碑的发言人及验证阶段与所引消息不符。",
             "evidence_refs": [
-              "turn_time_basis[step=2]：追问时间为2026-11-17T13:00:01.926+09:00",
-              "turns[step=2].answer：Agent小分队“10月1日”里程碑及引用sg_2122635335:484、511、512",
-              "turns[step=2].source_gold：sg_2122635335:484，公台称已有线上版本，安装新包即可",
-              "turns[step=2].source_gold：sg_2122635335:511，hearts2hearts让SuChen请Will先安装版本使用",
-              "turns[step=2].source_gold：sg_2122635335:512，hearts2hearts要求次日约时间对齐Agent情况",
-              "followup_plan.history_expansion.contract：ai_assistant.history_followup.v2"
+              "turn_time_basis[step=2]：2026-11-18T13:12:43.928672+09:00",
+              "turns[step=2].answer：AI助手·一期研发群“10月6日—10月9日”段",
+              "turns[step=2].source_gold.facts.groups.sg_3981594831.messages：seq=1124、1159、1162、1409",
+              "turns[step=2].source_gold.facts.independent_citation_readback",
+              "current_source_evidence.exact_request_receipts[turn_step=2]"
             ],
             "comparison": {
-              "expected": "按三个群归类总结项目里程碑、数据链路及PRE数据范围，并为具体结论提供匹配的原消息来源。依本用例的逐步扩查安排，本轮可以如实报告近60天的检索进度，不因9月8日、9月11日等目标落在窗口外直接判漏答。",
-              "actual": "回答按三个群组织内容，说明检索近60天，并称蜂巢AI助手在此窗口没有找到相关进展；但在Agent小分队里称hearts2hearts于10月1日提出随月中版本上线、先向Zelto开放，引用484、511、512号消息。",
-              "difference": "484号消息只支持已有线上包可安装；511、512号消息分别是让Will安装使用和次日对齐情况，均不支持所述月中上线及先向Zelto开放的提议。这是用户所问里程碑的具体引用错配，而非历史窗口外的漏答。"
+              "expected": "以本轮提问时间为上界，按三个指定群总结AI助手项目的里程碑、数据链路和最新PRE数据范围，并附支持相应结论的原消息；在配置的逐步扩查场景中，首轮可以先呈现实际窗口内的检索结果，但不能把发布或邀测写成已验证成功。",
+              "actual": "回答按三群整理了近期进展，并称公台将任务空间查询改为业务接口工具后，“随后SuChen反馈已能检索到任务空间内容”，引用1124、1159、1162、1409。",
+              "difference": "这些引用的发送者均为公台；1124说明改造工具后发布PRE供验证，1159通知已发布，1162仅说“也修复了一些，可以试试”，1409则是群聊检索优化通知。引用没有支持SuChen确认检索成功的反馈，导致用户得到的里程碑状态和原消息依据不一致。本轮不因60天窗口外的历史节点尚未返回而判漏答。"
             }
           },
           {
             "step": 3,
             "status": "fail",
-            "reason": "扩查120天补出了蜂巢群9月11日的数据准备情况，但仍遗漏窗口内研发群9月8日的数据入库与同步链路。",
+            "reason": "已实际扩查120天并补充早期信息，但再次把公台的发布、邀测消息写成SuChen的成功检索反馈。",
             "evidence_refs": [
-              "turn_time_basis[step=3]：追问时间为2026-11-17T13:14:55.039+09:00",
-              "current_source_evidence.exact_request_receipts[turn_step=3]：material_ask，lookback_days=120",
-              "trace.runs[turn_step=3]：scratchpad_read读取研发群2026-08-16至2026-09-16的材料",
-              "turns[step=3].answer：AI助手·一期研发群“里程碑与数据链路”部分",
-              "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=50]：client_msg_id=2137b37e1531ab7c9f863dd55dee5b52，9月8日向量召回数据链路会议",
-              "turns[step=3].source_gold：研发群消息增量沿用step=2，未移除50号消息"
+              "turn_time_basis[step=3]：2026-11-18T13:20:38.213596+09:00",
+              "current_source_evidence.exact_request_receipts[turn_step=3]：material_ask lookback_days=120",
+              "turns[step=3].answer：AI助手·一期研发群“后续发布”段",
+              "turns[step=3].source_gold.facts.groups.sg_3981594831.message_delta：base_step=2，1124、1159、1162、1409沿用原文",
+              "turns[step=3].source_gold.facts.independent_citation_readback"
             ],
             "comparison": {
-              "expected": "承接原问题扩查最近120天，按群补充此前未覆盖的相关里程碑和数据链路，并附来源。窗口内研发群9月8日讨论的数据链路应作为当时方案概括，包括binlog监控增量、加密内容解密后向量化入库，以及先完成增量再补历史全量的安排。",
-              "actual": "回答补充了8月至9月的里程碑，以及蜂巢群9月11日“群聊增量写入完成、历史群聊限部分指定群、任务空间预计含全量历史”的口径；研发群的数据链路仍主要介绍10月6日改用业务接口工具查询任务空间。",
-              "difference": "业务接口按需查询描述的是检索使用环节，蜂巢群的数据准备状态也不能替代研发群的数据同步实现方案。回答没有交代binlog增量来源、解密向量化入库和历史全量补录这些关键环节，因而未补足用户所问的数据链路；9月8日已在本轮120天范围内，不能以目标在窗口外解释。"
+              "expected": "在同一会话中将三个群的检索范围扩大到本轮提问前最近120天，补充原问题所需的里程碑、数据链路和PRE范围信息，并保持事实归属、计划与实际进展及引用对应关系准确。",
+              "actual": "回答补充了7—9月建设、历史数据接口导入方案和蜂巢AI助手9月11日的数据准备范围，但在“后续发布”中继续称SuChen反馈已能检索任务空间，仍引用1124、1159、1162、1409。",
+              "difference": "扩查行为有认证查询证据，但重复引用的原文仍全部来自公台，只能证明工具改造、发布及邀请试用，不能证明SuChen完成成功验证。扩大窗口和新增历史信息没有消除本轮再次出现的引用错配与功能阶段误述。"
             }
           },
           {
             "step": 4,
             "status": "fail",
-            "reason": "最终扩查至半年后仍未补足研发群的数据同步、向量入库及历史全量补录链路。",
+            "reason": "已实际扩查半年并新增6—7月讨论，但最终总结仍保留任务空间检索成功反馈的错误归属和引用。",
             "evidence_refs": [
-              "turn_time_basis[step=4]：追问时间为2026-11-17T13:26:08.787+09:00",
-              "current_source_evidence.exact_request_receipts[turn_step=4]：两次material_ask均指定lookback_days=180",
-              "turns[step=4].answer：新增Agent小分队6月至7月记录，研发群继续概述业务接口查询及11月2日PRE测试项目",
-              "turns[step=2].source_gold：sg_3981594831:50，9月8日向量召回数据链路会议正文",
-              "turns[step=4].source_gold：研发群消息集合沿用step=3，50号消息仍保留",
-              "followup_plan.history_expansion：本用例最多追加两轮，step=4为最终扩查轮"
+              "turn_time_basis[step=4]：2026-11-18T13:29:38.809950+09:00",
+              "current_source_evidence.exact_request_receipts[turn_step=4]：两次material_ask lookback_days=180",
+              "turns[step=4].answer：AI助手·一期研发群“检索与发布”段",
+              "turns[step=4].source_gold.facts.groups.sg_3981594831.message_delta：base_step=3，相关引用原文继续沿用",
+              "turns[step=4].source_gold.facts.independent_citation_readback"
             ],
             "comparison": {
-              "expected": "结合此前已答内容，完成近半年的三群总结及原消息来源，不要求重复前轮已正确回答的内容，但最终应补足原问题尚未回答的数据链路，并将历史方案与当前实际状态区分。",
-              "actual": "回答新增了6月至7月的产品起步、权限边界讨论，保留了后续里程碑、11月2日Jira-iHive同步测试项目和蜂巢群9月11日的历史数据范围；研发群仍只介绍业务接口查询，没有补充9月8日的同步入库方案。",
-              "difference": "截至最终轮，整个会话仍缺少研发群从业务数据库经binlog获取增量、解密后向量化入库、随后补齐历史全量的数据流说明及对应来源。新增更早的产品构想不能补上这一链路缺口，因此最终仍未完成原问题。"
+              "expected": "按本用例半年即180天的范围继续扩查，并结合此前已答内容完成三个群的项目总结；新增历史讨论无需覆盖或改写此前事实，但最终回答中的里程碑及原消息来源必须准确。",
+              "actual": "回答新增了6月Agent探索和7月统一AI助手、MVP讨论，保留三群分类及PRE数据口径，同时再次称SuChen反馈已能检索任务空间，引用1124、1159、1162、1409。",
+              "difference": "最终轮仍将公台的发布和邀测消息当作SuChen的成功验证反馈，原消息既不匹配所述发言人，也不支持已验证成功的结论。新增半年历史材料不能抵消这一具体事实与引用错误。"
             }
           }
         ],
         "evidence_assessment": {
           "sufficient": true,
-          "reason": "三个请求均已通过安柔在Zelto租户的认证会话和对应Trace核验，完整回答已恢复，不因原传输超时判执行失败。独立原消息正文足以核验首轮引用错配；研发群9月8日的链路讨论在后两轮要求的120天、180天范围内，且各轮source_gold均保留该消息。该链路按历史方案评价，不将其计划或权限设计当作追问时已完成的现状；未展示的其他消息不据此推断不存在。"
+          "reason": "三轮实际回答、对应请求的认证Trace及同身份独立消息回读足以确认引用错配：sg_3981594831:1124、1159、1162均由公台发送，内容分别为改造工具、发布PRE及“也修复了一些，可以试试”，并非SuChen的成功验证反馈。后轮原文已按message_delta继承关系核对，引用均被独立回读找到。来源投影不是全量，因此未据投影缺项推断其他漏答；也未把9月11日的历史PRE范围强制视为11月18日的最新状态。"
         }
       },
-      "execution_source": "2026-11-17 PRE 历史消息扩查复跑",
-      "execution_stage": "history_followup_v2",
-      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_history_followup_20261117/recovered-fu023-3/cases/AA-FU-023/record.json",
+      "execution_source": "2026-11-18 PRE 超时相关失败用例串行重跑",
+      "execution_stage": "serial_timeout_rerun",
+      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/readback-4/cases/AA-FU-023/record.json",
       "judge_configuration": {
         "model": "gpt-6.1-sol",
-        "prompt_version": "ai-assistant-business-review-v15-calendar-native-cards",
+        "prompt_version": "ai-assistant-business-review-v17-question-scoped-group-range",
         "stats": {
           "calls": 1,
           "cache_hits": 0,
@@ -6143,66 +6346,62 @@
         }
       ],
       "source_failure_categories": [
-        "事实不符",
-        "数据缺失"
+        "事实不符"
       ],
       "primary_failure_category": "事实不符",
       "unstable": false,
       "failure_data_domain": "消息",
-      "evaluation_detail_reason": "失败，首轮把仅涉及安装版本和约时间对齐的10月1日消息，错引为“随月中版本上线并先向Zelto开放”的提议。扩查120天及半年后，仍漏掉研发群9月8日关于binlog增量、解密入向量库及历史全量补录的数据链路。",
+      "evaluation_detail_reason": "失败：三轮都把公台10月6日发布PRE、邀请试用的消息，引用成SuChen已确认能检索任务空间的反馈，混淆了发布待验与验证成功。",
       "turn_verdicts": [
         {
           "step": 2,
           "status": "fail",
-          "reason": "10月1日里程碑中，“随月中版本上线并先向Zelto开放”的提议与所附原消息不匹配。",
+          "reason": "三群均有分类总结和原消息引用，但任务空间检索里程碑的发言人及验证阶段与所引消息不符。",
           "evidence_refs": [
-            "turn_time_basis[step=2]：追问时间为2026-11-17T13:00:01.926+09:00",
-            "turns[step=2].answer：Agent小分队“10月1日”里程碑及引用sg_2122635335:484、511、512",
-            "turns[step=2].source_gold：sg_2122635335:484，公台称已有线上版本，安装新包即可",
-            "turns[step=2].source_gold：sg_2122635335:511，hearts2hearts让SuChen请Will先安装版本使用",
-            "turns[step=2].source_gold：sg_2122635335:512，hearts2hearts要求次日约时间对齐Agent情况",
-            "followup_plan.history_expansion.contract：ai_assistant.history_followup.v2"
+            "turn_time_basis[step=2]：2026-11-18T13:12:43.928672+09:00",
+            "turns[step=2].answer：AI助手·一期研发群“10月6日—10月9日”段",
+            "turns[step=2].source_gold.facts.groups.sg_3981594831.messages：seq=1124、1159、1162、1409",
+            "turns[step=2].source_gold.facts.independent_citation_readback",
+            "current_source_evidence.exact_request_receipts[turn_step=2]"
           ],
           "comparison": {
-            "expected": "按三个群归类总结项目里程碑、数据链路及PRE数据范围，并为具体结论提供匹配的原消息来源。依本用例的逐步扩查安排，本轮可以如实报告近60天的检索进度，不因9月8日、9月11日等目标落在窗口外直接判漏答。",
-            "actual": "回答按三个群组织内容，说明检索近60天，并称蜂巢AI助手在此窗口没有找到相关进展；但在Agent小分队里称hearts2hearts于10月1日提出随月中版本上线、先向Zelto开放，引用484、511、512号消息。",
-            "difference": "484号消息只支持已有线上包可安装；511、512号消息分别是让Will安装使用和次日对齐情况，均不支持所述月中上线及先向Zelto开放的提议。这是用户所问里程碑的具体引用错配，而非历史窗口外的漏答。"
+            "expected": "以本轮提问时间为上界，按三个指定群总结AI助手项目的里程碑、数据链路和最新PRE数据范围，并附支持相应结论的原消息；在配置的逐步扩查场景中，首轮可以先呈现实际窗口内的检索结果，但不能把发布或邀测写成已验证成功。",
+            "actual": "回答按三群整理了近期进展，并称公台将任务空间查询改为业务接口工具后，“随后SuChen反馈已能检索到任务空间内容”，引用1124、1159、1162、1409。",
+            "difference": "这些引用的发送者均为公台；1124说明改造工具后发布PRE供验证，1159通知已发布，1162仅说“也修复了一些，可以试试”，1409则是群聊检索优化通知。引用没有支持SuChen确认检索成功的反馈，导致用户得到的里程碑状态和原消息依据不一致。本轮不因60天窗口外的历史节点尚未返回而判漏答。"
           }
         },
         {
           "step": 3,
           "status": "fail",
-          "reason": "扩查120天补出了蜂巢群9月11日的数据准备情况，但仍遗漏窗口内研发群9月8日的数据入库与同步链路。",
+          "reason": "已实际扩查120天并补充早期信息，但再次把公台的发布、邀测消息写成SuChen的成功检索反馈。",
           "evidence_refs": [
-            "turn_time_basis[step=3]：追问时间为2026-11-17T13:14:55.039+09:00",
-            "current_source_evidence.exact_request_receipts[turn_step=3]：material_ask，lookback_days=120",
-            "trace.runs[turn_step=3]：scratchpad_read读取研发群2026-08-16至2026-09-16的材料",
-            "turns[step=3].answer：AI助手·一期研发群“里程碑与数据链路”部分",
-            "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=50]：client_msg_id=2137b37e1531ab7c9f863dd55dee5b52，9月8日向量召回数据链路会议",
-            "turns[step=3].source_gold：研发群消息增量沿用step=2，未移除50号消息"
+            "turn_time_basis[step=3]：2026-11-18T13:20:38.213596+09:00",
+            "current_source_evidence.exact_request_receipts[turn_step=3]：material_ask lookback_days=120",
+            "turns[step=3].answer：AI助手·一期研发群“后续发布”段",
+            "turns[step=3].source_gold.facts.groups.sg_3981594831.message_delta：base_step=2，1124、1159、1162、1409沿用原文",
+            "turns[step=3].source_gold.facts.independent_citation_readback"
           ],
           "comparison": {
-            "expected": "承接原问题扩查最近120天，按群补充此前未覆盖的相关里程碑和数据链路，并附来源。窗口内研发群9月8日讨论的数据链路应作为当时方案概括，包括binlog监控增量、加密内容解密后向量化入库，以及先完成增量再补历史全量的安排。",
-            "actual": "回答补充了8月至9月的里程碑，以及蜂巢群9月11日“群聊增量写入完成、历史群聊限部分指定群、任务空间预计含全量历史”的口径；研发群的数据链路仍主要介绍10月6日改用业务接口工具查询任务空间。",
-            "difference": "业务接口按需查询描述的是检索使用环节，蜂巢群的数据准备状态也不能替代研发群的数据同步实现方案。回答没有交代binlog增量来源、解密向量化入库和历史全量补录这些关键环节，因而未补足用户所问的数据链路；9月8日已在本轮120天范围内，不能以目标在窗口外解释。"
+            "expected": "在同一会话中将三个群的检索范围扩大到本轮提问前最近120天，补充原问题所需的里程碑、数据链路和PRE范围信息，并保持事实归属、计划与实际进展及引用对应关系准确。",
+            "actual": "回答补充了7—9月建设、历史数据接口导入方案和蜂巢AI助手9月11日的数据准备范围，但在“后续发布”中继续称SuChen反馈已能检索任务空间，仍引用1124、1159、1162、1409。",
+            "difference": "扩查行为有认证查询证据，但重复引用的原文仍全部来自公台，只能证明工具改造、发布及邀请试用，不能证明SuChen完成成功验证。扩大窗口和新增历史信息没有消除本轮再次出现的引用错配与功能阶段误述。"
           }
         },
         {
           "step": 4,
           "status": "fail",
-          "reason": "最终扩查至半年后仍未补足研发群的数据同步、向量入库及历史全量补录链路。",
+          "reason": "已实际扩查半年并新增6—7月讨论，但最终总结仍保留任务空间检索成功反馈的错误归属和引用。",
           "evidence_refs": [
-            "turn_time_basis[step=4]：追问时间为2026-11-17T13:26:08.787+09:00",
-            "current_source_evidence.exact_request_receipts[turn_step=4]：两次material_ask均指定lookback_days=180",
-            "turns[step=4].answer：新增Agent小分队6月至7月记录，研发群继续概述业务接口查询及11月2日PRE测试项目",
-            "turns[step=2].source_gold：sg_3981594831:50，9月8日向量召回数据链路会议正文",
-            "turns[step=4].source_gold：研发群消息集合沿用step=3，50号消息仍保留",
-            "followup_plan.history_expansion：本用例最多追加两轮，step=4为最终扩查轮"
+            "turn_time_basis[step=4]：2026-11-18T13:29:38.809950+09:00",
+            "current_source_evidence.exact_request_receipts[turn_step=4]：两次material_ask lookback_days=180",
+            "turns[step=4].answer：AI助手·一期研发群“检索与发布”段",
+            "turns[step=4].source_gold.facts.groups.sg_3981594831.message_delta：base_step=3，相关引用原文继续沿用",
+            "turns[step=4].source_gold.facts.independent_citation_readback"
           ],
           "comparison": {
-            "expected": "结合此前已答内容，完成近半年的三群总结及原消息来源，不要求重复前轮已正确回答的内容，但最终应补足原问题尚未回答的数据链路，并将历史方案与当前实际状态区分。",
-            "actual": "回答新增了6月至7月的产品起步、权限边界讨论，保留了后续里程碑、11月2日Jira-iHive同步测试项目和蜂巢群9月11日的历史数据范围；研发群仍只介绍业务接口查询，没有补充9月8日的同步入库方案。",
-            "difference": "截至最终轮，整个会话仍缺少研发群从业务数据库经binlog获取增量、解密后向量化入库、随后补齐历史全量的数据流说明及对应来源。新增更早的产品构想不能补上这一链路缺口，因此最终仍未完成原问题。"
+            "expected": "按本用例半年即180天的范围继续扩查，并结合此前已答内容完成三个群的项目总结；新增历史讨论无需覆盖或改写此前事实，但最终回答中的里程碑及原消息来源必须准确。",
+            "actual": "回答新增了6月Agent探索和7月统一AI助手、MVP讨论，保留三群分类及PRE数据口径，同时再次称SuChen反馈已能检索任务空间，引用1124、1159、1162、1409。",
+            "difference": "最终轮仍将公台的发布和邀测消息当作SuChen的成功验证反馈，原消息既不匹配所述发言人，也不支持已验证成功的结论。新增半年历史材料不能抵消这一具体事实与引用错误。"
           }
         }
       ],
@@ -6326,6 +6525,124 @@
           },
           "source_report_id": "review-1cad12b1331ccb3a6b5e15d3",
           "business_request_resent": true
+        },
+        {
+          "type": "serial_timeout_related_fresh_rerun",
+          "at": "2026-11-18T04:41:40.546310+00:00",
+          "previous": {
+            "status": "fail",
+            "kind": "business_review",
+            "reason": "失败，首轮把仅涉及安装版本和约时间对齐的10月1日消息，错引为“随月中版本上线并先向Zelto开放”的提议。",
+            "failure_categories": [
+              "事实不符",
+              "数据缺失"
+            ],
+            "review_explanation": {
+              "contract": "ai_assistant.business_comparison.v1",
+              "origin": "fresh_pre_execution",
+              "expected": [
+                "按三个群归类总结项目里程碑、数据链路及PRE数据范围，并为具体结论提供匹配的原消息来源。依本用例的逐步扩查安排，本轮可以如实报告近60天的检索进度，不因9月8日、9月11日等目标落在窗口外直接判漏答。",
+                "承接原问题扩查最近120天，按群补充此前未覆盖的相关里程碑和数据链路，并附来源。窗口内研发群9月8日讨论的数据链路应作为当时方案概括，包括binlog监控增量、加密内容解密后向量化入库，以及先完成增量再补历史全量的安排。",
+                "结合此前已答内容，完成近半年的三群总结及原消息来源，不要求重复前轮已正确回答的内容，但最终应补足原问题尚未回答的数据链路，并将历史方案与当前实际状态区分。"
+              ],
+              "actual": [
+                "回答按三个群组织内容，说明检索近60天，并称蜂巢AI助手在此窗口没有找到相关进展；但在Agent小分队里称hearts2hearts于10月1日提出随月中版本上线、先向Zelto开放，引用484、511、512号消息。",
+                "回答补充了8月至9月的里程碑，以及蜂巢群9月11日“群聊增量写入完成、历史群聊限部分指定群、任务空间预计含全量历史”的口径；研发群的数据链路仍主要介绍10月6日改用业务接口工具查询任务空间。",
+                "回答新增了6月至7月的产品起步、权限边界讨论，保留了后续里程碑、11月2日Jira-iHive同步测试项目和蜂巢群9月11日的历史数据范围；研发群仍只介绍业务接口查询，没有补充9月8日的同步入库方案。"
+              ],
+              "difference": [
+                "484号消息只支持已有线上包可安装；511、512号消息分别是让Will安装使用和次日对齐情况，均不支持所述月中上线及先向Zelto开放的提议。这是用户所问里程碑的具体引用错配，而非历史窗口外的漏答。",
+                "业务接口按需查询描述的是检索使用环节，蜂巢群的数据准备状态也不能替代研发群的数据同步实现方案。回答没有交代binlog增量来源、解密向量化入库和历史全量补录这些关键环节，因而未补足用户所问的数据链路；9月8日已在本轮120天范围内，不能以目标在窗口外解释。",
+                "截至最终轮，整个会话仍缺少研发群从业务数据库经binlog获取增量、解密后向量化入库、随后补齐历史全量的数据流说明及对应来源。新增更早的产品构想不能补上这一链路缺口，因此最终仍未完成原问题。"
+              ],
+              "why": "失败，首轮把仅涉及安装版本和约时间对齐的10月1日消息，错引为“随月中版本上线并先向Zelto开放”的提议。扩查120天及半年后，仍漏掉研发群9月8日关于binlog增量、解密入向量库及历史全量补录的数据链路。",
+              "turn_comparisons": [
+                {
+                  "step": 2,
+                  "status": "fail",
+                  "reason": "10月1日里程碑中，“随月中版本上线并先向Zelto开放”的提议与所附原消息不匹配。",
+                  "evidence_refs": [
+                    "turn_time_basis[step=2]：追问时间为2026-11-17T13:00:01.926+09:00",
+                    "turns[step=2].answer：Agent小分队“10月1日”里程碑及引用sg_2122635335:484、511、512",
+                    "turns[step=2].source_gold：sg_2122635335:484，公台称已有线上版本，安装新包即可",
+                    "turns[step=2].source_gold：sg_2122635335:511，hearts2hearts让SuChen请Will先安装版本使用",
+                    "turns[step=2].source_gold：sg_2122635335:512，hearts2hearts要求次日约时间对齐Agent情况",
+                    "followup_plan.history_expansion.contract：ai_assistant.history_followup.v2"
+                  ],
+                  "comparison": {
+                    "expected": "按三个群归类总结项目里程碑、数据链路及PRE数据范围，并为具体结论提供匹配的原消息来源。依本用例的逐步扩查安排，本轮可以如实报告近60天的检索进度，不因9月8日、9月11日等目标落在窗口外直接判漏答。",
+                    "actual": "回答按三个群组织内容，说明检索近60天，并称蜂巢AI助手在此窗口没有找到相关进展；但在Agent小分队里称hearts2hearts于10月1日提出随月中版本上线、先向Zelto开放，引用484、511、512号消息。",
+                    "difference": "484号消息只支持已有线上包可安装；511、512号消息分别是让Will安装使用和次日对齐情况，均不支持所述月中上线及先向Zelto开放的提议。这是用户所问里程碑的具体引用错配，而非历史窗口外的漏答。"
+                  }
+                },
+                {
+                  "step": 3,
+                  "status": "fail",
+                  "reason": "扩查120天补出了蜂巢群9月11日的数据准备情况，但仍遗漏窗口内研发群9月8日的数据入库与同步链路。",
+                  "evidence_refs": [
+                    "turn_time_basis[step=3]：追问时间为2026-11-17T13:14:55.039+09:00",
+                    "current_source_evidence.exact_request_receipts[turn_step=3]：material_ask，lookback_days=120",
+                    "trace.runs[turn_step=3]：scratchpad_read读取研发群2026-08-16至2026-09-16的材料",
+                    "turns[step=3].answer：AI助手·一期研发群“里程碑与数据链路”部分",
+                    "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=50]：client_msg_id=2137b37e1531ab7c9f863dd55dee5b52，9月8日向量召回数据链路会议",
+                    "turns[step=3].source_gold：研发群消息增量沿用step=2，未移除50号消息"
+                  ],
+                  "comparison": {
+                    "expected": "承接原问题扩查最近120天，按群补充此前未覆盖的相关里程碑和数据链路，并附来源。窗口内研发群9月8日讨论的数据链路应作为当时方案概括，包括binlog监控增量、加密内容解密后向量化入库，以及先完成增量再补历史全量的安排。",
+                    "actual": "回答补充了8月至9月的里程碑，以及蜂巢群9月11日“群聊增量写入完成、历史群聊限部分指定群、任务空间预计含全量历史”的口径；研发群的数据链路仍主要介绍10月6日改用业务接口工具查询任务空间。",
+                    "difference": "业务接口按需查询描述的是检索使用环节，蜂巢群的数据准备状态也不能替代研发群的数据同步实现方案。回答没有交代binlog增量来源、解密向量化入库和历史全量补录这些关键环节，因而未补足用户所问的数据链路；9月8日已在本轮120天范围内，不能以目标在窗口外解释。"
+                  }
+                },
+                {
+                  "step": 4,
+                  "status": "fail",
+                  "reason": "最终扩查至半年后仍未补足研发群的数据同步、向量入库及历史全量补录链路。",
+                  "evidence_refs": [
+                    "turn_time_basis[step=4]：追问时间为2026-11-17T13:26:08.787+09:00",
+                    "current_source_evidence.exact_request_receipts[turn_step=4]：两次material_ask均指定lookback_days=180",
+                    "turns[step=4].answer：新增Agent小分队6月至7月记录，研发群继续概述业务接口查询及11月2日PRE测试项目",
+                    "turns[step=2].source_gold：sg_3981594831:50，9月8日向量召回数据链路会议正文",
+                    "turns[step=4].source_gold：研发群消息集合沿用step=3，50号消息仍保留",
+                    "followup_plan.history_expansion：本用例最多追加两轮，step=4为最终扩查轮"
+                  ],
+                  "comparison": {
+                    "expected": "结合此前已答内容，完成近半年的三群总结及原消息来源，不要求重复前轮已正确回答的内容，但最终应补足原问题尚未回答的数据链路，并将历史方案与当前实际状态区分。",
+                    "actual": "回答新增了6月至7月的产品起步、权限边界讨论，保留了后续里程碑、11月2日Jira-iHive同步测试项目和蜂巢群9月11日的历史数据范围；研发群仍只介绍业务接口查询，没有补充9月8日的同步入库方案。",
+                    "difference": "截至最终轮，整个会话仍缺少研发群从业务数据库经binlog获取增量、解密后向量化入库、随后补齐历史全量的数据流说明及对应来源。新增更早的产品构想不能补上这一链路缺口，因此最终仍未完成原问题。"
+                  }
+                }
+              ],
+              "evidence_assessment": {
+                "sufficient": true,
+                "reason": "三个请求均已通过安柔在Zelto租户的认证会话和对应Trace核验，完整回答已恢复，不因原传输超时判执行失败。独立原消息正文足以核验首轮引用错配；研发群9月8日的链路讨论在后两轮要求的120天、180天范围内，且各轮source_gold均保留该消息。该链路按历史方案评价，不将其计划或权限设计当作追问时已完成的现状；未展示的其他消息不据此推断不存在。"
+              }
+            },
+            "review_observation": {
+              "basis": "1f76bef304abda8447683597fe94e208bf38b634a11da2a2253eddc7ee54f751",
+              "result": "0f293e1f55b306cd4fe8cb51e738e56cb98998ecbc084773b2a6c13ab3c165c6",
+              "requests": [
+                "8c99c843-a066-43f7-bd41-d4d8cb7efe62",
+                "d689e994-a993-4d5e-8acd-a9678b387893",
+                "e2abe482-a432-4197-a5b8-4ec360e55cb4"
+              ]
+            },
+            "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_history_followup_20261117/recovered-fu023-3/cases/AA-FU-023/record.json"
+          },
+          "source_report_id": "review-4060ae1e4caa00461f1c3f9c",
+          "business_request_resent": true,
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/judged-2/cases/AA-FU-023.json"
+        }
+      ],
+      "rerun_attempts": [
+        {
+          "at": "2026-11-18T04:41:40.546310+00:00",
+          "status": "fail",
+          "kind": "business_review",
+          "executed": true,
+          "complete_answer": true,
+          "timeout_turns": 0,
+          "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/readback-4/cases/AA-FU-023/record.json",
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/judged-2/cases/AA-FU-023.json"
         }
       ]
     },
@@ -9459,22 +9776,22 @@
       "priority": "P1",
       "status": "fail",
       "kind": "business_review",
-      "reason": "失败，组织架构权限结论的引用错配：回答称SuChen已提出按用户可见范围控制的要求，所引1953、1956却分别是浩澜的待确认提问和离职人员无法检索的说明。",
+      "reason": "失败：把确认“任务检索没有时间范围限制”的SuChen错说成公台，并将讨论二期写入功能的消息1781引用为查询筛选字段的依据。",
       "review_reuse": null,
       "review_observation": {
         "basis": "0febc1c973a62844fcb8edb5be152c19afdada69703708e0995e4c2db8ef4552",
-        "result": "37f2730d60b2d5e4e84d01134e619c7986f0206b543dd645f5ffaeaa7693b37a",
+        "result": "196ad964b5d18a899ccf22d800995337df8032473b515f54a4a43e94023eccb0",
         "requests": [
-          "4626e127-81c0-44cc-a3a7-671766428c01"
+          "44fd8282-c1af-45bf-acbb-b12e5965fa6a"
         ]
       },
       "failure_categories": [
         "事实不符"
       ],
       "confidence": "high",
-      "latency_ms": 289543,
+      "latency_ms": 405209,
       "model": "openai/gpt-6.1-terra",
-      "prompt_version": "assistant_chat_agent@0.24.3",
+      "prompt_version": "assistant_chat_agent@0.24.7",
       "automatic_status": "skip",
       "automatic_reason": "",
       "categories": [
@@ -9490,24 +9807,24 @@
       "questions": [
         "AI助手研发群里，群聊/任务空间检索采用什么检索与权限策略？有哪些范围限制和风险？"
       ],
-      "answer": "群里的讨论显示，整体方向是**按问题需要检索、权限跟随用户可见范围**：群聊与项目任务不会一开始全部带入；任务空间直接调用业务接口。但一些规则仍是产品要求或方案，不能一概视为已经上线。\n\n## 检索与权限策略\n\n- **群聊、项目和任务按需关联。** `widget:mention:ouvgomnvjyywac:T112053RE`和`widget:mention:ouv4qlvxoaugyp:T112053RE`说明，系统不会一开始就关联所有项目任务和群聊；可按需带入项目或任务关联的群，也可由用户额外指定。任务过多时，默认全带入会增加 token 开销。`widget:refs:msg:sg_3981594831:1625:T112053RE|msg:sg_3981594831:1627:T112053RE|msg:sg_3981594831:1632:T112053RE|msg:sg_3981594831:1645:T112053RE|msg:sg_3981594831:1646:T112053RE`\n- **任务空间查询走业务接口。** `widget:mention:ouv4qlvxoaugyp:T112053RE`称曾改用业务接口重做检索工具；指定项目时，可按需通过项目查任务和群聊，具体是否执行受提示词影响。`widget:refs:msg:sg_3981594831:1120:T112053RE|msg:sg_3981594831:1163:T112053RE|msg:sg_3981594831:1494:T112053RE|msg:sg_3981594831:1518:T112053RE`\n- **入口有 AI 助手权限检查，数据权限要求跟随用户。** `widget:mention:ouv4qluqoynfcv:T112053RE`和`widget:mention:ouvgomnvjyywac:T112053RE`说明，服务端会检查助手使用权限，权限为 false 的案例在业务处理前被拒绝。`widget:mention:ouvkmtuntg5xpk:T112053RE`另要求 AI 的组织架构查询不超过用户自身可见范围；这是权限要求，群内材料没有确认所有检索入口均已统一落实。`widget:refs:msg:sg_3981594831:2051:T112053RE|msg:sg_3981594831:2054:T112053RE|msg:sg_3981594831:2055:T112053RE|msg:sg_3981594831:1953:T112053RE|msg:sg_3981594831:1956:T112053RE`\n- **租户边界要区分读取和写入。** `widget:mention:ouv4qlvxoaugyp:T112053RE`和`widget:mention:ouvgomnvjyywac:T112053RE`称任务空间查询直接调用业务接口，可能涉及跨租户数据；`widget:mention:ouvkmtuntg5xpk:T112053RE`后来要求写操作限制在当前租户。`widget:mention:ouvgomnvjyywac:T112053RE`称禁止跨租户写入已部署测试环境，群内材料没有确认生产上线或旧功能统一收紧。`widget:refs:msg:sg_3981594831:1990:T112053RE|msg:sg_3981594831:2001:T112053RE|msg:sg_3981594831:2117:T112053RE|msg:sg_3981594831:2160:T112053RE|msg:sg_3981594831:2174:T112053RE`\n\n## 范围限制与风险\n\n- **群聊时间窗可能漏掉历史信息。** `widget:mention:ouvppako1eetr0:T112053RE`提出按 3→7→30 天逐步检索、必要时征求同意扩大到 60 天并按群记住范围；当时说明该能力尚未开发，并称代码上限为 180 天。11 月 10 日，`widget:mention:ouv4qlvxoaugyp:T112053RE`反馈多方面窗口限制使很多检索只能查到 30 天，仍在排查。**方案、代码上限和实际可查范围是三件事。** `widget:refs:msg:sg_3981594831:2339:T112053RE|msg:sg_3981594831:2340:T112053RE|msg:sg_3981594831:2341:T112053RE|msg:sg_3981594831:2346:T112053RE|msg:sg_3981594831:2439:T112053RE`\n- **任务字段和关联内容并非全量覆盖。** `widget:mention:ouv4qluqoynfcv:T112053RE`称当时任务返回字段及筛选项不支持自定义字段；进展分析未纳入任务评论，`widget:mention:ouvkmtuntg5xpk:T112053RE`要求补充评论场景。11 月 16 日的讨论中，`widget:mention:ouv4qlvxoaugyp:T112053RE`称描述更新时间单个可查、批量不可查。由此有**漏掉评论、自定义字段或批量更新信息**的风险。`widget:refs:msg:sg_3981594831:2025:T112053RE|msg:sg_3981594831:2026:T112053RE|msg:sg_3981594831:2028:T112053RE|msg:sg_3981594831:2183:T112053RE|msg:sg_3981594831:2185:T112053RE|msg:sg_3981594831:2586:T112053RE|msg:sg_3981594831:2588:T112053RE`\n- **召回和性能会影响答案完整性。** `widget:mention:ouvwzhogat6shz:T112053RE`在 11 月 4 日列出向量检索性能导致超时、转发消息未识别等问题；11 月 7 日其进展记录称超时问题已解决并安排再跑一次。`widget:mention:ouvwzhogat6shz:T112053RE`也反馈综合搜索经常提示“没查完”。因此，检索结果不能简单等同于完整事实。`widget:refs:msg:sg_3981594831:2321:T112053RE|msg:sg_3981594831:2400:T112053RE|msg:sg_3981594831:2422:T112053RE`\n- **权限和操作范围不一致有误操作风险。** 跨租户查询可能查到其他租户对象，而写入拟限当前租户；`widget:mention:ouvgomnvjyywac:T112053RE`指出跨租户写入可能造成误操作或干扰。另外，`widget:mention:ouvkmtuntg5xpk:T112053RE`曾答复高管身份撤销后暂不自动移除已授予的 AI 助手权限，存在权限存续风险。`widget:refs:msg:sg_3981594831:2118:T112053RE|msg:sg_3981594831:2150:T112053RE|msg:sg_3981594831:877:T112053RE|msg:sg_3981594831:881:T112053RE|msg:sg_3981594831:882:T112053RE`\n- **统计口径可能改变结论。** `widget:mention:ouvwzhogat6shz:T112053RE`指出任务统计曾出现数量差异，讨论涉及子任务及不同状态是否纳入；任务状态也不能直接替代阻塞原因。做负荷或进展分析时，应明确统计口径，并结合评论等证据。`widget:refs:msg:sg_3981594831:1898:T112053RE|msg:sg_3981594831:1899:T112053RE|msg:sg_3981594831:1901:T112053RE|msg:sg_3981594831:2227:T112053RE|msg:sg_3981594831:2229:T112053RE`\n\n以上依据“AI助手·一期 研发群”最近 60 天的讨论。",
+      "answer": "群里的总体原则是：**AI 助手的业务数据访问权限跟随用户自身权限，不因使用 AI 而扩大可见范围**。群聊检索有时间窗口；任务空间则结合业务接口查询和向量召回，但两者都出现过召回、范围或权限边界问题。`widget:msg:sg_3981594831:1958:T112053RE`\n\n## 检索与权限策略\n\n### 群聊\n\n- **时间窗口分层查找是讨论中的方案。** `widget:mention:ouvppako1eetr0:T112053RE`提出先按 3、7、30 天逐步扩展；需要继续往前查时先征求用户同意，再询问是否将更长窗口记为默认值。当时该能力尚未开发，不能把示例中的天数当作已上线策略。`widget:refs:msg:sg_3981594831:2339:T112053RE|msg:sg_3981594831:2340:T112053RE|msg:sg_3981594831:2346:T112053RE`\n- **人员定位受可见范围影响。** `widget:mention:ouv4qluqoynfcv:T112053RE`说明，按姓名查找先通过受组织架构权限管控的接口取得用户 ID；使用 @ 引用时则直接带入用户 ID，因此两种入口可能得到不同结果。`widget:mention:ouvkmtuntg5xpk:T112053RE`提出助手可查的组织架构范围应与用户可见范围一致。`widget:refs:msg:sg_3981594831:2074:T112053RE|msg:sg_3981594831:1954:T112053RE`\n- 助手入口本身也有独立权限：`widget:mention:ouv4qluqoynfcv:T112053RE`说明，只有具有 AI 助手权限的用户才能打开助手。**入口权限与具体数据的可见权限是两层控制。**`widget:refs:msg:sg_3981594831:2052:T112053RE|msg:sg_3981594831:2054:T112053RE`\n\n### 任务空间\n\n- **按业务字段筛选，并使用业务接口取数。** 群内讨论的查询条件包括执行人、项目、状态、优先级和创建人；`widget:mention:ouv4qlvxoaugyp:T112053RE`说明曾直接调用业务接口，以对齐前端数据。`widget:refs:msg:sg_3981594831:1781:T112053RE|msg:sg_3981594831:1793:T112053RE|msg:sg_3981594831:2117:T112053RE`\n- **也有向量检索召回链路。** `widget:mention:ouv4qlvxoaugyp:T112053RE`在 10 月 9 日反馈空间向量检索召回持续失败；`widget:mention:ouvwzhogat6shz:T112053RE`在 11 月 7 日的进展中记录，向量检索性能导致的超时问题已解决，安排再跑一遍测试。`widget:refs:msg:sg_3981594831:1475:T112053RE|msg:sg_3981594831:2422:T112053RE`\n- **跨租户读写要分开看。** 群内曾讨论业务查询接口可能跨租户，其他发言又提到做过当前租户过滤；而对新功能的**写入**，`widget:mention:ouvkmtuntg5xpk:T112053RE`明确提出限制在当前租户，`widget:mention:ouvgomnvjyywac:T112053RE`称相关限制已部署测试环境。不能把写入限制直接当成所有查询接口的统一规则。`widget:refs:msg:sg_3981594831:1990:T112053RE|msg:sg_3981594831:2003:T112053RE|msg:sg_3981594831:2146:T112053RE|msg:sg_3981594831:2174:T112053RE`\n\n## 范围限制与风险\n\n- **群聊历史可能漏召回。** `widget:mention:ouvppako1eetr0:T112053RE`称代码最多限制 180 天、超出会拒绝；但 `widget:mention:ouv4qlvxoaugyp:T112053RE`在 11 月 10 日反馈，多方面窗口限制使很多检索只能查到 30 天，仍在排查。两者分别是代码上限和实际覆盖问题，不能将 180 天视为所有场景的实际覆盖。相比之下，`widget:mention:ouv4qlvxoaugyp:T112053RE`当时答复任务检索没有时间范围限制。`widget:refs:msg:sg_3981594831:2341:T112053RE|msg:sg_3981594831:2342:T112053RE|msg:sg_3981594831:2349:T112053RE|msg:sg_3981594831:2350:T112053RE|msg:sg_3981594831:2439:T112053RE`\n- **结果完整性和语义关联有风险。** `widget:mention:ouv4qlvxoaugyp:T112053RE`在 10 月 9 日说消息检索当时没有加入引用关系；`widget:mention:ouvkmtuntg5xpk:T112053RE`在 10 月 10 日反馈，文字描述任务首轮查不到，明确添加任务后追问能答，再开新对话又查不到。这可能影响上下文理解和检索稳定性。`widget:refs:msg:sg_3981594831:1440:T112053RE|msg:sg_3981594831:1580:T112053RE`\n- **字段和统计口径受限。** 群内讨论指出，任务查询当时的返回字段和筛选项不含自定义字段；`widget:mention:ouvjhgphs7fnzd:T112053RE`认为仅凭标题推断 Epic 分类可能造成统计不准。`widget:mention:ouvkmtuntg5xpk:T112053RE`提出支持自定义字段读写，但当时称不急于一期。`widget:refs:msg:sg_3981594831:2185:T112053RE|msg:sg_3981594831:2227:T112053RE|msg:sg_3981594831:2228:T112053RE|msg:sg_3981594831:2236:T112053RE`\n- **权限边界需要逐入口验证。** 姓名搜索与 @ 引用的人员定位路径不同；跨租户查询范围也曾有不同说法。建议分别验证人员定位后的数据鉴权，以及各任务空间接口的租户范围，避免把“能定位到对象”误作“有权读取对象”。`widget:refs:msg:sg_3981594831:2074:T112053RE|msg:sg_3981594831:1990:T112053RE|msg:sg_3981594831:2003:T112053RE`\n\n以上依据 `widget:group:3981594831:T112053RE` 近 60 天的相关讨论。\n\n要不要往前查到 120 天，补充更早的检索与权限方案讨论？",
       "execution_completed": true,
-      "execution_completion_rate": 0,
-      "business_reason": "失败，组织架构权限结论的引用错配：回答称SuChen已提出按用户可见范围控制的要求，所引1953、1956却分别是浩澜的待确认提问和离职人员无法检索的说明。",
-      "tool_chain_summary": "Skill：group_summary、output_presentation；工具链：activate_skills(completed) → group_search(completed) → group_search(completed) → group_message_search(completed) → group_message_search(completed) → material_ask(missing_result)",
+      "execution_completion_rate": 100,
+      "business_reason": "失败：把确认“任务检索没有时间范围限制”的SuChen错说成公台，并将讨论二期写入功能的消息1781引用为查询筛选字段的依据。",
+      "tool_chain_summary": "Skill：group_summary、output_presentation、structured_query；工具链：activate_skills(completed) → entity_resolve(completed) → entity_resolve(completed) → group_message_search(completed) → material_ask(completed) → scratchpad_read(completed) → group_message_search(completed) → group_message_search(completed) → group_message_search(completed) → group_message_search(completed) → scratchpad_write(completed) → group_message_search(completed) → group_message_search(completed)",
       "turns": [
         {
           "step": 2,
           "op": "ask",
-          "status": "error",
+          "status": "completed",
           "actor_ref": "安柔",
           "question": "AI助手研发群里，群聊/任务空间检索采用什么检索与权限策略？有哪些范围限制和风险？",
-          "answer": "",
-          "session_id": "cs_8a71bde1-8bda-4402-9a18-3160e8420208",
-          "request_id": "a5b9f18f-a978-4497-9421-83cd5bb43e1b",
-          "message_id": "cm_2c94c00d-eecb-42f1-83ad-47cbbb6fac6d",
+          "answer": "群里的总体原则是：**AI 助手的业务数据访问权限跟随用户自身权限，不因使用 AI 而扩大可见范围**。群聊检索有时间窗口；任务空间则结合业务接口查询和向量召回，但两者都出现过召回、范围或权限边界问题。`widget:msg:sg_3981594831:1958:T112053RE`\n\n## 检索与权限策略\n\n### 群聊\n\n- **时间窗口分层查找是讨论中的方案。** `widget:mention:ouvppako1eetr0:T112053RE`提出先按 3、7、30 天逐步扩展；需要继续往前查时先征求用户同意，再询问是否将更长窗口记为默认值。当时该能力尚未开发，不能把示例中的天数当作已上线策略。`widget:refs:msg:sg_3981594831:2339:T112053RE|msg:sg_3981594831:2340:T112053RE|msg:sg_3981594831:2346:T112053RE`\n- **人员定位受可见范围影响。** `widget:mention:ouv4qluqoynfcv:T112053RE`说明，按姓名查找先通过受组织架构权限管控的接口取得用户 ID；使用 @ 引用时则直接带入用户 ID，因此两种入口可能得到不同结果。`widget:mention:ouvkmtuntg5xpk:T112053RE`提出助手可查的组织架构范围应与用户可见范围一致。`widget:refs:msg:sg_3981594831:2074:T112053RE|msg:sg_3981594831:1954:T112053RE`\n- 助手入口本身也有独立权限：`widget:mention:ouv4qluqoynfcv:T112053RE`说明，只有具有 AI 助手权限的用户才能打开助手。**入口权限与具体数据的可见权限是两层控制。**`widget:refs:msg:sg_3981594831:2052:T112053RE|msg:sg_3981594831:2054:T112053RE`\n\n### 任务空间\n\n- **按业务字段筛选，并使用业务接口取数。** 群内讨论的查询条件包括执行人、项目、状态、优先级和创建人；`widget:mention:ouv4qlvxoaugyp:T112053RE`说明曾直接调用业务接口，以对齐前端数据。`widget:refs:msg:sg_3981594831:1781:T112053RE|msg:sg_3981594831:1793:T112053RE|msg:sg_3981594831:2117:T112053RE`\n- **也有向量检索召回链路。** `widget:mention:ouv4qlvxoaugyp:T112053RE`在 10 月 9 日反馈空间向量检索召回持续失败；`widget:mention:ouvwzhogat6shz:T112053RE`在 11 月 7 日的进展中记录，向量检索性能导致的超时问题已解决，安排再跑一遍测试。`widget:refs:msg:sg_3981594831:1475:T112053RE|msg:sg_3981594831:2422:T112053RE`\n- **跨租户读写要分开看。** 群内曾讨论业务查询接口可能跨租户，其他发言又提到做过当前租户过滤；而对新功能的**写入**，`widget:mention:ouvkmtuntg5xpk:T112053RE`明确提出限制在当前租户，`widget:mention:ouvgomnvjyywac:T112053RE`称相关限制已部署测试环境。不能把写入限制直接当成所有查询接口的统一规则。`widget:refs:msg:sg_3981594831:1990:T112053RE|msg:sg_3981594831:2003:T112053RE|msg:sg_3981594831:2146:T112053RE|msg:sg_3981594831:2174:T112053RE`\n\n## 范围限制与风险\n\n- **群聊历史可能漏召回。** `widget:mention:ouvppako1eetr0:T112053RE`称代码最多限制 180 天、超出会拒绝；但 `widget:mention:ouv4qlvxoaugyp:T112053RE`在 11 月 10 日反馈，多方面窗口限制使很多检索只能查到 30 天，仍在排查。两者分别是代码上限和实际覆盖问题，不能将 180 天视为所有场景的实际覆盖。相比之下，`widget:mention:ouv4qlvxoaugyp:T112053RE`当时答复任务检索没有时间范围限制。`widget:refs:msg:sg_3981594831:2341:T112053RE|msg:sg_3981594831:2342:T112053RE|msg:sg_3981594831:2349:T112053RE|msg:sg_3981594831:2350:T112053RE|msg:sg_3981594831:2439:T112053RE`\n- **结果完整性和语义关联有风险。** `widget:mention:ouv4qlvxoaugyp:T112053RE`在 10 月 9 日说消息检索当时没有加入引用关系；`widget:mention:ouvkmtuntg5xpk:T112053RE`在 10 月 10 日反馈，文字描述任务首轮查不到，明确添加任务后追问能答，再开新对话又查不到。这可能影响上下文理解和检索稳定性。`widget:refs:msg:sg_3981594831:1440:T112053RE|msg:sg_3981594831:1580:T112053RE`\n- **字段和统计口径受限。** 群内讨论指出，任务查询当时的返回字段和筛选项不含自定义字段；`widget:mention:ouvjhgphs7fnzd:T112053RE`认为仅凭标题推断 Epic 分类可能造成统计不准。`widget:mention:ouvkmtuntg5xpk:T112053RE`提出支持自定义字段读写，但当时称不急于一期。`widget:refs:msg:sg_3981594831:2185:T112053RE|msg:sg_3981594831:2227:T112053RE|msg:sg_3981594831:2228:T112053RE|msg:sg_3981594831:2236:T112053RE`\n- **权限边界需要逐入口验证。** 姓名搜索与 @ 引用的人员定位路径不同；跨租户查询范围也曾有不同说法。建议分别验证人员定位后的数据鉴权，以及各任务空间接口的租户范围，避免把“能定位到对象”误作“有权读取对象”。`widget:refs:msg:sg_3981594831:2074:T112053RE|msg:sg_3981594831:1990:T112053RE|msg:sg_3981594831:2003:T112053RE`\n\n以上依据 `widget:group:3981594831:T112053RE` 近 60 天的相关讨论。\n\n要不要往前查到 120 天，补充更早的检索与权限方案讨论？",
+          "session_id": "cs_27fd3b84-c469-4b61-846c-65987029d418",
+          "request_id": "44fd8282-c1af-45bf-acbb-b12e5965fa6a",
+          "message_id": "cm_d69fa298-ab79-4373-9e1b-14ef3dc2a346",
           "http_status": 200,
-          "error": "curl: (28) Operation timed out after 180005 milliseconds with 2229 bytes received",
+          "error": "",
           "asker": "安柔",
           "asker_company": "Zelto",
           "asker_source": "execution_turn"
@@ -9515,34 +9832,34 @@
       ],
       "trace_tools": [
         {
-          "run_id": "bar_39cd67d1ab1043ba905df1cd3c832c5e",
+          "run_id": "bar_5cbac8f703f34083857bac947e28d7b9",
           "step": 2,
           "seq": 21,
           "name": "activate_skills",
-          "arguments_summary": "skills=group_summary",
+          "arguments_summary": "skills=group_summary,structured_query",
           "status": "completed",
           "attempts": 1
         },
         {
-          "run_id": "bar_39cd67d1ab1043ba905df1cd3c832c5e",
+          "run_id": "bar_5cbac8f703f34083857bac947e28d7b9",
           "step": 2,
           "seq": 29,
-          "name": "group_search",
-          "arguments_summary": "unknown tool",
+          "name": "entity_resolve",
+          "arguments_summary": "requests=1",
           "status": "completed",
           "attempts": 1
         },
         {
-          "run_id": "bar_39cd67d1ab1043ba905df1cd3c832c5e",
+          "run_id": "bar_5cbac8f703f34083857bac947e28d7b9",
           "step": 2,
           "seq": 34,
-          "name": "group_search",
-          "arguments_summary": "unknown tool",
+          "name": "entity_resolve",
+          "arguments_summary": "requests=1",
           "status": "completed",
           "attempts": 1
         },
         {
-          "run_id": "bar_39cd67d1ab1043ba905df1cd3c832c5e",
+          "run_id": "bar_5cbac8f703f34083857bac947e28d7b9",
           "step": 2,
           "seq": 39,
           "name": "group_message_search",
@@ -9551,49 +9868,122 @@
           "attempts": 1
         },
         {
-          "run_id": "bar_39cd67d1ab1043ba905df1cd3c832c5e",
+          "run_id": "bar_5cbac8f703f34083857bac947e28d7b9",
           "step": 2,
           "seq": 44,
+          "name": "material_ask",
+          "arguments_summary": "ranges=1 message=1 report=0 format=text instruction_runes=59",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5cbac8f703f34083857bac947e28d7b9",
+          "step": 2,
+          "seq": 124,
+          "name": "scratchpad_read",
+          "arguments_summary": "path=answers/sg_3981594831_20261018T034434Z-20261118T034434Z-bb967847 offset=0",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5cbac8f703f34083857bac947e28d7b9",
+          "step": 2,
+          "seq": 129,
           "name": "group_message_search",
           "arguments_summary": "keywords=3 group_ids=1 conversation_ids=0 sender_ids=0 from_time=false to_time=false limit=20 time_mode=automatic continuation=true",
           "status": "completed",
           "attempts": 1
         },
         {
-          "run_id": "bar_39cd67d1ab1043ba905df1cd3c832c5e",
+          "run_id": "bar_5cbac8f703f34083857bac947e28d7b9",
           "step": 2,
-          "seq": 49,
-          "name": "material_ask",
-          "arguments_summary": "ranges=1 message=1 report=0 format=text instruction_runes=44",
-          "status": "missing_result",
-          "attempts": null
+          "seq": 134,
+          "name": "group_message_search",
+          "arguments_summary": "keywords=3 group_ids=1 conversation_ids=0 sender_ids=0 from_time=false to_time=false limit=20 time_mode=automatic continuation=true",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5cbac8f703f34083857bac947e28d7b9",
+          "step": 2,
+          "seq": 139,
+          "name": "group_message_search",
+          "arguments_summary": "keywords=3 group_ids=1 conversation_ids=0 sender_ids=0 from_time=false to_time=false limit=20 time_mode=automatic continuation=true",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5cbac8f703f34083857bac947e28d7b9",
+          "step": 2,
+          "seq": 144,
+          "name": "group_message_search",
+          "arguments_summary": "keywords=3 group_ids=1 conversation_ids=0 sender_ids=0 from_time=false to_time=false limit=20 time_mode=automatic continuation=true",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5cbac8f703f34083857bac947e28d7b9",
+          "step": 2,
+          "seq": 149,
+          "name": "scratchpad_write",
+          "arguments_summary": "path=case/retrieval expected_revision=0 bytes=566",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5cbac8f703f34083857bac947e28d7b9",
+          "step": 2,
+          "seq": 155,
+          "name": "group_message_search",
+          "arguments_summary": "keywords=3 group_ids=1 conversation_ids=0 sender_ids=0 from_time=false to_time=false limit=20 time_mode=automatic continuation=true",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5cbac8f703f34083857bac947e28d7b9",
+          "step": 2,
+          "seq": 160,
+          "name": "group_message_search",
+          "arguments_summary": "keywords=3 group_ids=1 conversation_ids=0 sender_ids=0 from_time=false to_time=false limit=20 time_mode=automatic continuation=true",
+          "status": "completed",
+          "attempts": 1
         }
       ],
       "trace_run_summaries": [
         {
-          "run_id": "bar_39cd67d1ab1043ba905df1cd3c832c5e",
+          "run_id": "bar_5cbac8f703f34083857bac947e28d7b9",
           "step": 2,
           "workflow": "weekly_report.recipient_summary",
           "scenario": "assistant_chat",
-          "status": "running",
-          "skills": "group_summary、output_presentation",
+          "status": "succeeded",
+          "skills": "group_summary、structured_query、output_presentation",
           "model": "openai/gpt-6.1-terra",
-          "prompt": "assistant_chat_agent@0.24.3",
-          "event_count": 105,
-          "tool_count": 6,
-          "tokens": null
+          "prompt": "assistant_chat_agent@0.24.7",
+          "event_count": 173,
+          "tool_count": 13,
+          "tokens": 1378208
         }
       ],
       "failed_checks": [
         {
-          "dimension": "output.non_empty",
+          "dimension": "answer.must_include",
           "status": "skip",
-          "reason": "Assistant request did not complete; no final answer to grade"
+          "reason": "literal Gold mismatch requires semantic review: ['结构化字段检索', '关键词检索', '语义向量检索', '鉴权回归']"
         },
         {
-          "dimension": "answer.available",
+          "dimension": "answer.must_exclude",
           "status": "skip",
-          "reason": "Assistant request did not complete; Gold answer cannot be graded"
+          "reason": "must_exclude has no literal oracle; semantic review required"
+        },
+        {
+          "dimension": "answer.turn.2.must_include",
+          "status": "skip",
+          "reason": "turn 2 literal Gold mismatch requires semantic review: ['结构化字段检索', '关键词检索', '语义向量检索', '鉴权回归']"
+        },
+        {
+          "dimension": "answer.semantic_structure",
+          "status": "skip",
+          "reason": "structured Gold facts require a recorded semantic or entity verdict"
         },
         {
           "dimension": "version.provenance",
@@ -9603,22 +9993,17 @@
         {
           "dimension": "resource.capture",
           "status": "skip",
-          "reason": "resource fields are not fully observable in Assistant live evidence: ['ttft_ms', 'input_tokens', 'output_tokens', 'cached_tokens', 'cost_usd', 'tool_latency_ms', 'queue_ms', 'network_bytes_in', 'network_bytes_out']"
+          "reason": "resource fields are not fully observable in Assistant live evidence: ['ttft_ms', 'tool_latency_ms', 'queue_ms', 'network_bytes_in', 'network_bytes_out']"
         },
         {
           "dimension": "trace.completeness",
           "status": "skip",
-          "reason": "Assistant SSE does not expose full internal Trace; missing=['policy.check', 'output.completed']"
-        },
-        {
-          "dimension": "tool.result_integrity",
-          "status": "skip",
-          "reason": "non-required/recovered tool anomalies do not fail the task: ['material_ask']"
+          "reason": "Assistant SSE does not expose full internal Trace; missing=['policy.check']"
         },
         {
           "dimension": "tool.duplicate",
           "status": "skip",
-          "reason": "same-run duplicate calls are an efficiency diagnostic: ['group_search(unknown tool)×2']"
+          "reason": "same-run duplicate calls are an efficiency diagnostic: ['entity_resolve(requests=1)×2', 'group_message_search(keywords=3 group_ids=1 conversation_ids=0 sender_ids=0 from_time=false to_time=false limit=20 time_mode=automatic continuation=true)×6']"
         },
         {
           "dimension": "policy.checked",
@@ -9657,8 +10042,7 @@
         "performed_retries": 0,
         "selected_attempt": 1,
         "eligible": false,
-        "status": "not_retried",
-        "reason": "原请求未确认生成失败；先补证，不重复发送。",
+        "status": "not_needed",
         "attempts": []
       },
       "harness": "assistant-chat-live+trace",
@@ -9667,47 +10051,46 @@
         "contract": "ai_assistant.business_comparison.v1",
         "origin": "fresh_pre_execution",
         "expected": [
-          "依据追问前该研发群的可见消息，概括群聊和任务空间的检索方式、权限策略、范围限制及风险，区分待确认事项、方案和已明确要求，并使引用能够支持对应结论及发言人。"
+          "依据安柔在当前租户可见的AI助手研发群消息，概括群聊和任务空间的检索方式、权限策略、范围限制及风险；回答若标注发言人或提供消息依据，应与真实消息相符。关于任务检索没有时间范围限制，所引讨论应归属为Yatoro提问、SuChen确认。"
         ],
         "actual": [
-          "回答概括了按需关联查询、业务接口、助手使用权限、租户读写边界、时间窗口、字段覆盖和性能风险；其中将组织架构查询按用户可见范围控制归为SuChen已提出的要求，引用1953、1956，并用1120、1163、1494、1518支持公台基于业务接口重做检索工具的说法。"
+          "回答说明了权限跟随用户、任务业务接口和向量召回、群聊时间窗口及自定义字段限制等内容，但明确称公台答复任务检索没有时间范围限制；介绍执行人、项目、状态、优先级和创建人等查询条件时，引用了消息1781。"
         ],
         "difference": [
-          "1953实际是浩澜向SuChen提出权限口径问题，1956仅说明离职人员搜不到，两条均不能证明回答所称的SuChen已明确要求；这是引用内容和确认状态的错配。关于重做检索工具，独立来源中直接对应的是1124，而回答所列四条并未表达该事实。不能据选择性投影判断这些结论在全群中必然不存在，但已给出的引用无法支持对应权限结论和实施依据，影响用户核实所问策略。"
+          "消息2350的确认人实际是SuChen，不是公台，属于已核实的错认发言人。消息1781实际讨论二期写入功能，没有说明该段列举的查询筛选字段，属于引用错配。这些问题使用户所问的范围策略及其依据对应不准确，不能因其他概括基本正确而抵消。"
         ],
-        "why": "失败，组织架构权限结论的引用错配：回答称SuChen已提出按用户可见范围控制的要求，所引1953、1956却分别是浩澜的待确认提问和离职人员无法检索的说明。",
+        "why": "失败：把确认“任务检索没有时间范围限制”的SuChen错说成公台，并将讨论二期写入功能的消息1781引用为查询筛选字段的依据。",
         "turn_comparisons": [
           {
             "step": 2,
             "status": "fail",
-            "reason": "回答覆盖了多项检索范围和风险，但将权限待确认问题用作已明确权限要求的依据，且业务接口重做工具的引用也未指向实际对应消息。",
+            "reason": "回答覆盖了业务接口、向量召回、权限跟随用户及部分范围风险，但任务检索时间范围的确认人归属错误，且查询字段段落包含不相符的消息引用。",
             "evidence_refs": [
-              "turns[step=2].answer：检索与权限策略第2、3项及其消息引用",
-              "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=1953]：浩澜询问人员检索是否应受组织架构可见性控制，并询问离职人员检索口径",
-              "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=1956]：浩澜说明“目前离职的人是搜不到的”",
-              "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=1124]：公台说明原工具查询任务空间失败率高，已重新基于业务接口制作一系列工具",
-              "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=1120,1163,1494,1518]：分别涉及检索失败反馈、模型查询行为优化、所选上下文和space_vision，而非重做业务接口工具的说明",
-              "turns[step=2].generation_readback：原请求已恢复成功，认证会话与请求关联一致",
-              "turn_time_basis[step=2]：实际追问时间2026-11-16T10:41:50.911+00:00"
+              "turn_time_basis[step=2]：追问时间为2026-11-18T03:44:34.286556Z",
+              "turns[step=2].answer：任务空间第一条及“群聊历史可能漏召回”段落",
+              "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=2349]：Yatoro问“任务的检索，是不是没有时间范围的问题？”",
+              "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=2350]：SuChen回复“@Yatoro 对”",
+              "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=1781]：进华讨论二期先支持创建项目、任务和添加评论的写入需求",
+              "turns[step=2].source_gold.facts.independent_citation_readback：上述回答引用均已找到，未使用追问后的消息"
             ],
             "comparison": {
-              "expected": "依据追问前该研发群的可见消息，概括群聊和任务空间的检索方式、权限策略、范围限制及风险，区分待确认事项、方案和已明确要求，并使引用能够支持对应结论及发言人。",
-              "actual": "回答概括了按需关联查询、业务接口、助手使用权限、租户读写边界、时间窗口、字段覆盖和性能风险；其中将组织架构查询按用户可见范围控制归为SuChen已提出的要求，引用1953、1956，并用1120、1163、1494、1518支持公台基于业务接口重做检索工具的说法。",
-              "difference": "1953实际是浩澜向SuChen提出权限口径问题，1956仅说明离职人员搜不到，两条均不能证明回答所称的SuChen已明确要求；这是引用内容和确认状态的错配。关于重做检索工具，独立来源中直接对应的是1124，而回答所列四条并未表达该事实。不能据选择性投影判断这些结论在全群中必然不存在，但已给出的引用无法支持对应权限结论和实施依据，影响用户核实所问策略。"
+              "expected": "依据安柔在当前租户可见的AI助手研发群消息，概括群聊和任务空间的检索方式、权限策略、范围限制及风险；回答若标注发言人或提供消息依据，应与真实消息相符。关于任务检索没有时间范围限制，所引讨论应归属为Yatoro提问、SuChen确认。",
+              "actual": "回答说明了权限跟随用户、任务业务接口和向量召回、群聊时间窗口及自定义字段限制等内容，但明确称公台答复任务检索没有时间范围限制；介绍执行人、项目、状态、优先级和创建人等查询条件时，引用了消息1781。",
+              "difference": "消息2350的确认人实际是SuChen，不是公台，属于已核实的错认发言人。消息1781实际讨论二期写入功能，没有说明该段列举的查询筛选字段，属于引用错配。这些问题使用户所问的范围策略及其依据对应不准确，不能因其他概括基本正确而抵消。"
             }
           }
         ],
         "evidence_assessment": {
           "sufficient": true,
-          "reason": "原追问人安柔在Zelto租户的认证会话已恢复完整回答，独立来源提供了相关引用消息的正文和发送人，足以确认具体引用错配。判定上界为2026-11-16T10:41:50.911+00:00，相关消息均早于追问。来源投影并非全群完整正文，因此不据此断言群内不存在其他权限确认消息；失败依据是已回读的引用与回答结论不匹配，不是检索窗口长度、旧Gold的一期限制或已恢复的传输超时。"
+          "reason": "本轮身份、完整回答及回答所引消息均有认证独立回读。消息2349、2350可直接核实提问人与确认人，消息1781可直接核实其讨论的是写入功能；这些消息均早于本轮追问时间2026-11-18T03:44:34.286556Z。虽然展示材料不是全部群史，但足以确认上述具体错误；不以检索窗口长短或旧Gold中的一期范围作为失败依据，也不据引用错配断言所列查询字段本身是编造。"
         }
       },
-      "execution_source": "2026-11-16 PRE 原失败41条复跑",
-      "execution_stage": "failed_41_read_only_rerun",
-      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_failed_41_20261116/read-only-recovered/cases/AA-FU-035.json",
+      "execution_source": "2026-11-18 PRE 超时相关失败用例串行重跑",
+      "execution_stage": "serial_timeout_rerun",
+      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/readback-2/cases/AA-FU-035/record.json",
       "judge_configuration": {
         "model": "gpt-6.1-sol",
-        "prompt_version": "ai-assistant-business-review-v15-calendar-native-cards",
+        "prompt_version": "ai-assistant-business-review-v17-question-scoped-group-range",
         "stats": {
           "calls": 1,
           "cache_hits": 0,
@@ -9729,25 +10112,24 @@
       "primary_failure_category": "事实不符",
       "unstable": false,
       "failure_data_domain": "消息",
-      "evaluation_detail_reason": "失败，组织架构权限结论的引用错配：回答称SuChen已提出按用户可见范围控制的要求，所引1953、1956却分别是浩澜的待确认提问和离职人员无法检索的说明。",
+      "evaluation_detail_reason": "失败：把确认“任务检索没有时间范围限制”的SuChen错说成公台，并将讨论二期写入功能的消息1781引用为查询筛选字段的依据。",
       "turn_verdicts": [
         {
           "step": 2,
           "status": "fail",
-          "reason": "回答覆盖了多项检索范围和风险，但将权限待确认问题用作已明确权限要求的依据，且业务接口重做工具的引用也未指向实际对应消息。",
+          "reason": "回答覆盖了业务接口、向量召回、权限跟随用户及部分范围风险，但任务检索时间范围的确认人归属错误，且查询字段段落包含不相符的消息引用。",
           "evidence_refs": [
-            "turns[step=2].answer：检索与权限策略第2、3项及其消息引用",
-            "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=1953]：浩澜询问人员检索是否应受组织架构可见性控制，并询问离职人员检索口径",
-            "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=1956]：浩澜说明“目前离职的人是搜不到的”",
-            "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=1124]：公台说明原工具查询任务空间失败率高，已重新基于业务接口制作一系列工具",
-            "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=1120,1163,1494,1518]：分别涉及检索失败反馈、模型查询行为优化、所选上下文和space_vision，而非重做业务接口工具的说明",
-            "turns[step=2].generation_readback：原请求已恢复成功，认证会话与请求关联一致",
-            "turn_time_basis[step=2]：实际追问时间2026-11-16T10:41:50.911+00:00"
+            "turn_time_basis[step=2]：追问时间为2026-11-18T03:44:34.286556Z",
+            "turns[step=2].answer：任务空间第一条及“群聊历史可能漏召回”段落",
+            "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=2349]：Yatoro问“任务的检索，是不是没有时间范围的问题？”",
+            "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=2350]：SuChen回复“@Yatoro 对”",
+            "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=1781]：进华讨论二期先支持创建项目、任务和添加评论的写入需求",
+            "turns[step=2].source_gold.facts.independent_citation_readback：上述回答引用均已找到，未使用追问后的消息"
           ],
           "comparison": {
-            "expected": "依据追问前该研发群的可见消息，概括群聊和任务空间的检索方式、权限策略、范围限制及风险，区分待确认事项、方案和已明确要求，并使引用能够支持对应结论及发言人。",
-            "actual": "回答概括了按需关联查询、业务接口、助手使用权限、租户读写边界、时间窗口、字段覆盖和性能风险；其中将组织架构查询按用户可见范围控制归为SuChen已提出的要求，引用1953、1956，并用1120、1163、1494、1518支持公台基于业务接口重做检索工具的说法。",
-            "difference": "1953实际是浩澜向SuChen提出权限口径问题，1956仅说明离职人员搜不到，两条均不能证明回答所称的SuChen已明确要求；这是引用内容和确认状态的错配。关于重做检索工具，独立来源中直接对应的是1124，而回答所列四条并未表达该事实。不能据选择性投影判断这些结论在全群中必然不存在，但已给出的引用无法支持对应权限结论和实施依据，影响用户核实所问策略。"
+            "expected": "依据安柔在当前租户可见的AI助手研发群消息，概括群聊和任务空间的检索方式、权限策略、范围限制及风险；回答若标注发言人或提供消息依据，应与真实消息相符。关于任务检索没有时间范围限制，所引讨论应归属为Yatoro提问、SuChen确认。",
+            "actual": "回答说明了权限跟随用户、任务业务接口和向量召回、群聊时间窗口及自定义字段限制等内容，但明确称公台答复任务检索没有时间范围限制；介绍执行人、项目、状态、优先级和创建人等查询条件时，引用了消息1781。",
+            "difference": "消息2350的确认人实际是SuChen，不是公台，属于已核实的错认发言人。消息1781实际讨论二期写入功能，没有说明该段列举的查询筛选字段，属于引用错配。这些问题使用户所问的范围策略及其依据对应不准确，不能因其他概括基本正确而抵消。"
           }
         }
       ],
@@ -9814,6 +10196,80 @@
           "source_report_id": "review-8abee1a7494b751204319fc7",
           "business_request_resent": true,
           "recovered_original_request": true
+        },
+        {
+          "type": "serial_timeout_related_fresh_rerun",
+          "at": "2026-11-18T04:44:29.964200+00:00",
+          "previous": {
+            "status": "fail",
+            "kind": "business_review",
+            "reason": "失败，组织架构权限结论的引用错配：回答称SuChen已提出按用户可见范围控制的要求，所引1953、1956却分别是浩澜的待确认提问和离职人员无法检索的说明。",
+            "failure_categories": [
+              "事实不符"
+            ],
+            "review_explanation": {
+              "contract": "ai_assistant.business_comparison.v1",
+              "origin": "fresh_pre_execution",
+              "expected": [
+                "依据追问前该研发群的可见消息，概括群聊和任务空间的检索方式、权限策略、范围限制及风险，区分待确认事项、方案和已明确要求，并使引用能够支持对应结论及发言人。"
+              ],
+              "actual": [
+                "回答概括了按需关联查询、业务接口、助手使用权限、租户读写边界、时间窗口、字段覆盖和性能风险；其中将组织架构查询按用户可见范围控制归为SuChen已提出的要求，引用1953、1956，并用1120、1163、1494、1518支持公台基于业务接口重做检索工具的说法。"
+              ],
+              "difference": [
+                "1953实际是浩澜向SuChen提出权限口径问题，1956仅说明离职人员搜不到，两条均不能证明回答所称的SuChen已明确要求；这是引用内容和确认状态的错配。关于重做检索工具，独立来源中直接对应的是1124，而回答所列四条并未表达该事实。不能据选择性投影判断这些结论在全群中必然不存在，但已给出的引用无法支持对应权限结论和实施依据，影响用户核实所问策略。"
+              ],
+              "why": "失败，组织架构权限结论的引用错配：回答称SuChen已提出按用户可见范围控制的要求，所引1953、1956却分别是浩澜的待确认提问和离职人员无法检索的说明。",
+              "turn_comparisons": [
+                {
+                  "step": 2,
+                  "status": "fail",
+                  "reason": "回答覆盖了多项检索范围和风险，但将权限待确认问题用作已明确权限要求的依据，且业务接口重做工具的引用也未指向实际对应消息。",
+                  "evidence_refs": [
+                    "turns[step=2].answer：检索与权限策略第2、3项及其消息引用",
+                    "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=1953]：浩澜询问人员检索是否应受组织架构可见性控制，并询问离职人员检索口径",
+                    "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=1956]：浩澜说明“目前离职的人是搜不到的”",
+                    "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=1124]：公台说明原工具查询任务空间失败率高，已重新基于业务接口制作一系列工具",
+                    "turns[step=2].source_gold.facts.groups.sg_3981594831.messages[seq=1120,1163,1494,1518]：分别涉及检索失败反馈、模型查询行为优化、所选上下文和space_vision，而非重做业务接口工具的说明",
+                    "turns[step=2].generation_readback：原请求已恢复成功，认证会话与请求关联一致",
+                    "turn_time_basis[step=2]：实际追问时间2026-11-16T10:41:50.911+00:00"
+                  ],
+                  "comparison": {
+                    "expected": "依据追问前该研发群的可见消息，概括群聊和任务空间的检索方式、权限策略、范围限制及风险，区分待确认事项、方案和已明确要求，并使引用能够支持对应结论及发言人。",
+                    "actual": "回答概括了按需关联查询、业务接口、助手使用权限、租户读写边界、时间窗口、字段覆盖和性能风险；其中将组织架构查询按用户可见范围控制归为SuChen已提出的要求，引用1953、1956，并用1120、1163、1494、1518支持公台基于业务接口重做检索工具的说法。",
+                    "difference": "1953实际是浩澜向SuChen提出权限口径问题，1956仅说明离职人员搜不到，两条均不能证明回答所称的SuChen已明确要求；这是引用内容和确认状态的错配。关于重做检索工具，独立来源中直接对应的是1124，而回答所列四条并未表达该事实。不能据选择性投影判断这些结论在全群中必然不存在，但已给出的引用无法支持对应权限结论和实施依据，影响用户核实所问策略。"
+                  }
+                }
+              ],
+              "evidence_assessment": {
+                "sufficient": true,
+                "reason": "原追问人安柔在Zelto租户的认证会话已恢复完整回答，独立来源提供了相关引用消息的正文和发送人，足以确认具体引用错配。判定上界为2026-11-16T10:41:50.911+00:00，相关消息均早于追问。来源投影并非全群完整正文，因此不据此断言群内不存在其他权限确认消息；失败依据是已回读的引用与回答结论不匹配，不是检索窗口长度、旧Gold的一期限制或已恢复的传输超时。"
+              }
+            },
+            "review_observation": {
+              "basis": "0febc1c973a62844fcb8edb5be152c19afdada69703708e0995e4c2db8ef4552",
+              "result": "37f2730d60b2d5e4e84d01134e619c7986f0206b543dd645f5ffaeaa7693b37a",
+              "requests": [
+                "4626e127-81c0-44cc-a3a7-671766428c01"
+              ]
+            },
+            "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_failed_41_20261116/read-only-recovered/cases/AA-FU-035.json"
+          },
+          "source_report_id": "review-4060ae1e4caa00461f1c3f9c",
+          "business_request_resent": true,
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/judged-2/cases/AA-FU-035.json"
+        }
+      ],
+      "rerun_attempts": [
+        {
+          "at": "2026-11-18T04:44:29.964200+00:00",
+          "status": "fail",
+          "kind": "business_review",
+          "executed": true,
+          "complete_answer": true,
+          "timeout_turns": 0,
+          "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/readback-2/cases/AA-FU-035/record.json",
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/judged-2/cases/AA-FU-035.json"
         }
       ]
     },
@@ -10401,6 +10857,18 @@
           "source_report_id": "review-8abee1a7494b751204319fc7",
           "business_request_resent": true,
           "recovered_original_request": true
+        }
+      ],
+      "rerun_attempts": [
+        {
+          "at": "2026-11-18T04:47:10.263248+00:00",
+          "status": "skip",
+          "kind": "evidence_insufficient",
+          "executed": true,
+          "complete_answer": true,
+          "timeout_turns": 0,
+          "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/readback-2/cases/AA-FU-038/record.json",
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/judged-2/cases/AA-FU-038.json"
         }
       ]
     },
@@ -14523,6 +14991,13 @@
           "company": "Zelto",
           "actor_ref": "安柔",
           "source": "execution_turn"
+        },
+        {
+          "step": 3,
+          "name": "安柔",
+          "company": "Zelto",
+          "actor_ref": "安柔",
+          "source": "execution_turn"
         }
       ],
       "environment": "pre",
@@ -14534,24 +15009,23 @@
       "priority": "P1",
       "status": "fail",
       "kind": "business_review",
-      "reason": "失败，三轮都把公台介绍检索方案的消息当成“群聊检索优化已发 PRE”的依据，首轮还用问题修复进展支持“11 月 19 日发版计划”，引用与所述里程碑不对应。",
+      "reason": "失败，两轮都把安柔“尚未测试完成”的消息引用为“test冒烟通过”的依据；通过消息确实存在，但引用指向了相反状态，未正确保留该里程碑的来源。",
       "review_reuse": null,
       "review_observation": {
         "basis": "5a7729fba311ed3d54c3e835f1092d1468e013ece6f186ff937e44e9e8b72887",
-        "result": "ee4cd996a9d8f507f1f551ee445606c6b974d4c417ac74a770d6e668fa5ca474",
+        "result": "7c96d2dc656f3a6f9cfab22d847e4f3b95bdc316b04bff83925cec7494b656e7",
         "requests": [
-          "467dabfd-a7d2-4670-b540-a375d5ea072c",
-          "aeade6a7-f2c3-4d15-b3ca-a96aed8ebf15",
-          "d6b17a03-d3d7-4ebb-9ca0-da7bf5eff0ea"
+          "aa4ba0f6-7d7c-4248-ad55-3aee6e488112",
+          "eefc70d0-4a43-4a02-9ff7-92ec8462c858"
         ]
       },
       "failure_categories": [
         "事实不符"
       ],
       "confidence": "high",
-      "latency_ms": 641744,
+      "latency_ms": 647775,
       "model": "openai/gpt-6.1-terra",
-      "prompt_version": "assistant_chat_agent@0.24.3",
+      "prompt_version": "assistant_chat_agent@0.24.7",
       "automatic_status": "fail",
       "automatic_reason": "missing required tools: ['hive.im.search']",
       "categories": [
@@ -14563,28 +15037,45 @@
       "operational_review": {},
       "planning_review": {},
       "trace_status": "内部工具链已采集；权限/引用仍未观测",
-      "trace_runs": 3,
+      "trace_runs": 2,
       "questions": [
-        "综合Agent小分队、AI助手一期研发群和蜂巢AI助手三个群，概括AI助手的里程碑、数据链路和主要风险；相同事实去重但保留来源。"
+        "综合Agent小分队、AI助手一期研发群和蜂巢AI助手三个群，概括AI助手的里程碑、数据链路和主要风险；相同事实去重但保留来源。",
+        "扩查最近120天"
       ],
-      "answer": "扩查近半年后，里程碑可前移到 **6 月的 Agent 调试和 7 月的统一助手构想**。整体脉络是：先验证具体场景，再接入企业数据、上线早期版本，随后扩展检索和写入能力；主要风险贯穿数据权限、回答质量和运行稳定性。\n\n范围为 Agent 小分队、AI助手·一期研发群和蜂巢AI助手最近 180 天的讨论。\n\n## 里程碑\n\n- **6 月：已有专项 Agent 调试页面。** 6 月 26 日，`widget:mention:ouv4qlvxoaugyp:T112053RE`表示已搭建周报总结和敏感信息探测的调试页面，批量评测当时仍在计划中。`widget:refs:msg:sg_2122635335:16:T112053RE|msg:sg_2122635335:17:T112053RE`\n- **7 月：提出统一助手方向。** 7 月 10 日，`widget:mention:ouv4mwtykysmzj:T112053RE`提到统一 Agent；`widget:mention:ouvkmtuntg5xpk:T112053RE`提出先找一两个具体场景，`widget:mention:ouv4mpnbncczdy:T112053RE`建议先做智能问答等简单功能。7 月 21 日，`widget:mention:ouv4qlvxoaugyp:T112053RE`表示一期已跑通基本流程，但效果仍需优化。`widget:refs:msg:sg_2122635335:76:T112053RE|msg:sg_2122635335:80:T112053RE|msg:sg_2122635335:82:T112053RE|msg:sg_2122635335:136:T112053RE`\n- **8—9 月：分阶段测试并接入真实数据。** 8 月 31 日纪要计划从简单问答逐步扩展到复杂问答和内部测试。9 月 11 日纪要记录，虚拟数据联调和群聊增量写入已完成，空间数据仍在开发；9 月 24 日，`widget:mention:ouv4qlvxoaugyp:T112053RE`表示线上已发。`widget:refs:msg:sg_2658892958:53:T112053RE|msg:sg_2658892958:61:T112053RE|msg:sg_3981594831:523:T112053RE`\n- **10—11 月：扩展能力并开展回归。** 群聊检索优化进入 PRE 测试；10 月 26 日，`widget:mention:ouvgomnvjyywac:T112053RE`表示写入已提测。11 月 4 日，`widget:mention:ouvwzhogat6shz:T112053RE`汇报前一日执行 382 项、通过 268 项，通过率 70%。11 月 16 日，`widget:mention:ouvkmtuntg5xpk:T112053RE`表示已能创建项目任务、日程和定时提醒，并提出发 PRE 测试。`widget:refs:msg:sg_2122635335:959:T112053RE|msg:sg_2122635335:961:T112053RE|msg:sg_3981594831:2045:T112053RE|msg:sg_3981594831:2046:T112053RE|msg:sg_3981594831:2321:T112053RE|msg:sg_3981594831:2611:T112053RE|msg:sg_3981594831:2615:T112053RE`\n\n## 数据链路\n\n1. **接入数据：** 群聊增量数据写入与空间数据接入分别推进；历史数据方案从讨论扫库、监听数据库变更，转为通过业务列表接口导入。`widget:mention:ouvgomnvjyywac:T112053RE`同步时指出接口拉取范围可能不全。`widget:refs:msg:sg_2658892958:61:T112053RE|msg:sg_3981594831:50:T112053RE|msg:sg_3981594831:58:T112053RE`\n2. **检索与处理：** `widget:mention:ouvkmtuntg5xpk:T112053RE`说明的方案是，对群聊、任务标题和描述等内容使用关键词及语义检索，对发送人、时间和状态等条件使用结构化检索，再交由大模型综合；文件按格式交给模型或经解析处理。`widget:refs:msg:sg_3981594831:274:T112053RE|msg:sg_3981594831:275:T112053RE|msg:sg_2122635335:548:T112053RE`\n3. **权限与输出：** `widget:mention:ouv4qlvxoaugyp:T112053RE`说明按需求检索用户可见的相关群并下钻；结果用于回答、摘要和引用。`widget:mention:ouvkmtuntg5xpk:T112053RE`明确要求写操作限制在当前租户。`widget:refs:msg:sg_2122635335:517:T112053RE|msg:sg_2122635335:959:T112053RE|msg:sg_2122635335:961:T112053RE|msg:sg_3981594831:2151:T112053RE|msg:sg_3981594831:2162:T112053RE`\n4. **早期知识沉淀设想：** 6 月，`widget:mention:ouv4qlvxoaugyp:T112053RE`提出将员工的上下文和工作方法沉淀为知识库与 skills，讨论重点转向可复用的工作技能；这是当时提出的方向。`widget:refs:msg:sg_2122635335:20:T112053RE|msg:sg_2122635335:36:T112053RE`\n\n## 主要风险\n\n- **隐私、权限和租户隔离：** 6 月讨论知识沉淀时，`widget:mention:ouv4mpnbncczdy:T112053RE`指出不能让他人查询员工与第三方的私聊；9 月又指出邮箱、银行卡号和证件号等敏感信息不能发送给 GPT。历史数据接口也受角色、租户和公司权限约束。`widget:refs:msg:sg_2122635335:23:T112053RE|msg:sg_2122635335:26:T112053RE|msg:sg_2658892958:63:T112053RE|msg:sg_2658892958:69:T112053RE|msg:sg_3981594831:115:T112053RE|msg:sg_3981594831:117:T112053RE`\n- **检索与回答质量：** 复杂问答效果、项目漏查和匹配阈值曾被提出；11 月回归还记录了向量检索超时、长期记忆检索时间范围及转发消息识别问题。`widget:refs:msg:sg_2658892958:53:T112053RE|msg:sg_3981594831:269:T112053RE|msg:sg_3981594831:270:T112053RE|msg:sg_3981594831:2321:T112053RE`\n- **上下文与稳定性：** `widget:mention:ouv4qlvxoaugyp:T112053RE`早期指出上下文窗口限制可能导致规则信息或注意力丢失；11 月，`widget:mention:ouv4mpnbncczdy:T112053RE`反馈等待数分钟无结果，`widget:mention:ouv4qlvxoaugyp:T112053RE`解释全量测试占满中转站并发，导致变慢和失败。`widget:refs:msg:sg_2122635335:59:T112053RE|msg:sg_2122635335:1751:T112053RE|msg:sg_2122635335:1758:T112053RE|msg:sg_2122635335:1759:T112053RE`\n\n以后查询这三个群时，默认都往前查 180 天吗？也可以设为对所有群生效。",
+      "answer": "扩查后，AI 助手的演进脉络更清楚了：**7—8 月从记忆基建和问答范围讨论起步，9 月进入数据接入与分轮测试准备，10—11 月推进内部体验、业务接口改造和回归。** 较早阶段已经提出的权限、敏感数据外发与复杂问答效果问题，贯穿了后续研发。\n\n以下结合 Agent 小分队、AI助手·一期研发群和蜂巢AI助手近 120 天的讨论，补充并更新上一版。\n\n## 里程碑\n\n- **7 月底—8 月：确定方向。**7 月 29 日，`widget:mention:ouv4qlvxoaugyp:T112053RE` 计划先完成记忆基建、再对接业务。8 月 7 日，`widget:mention:ouvkmtuntg5xpk:T112053RE` 说原一期范围是问答，并询问能否提前加入定时任务；触发位置和发送入口当时还需要产品设计。`widget:refs:msg:sg_2122635335:141:T112053RE|msg:sg_2122635335:159:T112053RE|msg:sg_2122635335:160:T112053RE`\n- **8 月底：形成分轮测试计划。**`widget:mention:ouvkmtuntg5xpk:T112053RE` 的 8 月 31 日纪要列出：9 月 16 日测客户端和简单问答，9 月 24 日测 Work、复杂问答及首轮问题，10 月 6 日启动 Zelto 内测。纪要同时指出，复杂问答效果需要持续调优，并计划圈定一期必须达到较优效果的范围。这些日期是当时的计划。`widget:msg:sg_2658892958:53:T112053RE`\n- **9 月：数据联调和早期体验。**`widget:mention:ouvkmtuntg5xpk:T112053RE` 的 9 月 11 日纪要称，虚拟数据联调及真实群聊数据增量写入已完成；空间数据仍在开发，预计 9 月 15 日发 PRE 包。研发群中，`widget:mention:ouvgomnvjyywac:T112053RE` 报告开发环境聊天接口可调、测试环境已部署，但部分接口使用模拟数据。`widget:refs:msg:sg_2658892958:61:T112053RE|msg:sg_3981594831:18:T112053RE|msg:sg_3981594831:19:T112053RE|msg:sg_3981594831:21:T112053RE`\n- **10—11 月：进入业务能力测试和回归。**`widget:mention:ouv4qlvxoaugyp:T112053RE` 表示任务空间查询改为使用业务接口；10 月 27 日，你反馈任务写操作在 test 环境冒烟通过。11 月 4 日，`widget:mention:ouvwzhogat6shz:T112053RE` 总结 11 月 3 日全量回归执行 **382 条、通过 268 条，通过率 70%**；11 月 18 日，`widget:mention:ouvgomnvjyywac:T112053RE` 报告日程查询已推至测试环境。`widget:refs:msg:sg_3981594831:1124:T112053RE|msg:sg_2122635335:1364:T112053RE|msg:sg_2122635335:1634:T112053RE|msg:sg_3981594831:2311:T112053RE|msg:sg_3981594831:2316:T112053RE|msg:sg_3981594831:2317:T112053RE|msg:sg_3981594831:2726:T112053RE`\n- **发版时间有过调整。**8 月讨论的目标是 9 月中旬对内、10 月初对客；10 月下旬又讨论先内部体验、以 11 月中旬为对客预期。11 月 10 日，`widget:mention:ouv4qlvxoaugyp:T112053RE` 表示发版日为 11 月 19 日。`widget:refs:msg:sg_3981594831:5:T112053RE|msg:sg_3981594831:6:T112053RE|msg:sg_3981594831:7:T112053RE|msg:sg_2122635335:1383:T112053RE|msg:sg_3981594831:2437:T112053RE`\n\n## 数据链路\n\n**业务数据 → 接入与权限控制 → 检索和模型处理 → 回答、记忆或操作。**\n\n1. **数据接入：**群聊、日报和周报、任务空间、组织信息及文件图片是主要来源。9 月 11 日纪要记录，真实群聊增量写入已完成；当时预计历史数据只覆盖部分指定群聊，空间数据仍在开发。`widget:refs:msg:sg_2658892958:61:T112053RE|msg:sg_2122635335:1297:T112053RE|msg:sg_3981594831:1707:T112053RE`\n2. **获取方式演进：**9 月讨论过历史全量同步、增量同步和向量化；`widget:mention:ouvgomnvjyywac:T112053RE` 随后转述方案改为通过业务列表接口，以定时、人工或冷启动方式触发。之后任务空间查询进一步改用业务接口。`widget:refs:msg:sg_3981594831:50:T112053RE|msg:sg_3981594831:58:T112053RE|msg:sg_3981594831:1124:T112053RE`\n3. **检索与生成：**`widget:mention:ouv4qlvxoaugyp:T112053RE` 说明根据提问选择 Skill；群聊方案涉及关键词、向量及消息搜索，并下钻相关聊天记录。文件可交模型处理，不支持的格式再由多模态服务处理。`widget:refs:msg:sg_2122635335:1081:T112053RE|msg:sg_2122635335:1082:T112053RE|msg:sg_2122635335:1117:T112053RE|msg:sg_2122635335:1118:T112053RE`\n4. **记忆与应用：**`widget:mention:ouv4qlvxoaugyp:T112053RE` 描述过从用户确认内容或会话分析中提取偏好、事实和关注事项的方案；输出场景包括群聊总结、汇报问答、任务查询，以及定时汇总和任务写入。`widget:refs:msg:sg_2122635335:782:T112053RE|msg:sg_2122635335:788:T112053RE|msg:sg_2122635335:646:T112053RE|msg:sg_2122635335:649:T112053RE|msg:sg_3981594831:2174:T112053RE`\n\n## 主要风险\n\n- **权限与敏感数据：**9 月 11 日，`widget:mention:ouv4qluiakumao:T112053RE` 强调只能拉取用户可见数据。9 月 14 日，`widget:mention:ouv4mpnbncczdy:T112053RE` 提出邮箱、银行卡号等字段不应发给 GPT；`widget:mention:ouv4qlvxoaugyp:T112053RE` 提议前置脱敏并调研实现方式。后续又讨论了撤权或删除文件后，记忆和摘要副本如何处理。`widget:refs:msg:sg_3981594831:106:T112053RE|msg:sg_3981594831:111:T112053RE|msg:sg_2658892958:63:T112053RE|msg:sg_2658892958:67:T112053RE|msg:sg_2658892958:68:T112053RE|msg:sg_2658892958:69:T112053RE|msg:sg_2122635335:1812:T112053RE|msg:sg_2122635335:1833:T112053RE`\n- **检索与回答可信度：**9 月，`widget:mention:ouvkmtuntg5xpk:T112053RE` 反馈人员名称识别、周报和任务空间召回、逐事实引用等问题；11 月回归中，`widget:mention:ouvwzhogat6shz:T112053RE` 仍列出向量检索超时、长期记忆按对象及时间范围检索等问题。`widget:refs:msg:sg_3981594831:418:T112053RE|msg:sg_3981594831:426:T112053RE|msg:sg_3981594831:427:T112053RE|msg:sg_2122635335:1634:T112053RE`\n- **稳定性与测试资源：**9 月纪要记录部分成员被其他项目占用、测试团队当周尚未投入 AI 助手；11 月 18 日，`widget:mention:ouv4qluqoynfcv:T112053RE` 反馈周报收件人摘要 workflow 过载，三次重试失败，`widget:mention:ouv4qlvxoaugyp:T112053RE` 表示查看。`widget:refs:msg:sg_2658892958:61:T112053RE|msg:sg_2122635335:1951:T112053RE|msg:sg_2122635335:1954:T112053RE`\n- **多模态跨场景：**9 月图片识别仍在分阶段开发；11 月 17 日，`widget:mention:ouvppako1eetr0:T112053RE` 反馈群聊图片私有链接不能直接在任务空间显示，需要文件复制接口并排期。`widget:refs:msg:sg_2658892958:61:T112053RE|msg:sg_3981594831:2691:T112053RE`\n\n以后查这三个群时，要默认往前查 120 天吗？也可以设置为所有群都默认查 120 天。",
       "execution_completed": true,
-      "execution_completion_rate": 0,
-      "business_reason": "失败，三轮都把公台介绍检索方案的消息当成“群聊检索优化已发 PRE”的依据，首轮还用问题修复进展支持“11 月 19 日发版计划”，引用与所述里程碑不对应。",
-      "tool_chain_summary": "Skill：group_summary、output_presentation；工具链：activate_skills(completed) → group_search(completed) → group_search(completed) → group_search(completed) → group_search(completed) → group_search(completed) → group_scope(completed) → group_scope(completed) → group_scope(completed) → material_ask(missing_result)；自动断言：missing required tools: ['hive.im.search']",
+      "execution_completion_rate": 100,
+      "business_reason": "失败，两轮都把安柔“尚未测试完成”的消息引用为“test冒烟通过”的依据；通过消息确实存在，但引用指向了相反状态，未正确保留该里程碑的来源。",
+      "tool_chain_summary": "Skill：group_summary、output_presentation、structured_query；工具链：activate_skills(completed) → entity_resolve(completed) → entity_resolve(completed) → group_scope(completed) → group_scope(completed) → group_scope(completed) → material_ask(completed) → scratchpad_read(completed) → scratchpad_write(completed) → scratchpad_read(completed) → scratchpad_read(completed) → scratchpad_read(completed) → scratchpad_read(completed) → group_message_lookup(completed) → group_message_lookup(completed) → memory_settle(submitted) → activate_skills(completed) → material_ask(completed) → scratchpad_write(completed) → scratchpad_read(completed) → scratchpad_read(completed) → scratchpad_read(completed) → group_message_lookup(completed)；自动断言：等待 10 分钟仍没有完整回答；原会话与请求 Trace 回读后标记超时。",
       "turns": [
         {
           "step": 2,
           "op": "ask",
-          "status": "error",
+          "status": "completed",
           "actor_ref": "安柔",
           "question": "综合Agent小分队、AI助手一期研发群和蜂巢AI助手三个群，概括AI助手的里程碑、数据链路和主要风险；相同事实去重但保留来源。",
-          "answer": "",
-          "session_id": "cs_ad62c32e-37d2-4baa-8603-b867fe0ab8ca",
-          "request_id": "d797c57b-33ca-4a1c-9cad-4709fbd7b42d",
-          "message_id": "cm_18040457-3c5e-41c8-a370-0c63486db1b7",
+          "answer": "AI 助手已从内部体验推进到多项能力的测试与回归：**任务空间检索已改用业务接口，任务写入和日程查询进入测试环境；发布前的主要压力集中在检索质量、服务稳定性和数据权限。** `widget:refs:msg:sg_3981594831:1124:T112053RE|msg:sg_3981594831:1166:T112053RE|msg:sg_3981594831:2174:T112053RE|msg:sg_3981594831:2726:T112053RE|msg:sg_2122635335:1634:T112053RE|msg:sg_2122635335:1951:T112053RE`\n\n以下综合三个群近 60 天的讨论；按你之前常用的方式，将里程碑分为已完成和仍需确认。\n\n## 里程碑\n\n### 已完成或已有阶段性结果\n\n- **内部体验与检索改造：**10 月初已有可安装的 PRE 包；随后 `widget:mention:ouv4qlvxoaugyp:T112053RE` 表示任务空间查询改为基于业务接口并发至 PRE，`widget:mention:ouvkmtuntg5xpk:T112053RE` 反馈已能检索到任务空间，效果较前改善。`widget:refs:msg:sg_2122635335:484:T112053RE|msg:sg_3981594831:1124:T112053RE|msg:sg_3981594831:1166:T112053RE`\n- **写入和日程进入测试：**10 月 27 日你反馈任务写操作在 test 环境冒烟通过；11 月 2 日 `widget:mention:ouvgomnvjyywac:T112053RE` 报告测试环境支持创建任务，当时创建项目和评论尚不支持。11 月 18 日，`widget:mention:ouvgomnvjyywac:T112053RE` 又报告日程查询已推至测试环境。`widget:refs:msg:sg_2122635335:1364:T112053RE|msg:sg_3981594831:2172:T112053RE|msg:sg_3981594831:2174:T112053RE|msg:sg_3981594831:2726:T112053RE`\n- **回归有量化结果：**`widget:mention:ouvwzhogat6shz:T112053RE` 在 11 月 4 日总结：11 月 3 日全量回归实际执行 **382 条、通过 268 条，通过率 70%**。同一结果在两群讨论中合并为一项。`widget:refs:msg:sg_2122635335:1634:T112053RE|msg:sg_3981594831:2311:T112053RE|msg:sg_3981594831:2316:T112053RE|msg:sg_3981594831:2317:T112053RE`\n\n### 仍需确认\n\n- **对客与发版：**10 月 2 日 `widget:mention:ouvjhgphs7fnzd:T112053RE` 记录的计划是核心功能随 10 月 8 日版本发布，先开放 Zelto 有限用户体验；10 月底对真实客户开放也曾被讨论。10 月下旬又讨论先内部体验、以 11 月中旬为对客预期。11 月 10 日 `widget:mention:ouv4qlvxoaugyp:T112053RE` 表示发版日为 11 月 19 日；这些日期应分别作为当时的计划或预期。`widget:refs:msg:sg_3981594831:930:T112053RE|msg:sg_3981594831:982:T112053RE|msg:sg_2122635335:1383:T112053RE|msg:sg_3981594831:2437:T112053RE`\n- **最终回归与功能验收：**11 月 12 日 `widget:mention:ouv4qlvxoaugyp:T112053RE` 报告增量评测通过率 95%、计划再跑全量；同日 `widget:mention:ouvkmtuntg5xpk:T112053RE` 表示产品提出的问题只解决了一部分。日程查询已进测试，但 `widget:mention:ouvgomnvjyywac:T112053RE` 说会议和日程意图识别当时尚未加入。`widget:refs:msg:sg_2122635335:1722:T112053RE|msg:sg_2122635335:1725:T112053RE|msg:sg_3981594831:2726:T112053RE`\n\n## 数据链路\n\n可以把群内讨论的链路理解为：**业务数据 → 按问题选能力并调用工具 → 检索或解析 → 汇入上下文生成回答 → 按需执行操作或定时推送**。不同环节处于不同成熟度。\n\n1. **来源：**涉及群聊、日报和周报、项目与任务、组织架构，以及用户上传的文件和图片；日程数据正在测试接入。私聊按 `widget:mention:ouv4qlvxoaugyp:T112053RE` 的说明，需要用户明确指定才分析。`widget:refs:msg:sg_2122635335:1297:T112053RE|msg:sg_2122635335:1298:T112053RE|msg:sg_3981594831:1707:T112053RE|msg:sg_3981594831:2726:T112053RE`\n2. **处理与检索：**`widget:mention:ouv4qlvxoaugyp:T112053RE` 确认根据用户提问选择 Skill；群聊方案涉及拆关键词、向量及消息搜索，再下钻相关聊天记录。任务空间查询则转向业务接口；文件可直接交模型，模型不支持的格式再由多模态服务处理。`widget:refs:msg:sg_2122635335:1081:T112053RE|msg:sg_2122635335:1082:T112053RE|msg:sg_3981594831:1124:T112053RE|msg:sg_2122635335:1117:T112053RE|msg:sg_2122635335:1118:T112053RE`\n3. **记忆与留存：**`widget:mention:ouv4qlvxoaugyp:T112053RE` 描述过从用户确认内容或异步会话分析中提取偏好、事实和关注事项的记忆方案；11 月又说当前主要涉及用户画像和个人习惯，机制仍在完善。预测文本曾设计为加密落库并异步同步 trace；客户租户 trace 据其说明保留基础运行信息并定期三天清理。`widget:refs:msg:sg_2122635335:782:T112053RE|msg:sg_2122635335:788:T112053RE|msg:sg_2122635335:1651:T112053RE|msg:sg_3981594831:1720:T112053RE|msg:sg_2122635335:1924:T112053RE`\n4. **应用：**检索结果用于群聊总结、汇报问答和任务空间进展查询，也用于推荐、定时汇总及任务写入等场景。`widget:mention:ouv4qlvxoaugyp:T112053RE` 提出过由定时任务触发主 Agent 查询并汇总未读消息的方案。`widget:refs:msg:sg_2122635335:646:T112053RE|msg:sg_2122635335:649:T112053RE|msg:sg_2122635335:809:T112053RE|msg:sg_3981594831:2174:T112053RE`\n\n## 主要风险\n\n- **检索正确性和覆盖：**日报曾出现日期跨天、重复和查不到记录；周报查询出现漏传租户参数，人员检索出现姓名处理错误。`widget:mention:ouvwzhogat6shz:T112053RE` 在全量回归总结中还列出向量检索超时、长期记忆按对象和时间范围检索、转发消息识别等待处理问题。`widget:refs:msg:sg_2122635335:1332:T112053RE|msg:sg_2122635335:1513:T112053RE|msg:sg_2122635335:1516:T112053RE|msg:sg_2122635335:1634:T112053RE`\n- **稳定性和上游容量：**11 月 18 日，`widget:mention:ouv4qluqoynfcv:T112053RE` 反馈周报收件人摘要 workflow 提示过载，三次重试均失败；`widget:mention:ouv4qlvxoaugyp:T112053RE` 表示查看。此前也有生成任务因执行时限过短而失败的反馈。`widget:refs:msg:sg_2122635335:1951:T112053RE|msg:sg_2122635335:1954:T112053RE|msg:sg_2122635335:1669:T112053RE|msg:sg_2122635335:1680:T112053RE`\n- **安全、权限和撤权：**`widget:mention:ouv4mpnbncczdy:T112053RE` 对 OpenRouter 接口的安全性提出对客前顾虑；资源能否被 AI 分析、撤权或删除文件后如何处理记忆和摘要副本，仍在方案讨论中。文件解析也受安全审阅影响。`widget:refs:msg:sg_2122635335:1383:T112053RE|msg:sg_2122635335:1812:T112053RE|msg:sg_2122635335:1833:T112053RE|msg:sg_3981594831:2680:T112053RE`\n- **图片跨场景与上下文：**`widget:mention:ouvppako1eetr0:T112053RE` 11 月 17 日反馈，群聊图片是私有链接，不能直接在任务空间显示；需要 file 服务提供复制接口并排期。跨轮读取原图和图片稳定地址也有测试问题。`widget:refs:msg:sg_3981594831:2691:T112053RE|msg:sg_3981594831:2727:T112053RE`\n\n要不要我帮你创建任务“排查周报收件人摘要 workflow 过载及复测”？\n\n以后概括项目进度时，也都按“已完成和仍需确认”两类整理吗？",
+          "session_id": "cs_40ffe967-415f-45eb-b6a2-8f39e25d80da",
+          "request_id": "aa4ba0f6-7d7c-4248-ad55-3aee6e488112",
+          "message_id": "cm_578a418b-b9e5-44de-98e0-908c5b519c29",
           "http_status": 200,
-          "error": "curl: (28) Operation timed out after 180002 milliseconds with 3225 bytes received",
+          "error": "",
+          "asker": "安柔",
+          "asker_company": "Zelto",
+          "asker_source": "execution_turn"
+        },
+        {
+          "step": 3,
+          "op": "continue",
+          "status": "completed",
+          "actor_ref": "安柔",
+          "question": "扩查最近120天",
+          "answer": "扩查后，AI 助手的演进脉络更清楚了：**7—8 月从记忆基建和问答范围讨论起步，9 月进入数据接入与分轮测试准备，10—11 月推进内部体验、业务接口改造和回归。** 较早阶段已经提出的权限、敏感数据外发与复杂问答效果问题，贯穿了后续研发。\n\n以下结合 Agent 小分队、AI助手·一期研发群和蜂巢AI助手近 120 天的讨论，补充并更新上一版。\n\n## 里程碑\n\n- **7 月底—8 月：确定方向。**7 月 29 日，`widget:mention:ouv4qlvxoaugyp:T112053RE` 计划先完成记忆基建、再对接业务。8 月 7 日，`widget:mention:ouvkmtuntg5xpk:T112053RE` 说原一期范围是问答，并询问能否提前加入定时任务；触发位置和发送入口当时还需要产品设计。`widget:refs:msg:sg_2122635335:141:T112053RE|msg:sg_2122635335:159:T112053RE|msg:sg_2122635335:160:T112053RE`\n- **8 月底：形成分轮测试计划。**`widget:mention:ouvkmtuntg5xpk:T112053RE` 的 8 月 31 日纪要列出：9 月 16 日测客户端和简单问答，9 月 24 日测 Work、复杂问答及首轮问题，10 月 6 日启动 Zelto 内测。纪要同时指出，复杂问答效果需要持续调优，并计划圈定一期必须达到较优效果的范围。这些日期是当时的计划。`widget:msg:sg_2658892958:53:T112053RE`\n- **9 月：数据联调和早期体验。**`widget:mention:ouvkmtuntg5xpk:T112053RE` 的 9 月 11 日纪要称，虚拟数据联调及真实群聊数据增量写入已完成；空间数据仍在开发，预计 9 月 15 日发 PRE 包。研发群中，`widget:mention:ouvgomnvjyywac:T112053RE` 报告开发环境聊天接口可调、测试环境已部署，但部分接口使用模拟数据。`widget:refs:msg:sg_2658892958:61:T112053RE|msg:sg_3981594831:18:T112053RE|msg:sg_3981594831:19:T112053RE|msg:sg_3981594831:21:T112053RE`\n- **10—11 月：进入业务能力测试和回归。**`widget:mention:ouv4qlvxoaugyp:T112053RE` 表示任务空间查询改为使用业务接口；10 月 27 日，你反馈任务写操作在 test 环境冒烟通过。11 月 4 日，`widget:mention:ouvwzhogat6shz:T112053RE` 总结 11 月 3 日全量回归执行 **382 条、通过 268 条，通过率 70%**；11 月 18 日，`widget:mention:ouvgomnvjyywac:T112053RE` 报告日程查询已推至测试环境。`widget:refs:msg:sg_3981594831:1124:T112053RE|msg:sg_2122635335:1364:T112053RE|msg:sg_2122635335:1634:T112053RE|msg:sg_3981594831:2311:T112053RE|msg:sg_3981594831:2316:T112053RE|msg:sg_3981594831:2317:T112053RE|msg:sg_3981594831:2726:T112053RE`\n- **发版时间有过调整。**8 月讨论的目标是 9 月中旬对内、10 月初对客；10 月下旬又讨论先内部体验、以 11 月中旬为对客预期。11 月 10 日，`widget:mention:ouv4qlvxoaugyp:T112053RE` 表示发版日为 11 月 19 日。`widget:refs:msg:sg_3981594831:5:T112053RE|msg:sg_3981594831:6:T112053RE|msg:sg_3981594831:7:T112053RE|msg:sg_2122635335:1383:T112053RE|msg:sg_3981594831:2437:T112053RE`\n\n## 数据链路\n\n**业务数据 → 接入与权限控制 → 检索和模型处理 → 回答、记忆或操作。**\n\n1. **数据接入：**群聊、日报和周报、任务空间、组织信息及文件图片是主要来源。9 月 11 日纪要记录，真实群聊增量写入已完成；当时预计历史数据只覆盖部分指定群聊，空间数据仍在开发。`widget:refs:msg:sg_2658892958:61:T112053RE|msg:sg_2122635335:1297:T112053RE|msg:sg_3981594831:1707:T112053RE`\n2. **获取方式演进：**9 月讨论过历史全量同步、增量同步和向量化；`widget:mention:ouvgomnvjyywac:T112053RE` 随后转述方案改为通过业务列表接口，以定时、人工或冷启动方式触发。之后任务空间查询进一步改用业务接口。`widget:refs:msg:sg_3981594831:50:T112053RE|msg:sg_3981594831:58:T112053RE|msg:sg_3981594831:1124:T112053RE`\n3. **检索与生成：**`widget:mention:ouv4qlvxoaugyp:T112053RE` 说明根据提问选择 Skill；群聊方案涉及关键词、向量及消息搜索，并下钻相关聊天记录。文件可交模型处理，不支持的格式再由多模态服务处理。`widget:refs:msg:sg_2122635335:1081:T112053RE|msg:sg_2122635335:1082:T112053RE|msg:sg_2122635335:1117:T112053RE|msg:sg_2122635335:1118:T112053RE`\n4. **记忆与应用：**`widget:mention:ouv4qlvxoaugyp:T112053RE` 描述过从用户确认内容或会话分析中提取偏好、事实和关注事项的方案；输出场景包括群聊总结、汇报问答、任务查询，以及定时汇总和任务写入。`widget:refs:msg:sg_2122635335:782:T112053RE|msg:sg_2122635335:788:T112053RE|msg:sg_2122635335:646:T112053RE|msg:sg_2122635335:649:T112053RE|msg:sg_3981594831:2174:T112053RE`\n\n## 主要风险\n\n- **权限与敏感数据：**9 月 11 日，`widget:mention:ouv4qluiakumao:T112053RE` 强调只能拉取用户可见数据。9 月 14 日，`widget:mention:ouv4mpnbncczdy:T112053RE` 提出邮箱、银行卡号等字段不应发给 GPT；`widget:mention:ouv4qlvxoaugyp:T112053RE` 提议前置脱敏并调研实现方式。后续又讨论了撤权或删除文件后，记忆和摘要副本如何处理。`widget:refs:msg:sg_3981594831:106:T112053RE|msg:sg_3981594831:111:T112053RE|msg:sg_2658892958:63:T112053RE|msg:sg_2658892958:67:T112053RE|msg:sg_2658892958:68:T112053RE|msg:sg_2658892958:69:T112053RE|msg:sg_2122635335:1812:T112053RE|msg:sg_2122635335:1833:T112053RE`\n- **检索与回答可信度：**9 月，`widget:mention:ouvkmtuntg5xpk:T112053RE` 反馈人员名称识别、周报和任务空间召回、逐事实引用等问题；11 月回归中，`widget:mention:ouvwzhogat6shz:T112053RE` 仍列出向量检索超时、长期记忆按对象及时间范围检索等问题。`widget:refs:msg:sg_3981594831:418:T112053RE|msg:sg_3981594831:426:T112053RE|msg:sg_3981594831:427:T112053RE|msg:sg_2122635335:1634:T112053RE`\n- **稳定性与测试资源：**9 月纪要记录部分成员被其他项目占用、测试团队当周尚未投入 AI 助手；11 月 18 日，`widget:mention:ouv4qluqoynfcv:T112053RE` 反馈周报收件人摘要 workflow 过载，三次重试失败，`widget:mention:ouv4qlvxoaugyp:T112053RE` 表示查看。`widget:refs:msg:sg_2658892958:61:T112053RE|msg:sg_2122635335:1951:T112053RE|msg:sg_2122635335:1954:T112053RE`\n- **多模态跨场景：**9 月图片识别仍在分阶段开发；11 月 17 日，`widget:mention:ouvppako1eetr0:T112053RE` 反馈群聊图片私有链接不能直接在任务空间显示，需要文件复制接口并排期。`widget:refs:msg:sg_2658892958:61:T112053RE|msg:sg_3981594831:2691:T112053RE`\n\n以后查这三个群时，要默认往前查 120 天吗？也可以设置为所有群都默认查 120 天。",
+          "session_id": "cs_40ffe967-415f-45eb-b6a2-8f39e25d80da",
+          "request_id": "eefc70d0-4a43-4a02-9ff7-92ec8462c858",
+          "message_id": "cm_3eb0b2a3-7f01-4f4e-9c6c-bedec1fa1b22",
+          "http_status": 200,
+          "error": "",
           "asker": "安柔",
           "asker_company": "Zelto",
           "asker_source": "execution_turn"
@@ -14592,109 +15083,239 @@
       ],
       "trace_tools": [
         {
-          "run_id": "bar_7c035f7ad9ad4b80bf0d2b1425e75a68",
+          "run_id": "bar_5a194698b6f6405ebf0adb982fe86295",
           "step": 2,
           "seq": 21,
+          "name": "activate_skills",
+          "arguments_summary": "skills=group_summary,structured_query",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5a194698b6f6405ebf0adb982fe86295",
+          "step": 2,
+          "seq": 29,
+          "name": "entity_resolve",
+          "arguments_summary": "requests=3",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5a194698b6f6405ebf0adb982fe86295",
+          "step": 2,
+          "seq": 34,
+          "name": "entity_resolve",
+          "arguments_summary": "requests=1",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5a194698b6f6405ebf0adb982fe86295",
+          "step": 2,
+          "seq": 39,
+          "name": "group_scope",
+          "arguments_summary": "unknown tool",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5a194698b6f6405ebf0adb982fe86295",
+          "step": 2,
+          "seq": 44,
+          "name": "group_scope",
+          "arguments_summary": "unknown tool",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5a194698b6f6405ebf0adb982fe86295",
+          "step": 2,
+          "seq": 49,
+          "name": "group_scope",
+          "arguments_summary": "unknown tool",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5a194698b6f6405ebf0adb982fe86295",
+          "step": 2,
+          "seq": 54,
+          "name": "material_ask",
+          "arguments_summary": "ranges=3 message=3 report=0 format=text instruction_runes=87",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5a194698b6f6405ebf0adb982fe86295",
+          "step": 2,
+          "seq": 190,
+          "name": "scratchpad_read",
+          "arguments_summary": "path=answers/sg_2122635335_20261018T035200Z-20261118T035200Z-8bf196fe offset=0",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5a194698b6f6405ebf0adb982fe86295",
+          "step": 2,
+          "seq": 195,
+          "name": "scratchpad_write",
+          "arguments_summary": "path=notes/ai_assistant expected_revision=0 bytes=489",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5a194698b6f6405ebf0adb982fe86295",
+          "step": 2,
+          "seq": 201,
+          "name": "scratchpad_read",
+          "arguments_summary": "path=answers/sg_3981594831_20261018T035200Z-20261118T035200Z-a2e1cd86 offset=0",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5a194698b6f6405ebf0adb982fe86295",
+          "step": 2,
+          "seq": 206,
+          "name": "scratchpad_read",
+          "arguments_summary": "path=answers/sg_3981594831_20260919T035200Z-20261018T035200Z-e7abbc98 offset=0",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5a194698b6f6405ebf0adb982fe86295",
+          "step": 2,
+          "seq": 211,
+          "name": "scratchpad_read",
+          "arguments_summary": "path=answers/sg_2122635335_20260919T035200Z-20261018T035200Z-b0417adf offset=0",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5a194698b6f6405ebf0adb982fe86295",
+          "step": 2,
+          "seq": 216,
+          "name": "scratchpad_read",
+          "arguments_summary": "path=answers/sg_2658892958_20260919T035200Z-20261018T035200Z-f77d405c offset=0",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5a194698b6f6405ebf0adb982fe86295",
+          "step": 2,
+          "seq": 221,
+          "name": "group_message_lookup",
+          "arguments_summary": "conversations=2 messages=13 include_content=true include_sticker_images=false",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5a194698b6f6405ebf0adb982fe86295",
+          "step": 2,
+          "seq": 226,
+          "name": "group_message_lookup",
+          "arguments_summary": "conversations=1 messages=7 include_content=true include_sticker_images=false",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_5a194698b6f6405ebf0adb982fe86295",
+          "step": 2,
+          "seq": 231,
+          "name": "memory_settle",
+          "arguments_summary": "hint_present=false",
+          "status": "submitted",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_9484e8913d5e473abe082cd40b75a292",
+          "step": 3,
+          "seq": 18,
           "name": "activate_skills",
           "arguments_summary": "skills=group_summary",
           "status": "completed",
           "attempts": 1
         },
         {
-          "run_id": "bar_7c035f7ad9ad4b80bf0d2b1425e75a68",
-          "step": 2,
-          "seq": 29,
-          "name": "group_search",
-          "arguments_summary": "unknown tool",
-          "status": "completed",
-          "attempts": 1
-        },
-        {
-          "run_id": "bar_7c035f7ad9ad4b80bf0d2b1425e75a68",
-          "step": 2,
-          "seq": 34,
-          "name": "group_search",
-          "arguments_summary": "unknown tool",
-          "status": "completed",
-          "attempts": 1
-        },
-        {
-          "run_id": "bar_7c035f7ad9ad4b80bf0d2b1425e75a68",
-          "step": 2,
-          "seq": 39,
-          "name": "group_search",
-          "arguments_summary": "unknown tool",
-          "status": "completed",
-          "attempts": 1
-        },
-        {
-          "run_id": "bar_7c035f7ad9ad4b80bf0d2b1425e75a68",
-          "step": 2,
-          "seq": 44,
-          "name": "group_search",
-          "arguments_summary": "unknown tool",
-          "status": "completed",
-          "attempts": 1
-        },
-        {
-          "run_id": "bar_7c035f7ad9ad4b80bf0d2b1425e75a68",
-          "step": 2,
-          "seq": 49,
-          "name": "group_search",
-          "arguments_summary": "unknown tool",
-          "status": "completed",
-          "attempts": 1
-        },
-        {
-          "run_id": "bar_7c035f7ad9ad4b80bf0d2b1425e75a68",
-          "step": 2,
-          "seq": 54,
-          "name": "group_scope",
-          "arguments_summary": "unknown tool",
-          "status": "completed",
-          "attempts": 1
-        },
-        {
-          "run_id": "bar_7c035f7ad9ad4b80bf0d2b1425e75a68",
-          "step": 2,
-          "seq": 59,
-          "name": "group_scope",
-          "arguments_summary": "unknown tool",
-          "status": "completed",
-          "attempts": 1
-        },
-        {
-          "run_id": "bar_7c035f7ad9ad4b80bf0d2b1425e75a68",
-          "step": 2,
-          "seq": 64,
-          "name": "group_scope",
-          "arguments_summary": "unknown tool",
-          "status": "completed",
-          "attempts": 1
-        },
-        {
-          "run_id": "bar_7c035f7ad9ad4b80bf0d2b1425e75a68",
-          "step": 2,
-          "seq": 69,
+          "run_id": "bar_9484e8913d5e473abe082cd40b75a292",
+          "step": 3,
+          "seq": 24,
           "name": "material_ask",
-          "arguments_summary": "ranges=3 message=3 report=0 format=text instruction_runes=84",
-          "status": "missing_result",
-          "attempts": null
+          "arguments_summary": "ranges=3 message=3 report=0 format=text instruction_runes=61",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_9484e8913d5e473abe082cd40b75a292",
+          "step": 3,
+          "seq": 198,
+          "name": "scratchpad_write",
+          "arguments_summary": "path=notes/ai_assistant expected_revision=1 bytes=348",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_9484e8913d5e473abe082cd40b75a292",
+          "step": 3,
+          "seq": 204,
+          "name": "scratchpad_read",
+          "arguments_summary": "path=answers/sg_2658892958_20260817T045244Z-20260917T045244Z-977a445a offset=0",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_9484e8913d5e473abe082cd40b75a292",
+          "step": 3,
+          "seq": 209,
+          "name": "scratchpad_read",
+          "arguments_summary": "path=answers/sg_2122635335_20260721T045244Z-20260817T045244Z-c9519a7d offset=0",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_9484e8913d5e473abe082cd40b75a292",
+          "step": 3,
+          "seq": 214,
+          "name": "scratchpad_read",
+          "arguments_summary": "path=answers/sg_3981594831_20260817T045244Z-20260917T045244Z-9dba7448 offset=0",
+          "status": "completed",
+          "attempts": 1
+        },
+        {
+          "run_id": "bar_9484e8913d5e473abe082cd40b75a292",
+          "step": 3,
+          "seq": 219,
+          "name": "group_message_lookup",
+          "arguments_summary": "conversations=2 messages=16 include_content=true include_sticker_images=false",
+          "status": "completed",
+          "attempts": 1
         }
       ],
       "trace_run_summaries": [
         {
-          "run_id": "bar_7c035f7ad9ad4b80bf0d2b1425e75a68",
+          "run_id": "bar_5a194698b6f6405ebf0adb982fe86295",
           "step": 2,
           "workflow": "weekly_report.recipient_summary",
           "scenario": "assistant_chat",
-          "status": "running",
-          "skills": "group_summary、output_presentation",
+          "status": "succeeded",
+          "skills": "group_summary、structured_query、output_presentation",
           "model": "openai/gpt-6.1-terra",
-          "prompt": "assistant_chat_agent@0.24.3",
-          "event_count": 117,
-          "tool_count": 10,
-          "tokens": null
+          "prompt": "assistant_chat_agent@0.24.7",
+          "event_count": 240,
+          "tool_count": 16,
+          "tokens": 2229699
+        },
+        {
+          "run_id": "bar_9484e8913d5e473abe082cd40b75a292",
+          "step": 3,
+          "workflow": "weekly_report.recipient_summary",
+          "scenario": "assistant_chat",
+          "status": "succeeded",
+          "skills": "group_summary",
+          "model": "openai/gpt-6.1-terra",
+          "prompt": "assistant_chat_agent@0.24.7",
+          "event_count": 232,
+          "tool_count": 7,
+          "tokens": 1846657
         }
       ],
       "failed_checks": [
@@ -14736,7 +15357,7 @@
         {
           "dimension": "tool.duplicate",
           "status": "skip",
-          "reason": "same-run duplicate calls are an efficiency diagnostic: ['group_search(unknown tool)×5', 'group_scope(unknown tool)×3']"
+          "reason": "same-run duplicate calls are an efficiency diagnostic: ['group_scope(unknown tool)×3']"
         },
         {
           "dimension": "policy.checked",
@@ -14785,87 +15406,70 @@
         "contract": "ai_assistant.business_comparison.v1",
         "origin": "fresh_pre_execution",
         "expected": [
-          "截至 2026-11-17 12:26:52（东京时间），综合三个指定群概括里程碑、数据链路和主要风险，合并相同事实并保留能支持相应结论的来源；配置的历史扩查场景允许先报告实际已查范围。",
-          "按本轮截至 2026-11-17 12:45:13（东京时间）的最近 120 天扩大检索，结合既有上下文继续完成三群主题综述，并确保新增或重述的里程碑有对应来源。",
-          "按截至 2026-11-17 13:25:12（东京时间）的最近半年范围，结合前轮内容完成三个群的里程碑、数据链路和风险概括，去重并保留与事实对应的来源；无需机械重复前轮已答内容。"
+          "截至本轮实际提问时间，综合三个可见群的里程碑、数据链路和主要风险，合并相同事实并保留与事实相符的来源。本用例允许后续扩查补充较早历史，本轮已陈述的事实和引用仍须准确。",
+          "将原问题的三群汇总扩大到截至本轮提问时的最近120天，结合前轮内容补充历史里程碑、数据链路和风险，区分历史计划与已发生事实，并保留准确来源；无需机械重复前轮已答内容。"
         ],
         "actual": [
-          "回答说明覆盖近 60 天，整理了早期上线、写入提测、11 月回归及权限和并发风险；同时称群聊检索优化已发 PRE、PNG/PDF/Word/Excel 流程测试正常，并提到 11 月 19 日发版计划。",
-          "回答补充了 7 月基础流程、8 月分阶段测试、9 月真实数据接入和历史数据改走业务接口等内容，已使用三个群的引用；但仍称群聊检索优化进入 PRE 测试，四类文件流程有测试正常反馈。",
-          "回答将历史扩展到 6 月调试和 7 月统一助手构想，合并了三个群的数据接入、混合检索、权限及稳定性讨论，并重述“群聊检索优化进入 PRE 测试”。"
+          "回答按三个主题整理近60天材料，并称10月27日安柔反馈任务写操作在test环境冒烟通过，但该事实所在段落引用sg_2122635335:1364，未引用实际通过消息1369。",
+          "回答补充了7—9月的记忆基建、分轮测试计划、增量数据接入、业务列表接口方案和敏感数据讨论，包含三个群的引用；在重述10月27日冒烟通过时，仍引用1364而非1369。"
         ],
         "difference": [
-          "检索和文件测试结论仅引用 Agent 小分队的 959、961 号消息，两条都是公台解释可见群检索、关键词和向量搜索方案，没有研发群发布 PRE 或孙文文件测试正常的反馈。11 月 19 日计划所列的 2611、2615、2617、2422、2425、2427 分别涉及写入能力、拟部署 PRE、问题修复及用例重跑，也未给出该日期。这是已可核实的引用错配，影响用户核验里程碑来源；不据此断言群内其他位置没有相关事实。",
-          "该测试节点所列 959、961 只说明检索设计；2045 是询问写入何时可测，2046 是孙文说明写入已提测且仍在测试环境，均不能支持群聊检索已进 PRE 或四类文件测试正常。扩查范围已有执行证据，但本轮重新输出的发布、测试结论仍与其引用对象不符。",
-          "这一 PRE 测试结论仍引用 959、961 等消息：前两条仅描述检索方案，2045、2046 对应写入提测，2321 对应全量回归，2611、2615 对应创建能力及提出发 PRE 测试，均非群聊检索优化已进入 PRE 的发布反馈。最终回答虽完成了跨群组织和历史扩展，仍未满足保留准确事实来源的要求。"
+          "1364记载的是“尚未测试完成”，1369才记载“test冒烟通过”。因此并非认定当天没有通过，而是回答把相反状态的消息作为通过里程碑的依据；这直接影响用户要求保留来源后的核验与追溯。",
+          "扩查增加了历史材料，但没有修正被重新陈述的里程碑依据：所指消息仍是“尚未测试完成”，不是“冒烟通过”。正确通过消息在本轮独立来源中同样可读，因此该引用错配已被证实，不能因扩查内容增加而忽略。"
         ],
-        "why": "失败，三轮都把公台介绍检索方案的消息当成“群聊检索优化已发 PRE”的依据，首轮还用问题修复进展支持“11 月 19 日发版计划”，引用与所述里程碑不对应。",
+        "why": "失败，两轮都把安柔“尚未测试完成”的消息引用为“test冒烟通过”的依据；通过消息确实存在，但引用指向了相反状态，未正确保留该里程碑的来源。",
         "turn_comparisons": [
           {
             "step": 2,
             "status": "fail",
-            "reason": "本轮进行了三群检索，但检索优化及文件测试节点、11 月 19 日发版计划与所列消息引用不对应。",
+            "reason": "“10月27日test冒烟通过”引用了安柔明确表示“目前还没测试完成”的消息，未正确保留里程碑依据。",
             "evidence_refs": [
-              "turns[step=2].answer：里程碑中的“10 月上旬”和“11 月中旬”两项",
-              "turns[step=2].source_gold.facts.groups.sg_2122635335.messages：seq=959、961",
-              "turns[step=2].source_gold.facts.groups.sg_3981594831.messages：seq=2422、2425、2427、2611、2615、2617",
-              "trace.runs[turn_step=2].tools：group_search、group_scope、material_ask、group_message_lookup",
-              "current_source_evidence.exact_request_receipts[turn_step=2]"
+              "turn_time_basis[step=2]：实际提问时间为2026-11-18T03:52:00.699000+00:00",
+              "turns[step=2].answer：里程碑／写入和日程进入测试",
+              "turns[step=2].source_gold.facts.groups.sg_2122635335.messages[seq=1364]：安柔表示“可以在test测试，目前还没测试完成，要延到自定义字段之后”",
+              "turns[step=2].source_gold.facts.groups.sg_2122635335.messages[seq=1369]：安柔随后表示“test冒烟通过了，可以发pre你们先体验”",
+              "turns[step=2].source_gold.facts.independent_citation_readback：被引1364已独立找到",
+              "current_source_evidence.exact_request_receipts[request_id=aa4ba0f6-7d7c-4248-ad55-3aee6e488112]",
+              "turns[step=2].generation_readback：原请求成功完成且完整回答已恢复"
             ],
             "comparison": {
-              "expected": "截至 2026-11-17 12:26:52（东京时间），综合三个指定群概括里程碑、数据链路和主要风险，合并相同事实并保留能支持相应结论的来源；配置的历史扩查场景允许先报告实际已查范围。",
-              "actual": "回答说明覆盖近 60 天，整理了早期上线、写入提测、11 月回归及权限和并发风险；同时称群聊检索优化已发 PRE、PNG/PDF/Word/Excel 流程测试正常，并提到 11 月 19 日发版计划。",
-              "difference": "检索和文件测试结论仅引用 Agent 小分队的 959、961 号消息，两条都是公台解释可见群检索、关键词和向量搜索方案，没有研发群发布 PRE 或孙文文件测试正常的反馈。11 月 19 日计划所列的 2611、2615、2617、2422、2425、2427 分别涉及写入能力、拟部署 PRE、问题修复及用例重跑，也未给出该日期。这是已可核实的引用错配，影响用户核验里程碑来源；不据此断言群内其他位置没有相关事实。"
+              "expected": "截至本轮实际提问时间，综合三个可见群的里程碑、数据链路和主要风险，合并相同事实并保留与事实相符的来源。本用例允许后续扩查补充较早历史，本轮已陈述的事实和引用仍须准确。",
+              "actual": "回答按三个主题整理近60天材料，并称10月27日安柔反馈任务写操作在test环境冒烟通过，但该事实所在段落引用sg_2122635335:1364，未引用实际通过消息1369。",
+              "difference": "1364记载的是“尚未测试完成”，1369才记载“test冒烟通过”。因此并非认定当天没有通过，而是回答把相反状态的消息作为通过里程碑的依据；这直接影响用户要求保留来源后的核验与追溯。"
             }
           },
           {
             "step": 3,
             "status": "fail",
-            "reason": "120 天扩查补充了早期计划和真实数据范围，但仍以检索方案及写入提测消息支持检索优化和文件测试结论。",
+            "reason": "扩查后虽补充了三群较早历史，但再次将“test冒烟通过”指向“尚未测试完成”的消息，重复了来源错配。",
             "evidence_refs": [
-              "turns[step=3].answer：里程碑“10 月：检索、文件和写入能力推进测试”",
-              "turns[step=3].source_gold.facts.groups.sg_2122635335.message_delta：继承 step 2 的 seq=959、961",
-              "turns[step=3].source_gold.facts.groups.sg_3981594831.message_delta：继承 step 2 的 seq=2045、2046",
-              "turns[step=3].source_gold.facts.independent_citation_readback",
-              "trace.runs[turn_step=3].tools：material_ask、scratchpad_read、group_message_lookup",
-              "current_source_evidence.exact_request_receipts[turn_step=3]"
+              "turn_time_basis[step=3]：实际提问时间为2026-11-18T04:52:44.004000+00:00",
+              "turns[step=3].message：扩查最近120天",
+              "turns[step=3].answer：里程碑／10—11月进入业务能力测试和回归",
+              "turns[step=3].source_gold.facts.groups.sg_2122635335.messages[seq=1364]：安柔表示测试尚未完成",
+              "turns[step=3].source_gold.facts.groups.sg_2122635335.messages[seq=1369]：安柔随后确认test冒烟通过",
+              "turns[step=3].source_gold.facts.independent_citation_readback：本轮所引1364已独立找到",
+              "current_source_evidence.exact_request_receipts[request_id=eefc70d0-4a43-4a02-9ff7-92ec8462c858]：material_ask的lookback_days为120",
+              "turns[step=3].generation_readback：原请求成功完成且完整回答已恢复"
             ],
             "comparison": {
-              "expected": "按本轮截至 2026-11-17 12:45:13（东京时间）的最近 120 天扩大检索，结合既有上下文继续完成三群主题综述，并确保新增或重述的里程碑有对应来源。",
-              "actual": "回答补充了 7 月基础流程、8 月分阶段测试、9 月真实数据接入和历史数据改走业务接口等内容，已使用三个群的引用；但仍称群聊检索优化进入 PRE 测试，四类文件流程有测试正常反馈。",
-              "difference": "该测试节点所列 959、961 只说明检索设计；2045 是询问写入何时可测，2046 是孙文说明写入已提测且仍在测试环境，均不能支持群聊检索已进 PRE 或四类文件测试正常。扩查范围已有执行证据，但本轮重新输出的发布、测试结论仍与其引用对象不符。"
-            }
-          },
-          {
-            "step": 4,
-            "status": "fail",
-            "reason": "半年扩查形成了三群合并综述，但继续将检索设计发言引用为“群聊检索优化进入 PRE 测试”的里程碑证据。",
-            "evidence_refs": [
-              "turns[step=4].answer：里程碑“10—11 月：扩展能力并开展回归”",
-              "turns[step=4].source_gold.facts.groups.sg_2122635335.message_delta：经 step 3 继承 seq=959、961",
-              "turns[step=4].source_gold.facts.groups.sg_3981594831.message_delta：继承 seq=2045、2046、2321、2611、2615",
-              "turns[step=4].source_gold.facts.independent_citation_readback",
-              "trace.runs[turn_step=4].tools：两次 material_ask 及 group_message_lookup",
-              "current_source_evidence.exact_request_receipts[turn_step=4]"
-            ],
-            "comparison": {
-              "expected": "按截至 2026-11-17 13:25:12（东京时间）的最近半年范围，结合前轮内容完成三个群的里程碑、数据链路和风险概括，去重并保留与事实对应的来源；无需机械重复前轮已答内容。",
-              "actual": "回答将历史扩展到 6 月调试和 7 月统一助手构想，合并了三个群的数据接入、混合检索、权限及稳定性讨论，并重述“群聊检索优化进入 PRE 测试”。",
-              "difference": "这一 PRE 测试结论仍引用 959、961 等消息：前两条仅描述检索方案，2045、2046 对应写入提测，2321 对应全量回归，2611、2615 对应创建能力及提出发 PRE 测试，均非群聊检索优化已进入 PRE 的发布反馈。最终回答虽完成了跨群组织和历史扩展，仍未满足保留准确事实来源的要求。"
+              "expected": "将原问题的三群汇总扩大到截至本轮提问时的最近120天，结合前轮内容补充历史里程碑、数据链路和风险，区分历史计划与已发生事实，并保留准确来源；无需机械重复前轮已答内容。",
+              "actual": "回答补充了7—9月的记忆基建、分轮测试计划、增量数据接入、业务列表接口方案和敏感数据讨论，包含三个群的引用；在重述10月27日冒烟通过时，仍引用1364而非1369。",
+              "difference": "扩查增加了历史材料，但没有修正被重新陈述的里程碑依据：所指消息仍是“尚未测试完成”，不是“冒烟通过”。正确通过消息在本轮独立来源中同样可读，因此该引用错配已被证实，不能因扩查内容增加而忽略。"
             }
           }
         ],
         "evidence_assessment": {
           "sufficient": true,
-          "reason": "三轮请求、实际回答和 Trace 均关联到安柔在 T112053RE 的同一会话；独立回读提供了相关引用的正文，后两轮通过 message_delta 继承了未变化的消息，足以确认引用错配。首轮传输超时及部分工具结果截断不单独作为失败依据。来源投影并非全量，因此不据此断言其他消息不存在，也不将旧 Gold 或 coverage_terms 逐字命中作为必答条件。"
+          "reason": "两轮完整回答均已通过原追问人的认证会话及对应请求Trace恢复，客户端超时不构成执行失败。各轮独立source_gold均提供了被引消息sg_2122635335:1364及同日通过消息1369的正文，足以确认引用错配，且两条消息均早于实际提问时间。首轮60天检索和后轮120天扩查有认证查询记录，不因首轮未覆盖更早静态节点判失败；来源节选并非全量，也不据此推断其他漏项。"
         }
       },
-      "execution_source": "2026-11-17 PRE 历史消息扩查复跑",
-      "execution_stage": "history_followup_v2",
-      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_history_followup_20261117/recovered-msg004-3/cases/AA-PRE-MSG-004/record.json",
+      "execution_source": "2026-11-18 PRE 超时相关失败用例串行重跑",
+      "execution_stage": "serial_timeout_rerun",
+      "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/continuation-004/readback-record-2.json",
       "judge_configuration": {
         "model": "gpt-6.1-sol",
-        "prompt_version": null,
+        "prompt_version": "ai-assistant-business-review-v17-question-scoped-group-range",
         "stats": null,
         "business_requests_retried": null,
         "reasoning_effort": "max"
@@ -15011,62 +15615,164 @@
           },
           "source_report_id": "review-1cad12b1331ccb3a6b5e15d3",
           "business_request_resent": true
+        },
+        {
+          "type": "serial_timeout_related_fresh_rerun",
+          "at": "2026-11-18T05:09:25.112005+00:00",
+          "previous": {
+            "status": "fail",
+            "kind": "business_review",
+            "reason": "失败，三轮都把公台介绍检索方案的消息当成“群聊检索优化已发 PRE”的依据，首轮还用问题修复进展支持“11 月 19 日发版计划”，引用与所述里程碑不对应。",
+            "failure_categories": [
+              "事实不符"
+            ],
+            "review_explanation": {
+              "contract": "ai_assistant.business_comparison.v1",
+              "origin": "fresh_pre_execution",
+              "expected": [
+                "截至 2026-11-17 12:26:52（东京时间），综合三个指定群概括里程碑、数据链路和主要风险，合并相同事实并保留能支持相应结论的来源；配置的历史扩查场景允许先报告实际已查范围。",
+                "按本轮截至 2026-11-17 12:45:13（东京时间）的最近 120 天扩大检索，结合既有上下文继续完成三群主题综述，并确保新增或重述的里程碑有对应来源。",
+                "按截至 2026-11-17 13:25:12（东京时间）的最近半年范围，结合前轮内容完成三个群的里程碑、数据链路和风险概括，去重并保留与事实对应的来源；无需机械重复前轮已答内容。"
+              ],
+              "actual": [
+                "回答说明覆盖近 60 天，整理了早期上线、写入提测、11 月回归及权限和并发风险；同时称群聊检索优化已发 PRE、PNG/PDF/Word/Excel 流程测试正常，并提到 11 月 19 日发版计划。",
+                "回答补充了 7 月基础流程、8 月分阶段测试、9 月真实数据接入和历史数据改走业务接口等内容，已使用三个群的引用；但仍称群聊检索优化进入 PRE 测试，四类文件流程有测试正常反馈。",
+                "回答将历史扩展到 6 月调试和 7 月统一助手构想，合并了三个群的数据接入、混合检索、权限及稳定性讨论，并重述“群聊检索优化进入 PRE 测试”。"
+              ],
+              "difference": [
+                "检索和文件测试结论仅引用 Agent 小分队的 959、961 号消息，两条都是公台解释可见群检索、关键词和向量搜索方案，没有研发群发布 PRE 或孙文文件测试正常的反馈。11 月 19 日计划所列的 2611、2615、2617、2422、2425、2427 分别涉及写入能力、拟部署 PRE、问题修复及用例重跑，也未给出该日期。这是已可核实的引用错配，影响用户核验里程碑来源；不据此断言群内其他位置没有相关事实。",
+                "该测试节点所列 959、961 只说明检索设计；2045 是询问写入何时可测，2046 是孙文说明写入已提测且仍在测试环境，均不能支持群聊检索已进 PRE 或四类文件测试正常。扩查范围已有执行证据，但本轮重新输出的发布、测试结论仍与其引用对象不符。",
+                "这一 PRE 测试结论仍引用 959、961 等消息：前两条仅描述检索方案，2045、2046 对应写入提测，2321 对应全量回归，2611、2615 对应创建能力及提出发 PRE 测试，均非群聊检索优化已进入 PRE 的发布反馈。最终回答虽完成了跨群组织和历史扩展，仍未满足保留准确事实来源的要求。"
+              ],
+              "why": "失败，三轮都把公台介绍检索方案的消息当成“群聊检索优化已发 PRE”的依据，首轮还用问题修复进展支持“11 月 19 日发版计划”，引用与所述里程碑不对应。",
+              "turn_comparisons": [
+                {
+                  "step": 2,
+                  "status": "fail",
+                  "reason": "本轮进行了三群检索，但检索优化及文件测试节点、11 月 19 日发版计划与所列消息引用不对应。",
+                  "evidence_refs": [
+                    "turns[step=2].answer：里程碑中的“10 月上旬”和“11 月中旬”两项",
+                    "turns[step=2].source_gold.facts.groups.sg_2122635335.messages：seq=959、961",
+                    "turns[step=2].source_gold.facts.groups.sg_3981594831.messages：seq=2422、2425、2427、2611、2615、2617",
+                    "trace.runs[turn_step=2].tools：group_search、group_scope、material_ask、group_message_lookup",
+                    "current_source_evidence.exact_request_receipts[turn_step=2]"
+                  ],
+                  "comparison": {
+                    "expected": "截至 2026-11-17 12:26:52（东京时间），综合三个指定群概括里程碑、数据链路和主要风险，合并相同事实并保留能支持相应结论的来源；配置的历史扩查场景允许先报告实际已查范围。",
+                    "actual": "回答说明覆盖近 60 天，整理了早期上线、写入提测、11 月回归及权限和并发风险；同时称群聊检索优化已发 PRE、PNG/PDF/Word/Excel 流程测试正常，并提到 11 月 19 日发版计划。",
+                    "difference": "检索和文件测试结论仅引用 Agent 小分队的 959、961 号消息，两条都是公台解释可见群检索、关键词和向量搜索方案，没有研发群发布 PRE 或孙文文件测试正常的反馈。11 月 19 日计划所列的 2611、2615、2617、2422、2425、2427 分别涉及写入能力、拟部署 PRE、问题修复及用例重跑，也未给出该日期。这是已可核实的引用错配，影响用户核验里程碑来源；不据此断言群内其他位置没有相关事实。"
+                  }
+                },
+                {
+                  "step": 3,
+                  "status": "fail",
+                  "reason": "120 天扩查补充了早期计划和真实数据范围，但仍以检索方案及写入提测消息支持检索优化和文件测试结论。",
+                  "evidence_refs": [
+                    "turns[step=3].answer：里程碑“10 月：检索、文件和写入能力推进测试”",
+                    "turns[step=3].source_gold.facts.groups.sg_2122635335.message_delta：继承 step 2 的 seq=959、961",
+                    "turns[step=3].source_gold.facts.groups.sg_3981594831.message_delta：继承 step 2 的 seq=2045、2046",
+                    "turns[step=3].source_gold.facts.independent_citation_readback",
+                    "trace.runs[turn_step=3].tools：material_ask、scratchpad_read、group_message_lookup",
+                    "current_source_evidence.exact_request_receipts[turn_step=3]"
+                  ],
+                  "comparison": {
+                    "expected": "按本轮截至 2026-11-17 12:45:13（东京时间）的最近 120 天扩大检索，结合既有上下文继续完成三群主题综述，并确保新增或重述的里程碑有对应来源。",
+                    "actual": "回答补充了 7 月基础流程、8 月分阶段测试、9 月真实数据接入和历史数据改走业务接口等内容，已使用三个群的引用；但仍称群聊检索优化进入 PRE 测试，四类文件流程有测试正常反馈。",
+                    "difference": "该测试节点所列 959、961 只说明检索设计；2045 是询问写入何时可测，2046 是孙文说明写入已提测且仍在测试环境，均不能支持群聊检索已进 PRE 或四类文件测试正常。扩查范围已有执行证据，但本轮重新输出的发布、测试结论仍与其引用对象不符。"
+                  }
+                },
+                {
+                  "step": 4,
+                  "status": "fail",
+                  "reason": "半年扩查形成了三群合并综述，但继续将检索设计发言引用为“群聊检索优化进入 PRE 测试”的里程碑证据。",
+                  "evidence_refs": [
+                    "turns[step=4].answer：里程碑“10—11 月：扩展能力并开展回归”",
+                    "turns[step=4].source_gold.facts.groups.sg_2122635335.message_delta：经 step 3 继承 seq=959、961",
+                    "turns[step=4].source_gold.facts.groups.sg_3981594831.message_delta：继承 seq=2045、2046、2321、2611、2615",
+                    "turns[step=4].source_gold.facts.independent_citation_readback",
+                    "trace.runs[turn_step=4].tools：两次 material_ask 及 group_message_lookup",
+                    "current_source_evidence.exact_request_receipts[turn_step=4]"
+                  ],
+                  "comparison": {
+                    "expected": "按截至 2026-11-17 13:25:12（东京时间）的最近半年范围，结合前轮内容完成三个群的里程碑、数据链路和风险概括，去重并保留与事实对应的来源；无需机械重复前轮已答内容。",
+                    "actual": "回答将历史扩展到 6 月调试和 7 月统一助手构想，合并了三个群的数据接入、混合检索、权限及稳定性讨论，并重述“群聊检索优化进入 PRE 测试”。",
+                    "difference": "这一 PRE 测试结论仍引用 959、961 等消息：前两条仅描述检索方案，2045、2046 对应写入提测，2321 对应全量回归，2611、2615 对应创建能力及提出发 PRE 测试，均非群聊检索优化已进入 PRE 的发布反馈。最终回答虽完成了跨群组织和历史扩展，仍未满足保留准确事实来源的要求。"
+                  }
+                }
+              ],
+              "evidence_assessment": {
+                "sufficient": true,
+                "reason": "三轮请求、实际回答和 Trace 均关联到安柔在 T112053RE 的同一会话；独立回读提供了相关引用的正文，后两轮通过 message_delta 继承了未变化的消息，足以确认引用错配。首轮传输超时及部分工具结果截断不单独作为失败依据。来源投影并非全量，因此不据此断言其他消息不存在，也不将旧 Gold 或 coverage_terms 逐字命中作为必答条件。"
+              }
+            },
+            "review_observation": {
+              "basis": "5a7729fba311ed3d54c3e835f1092d1468e013ece6f186ff937e44e9e8b72887",
+              "result": "ee4cd996a9d8f507f1f551ee445606c6b974d4c417ac74a770d6e668fa5ca474",
+              "requests": [
+                "467dabfd-a7d2-4670-b540-a375d5ea072c",
+                "aeade6a7-f2c3-4d15-b3ca-a96aed8ebf15",
+                "d6b17a03-d3d7-4ebb-9ca0-da7bf5eff0ea"
+              ]
+            },
+            "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_history_followup_20261117/recovered-msg004-3/cases/AA-PRE-MSG-004/record.json"
+          },
+          "source_report_id": "review-4060ae1e4caa00461f1c3f9c",
+          "business_request_resent": true,
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/judged-2/cases/AA-PRE-MSG-004.json"
         }
       ],
-      "evaluation_detail_reason": "失败，三轮都把公台介绍检索方案的消息当成“群聊检索优化已发 PRE”的依据，首轮还用问题修复进展支持“11 月 19 日发版计划”，引用与所述里程碑不对应。",
+      "evaluation_detail_reason": "失败，两轮都把安柔“尚未测试完成”的消息引用为“test冒烟通过”的依据；通过消息确实存在，但引用指向了相反状态，未正确保留该里程碑的来源。",
       "turn_verdicts": [
         {
           "step": 2,
           "status": "fail",
-          "reason": "本轮进行了三群检索，但检索优化及文件测试节点、11 月 19 日发版计划与所列消息引用不对应。",
+          "reason": "“10月27日test冒烟通过”引用了安柔明确表示“目前还没测试完成”的消息，未正确保留里程碑依据。",
           "evidence_refs": [
-            "turns[step=2].answer：里程碑中的“10 月上旬”和“11 月中旬”两项",
-            "turns[step=2].source_gold.facts.groups.sg_2122635335.messages：seq=959、961",
-            "turns[step=2].source_gold.facts.groups.sg_3981594831.messages：seq=2422、2425、2427、2611、2615、2617",
-            "trace.runs[turn_step=2].tools：group_search、group_scope、material_ask、group_message_lookup",
-            "current_source_evidence.exact_request_receipts[turn_step=2]"
+            "turn_time_basis[step=2]：实际提问时间为2026-11-18T03:52:00.699000+00:00",
+            "turns[step=2].answer：里程碑／写入和日程进入测试",
+            "turns[step=2].source_gold.facts.groups.sg_2122635335.messages[seq=1364]：安柔表示“可以在test测试，目前还没测试完成，要延到自定义字段之后”",
+            "turns[step=2].source_gold.facts.groups.sg_2122635335.messages[seq=1369]：安柔随后表示“test冒烟通过了，可以发pre你们先体验”",
+            "turns[step=2].source_gold.facts.independent_citation_readback：被引1364已独立找到",
+            "current_source_evidence.exact_request_receipts[request_id=aa4ba0f6-7d7c-4248-ad55-3aee6e488112]",
+            "turns[step=2].generation_readback：原请求成功完成且完整回答已恢复"
           ],
           "comparison": {
-            "expected": "截至 2026-11-17 12:26:52（东京时间），综合三个指定群概括里程碑、数据链路和主要风险，合并相同事实并保留能支持相应结论的来源；配置的历史扩查场景允许先报告实际已查范围。",
-            "actual": "回答说明覆盖近 60 天，整理了早期上线、写入提测、11 月回归及权限和并发风险；同时称群聊检索优化已发 PRE、PNG/PDF/Word/Excel 流程测试正常，并提到 11 月 19 日发版计划。",
-            "difference": "检索和文件测试结论仅引用 Agent 小分队的 959、961 号消息，两条都是公台解释可见群检索、关键词和向量搜索方案，没有研发群发布 PRE 或孙文文件测试正常的反馈。11 月 19 日计划所列的 2611、2615、2617、2422、2425、2427 分别涉及写入能力、拟部署 PRE、问题修复及用例重跑，也未给出该日期。这是已可核实的引用错配，影响用户核验里程碑来源；不据此断言群内其他位置没有相关事实。"
+            "expected": "截至本轮实际提问时间，综合三个可见群的里程碑、数据链路和主要风险，合并相同事实并保留与事实相符的来源。本用例允许后续扩查补充较早历史，本轮已陈述的事实和引用仍须准确。",
+            "actual": "回答按三个主题整理近60天材料，并称10月27日安柔反馈任务写操作在test环境冒烟通过，但该事实所在段落引用sg_2122635335:1364，未引用实际通过消息1369。",
+            "difference": "1364记载的是“尚未测试完成”，1369才记载“test冒烟通过”。因此并非认定当天没有通过，而是回答把相反状态的消息作为通过里程碑的依据；这直接影响用户要求保留来源后的核验与追溯。"
           }
         },
         {
           "step": 3,
           "status": "fail",
-          "reason": "120 天扩查补充了早期计划和真实数据范围，但仍以检索方案及写入提测消息支持检索优化和文件测试结论。",
+          "reason": "扩查后虽补充了三群较早历史，但再次将“test冒烟通过”指向“尚未测试完成”的消息，重复了来源错配。",
           "evidence_refs": [
-            "turns[step=3].answer：里程碑“10 月：检索、文件和写入能力推进测试”",
-            "turns[step=3].source_gold.facts.groups.sg_2122635335.message_delta：继承 step 2 的 seq=959、961",
-            "turns[step=3].source_gold.facts.groups.sg_3981594831.message_delta：继承 step 2 的 seq=2045、2046",
-            "turns[step=3].source_gold.facts.independent_citation_readback",
-            "trace.runs[turn_step=3].tools：material_ask、scratchpad_read、group_message_lookup",
-            "current_source_evidence.exact_request_receipts[turn_step=3]"
+            "turn_time_basis[step=3]：实际提问时间为2026-11-18T04:52:44.004000+00:00",
+            "turns[step=3].message：扩查最近120天",
+            "turns[step=3].answer：里程碑／10—11月进入业务能力测试和回归",
+            "turns[step=3].source_gold.facts.groups.sg_2122635335.messages[seq=1364]：安柔表示测试尚未完成",
+            "turns[step=3].source_gold.facts.groups.sg_2122635335.messages[seq=1369]：安柔随后确认test冒烟通过",
+            "turns[step=3].source_gold.facts.independent_citation_readback：本轮所引1364已独立找到",
+            "current_source_evidence.exact_request_receipts[request_id=eefc70d0-4a43-4a02-9ff7-92ec8462c858]：material_ask的lookback_days为120",
+            "turns[step=3].generation_readback：原请求成功完成且完整回答已恢复"
           ],
           "comparison": {
-            "expected": "按本轮截至 2026-11-17 12:45:13（东京时间）的最近 120 天扩大检索，结合既有上下文继续完成三群主题综述，并确保新增或重述的里程碑有对应来源。",
-            "actual": "回答补充了 7 月基础流程、8 月分阶段测试、9 月真实数据接入和历史数据改走业务接口等内容，已使用三个群的引用；但仍称群聊检索优化进入 PRE 测试，四类文件流程有测试正常反馈。",
-            "difference": "该测试节点所列 959、961 只说明检索设计；2045 是询问写入何时可测，2046 是孙文说明写入已提测且仍在测试环境，均不能支持群聊检索已进 PRE 或四类文件测试正常。扩查范围已有执行证据，但本轮重新输出的发布、测试结论仍与其引用对象不符。"
+            "expected": "将原问题的三群汇总扩大到截至本轮提问时的最近120天，结合前轮内容补充历史里程碑、数据链路和风险，区分历史计划与已发生事实，并保留准确来源；无需机械重复前轮已答内容。",
+            "actual": "回答补充了7—9月的记忆基建、分轮测试计划、增量数据接入、业务列表接口方案和敏感数据讨论，包含三个群的引用；在重述10月27日冒烟通过时，仍引用1364而非1369。",
+            "difference": "扩查增加了历史材料，但没有修正被重新陈述的里程碑依据：所指消息仍是“尚未测试完成”，不是“冒烟通过”。正确通过消息在本轮独立来源中同样可读，因此该引用错配已被证实，不能因扩查内容增加而忽略。"
           }
-        },
+        }
+      ],
+      "rerun_attempts": [
         {
-          "step": 4,
+          "at": "2026-11-18T05:09:25.112005+00:00",
           "status": "fail",
-          "reason": "半年扩查形成了三群合并综述，但继续将检索设计发言引用为“群聊检索优化进入 PRE 测试”的里程碑证据。",
-          "evidence_refs": [
-            "turns[step=4].answer：里程碑“10—11 月：扩展能力并开展回归”",
-            "turns[step=4].source_gold.facts.groups.sg_2122635335.message_delta：经 step 3 继承 seq=959、961",
-            "turns[step=4].source_gold.facts.groups.sg_3981594831.message_delta：继承 seq=2045、2046、2321、2611、2615",
-            "turns[step=4].source_gold.facts.independent_citation_readback",
-            "trace.runs[turn_step=4].tools：两次 material_ask 及 group_message_lookup",
-            "current_source_evidence.exact_request_receipts[turn_step=4]"
-          ],
-          "comparison": {
-            "expected": "按截至 2026-11-17 13:25:12（东京时间）的最近半年范围，结合前轮内容完成三个群的里程碑、数据链路和风险概括，去重并保留与事实对应的来源；无需机械重复前轮已答内容。",
-            "actual": "回答将历史扩展到 6 月调试和 7 月统一助手构想，合并了三个群的数据接入、混合检索、权限及稳定性讨论，并重述“群聊检索优化进入 PRE 测试”。",
-            "difference": "这一 PRE 测试结论仍引用 959、961 等消息：前两条仅描述检索方案，2045、2046 对应写入提测，2321 对应全量回归，2611、2615 对应创建能力及提出发 PRE 测试，均非群聊检索优化已进入 PRE 的发布反馈。最终回答虽完成了跨群组织和历史扩展，仍未满足保留准确事实来源的要求。"
-          }
+          "kind": "business_review",
+          "executed": true,
+          "complete_answer": true,
+          "timeout_turns": 0,
+          "evidence_ref": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/continuation-004/readback-record-2.json",
+          "checkpoint": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/judged-2/cases/AA-PRE-MSG-004.json"
         }
       ]
     },
@@ -76169,7 +76875,7 @@
     }
   ],
   "review_sources": [],
-  "execution_notice": "本轮对18条待复核用例补证：10条完成业务复判、5条完成自动化实跑；当前通过243条、失败28条、待复核7条。其余用例沿用已发布结果。",
+  "execution_notice": "本轮对4条曾超时且当前失败的消息用例逐条重跑，3条取得完整新结论；1条本轮未取得可判结果，保留上轮业务结论并记录本次尝试。全表通过243条、失败28条、待复核7条。",
   "result_summary": {
     "executed": 278,
     "failed": 28,
@@ -76190,7 +76896,7 @@
     "pre_run": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/report-final-v3/pre/run.json",
     "pre_evidence": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/report-final-v3/pre/live_evidence.json",
     "pre_review": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_rejudge_20261116/report-merged-v2/pre-business-review.json",
-    "review_baseline": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_18_20261117/review-baseline-8.json",
+    "review_baseline": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/review-baseline.json",
     "session_policy": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/execution/session-policy.json",
     "write_session_policy": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/write-execution/session-policy.json",
     "permission_session_policy": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_full_noncalendar_20261113/permission-recovery/session-policy.json",
@@ -76252,7 +76958,14 @@
     "timeout_original_readback": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_recovery_20261117/original-request-readback-v2.json",
     "timeout_rerun": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_recovery_20261117/execution",
     "timeout_new_readback": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_recovery_20261117/latest-request-readback.json",
-    "pending_case_judgment": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_18_20261117"
+    "pending_case_judgment": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_pending_18_20261117",
+    "timeout_serial_execution": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/execution-2",
+    "timeout_serial_fresh_source_execution": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/execution-3",
+    "timeout_serial_confirmed_failure_retry": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/execution-4",
+    "timeout_serial_original_readback": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/readback-2",
+    "timeout_serial_retry_readback": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/readback-4",
+    "timeout_serial_judgment": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/judged-2",
+    "timeout_serial_audit": "/Users/barry/Desktop/Agent-Evaluation/outputs/pre_timeout_serial_20261118/merge-audit.json"
   },
   "case_updates": [
     {
@@ -76316,6 +77029,18 @@
       ],
       "changes": [
         "补齐自动化创建、试跑、当前业务数据及裁判；缺定时和送达仍待复核。"
+      ]
+    },
+    {
+      "date": "2026-11-18",
+      "case_ids": [
+        "AA-FU-023",
+        "AA-FU-035",
+        "AA-FU-038",
+        "AA-PRE-MSG-004"
+      ],
+      "changes": [
+        "曾出现180秒超时且当前失败的4条用例已在新会话逐条重跑；完整回答重新裁判，未完整的尝试与旧判分别保留。"
       ]
     }
   ]

@@ -2,7 +2,7 @@
   'use strict';
   const $ = id => document.getElementById(id);
   const labels = {pass:'通过',fail:'失败',skip:'待复核',pending_qa:'待 QA 复核',deferred:'延期',pending_fix:'待修复'};
-  const resultLabel = (row, value = row.status) => value==='skip'?({not_executed:'未执行',local_fixture_pass:'本地回放通过'}[row.kind]||labels.skip):labels[value];
+  const resultLabel = (row, value = row.status) => value==='skip'?({not_executed:'未执行',local_fixture_pass:'本地回放通过',timeout:'超时'}[row.kind]||labels.skip):labels[value];
   const isFailure = status => ['fail','pending_fix'].includes(status);
   const schema = 'ai_assistant.cloud_review.v1';
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -362,7 +362,7 @@
     const rows = all.filter(row=>(!status || row.status===status) && (!environment||row.source_environment===environment) && (!module||(row.module||'未标注')===module) && (!priority||(row.priority||'未标注')===priority) && (!terms.length || terms.some(term=>[row.case_id,row.title,row.ability,row.module,row.scenario,row.suite,row.gate_class,row.reason].join(' ').toLowerCase().includes(term))));
     const names = new Map((state?.history || []).map(item=>[item.actor,item.actor_name]));
     $('result-count').textContent = `显示 ${rows.length} / ${all.length} 条`;
-    const statusText=row=>row.status==='skip'?(row.kind==='not_executed'?'未执行':'待复核'):labels[row.status];
+    const statusText=row=>resultLabel(row);
     $('case-table').querySelector('tbody').innerHTML = rows.map(row=>`<tr id="${esc(row.case_id)}" data-case-id="${esc(row.case_id)}"><td><span class="badge ${esc(row.source_environment)}">${esc(row.source_environment)}</span></td><td><b>${esc(row.case_id)}</b></td><td>${esc(row.priority||'未标注')}</td><td>${esc(row.module)}</td><td>${esc(row.scenario)}</td><td>${esc(row.suite||'—')}</td><td>${esc(row.gate_class||'—')}</td><td><span data-case-status class="status ${esc(row.status)}">${esc(statusText(row))}</span><br><small>${row.override?'云端人工复核':row.kind==='not_executed'?'未执行':row.updated_by?'已恢复原判':'原始裁判'}</small>${row.failure_categories.length?`<br><small>${esc(row.failure_categories.join('、'))}</small>`:''}</td><td>${row.task_completion_rate==null?'—':`${esc(row.task_completion_rate)}%`}</td><td>${row.trace_runs?`${esc(row.trace_runs)} Run<br>`:''}<small>${esc(row.trace_status||'未观测')}</small></td><td>${esc(row.model||'未观测')}<br><small>${esc(row.prompt_version||'未观测')}</small></td><td>${row.latency_ms===null?'—':`${(row.latency_ms/1000).toFixed(1)}s`}</td><td><p>${esc(row.title)}</p><p class="case-reason">${esc(row.reason)}</p>${row.override||row.original_status!==row.status?`<details><summary>原始判定：${esc(labels[row.original_status])}</summary><p>${esc(row.original_reason)}</p></details>`:''}</td><td>${esc(names.get(row.updated_by) || (row.updated_by?'已授权复核员':'—'))}<small>${esc(time(row.updated_at))}</small><small>${state?'用例版本 v'+row.version:'未读取云端版本'}</small></td><td><button data-edit-case="${esc(row.case_id)}" ${busy||!canWrite()?'disabled':''}>修改结果</button></td></tr>`).join('');
     const failures=all.filter(row=>isFailure(row.status));
     $('failure-count').textContent=String(failures.length);
