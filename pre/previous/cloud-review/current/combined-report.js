@@ -138,14 +138,14 @@
     resource.querySelector('.note').textContent=`原始资源消耗不变；按当前线上业务成功数重算摊销成本：${singleEnvironment?`${reportEnvironment} ${total.pass} 条`:`test ${counts.test.pass} 条、pre ${counts.pre.pass} 条`}。没有成功样本时不计算；“≥”表示资源覆盖不全的观测下限，缺失值不补 0。下方 GPT 文字是执行时历史结论，当前问题以“当前问题汇总”为准。`;
     if(reportEnvironment==='pre'){
       const pre=counts.pre,scope=base.summary.pre_scope||{},notExecuted=rows.filter(r=>r.kind==='not_executed').length;
-      $('current-conclusion').querySelector('p').innerHTML=`${state?`云端复核 r${state.revision}`:'原始执行快照（未连接云端）'}：pre 范围 ${scope.active_total||rows.length} 条，实际发起 ${pre.attempted} 条，认证 Trace ${trace.captured??'—'}/${trace.executed??'—'} 条。当前通过 <b>${pre.pass}</b>、失败 <b>${pre.fail}</b>、待复核 ${pre.pending}、待 QA 复核 ${pre.pendingQa}、延期 ${pre.deferred}、待修复 ${pre.pendingFix}（计入失败）；另有 ${notExecuted} 条未执行。pre 任务成功率 <b>${pct(pre.pass,pre.assessed)}</b>（${pre.pass}/${pre.assessed} 个有效判定）。`;
+      $('current-conclusion').querySelector('p').innerHTML=`${state?`云端复核 r${state.revision}`:'原始执行快照（未连接云端）'}：pre 范围 ${scope.active_total||rows.length} 条，实际发起 ${pre.attempted} 条，认证 Trace ${trace.captured??'—'}/${trace.executed??'—'} 条。当前通过 <b>${pre.pass}</b>、失败 <b>${pre.fail}</b>、待复核 ${pre.pending}、待 QA 复核 ${pre.pendingQa}、延期 ${pre.deferred}、待修复 ${pre.pendingFix}（计入失败）；另有 ${notExecuted} 条未执行。pre 用例通过率 <b>${pct(pre.pass,pre.attempted)}</b>（${pre.pass}/${pre.attempted} 条已执行用例）。`;
       const values=[
         ['pre 用例',scope.active_total||rows.length,'全部预发范围'],
         ['实际发起',pre.attempted,'未执行单列'],
         ['认证 Trace',trace.captured??'—',`${trace.executed??'—'} 条已发起`],
         ['业务通过',pre.pass,'按当前已保存判定'],
         ['业务失败',pre.fail,'含待修复'],
-        ['任务成功率',pct(pre.pass,pre.assessed),`${pre.pass}/${pre.assessed} 个有效判定`],
+        ['用例通过率',pct(pre.pass,pre.attempted),`${pre.pass}/${pre.attempted} 条已执行用例`],
       ];
       kpis.forEach((node,index)=>{
         const [name,value,note]=values[index];
@@ -153,7 +153,12 @@
         node.querySelector('b').textContent=value;
         node.querySelector('small').textContent=note;
       });
-      task.querySelector('.metrics').innerHTML=`<div class="metric" data-success-env="pre"><span>pre</span><b>${pct(pre.pass,pre.assessed)}</b><small>${pre.pass}/${pre.assessed} · 失败 ${pre.fail} · 待复核 ${pre.pending} · 待 QA 复核 ${pre.pendingQa} · 延期 ${pre.deferred} · 待修复 ${pre.pendingFix}（计入失败）</small></div>`;
+      task.querySelector('.metrics').innerHTML=`<div class="metric" data-success-env="pre"><span>pre</span><b>${pct(pre.pass,pre.attempted)}</b><small>${pre.pass}/${pre.attempted} · 失败 ${pre.fail} · 待复核 ${pre.pending} · 待 QA 复核 ${pre.pendingQa} · 延期 ${pre.deferred} · 待修复 ${pre.pendingFix}（计入失败）</small></div>`;
+      task.querySelector('p.muted').textContent='分母为实际执行的用例总数，包含失败和待复核；未执行、延期和本地回放不计入。';
+      const overview=[...document.querySelectorAll('#stability-overview .stability-stat')].find(node=>node.querySelector('.stability-label')?.textContent==='用例通过率');
+      if(overview){overview.querySelector('strong').textContent=pct(pre.pass,pre.attempted);overview.querySelector('small').textContent=`${pre.pass}/${pre.attempted} 条已执行用例`;}
+      const successScope=document.querySelector('.env-card.pre p');
+      if(successScope)successScope.innerHTML=`<b>用例通过率 ${pct(pre.pass,pre.attempted)}</b>（${pre.pass}/${pre.attempted}）· 失败 ${pre.fail} · 待复核 ${pre.pending} · 待 QA 复核 ${pre.pendingQa}`;
       resource.querySelector('.note').textContent=`仅按 pre 当前线上业务成功 ${pre.pass} 条重算摊销成本；缺失资源不补零。`;
     } else if(singleEnvironment){
       const conclusion=$('current-conclusion').querySelector('p');
