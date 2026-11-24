@@ -41,10 +41,12 @@
   const stabilityCell = c => {
     if(!c)return '<small>未记录两次实际执行的比较证据</small>';
     const labels={pass:'通过',fail:'失败',skip:'待复核',timeout:'超时'};
-    const title=c.kind==='judgment_correction'?'判定修正':c.kind==='actual_rerun'?(c.previous_status===c.latest_status?'结果一致':'结果变化'):'暂不能比较';
+    const daily=['daily_comparison','daily_unpaired'].includes(c.kind);
+    const title=c.kind==='judgment_correction'?'判定修正':c.kind==='daily_not_run'?'当日未执行':daily?(c.intraday_reversal?'日内反复':c.changed?'当日累计变化':c.kind==='daily_unpaired'?'缺跨天基线':'跨天结果一致'):c.kind==='actual_rerun'?(c.previous_status===c.latest_status?'结果一致':'结果变化'):'暂不能比较';
     const states=c.previous_status&&c.latest_status?`${labels[c.previous_status]||c.previous_status} → ${labels[c.latest_status]||c.latest_status}`:'';
-    const times=c.previous_executed_at&&c.latest_executed_at?`${c.previous_executed_at} / ${c.latest_executed_at}`:'';
-    return `<b>${esc(title)} ${esc(states)}</b><br><small>${esc(c.reason||'原因待核实')}</small><br><small>${esc(times)}</small>`;
+    const times=daily?`${c.previous_date||'无基线'} / ${c.today} · 当天${c.execution_count}次执行`:(c.previous_executed_at&&c.latest_executed_at?`${c.previous_executed_at} / ${c.latest_executed_at}`:'');
+    const history=daily&&c.execution_count>1?`<details class="intraday-history"><summary>查看当天执行记录</summary><ol>${(c.intraday_runs||[]).map(run=>`<li>${esc(new Date(run.executed_at).toLocaleString('zh-CN',{timeZone:'Asia/Tokyo',hour12:false}))} · ${esc(labels[run.status]||run.status)}：${esc(run.reason)}</li>`).join('')}</ol></details>`:'';
+    return `<b>${esc(title)} ${esc(states)}</b><br><small>${esc(c.reason||'原因待核实')}</small><br><small>${esc(times)}</small>${history}`;
   };
   const originalAIReviewDetails = r => {
     const review=r.original_ai_review;
